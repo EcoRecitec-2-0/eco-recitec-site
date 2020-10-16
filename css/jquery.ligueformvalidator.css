@@ -1,0 +1,1 @@
+input[type=password].invalid,input[type=text].invalid,select.invalid,textarea.invalid{border:1px solid #fa9}input.invalid[type=password]:focus,input.invalid[type=text]:focus,select.invalid:focus,textarea.invalid:focus{border-color:#fa9}#errorContainer{color:red;font-size:12px}
