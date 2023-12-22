@@ -98,7 +98,12 @@ nav[id="_5dae1188b2fee_1571688840"] .navbar { position:initial; }
 @media screen and (min-width: 992px) { [id="_55204129_1574136666"] { padding-top:50px !important;padding-bottom:25px !important; }
  }
 [id="_2129500834_1574136666"] { background-color:transparent !important;background-position:left top;background-repeat:repeat-x;border:0;border-style:solid; }
-#ResponsiveImage-gcbmp0ahof { border:0; }
+#ResponsiveImage-gcbmp0ahof { 
+    border:0;
+    height: 400px;
+    width: 80%;
+
+}
 #ResponsiveImage-gcbmp0ahof { border-style:solid; }
 [id="_5255971025_1574136666"] { background-color:transparent !important;background-position:left top;background-repeat:repeat-x;border:0;border-style:solid; }
 [id="_8359752543_1574136666"] { background-color:transparent !important;background-position:left top;background-repeat:repeat-x;border:0;border-style:solid;padding-top:30px !important;padding-right:40px !important;padding-left:40px !important;padding-bottom:20px !important; }
