@@ -11,6 +11,8 @@ html {
       -ms-text-size-adjust: 100%;
 }
 .responsive{
+  width: 400px;
+  height: 400px;
   @media screen and (max-width: 426px){
     display: none;
   }
