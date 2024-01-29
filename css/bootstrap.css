@@ -10,6 +10,17 @@ html {
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
+.responsive{
+  @media screen and (max-width: 426px){
+    display: none;
+  }
+}
+
+.responsive-text{
+  @media screen and (max-width: 426px){
+    margin-left: 2%;
+  }
+}
 body {
   margin: 0;
 }
