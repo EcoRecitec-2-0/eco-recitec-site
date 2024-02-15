@@ -18,6 +18,25 @@ html {
   }
 }
 
+.title-responsive{
+  font-size: 30pt;
+  color: #ffffff;
+  @media screen and (max-width: 426px){
+      font-size: 30px;
+      color: white;
+  }
+}
+
+.display-content{
+  gap:20px;
+  display: flex;
+  @media screen and (max-width: 769px){
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  }
+}
+
 .responsive-text{
   @media screen and (max-width: 426px){
     margin-left: 2%;
