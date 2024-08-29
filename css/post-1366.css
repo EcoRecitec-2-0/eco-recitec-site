@@ -73,8 +73,8 @@
 
 .elementor-1366 .elementor-element.elementor-element-7dddb7c1 {
     text-align: center;
-    color: #062152;
-    font-family: "Anton", Sans-serif;
+    color: #ffffff;
+    font-family: 'Baldessare', serif;
     font-size: 55px;
     line-height: 1.2em;
 }
@@ -93,6 +93,9 @@
 
 .elementor-1366 .elementor-element.elementor-element-d0a7d68>.elementor-widget-container {
     margin: -36px 0px -59px 0px;
+    color: #ddd;
+    font-size: 25px;
+    font-weight: normal;
 }
 
 .elementor-1366 .elementor-element.elementor-element-62f13e53>.elementor-container {
@@ -132,7 +135,7 @@
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
-    background-color: #1B2F4C;
+    background-color: #FF910B;
     border-radius: 4px 4px 4px 4px;
     box-shadow: 0px 0px 56px 24px rgba(54.000000000000185, 238.99999999999994, 24.999999999999993, 0);
     padding: 20px 50px 20px 50px;
