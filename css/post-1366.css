@@ -74,8 +74,9 @@
 .elementor-1366 .elementor-element.elementor-element-7dddb7c1 {
     text-align: center;
     color: #ffffff;
-    font-family: 'Baldessare', serif;
-    font-size: 55px;
+    font-family: "Anton", Sans-serif;
+    font-size: 65px;
+    /* letter-spacing: 0.1em; */
     line-height: 1.2em;
 }
 
@@ -422,6 +423,12 @@
     color: #1B2F4C;
     font-size: 25px;
     font-weight: 500;
+}
+.custom-bullet::before {
+    content: '•';
+    color: #FF910B;
+    font-size: 1.5em;
+    margin-right: 8px; 
 }
 
 .elementor-1366 .elementor-element.elementor-element-b30efdc>.elementor-widget-container {
@@ -1085,8 +1092,8 @@
 
 .elementor-1366 .elementor-element.elementor-element-2c40002>.elementor-background-overlay {
     background-color: transparent;
-    background-image: linear-gradient(180deg, #115C08B5 0%, #090A0A 49%);
-    opacity: 0.5;
+    background-image: linear-gradient(10deg, #1B2F4C 0%, #090A0A 9%);
+    opacity: 0.2;
     transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
 }
 
@@ -1124,7 +1131,7 @@
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
-    background-color: #1B2F4C;
+    background-color: #FF910B;
     border-radius: 4px 4px 4px 4px;
     box-shadow: 0px 0px 56px 24px rgba(54.000000000000185, 238.99999999999994, 24.999999999999993, 0);
     padding: 20px 50px 20px 50px;
