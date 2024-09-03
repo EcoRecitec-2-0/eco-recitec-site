@@ -284,14 +284,27 @@
     --container-widget-width: initial;
     --container-widget-height: 100%;
     --container-widget-flex-grow: 1;
-    justify-content: center;
-    align-items: center;
-    --container-widget-align-self: center;
+    /* justify-content: center; 
+     align-items: center; */
+    --container-widget-align-self: stretch;
     --gap: 0px 180px;
+    --background-transition: 0.3s;
+} 
+
+
+.elementor-1366 .elementor-element.elementor-element-38691321 {
+    --display: flex;
+    --flex-direction: row;
+    --container-widget-width: initial;
+    --container-widget-height: 100%;
+    --container-widget-flex-grow: 1;
+    --container-widget-align-self: stretch;
+    --gap: 0px 0px;
     --background-transition: 0.3s;
 }
 
-.elementor-1366 .elementor-element.elementor-element-38691321 {
+
+/* .elementor-1366 .elementor-element.elementor-element-38691321 {
     --display: flex;
     --flex-direction: row;
     --container-widget-width: initial;
@@ -302,7 +315,7 @@
     --container-widget-align-self: center;
     --gap: 0px 60px;
     --background-transition: 0.3s;
-}
+} */
 
 .apoio-background {
     background-color: #1B2F4C;
@@ -1530,20 +1543,19 @@ body .elementor-1366 .elementor-element.elementor-element-e92c967 .elementor-lab
 }
 
 .elementor-1366 .elementor-element.elementor-element-eff39db>.elementor-container {
-    max-width: 600px;
+    max-width: 1300px;
 }
 
 .elementor-1366 .elementor-element.elementor-element-eff39db:not(.elementor-motion-effects-element-type-background),
 .elementor-1366 .elementor-element.elementor-element-eff39db>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-    background-color: #A08266;
-    background-image: url("../images/green-modern-sustainable-living-nature-presentation-2.png");
+    background-image: url("../images/junte-se-a-nos-fundo.png");
 }
 
 .elementor-1366 .elementor-element.elementor-element-eff39db {
     transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
     margin-top: 80px;
     margin-bottom: 0px;
-    padding: 40px 0px 40px 0px;
+    padding: 50px 0px 50px 0px;
 }
 
 .elementor-1366 .elementor-element.elementor-element-eff39db>.elementor-background-overlay {
@@ -1562,11 +1574,17 @@ body .elementor-1366 .elementor-element.elementor-element-e92c967 .elementor-lab
 
 .elementor-bc-flex-widget .elementor-1366 .elementor-element.elementor-element-ace99a5.elementor-column .elementor-widget-wrap {
     align-items: center;
+ 
 }
 
 .elementor-1366 .elementor-element.elementor-element-ace99a5.elementor-column.elementor-element[data-element_type="column"]>.elementor-widget-wrap.elementor-element-populated {
     align-content: center;
     align-items: center;
+    font-family: "Montserrat", Sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #FF910B;
 }
 
 .elementor-1366 .elementor-element.elementor-element-1d77d6e {
@@ -1579,30 +1597,26 @@ body .elementor-1366 .elementor-element.elementor-element-e92c967 .elementor-lab
     text-transform: uppercase;
 }
 
-.elementor-1366 .elementor-element.elementor-element-3ed93d1 {
-    text-align: center;
-    color: #FFFFFF;
+.elementor-1366 .elementor-element.elementor-element-9ae1829 {
+    width: 100vw;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: -2px;
+    margin-bottom: 0px;
+    padding: 30px 0px;
+    background-color: #000000;
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
 }
 
 .elementor-1366 .elementor-element.elementor-element-9ae1829>.elementor-container {
-    max-width: 900px;
-}
-
-.elementor-1366 .elementor-element.elementor-element-9ae1829:not(.elementor-motion-effects-element-type-background),
-.elementor-1366 .elementor-element.elementor-element-9ae1829>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-    background-color: #000000;
-}
-
-.elementor-1366 .elementor-element.elementor-element-9ae1829 {
-    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
-    margin-top: -2px;
-    margin-bottom: 0px;
-    padding: 30px 0px 30px 0px;
+    width: 100%;
+    max-width: none;
 }
 
 .elementor-1366 .elementor-element.elementor-element-9ae1829>.elementor-background-overlay {
     transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
 }
+
 
 .elementor-1366 .elementor-element.elementor-element-4c6479a {
     margin-top: -40px;
@@ -1634,7 +1648,7 @@ body .elementor-1366 .elementor-element.elementor-element-e92c967 .elementor-lab
 }
 
 .elementor-1366 .elementor-element.elementor-element-2a13f9d>.elementor-widget-container {
-    margin: 10px 0px -24px 0px;
+    margin: 0px 0px 0px 0px;
 }
 
 body.elementor-page-1366:not(.elementor-motion-effects-element-type-background),
@@ -1998,7 +2012,7 @@ body.elementor-page-1366>.elementor-motion-effects-container>.elementor-motion-e
 
     .elementor-1366 .elementor-element.elementor-element-2c40002:not(.elementor-motion-effects-element-type-background),
     .elementor-1366 .elementor-element.elementor-element-2c40002>.elementor-motion-effects-container>.elementor-motion-effects-layer {
-        background-image: url("../images/green-modern-sustainable-living-nature-presentation.png");
+        background-image: url("../images/green-modern-sustainable-living-nature-presentation-1-1.png");
     }
 
     .elementor-1366 .elementor-element.elementor-element-2c40002 {
