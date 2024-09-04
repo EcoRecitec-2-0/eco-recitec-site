@@ -2784,7 +2784,8 @@ body.rtl .e-con {
 }
 
 .elementor-error .elementor-field {
-    border-color: #d9534f
+    border-color: #d9534f;
+    display: none !important;
 }
 
 .elementor-error .help-inline {

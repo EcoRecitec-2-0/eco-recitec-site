@@ -2182,3 +2182,7 @@ body.elementor-page-1366>.elementor-motion-effects-container>.elementor-motion-e
     display: inline-block;
     border-radius: 5px;
 }
+
+.elementor-message, .elementor-form-error {
+    display: none !important;
+}
