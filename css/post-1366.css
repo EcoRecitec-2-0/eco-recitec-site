@@ -1154,6 +1154,28 @@
     padding: 25px 50px 80px 50px;
 }
 
+.elementor-1366 .elementor-element.elementor-element-2c400021:not(.elementor-motion-effects-element-type-background),
+.elementor-1366 .elementor-element.elementor-element-2c400021>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+    background-image: url("../images/green-modern-sustainable-living-nature-presentation-1-1-en.png");
+    background-position: center left;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.elementor-1366 .elementor-element.elementor-element-2c400021>.elementor-background-overlay {
+    background-color: transparent;
+    background-image: linear-gradient(10deg, #1B2F4C 0%, #090A0A 9%);
+    opacity: 0.2;
+    transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
+}
+
+.elementor-1366 .elementor-element.elementor-element-2c400021 {
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 25px 50px 80px 50px;
+}
+
 .elementor-1366 .elementor-element.elementor-element-3885c27 {
     text-align: center;
 }
