@@ -2701,1202 +2701,904 @@
 									step_next_label":"next","step_previous_label":"previous","button_width":"100","step_type":"number_text","step_icon_shape":"circle"}"=""
 									data-widget_type="form.default">
 									<div class="elementor-widget-container">
-										<style>
-											/*! elementor-pro - v3.14.0 - 26-06-2023 */
-											.elementor-button.elementor-hidden,
-											.elementor-hidden {
-												display: none
-											}
+										<div class="container-fluid" name="Container_5e5829d69e6df"
+											id="_5dd31651cce16_1574114897">
+											<div id="_5dd31cec490c1_1574116588">
+												<iframe
+													src="https://docs.google.com/forms/d/e/1FAIpQLScvGWKri3ykPA77IClMCZb8aBvWSR1o0YWD5LH62SEAmXftLQ/viewform?embedded=true&hl=en"
+													width="640" height="1077" frameborder="0" marginheight="0"
+													marginwidth="0">Loading…</iframe>
 
-											.e-form__step {
-												width: 100%
-											}
-
-											.e-form__step:not(.elementor-hidden) {
-												display: flex;
-												flex-wrap: wrap
-											}
-
-											.e-form__buttons {
-												flex-wrap: wrap
-											}
-
-											.e-form__buttons,
-											.e-form__buttons__wrapper {
-												display: flex
-											}
-
-											.e-form__indicators {
-												display: flex;
-												justify-content: space-between;
-												align-items: center;
-												flex-wrap: nowrap;
-												font-size: 13px;
-												margin-bottom: var(--e-form-steps-indicators-spacing)
-											}
-
-											.e-form__indicators__indicator {
-												display: flex;
-												flex-direction: column;
-												align-items: center;
-												justify-content: center;
-												flex-basis: 0;
-												padding: 0 var(--e-form-steps-divider-gap)
-											}
-
-											.e-form__indicators__indicator__progress {
-												width: 100%;
-												position: relative;
-												background-color: var(--e-form-steps-indicator-progress-background-color);
-												border-radius: var(--e-form-steps-indicator-progress-border-radius);
-												overflow: hidden
-											}
-
-											.e-form__indicators__indicator__progress__meter {
-												width: var(--e-form-steps-indicator-progress-meter-width, 0);
-												height: var(--e-form-steps-indicator-progress-height);
-												line-height: var(--e-form-steps-indicator-progress-height);
-												padding-right: 15px;
-												border-radius: var(--e-form-steps-indicator-progress-border-radius);
-												background-color: var(--e-form-steps-indicator-progress-color);
-												color: var(--e-form-steps-indicator-progress-meter-color);
-												text-align: right;
-												transition: width .1s linear
-											}
-
-											.e-form__indicators__indicator:first-child {
-												padding-left: 0
-											}
-
-											.e-form__indicators__indicator:last-child {
-												padding-right: 0
-											}
-
-											.e-form__indicators__indicator--state-inactive {
-												color: var(--e-form-steps-indicator-inactive-primary-color, #c2cbd2)
-											}
-
-											.e-form__indicators__indicator--state-inactive [class*=indicator--shape-]:not(.e-form__indicators__indicator--shape-none) {
-												background-color: var(--e-form-steps-indicator-inactive-secondary-color, #fff)
-											}
-
-											.e-form__indicators__indicator--state-inactive object,
-											.e-form__indicators__indicator--state-inactive svg {
-												fill: var(--e-form-steps-indicator-inactive-primary-color, #c2cbd2)
-											}
-
-											.e-form__indicators__indicator--state-active {
-												color: var(--e-form-steps-indicator-active-primary-color, #39b54a);
-												border-color: var(--e-form-steps-indicator-active-secondary-color, #fff)
-											}
-
-											.e-form__indicators__indicator--state-active [class*=indicator--shape-]:not(.e-form__indicators__indicator--shape-none) {
-												background-color: var(--e-form-steps-indicator-active-secondary-color, #fff)
-											}
-
-											.e-form__indicators__indicator--state-active object,
-											.e-form__indicators__indicator--state-active svg {
-												fill: var(--e-form-steps-indicator-active-primary-color, #39b54a)
-											}
-
-											.e-form__indicators__indicator--state-completed {
-												color: var(--e-form-steps-indicator-completed-secondary-color, #fff)
-											}
-
-											.e-form__indicators__indicator--state-completed [class*=indicator--shape-]:not(.e-form__indicators__indicator--shape-none) {
-												background-color: var(--e-form-steps-indicator-completed-primary-color, #39b54a)
-											}
-
-											.e-form__indicators__indicator--state-completed .e-form__indicators__indicator__label {
-												color: var(--e-form-steps-indicator-completed-primary-color, #39b54a)
-											}
-
-											.e-form__indicators__indicator--state-completed .e-form__indicators__indicator--shape-none {
-												color: var(--e-form-steps-indicator-completed-primary-color, #39b54a);
-												background-color: initial
-											}
-
-											.e-form__indicators__indicator--state-completed object,
-											.e-form__indicators__indicator--state-completed svg {
-												fill: var(--e-form-steps-indicator-completed-secondary-color, #fff)
-											}
-
-											.e-form__indicators__indicator__icon {
-												width: var(--e-form-steps-indicator-padding, 30px);
-												height: var(--e-form-steps-indicator-padding, 30px);
-												font-size: var(--e-form-steps-indicator-icon-size);
-												border-width: 1px;
-												border-style: solid;
-												display: flex;
-												justify-content: center;
-												align-items: center;
-												overflow: hidden;
-												margin-bottom: 10px
-											}
-
-											.e-form__indicators__indicator__icon img,
-											.e-form__indicators__indicator__icon object,
-											.e-form__indicators__indicator__icon svg {
-												width: var(--e-form-steps-indicator-icon-size);
-												height: auto
-											}
-
-											.e-form__indicators__indicator__icon .e-font-icon-svg {
-												height: 1em
-											}
-
-											.e-form__indicators__indicator__number {
-												width: var(--e-form-steps-indicator-padding, 30px);
-												height: var(--e-form-steps-indicator-padding, 30px);
-												border-width: 1px;
-												border-style: solid;
-												display: flex;
-												justify-content: center;
-												align-items: center;
-												margin-bottom: 10px
-											}
-
-											.e-form__indicators__indicator--shape-circle {
-												border-radius: 50%
-											}
-
-											.e-form__indicators__indicator--shape-square {
-												border-radius: 0
-											}
-
-											.e-form__indicators__indicator--shape-rounded {
-												border-radius: 5px
-											}
-
-											.e-form__indicators__indicator--shape-none {
-												border: 0
-											}
-
-											.e-form__indicators__indicator__label {
-												text-align: center
-											}
-
-											.e-form__indicators__indicator__separator {
-												width: 100%;
-												height: var(--e-form-steps-divider-width);
-												background-color: #babfc5
-											}
-
-											.e-form__indicators--type-icon,
-											.e-form__indicators--type-icon_text,
-											.e-form__indicators--type-number,
-											.e-form__indicators--type-number_text {
-												align-items: flex-start
-											}
-
-											.e-form__indicators--type-icon .e-form__indicators__indicator__separator,
-											.e-form__indicators--type-icon_text .e-form__indicators__indicator__separator,
-											.e-form__indicators--type-number .e-form__indicators__indicator__separator,
-											.e-form__indicators--type-number_text .e-form__indicators__indicator__separator {
-												margin-top: calc(var(--e-form-steps-indicator-padding, 30px) / 2 - var(--e-form-steps-divider-width, 1px) / 2)
-											}
-
-											.elementor-field-type-hidden {
-												display: none
-											}
-
-											.elementor-field-type-html {
-												display: inline-block
-											}
-
-											.elementor-login .elementor-lost-password,
-											.elementor-login .elementor-remember-me {
-												font-size: .85em
-											}
-
-											.elementor-field-type-recaptcha_v3 .elementor-field-label {
-												display: none
-											}
-
-											.elementor-field-type-recaptcha_v3 .grecaptcha-badge {
-												z-index: 1
-											}
-
-											.elementor-button .elementor-form-spinner {
-												order: 3
-											}
-
-											.elementor-form .elementor-button>span {
-												display: flex;
-												justify-content: center;
-												align-items: center
-											}
-
-											.elementor-form .elementor-button .elementor-button-text {
-												white-space: normal;
-												flex-grow: 0
-											}
-
-											.elementor-form .elementor-button svg {
-												height: auto
-											}
-
-											.elementor-form .elementor-button .e-font-icon-svg {
-												height: 1em
-											}
-
-											.elementor-select-wrapper .select-caret-down-wrapper {
-												position: absolute;
-												top: 50%;
-												transform: translateY(-50%);
-												inset-inline-end: 10px;
-												pointer-events: none;
-												font-size: 11px
-											}
-
-											.elementor-select-wrapper .select-caret-down-wrapper svg {
-												display: unset;
-												width: 1em;
-												aspect-ratio: unset;
-												fill: currentColor
-											}
-
-											.elementor-select-wrapper .select-caret-down-wrapper i {
-												font-size: 19px;
-												line-height: 2
-											}
-
-											.elementor-select-wrapper.remove-before:before {
-												content: "" !important
-											}
-										</style>
-										<form id="my-form" class="elementor-form" method="post" name="New Form">
-											<input type="hidden" name="post_id" value="1366">
-											<input type="hidden" name="form_id" value="e92c967">
-											<input type="hidden" name="referer_title"
-												value="ecorecitech-circular-tecskill-ecorecitech">
-											<input type="hidden" name="queried_id" value="1366">
-
-											<div class="elementor-form-fields-wrapper elementor-labels-above">
-												<div
-													class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-100">
-													<input size="1" type="text" name="form_fields[name]"
-														id="form-field-name"
-														class="elementor-field elementor-size-sm elementor-field-textual"
-														placeholder="Name">
-												</div>
-												<div
-													class="elementor-field-type-number elementor-field-group elementor-column elementor-field-group-field_fb21a5e elementor-col-100 elementor-field-required">
-													<input type="number" name="form_fields[field_fb21a5e]"
-														id="form-field-field_fb21a5e"
-														class="elementor-field elementor-size-sm elementor-field-textual"
-														placeholder="Phone" required="required" aria-required="true"
-														min="" max="">
-												</div>
-												<div
-													class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required">
-													<input size="1" type="email" name="form_fields[email]"
-														id="form-field-email"
-														class="elementor-field elementor-size-sm elementor-field-textual"
-														placeholder="Email" required="required" aria-required="true">
-												</div>
-												<div
-													class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
-													<button type="submit" class="elementor-button elementor-size-sm">
-														<span>
-															<span class="elementor-button-icon"></span>
-															<span class="elementor-button-text">Submit</span>
-														</span>
-													</button>
-												</div>
+												<div class="clear"></div>
 											</div>
-										</form>
-
+											<div class="clear"></div>
+										</div>
+										<div class="clear"></div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</section>
-				<div class="elementor-element elementor-element-f90a3ba e-flex e-con-boxed e-con e-parent"
-					data-id="f90a3ba" data-element_type="container">
-					<div class="e-con-inner">
-						<div class="elementor-element elementor-element-dfd801e elementor-invisible elementor-widget elementor-widget-heading"
-							data-id="dfd801e" data-element_type="widget" data-settings="{"
-							_animation":"slideindown","_animation_mobile":"none"}"=""
-							data-widget_type="heading.default">
-							<div class="elementor-widget-container">
-								<h3 class="elementor-heading-title elementor-size-default">Frequently Asked Questions
-								</h3>
-							</div>
+			</div>
+			</section>
+			<div class="elementor-element elementor-element-f90a3ba e-flex e-con-boxed e-con e-parent" data-id="f90a3ba"
+				data-element_type="container">
+				<div class="e-con-inner">
+					<div class="elementor-element elementor-element-dfd801e elementor-invisible elementor-widget elementor-widget-heading"
+						data-id="dfd801e" data-element_type="widget" data-settings="{"
+						_animation":"slideindown","_animation_mobile":"none"}"="" data-widget_type="heading.default">
+						<div class="elementor-widget-container">
+							<h3 class="elementor-heading-title elementor-size-default">Frequently Asked Questions
+							</h3>
 						</div>
 					</div>
 				</div>
-				<div class="elementor-element elementor-element-9e9480c e-flex e-con-boxed e-con e-parent"
-					data-id="9e9480c" data-element_type="container">
-					<div class="e-con-inner">
-						<div class="elementor-element elementor-element-63c8b35 elementor-widget elementor-widget-accordion"
-							data-id="63c8b35" data-element_type="widget" data-settings="{" _animation":"none"}"=""
-							data-widget_type="accordion.default">
-							<div class="elementor-widget-container">
-								<style>
-									/*! elementor - v3.21.0 - 26-05-2024 */
-									.elementor-accordion {
-										text-align: start
-									}
+			</div>
+			<div class="elementor-element elementor-element-9e9480c e-flex e-con-boxed e-con e-parent" data-id="9e9480c"
+				data-element_type="container">
+				<div class="e-con-inner">
+					<div class="elementor-element elementor-element-63c8b35 elementor-widget elementor-widget-accordion"
+						data-id="63c8b35" data-element_type="widget" data-settings="{" _animation":"none"}"=""
+						data-widget_type="accordion.default">
+						<div class="elementor-widget-container">
+							<style>
+								/*! elementor - v3.21.0 - 26-05-2024 */
+								.elementor-accordion {
+									text-align: start
+								}
 
-									.elementor-accordion .elementor-accordion-item {
-										border: 1px solid #d5d8dc
-									}
+								.elementor-accordion .elementor-accordion-item {
+									border: 1px solid #d5d8dc
+								}
 
-									.elementor-accordion .elementor-accordion-item+.elementor-accordion-item {
-										border-top: none
-									}
+								.elementor-accordion .elementor-accordion-item+.elementor-accordion-item {
+									border-top: none
+								}
 
+								.elementor-accordion .elementor-tab-title {
+									margin: 0;
+									padding: 15px 20px;
+									font-weight: 700;
+									line-height: 1;
+									cursor: pointer;
+									outline: none
+								}
+
+								.elementor-accordion .elementor-tab-title .elementor-accordion-icon {
+									display: inline-block;
+									width: 1.5em
+								}
+
+								.elementor-accordion .elementor-tab-title .elementor-accordion-icon svg {
+									width: 1em;
+									height: 1em
+								}
+
+								.elementor-accordion .elementor-tab-title .elementor-accordion-icon.elementor-accordion-icon-right {
+									float: right;
+									text-align: right
+								}
+
+								.elementor-accordion .elementor-tab-title .elementor-accordion-icon.elementor-accordion-icon-left {
+									float: left;
+									text-align: left
+								}
+
+								.elementor-accordion .elementor-tab-title .elementor-accordion-icon .elementor-accordion-icon-closed {
+									display: block
+								}
+
+								.elementor-accordion .elementor-tab-title .elementor-accordion-icon .elementor-accordion-icon-opened,
+								.elementor-accordion .elementor-tab-title.elementor-active .elementor-accordion-icon-closed {
+									display: none
+								}
+
+								.elementor-accordion .elementor-tab-title.elementor-active .elementor-accordion-icon-opened {
+									display: block
+								}
+
+								.elementor-accordion .elementor-tab-content {
+									display: none;
+									padding: 15px 20px;
+									border-top: 1px solid #d5d8dc
+								}
+
+								@media (max-width:767px) {
 									.elementor-accordion .elementor-tab-title {
-										margin: 0;
-										padding: 15px 20px;
-										font-weight: 700;
-										line-height: 1;
-										cursor: pointer;
-										outline: none
+										padding: 12px 15px
 									}
 
 									.elementor-accordion .elementor-tab-title .elementor-accordion-icon {
-										display: inline-block;
-										width: 1.5em
-									}
-
-									.elementor-accordion .elementor-tab-title .elementor-accordion-icon svg {
-										width: 1em;
-										height: 1em
-									}
-
-									.elementor-accordion .elementor-tab-title .elementor-accordion-icon.elementor-accordion-icon-right {
-										float: right;
-										text-align: right
-									}
-
-									.elementor-accordion .elementor-tab-title .elementor-accordion-icon.elementor-accordion-icon-left {
-										float: left;
-										text-align: left
-									}
-
-									.elementor-accordion .elementor-tab-title .elementor-accordion-icon .elementor-accordion-icon-closed {
-										display: block
-									}
-
-									.elementor-accordion .elementor-tab-title .elementor-accordion-icon .elementor-accordion-icon-opened,
-									.elementor-accordion .elementor-tab-title.elementor-active .elementor-accordion-icon-closed {
-										display: none
-									}
-
-									.elementor-accordion .elementor-tab-title.elementor-active .elementor-accordion-icon-opened {
-										display: block
+										width: 1.2em
 									}
 
 									.elementor-accordion .elementor-tab-content {
-										display: none;
-										padding: 15px 20px;
-										border-top: 1px solid #d5d8dc
+										padding: 7px 15px
 									}
-
-									@media (max-width:767px) {
-										.elementor-accordion .elementor-tab-title {
-											padding: 12px 15px
-										}
-
-										.elementor-accordion .elementor-tab-title .elementor-accordion-icon {
-											width: 1.2em
-										}
-
-										.elementor-accordion .elementor-tab-content {
-											padding: 7px 15px
-										}
-									}
-
-									.e-con-inner>.elementor-widget-accordion,
-									.e-con>.elementor-widget-accordion {
-										width: var(--container-widget-width);
-										--flex-grow: var(--container-widget-flex-grow)
-									}
-								</style>
-								<div class="elementor-accordion">
-									<div class="elementor-accordion-item">
-										<div id="elementor-tab-title-1041" class="elementor-tab-title" data-tab="1"
-											role="button" aria-controls="elementor-tab-content-1041"
-											aria-expanded="false">
-											<span class="elementor-accordion-icon elementor-accordion-icon-left"
-												aria-hidden="true">
-												<span class="elementor-accordion-icon-closed"><svg
-														class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512"
-														xmlns="http://www.w3.org/2000/svg">
-														<path
-															d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
-														</path>
-													</svg></span>
-												<span class="elementor-accordion-icon-opened"><svg
-														class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512"
-														xmlns="http://www.w3.org/2000/svg">
-														<path
-															d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
-														</path>
-													</svg></span>
-											</span>
-											<a class="elementor-accordion-title" tabindex="0">What is Circular
-												Economy?</a>
-										</div>
-										<div id="elementor-tab-content-1041"
-											class="elementor-tab-content elementor-clearfix" data-tab="1" role="region"
-											aria-labelledby="elementor-tab-title-1041">
-											<h3>The Circular Economy: An Ongoing Revolution</h3>
-											<p>The circular economy is not just a trend; it is a revolution. Imagine a
-												system where nothing is wasted, where resources are reused, regenerated,
-												and reinvented. It is a perfect dance between nature and technology,
-												where materials flow in closed loops, avoiding depletion and
-												environmental degradation.</p>
-											<h3>Skills of the Future: Beyond Disciplinary Boundaries</h3>
-											<p>In this project, we are not just engineers, entrepreneurs, psychologists,
-												designers, or economists. We are bridge builders, connecting diverse
-												skills to create a more resilient tomorrow. Sustainability
-												professionals,
-												technologists, psychologists, and human sciences experts will be the
-												architects of this transformation.</p>
-											<h3>Technology as an Ally</h3>
-											<p>Here, technology is not just a tool; it is our ally in the pursuit of
-												intelligent solutions. Simple software, such as that from the
-												Flashplayhr
-												platform, can promote a mindset shift that facilitates the transition
-												from
-												a linear economy to a circular economy. Blockchain technology tracks the
-												origin of materials, while artificial intelligence optimizes and better
-												integrates segments, people, content, and processes. Augmented reality
-												allows us to visualize a circular world even before we build it.</p>
-										</div>
-
-									</div>
-									<div class="elementor-accordion-item">
-										<div id="elementor-tab-title-1042" class="elementor-tab-title" data-tab="2"
-											role="button" aria-controls="elementor-tab-content-1042"
-											aria-expanded="false">
-											<span class="elementor-accordion-icon elementor-accordion-icon-left"
-												aria-hidden="true">
-												<span class="elementor-accordion-icon-closed"><svg
-														class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512"
-														xmlns="http://www.w3.org/2000/svg">
-														<path
-															d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
-														</path>
-													</svg></span>
-												<span class="elementor-accordion-icon-opened"><svg
-														class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512"
-														xmlns="http://www.w3.org/2000/svg">
-														<path
-															d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
-														</path>
-													</svg></span>
-											</span>
-											<a class="elementor-accordion-title" tabindex="0">Circular Tech Skills</a>
-										</div>
-										<div id="elementor-tab-content-1042"
-											class="elementor-tab-content elementor-clearfix" data-tab="2" role="region"
-											aria-labelledby="elementor-tab-title-1042">
-											<h3>Psychology and Humanity at the Heart of Change</h3>
-											<p>We cannot forget the human factor. Psychology teaches us to overcome
-												resistance, inspire behavior change, and build a circular mindset.
-												After all, the circular economy is not just about materials; it's about
-												people, communities, and well-being.</p>
-											<h3>Motivational Factors: Smart and Durable Design, Reimagining
-												Products</h3>
-											<p>Here, creativity is our ally. How can we design products that
-												last longer, are easy to repair, and can be disassembled at the end of
-												their
-												useful life? Let's explore innovative materials, smart geometries, and
-												designs that transcend planned obsolescence.</p>
-											<h3>Mindset and Circular Organizational Design</h3>
-											<p>Here we will introduce technologies to help rethink processes
-												that need to move from linearity to a systemic and circular vision.</p>
-										</div>
-
-									</div>
-									<div class="elementor-accordion-item">
-										<div id="elementor-tab-title-1043" class="elementor-tab-title" data-tab="3"
-											role="button" aria-controls="elementor-tab-content-1043"
-											aria-expanded="false">
-											<span class="elementor-accordion-icon elementor-accordion-icon-left"
-												aria-hidden="true">
-												<span class="elementor-accordion-icon-closed"><svg
-														class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512"
-														xmlns="http://www.w3.org/2000/svg">
-														<path
-															d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
-														</path>
-													</svg></span>
-												<span class="elementor-accordion-icon-opened"><svg
-														class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512"
-														xmlns="http://www.w3.org/2000/svg">
-														<path
-															d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
-														</path>
-													</svg></span>
-											</span>
-											<a class="elementor-accordion-title" tabindex="0">Location: Event Venue</a>
-										</div>
-										<div id="elementor-tab-content-1043"
-											class="elementor-tab-content elementor-clearfix" data-tab="3" role="region"
-											aria-labelledby="elementor-tab-title-1043">
-											<h3>Salvatore Event House – Salvador, Bahia</h3>
-											<ul class="remove-style-list">
-												<li><span class="custom-bullet"></span><strong>Main Auditorium:</strong>
-													1100 seats</li>
-												<li><span
-														class="custom-bullet"></span><strong>Auditorium/Stands</strong>
-												</li>
-												<li><span class="custom-bullet"></span><strong>Workshop Rooms:</strong>
-													5
-													rooms with various capacities
-												</li>
-												<li><span class="custom-bullet"></span><strong>Exhibition Area</strong>
-												</li>
-											</ul>
-											<h3>Sections: Sharing Knowledge and Innovation</h3>
-											<p>The technical sections are the heart of the event, where experts and
-												enthusiasts come together to explore specific topics. Here is our
-												suggested
-												organization:</p>
-											<ul class="remove-style-list">
-												<li><span class="custom-bullet"></span><strong>Thematic
-														Selection:</strong>
-													Divide the sections into relevant themes, such as “Circular
-													Economy,”
-													“Green Technologies,” “Psychology,” “Sustainability,” and “Digital
-													Transformation.”</li>
-												<li><span class="custom-bullet"></span><strong>Speakers:</strong>
-													Invite thought leaders, academics, and experienced professionals to
-													present
-													their research and insights.
-												</li>
-											</ul>
-											<h3>Format:</h3>
-											<ul class="remove-style-list">
-												<li><span class="custom-bullet"></span><strong>Presentations:</strong>
-													Short lectures (10 to 20 minutes) followed by a Q&A session.</li>
-												<li><span class="custom-bullet"></span><strong>Panels and
-														Roundtables:</strong> Debates with experts on
-													specific topics.</li>
-											</ul>
-											<h3>Interaction:</h3>
-											<ul class="remove-style-list">
-												<li><span class="custom-bullet"></span><strong>In-Person:</strong>
-													Discussion rooms after each presentation.
-												</li>
-												<li><span class="custom-bullet"></span><strong>Online:</strong> Live
-													chat for
-													questions and comments.</li>
-											</ul>
-										</div>
-
-									</div>
-									<div class="elementor-accordion-item">
-										<div id="elementor-tab-title-1044" class="elementor-tab-title" data-tab="4"
-											role="button" aria-controls="elementor-tab-content-1044"
-											aria-expanded="false">
-											<span class="elementor-accordion-icon elementor-accordion-icon-left"
-												aria-hidden="true">
-												<span class="elementor-accordion-icon-closed"><svg
-														class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512"
-														xmlns="http://www.w3.org/2000/svg">
-														<path
-															d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
-														</path>
-													</svg></span>
-												<span class="elementor-accordion-icon-opened"><svg
-														class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512"
-														xmlns="http://www.w3.org/2000/svg">
-														<path
-															d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
-														</path>
-													</svg></span>
-											</span>
-											<a class="elementor-accordion-title" tabindex="0">Objectives</a>
-										</div>
-										<div id="elementor-tab-content-1044"
-											class="elementor-tab-content elementor-clearfix" data-tab="4" role="region"
-											aria-labelledby="elementor-tab-title-1044">
-											<p><strong>Inspire, Connect, and Multiply Knowledge and Circular
-													Businesses.</strong></p>
-											<h3>Plenary Sessions: Moments of Reflection and Broad Vision</h3>
-											<p>Here's how we can organize them:</p>
-											<ul class="remove-style-list">
-												<li>
-													<p><strong>Main Theme:</strong> Each plenary session addresses a
-														broad theme, such as "Sustainability 2030," "The Power of
-														Systems Thinking," or "Innovation for a Better Future."</p>
-												</li>
-												<li>
-													<p><strong>Featured Speakers:</strong></p>
-													<ul class="remove-style-list">
-														<li><span
-																class="custom-bullet"></span><strong>In-Person:</strong>
-															Invite influential figures, CEOs, and leaders of
-															organizations.</li>
-														<li><span class="custom-bullet"></span><strong>Online:</strong>
-															Stream global speakers via web conferencing.</li>
-													</ul>
-												</li>
-											</ul>
-											<h3>Format:</h3>
-											<ul class="remove-style-list">
-												<li><span class="custom-bullet"></span><strong>Keynotes:</strong>
-													Inspirational speeches (20 minutes).</li>
-												<li><span class="custom-bullet"></span><strong>Interviews:</strong>
-													Informal conversations with leaders.</li>
-											</ul>
-											<h3>Interaction:</h3>
-											<ul class="remove-style-list">
-												<li><span class="custom-bullet"></span><strong>In-Person:</strong>
-													Questions from the audience.</li>
-												<li><span class="custom-bullet"></span><strong>Online:</strong> Hashtags
-													and chat for virtual engagement.</li>
-											</ul>
-											<h3>Technological Platform: Connecting Multiple Worlds</h3>
-											<ul class="remove-style-list">
-												<li><span class="custom-bullet"></span><strong>Online
-														Streaming:</strong> Ensure a robust platform for live streaming
-													technical sessions and plenary sessions.</li>
-												<li><span class="custom-bullet"></span><strong>Integration:</strong>
-													Create virtual spaces for networking, discussion forums, and
-													resource sharing.</li>
-												<li><span class="custom-bullet"></span><strong>Accessibility:</strong>
-													Include subtitles and translation.</li>
-											</ul>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<section
-					class="elementor-section elementor-top-section elementor-element elementor-element-eff39db elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-					data-id="eff39db" data-element_type="section" data-settings="{"
-					background_background":"classic"}"="">
-					<div class="elementor-container elementor-column-gap-default">
-						<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-cb59541"
-							data-id="cb59541" data-element_type="column">
-							<div class="elementor-widget-wrap elementor-element-populated">
-								<section
-									class="elementor-section elementor-inner-section elementor-element elementor-element-46e052c elementor-reverse-tablet elementor-reverse-mobile elementor-section-full_width elementor-section-height-default elementor-section-height-default"
-									data-id="46e052c" data-element_type="section">
-									<div class="elementor-container elementor-column-gap-default">
-										<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-476a2f9"
-											data-id="476a2f9" data-element_type="column">
-											<div class="elementor-widget-wrap elementor-element-populated">
-												<div class="elementor-element elementor-element-c4f8ff8 elementor-widget elementor-widget-image"
-													data-id="c4f8ff8" data-element_type="widget"
-													data-widget_type="image.default">
-													<div class="elementor-widget-container">
-														<img loading="lazy" decoding="async" width="353" height="358"
-															src="images/junte-se-a-nos-en.png"
-															class="attachment-full size-full wp-image-1379" alt=""
-															sizes="(max-width: 353px) 100vw, 353px">
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-ace99a5"
-											data-id="ace99a5" data-element_type="column">
-											<div class="elementor-widget-wrap elementor-element-populated">
-												<div class="elementor-element elementor-element-1d77d6e elementor-widget elementor-widget-heading"
-													data-id="1d77d6e" data-element_type="widget"
-													data-widget_type="heading.default">
-													<div class="elementor-widget-container">
-														<h3 class="elementor-heading-title elementor-size-default">
-															Join us 2025
-														</h3>
-													</div>
-												</div>
-												<div class="elementor-element elementor-element-3ed93d1 elementor-widget elementor-widget-text-editor"
-													data-id="3ed93d1" data-element_type="widget"
-													data-widget_type="text-editor.default">
-													<div class="elementor-widget-container">
-														<p>Come promote your brand and image at an event that will have
-															impact across various fields of knowledge, in multiple
-															countries, with a
-															genuine purpose. We look forward to hearing from you.</p>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</section>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section
-					class="elementor-section elementor-top-section elementor-element elementor-element-9ae1829 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-					data-id="9ae1829" data-element_type="section" data-settings="{"
-					background_background":"classic"}"="">
-					<div class="elementor-container elementor-column-gap-default">
-						<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-03cdf93"
-							data-id="03cdf93" data-element_type="column">
-							<div class="elementor-widget-wrap elementor-element-populated">
-								<section
-									class="elementor-section elementor-inner-section elementor-element elementor-element-4c6479a elementor-section-boxed elementor-section-height-default elementor-section-height-default"
-									data-id="4c6479a" data-element_type="section">
-									<div class="elementor-container elementor-column-gap-default">
-										<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-75c6fa7"
-											data-id="75c6fa7" data-element_type="column">
-											<div class="elementor-widget-wrap elementor-element-populated">
-												<div class="elementor-element elementor-element-8194577 elementor-widget elementor-widget-text-editor"
-													data-id="8194577" data-element_type="widget"
-													data-widget_type="text-editor.default">
-													<div class="elementor-widget-container">
-														<p><span style="vertical-align: inherit;"><span
-																	style="vertical-align: inherit;">We are a reference
-																	in supporting the transition from a linear economy
-																	to a circular economy, sustainability, consulting
-																	for innovation projects that combine mindset and
-																	circular economy/ESG, courses, training, mentoring,
-																	and project management.</span></span></p>
-														<p>Circular Tech Skills - Contacts:<br>+55 71-999748068<br>+55
-															71-9903-3324<br>recitecprodutora@gmail.com</p>
-															<p>Circular Tech Skills<br>Contacts:<br>EcoRecitec Phone - 55 71 999-748068<br>Decolores Phone - 55 71 9903-3324
-																<br>E-mail: CircularTechskills@eco-recitec.com.br</p>
-													</div>
-
-												</div>
-											</div>
-										</div>
-									</div>
-								</section>
-								<div class="elementor-element elementor-element-2a13f9d elementor-widget elementor-widget-heading"
-									data-id="2a13f9d" data-element_type="widget" data-widget_type="heading.default">
-									<div class="elementor-widget-container">
-										<h2 class="elementor-heading-title elementor-size-default">2024 | Eco-Recitec | All rights reserved.</h2>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-			</div>
-			<div data-elementor-type="popup" data-elementor-id="1614"
-				class="elementor elementor-1614 elementor-location-popup" data-elementor-settings="{"
-				entrance_animation":"fadeinup","prevent_close_on_background_click":"yes","prevent_close_on_esc_key":"yes","entrance_animation_duration":{"unit":"px","size":1.2,"sizes":[]},"a11y_navigation":"yes","triggers":{"page_load":"yes","page_load_delay":0},"timing":[]}"=""
-				data-elementor-post-type="elementor_library">
-				<div class="elementor-section-wrap">
-					<div class="elementor-element elementor-element-16f0358 e-flex e-con-boxed e-con e-parent"
-						data-id="16f0358" data-element_type="container">
-						<div class="e-con-inner">
-							<div class="elementor-element elementor-element-6bd4988 elementor-shape-circle elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons"
-								data-id="6bd4988" data-element_type="widget" data-widget_type="social-icons.default">
-								<div class="elementor-widget-container">
-									<style>
-										/*! elementor - v3.21.0 - 26-05-2024 */
-										.elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container,
-										.elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container,
-										.elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container {
-											line-height: 1;
-											font-size: 0
-										}
-
-										.elementor-widget-social-icons:not(.elementor-grid-0):not(.elementor-grid-tablet-0):not(.elementor-grid-mobile-0) .elementor-grid {
-											display: inline-grid
-										}
-
-										.elementor-widget-social-icons .elementor-grid {
-											grid-column-gap: var(--grid-column-gap, 5px);
-											grid-row-gap: var(--grid-row-gap, 5px);
-											grid-template-columns: var(--grid-template-columns);
-											justify-content: var(--justify-content, center);
-											justify-items: var(--justify-content, center)
-										}
-
-										.elementor-icon.elementor-social-icon {
-											font-size: var(--icon-size, 25px);
-											line-height: var(--icon-size, 25px);
-											width: calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em));
-											height: calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em))
-										}
-
-										.elementor-social-icon {
-											--e-social-icon-icon-color: #fff;
-											display: inline-flex;
-											background-color: #69727d;
-											align-items: center;
-											justify-content: center;
-											text-align: center;
-											cursor: pointer
-										}
-
-										.elementor-social-icon i {
-											color: var(--e-social-icon-icon-color)
-										}
-
-										.elementor-social-icon svg {
-											fill: var(--e-social-icon-icon-color)
-										}
-
-										.elementor-social-icon:last-child {
-											margin: 0
-										}
-
-										.elementor-social-icon:hover {
-											opacity: .9;
-											color: #fff
-										}
-
-										.elementor-social-icon-android {
-											background-color: #a4c639
-										}
-
-										.elementor-social-icon-apple {
-											background-color: #999
-										}
-
-										.elementor-social-icon-behance {
-											background-color: #1769ff
-										}
-
-										.elementor-social-icon-bitbucket {
-											background-color: #205081
-										}
-
-										.elementor-social-icon-codepen {
-											background-color: #000
-										}
-
-										.elementor-social-icon-delicious {
-											background-color: #39f
-										}
-
-										.elementor-social-icon-deviantart {
-											background-color: #05cc47
-										}
-
-										.elementor-social-icon-digg {
-											background-color: #005be2
-										}
-
-										.elementor-social-icon-dribbble {
-											background-color: #ea4c89
-										}
-
-										.elementor-social-icon-elementor {
-											background-color: #d30c5c
-										}
-
-										.elementor-social-icon-envelope {
-											background-color: #ea4335
-										}
-
-										.elementor-social-icon-facebook,
-										.elementor-social-icon-facebook-f {
-											background-color: #3b5998
-										}
-
-										.elementor-social-icon-flickr {
-											background-color: #0063dc
-										}
-
-										.elementor-social-icon-foursquare {
-											background-color: #2d5be3
-										}
-
-										.elementor-social-icon-free-code-camp,
-										.elementor-social-icon-freecodecamp {
-											background-color: #006400
-										}
-
-										.elementor-social-icon-github {
-											background-color: #333
-										}
-
-										.elementor-social-icon-gitlab {
-											background-color: #e24329
-										}
-
-										.elementor-social-icon-globe {
-											background-color: #69727d
-										}
-
-										.elementor-social-icon-google-plus,
-										.elementor-social-icon-google-plus-g {
-											background-color: #dd4b39
-										}
-
-										.elementor-social-icon-houzz {
-											background-color: #7ac142
-										}
-
-										.elementor-social-icon-instagram {
-											background-color: #262626
-										}
-
-										.elementor-social-icon-jsfiddle {
-											background-color: #487aa2
-										}
-
-										.elementor-social-icon-link {
-											background-color: #818a91
-										}
-
-										.elementor-social-icon-linkedin,
-										.elementor-social-icon-linkedin-in {
-											background-color: #0077b5
-										}
-
-										.elementor-social-icon-medium {
-											background-color: #00ab6b
-										}
-
-										.elementor-social-icon-meetup {
-											background-color: #ec1c40
-										}
-
-										.elementor-social-icon-mixcloud {
-											background-color: #273a4b
-										}
-
-										.elementor-social-icon-odnoklassniki {
-											background-color: #f4731c
-										}
-
-										.elementor-social-icon-pinterest {
-											background-color: #bd081c
-										}
-
-										.elementor-social-icon-product-hunt {
-											background-color: #da552f
-										}
-
-										.elementor-social-icon-reddit {
-											background-color: #ff4500
-										}
-
-										.elementor-social-icon-rss {
-											background-color: #f26522
-										}
-
-										.elementor-social-icon-shopping-cart {
-											background-color: #4caf50
-										}
-
-										.elementor-social-icon-skype {
-											background-color: #00aff0
-										}
-
-										.elementor-social-icon-slideshare {
-											background-color: #0077b5
-										}
-
-										.elementor-social-icon-snapchat {
-											background-color: #fffc00
-										}
-
-										.elementor-social-icon-soundcloud {
-											background-color: #f80
-										}
-
-										.elementor-social-icon-spotify {
-											background-color: #2ebd59
-										}
-
-										.elementor-social-icon-stack-overflow {
-											background-color: #fe7a15
-										}
-
-										.elementor-social-icon-steam {
-											background-color: #00adee
-										}
-
-										.elementor-social-icon-stumbleupon {
-											background-color: #eb4924
-										}
-
-										.elementor-social-icon-telegram {
-											background-color: #2ca5e0
-										}
-
-										.elementor-social-icon-threads {
-											background-color: #000
-										}
-
-										.elementor-social-icon-thumb-tack {
-											background-color: #1aa1d8
-										}
-
-										.elementor-social-icon-tripadvisor {
-											background-color: #589442
-										}
-
-										.elementor-social-icon-tumblr {
-											background-color: #35465c
-										}
-
-										.elementor-social-icon-twitch {
-											background-color: #6441a5
-										}
-
-										.elementor-social-icon-twitter {
-											background-color: #1da1f2
-										}
-
-										.elementor-social-icon-viber {
-											background-color: #665cac
-										}
-
-										.elementor-social-icon-vimeo {
-											background-color: #1ab7ea
-										}
-
-										.elementor-social-icon-vk {
-											background-color: #45668e
-										}
-
-										.elementor-social-icon-weibo {
-											background-color: #dd2430
-										}
-
-										.elementor-social-icon-weixin {
-											background-color: #31a918
-										}
-
-										.elementor-social-icon-whatsapp {
-											background-color: #25d366
-										}
-
-										.elementor-social-icon-wordpress {
-											background-color: #21759b
-										}
-
-										.elementor-social-icon-x-twitter {
-											background-color: #000
-										}
-
-										.elementor-social-icon-xing {
-											background-color: #026466
-										}
-
-										.elementor-social-icon-yelp {
-											background-color: #af0606
-										}
-
-										.elementor-social-icon-youtube {
-											background-color: #cd201f
-										}
-
-										.elementor-social-icon-500px {
-											background-color: #0099e5
-										}
-
-										.elementor-shape-rounded .elementor-icon.elementor-social-icon {
-											border-radius: 10%
-										}
-
-										.elementor-shape-circle .elementor-icon.elementor-social-icon {
-											border-radius: 50%
-										}
-									</style>
-									<div class="elementor-social-icons-wrapper elementor-grid">
-										<span class="elementor-grid-item">
-											<a class="elementor-icon elementor-social-icon elementor-social-icon-whatsapp elementor-animation-grow elementor-repeater-item-02621c3"
-												href="http://wa.me//557186956150" target="_blank">
-												<span class="elementor-screen-only">Whatsapp</span>
-												<svg class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512"
+								}
+
+								.e-con-inner>.elementor-widget-accordion,
+								.e-con>.elementor-widget-accordion {
+									width: var(--container-widget-width);
+									--flex-grow: var(--container-widget-flex-grow)
+								}
+							</style>
+							<div class="elementor-accordion">
+								<div class="elementor-accordion-item">
+									<div id="elementor-tab-title-1041" class="elementor-tab-title" data-tab="1"
+										role="button" aria-controls="elementor-tab-content-1041" aria-expanded="false">
+										<span class="elementor-accordion-icon elementor-accordion-icon-left"
+											aria-hidden="true">
+											<span class="elementor-accordion-icon-closed"><svg
+													class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512"
 													xmlns="http://www.w3.org/2000/svg">
 													<path
-														d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z">
+														d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
 													</path>
-												</svg> </a>
+												</svg></span>
+											<span class="elementor-accordion-icon-opened"><svg
+													class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+													</path>
+												</svg></span>
 										</span>
+										<a class="elementor-accordion-title" tabindex="0">What is Circular
+											Economy?</a>
 									</div>
+									<div id="elementor-tab-content-1041"
+										class="elementor-tab-content elementor-clearfix" data-tab="1" role="region"
+										aria-labelledby="elementor-tab-title-1041">
+										<h3>The Circular Economy: An Ongoing Revolution</h3>
+										<p>The circular economy is not just a trend; it is a revolution. Imagine a
+											system where nothing is wasted, where resources are reused, regenerated,
+											and reinvented. It is a perfect dance between nature and technology,
+											where materials flow in closed loops, avoiding depletion and
+											environmental degradation.</p>
+										<h3>Skills of the Future: Beyond Disciplinary Boundaries</h3>
+										<p>In this project, we are not just engineers, entrepreneurs, psychologists,
+											designers, or economists. We are bridge builders, connecting diverse
+											skills to create a more resilient tomorrow. Sustainability
+											professionals,
+											technologists, psychologists, and human sciences experts will be the
+											architects of this transformation.</p>
+										<h3>Technology as an Ally</h3>
+										<p>Here, technology is not just a tool; it is our ally in the pursuit of
+											intelligent solutions. Simple software, such as that from the
+											Flashplayhr
+											platform, can promote a mindset shift that facilitates the transition
+											from
+											a linear economy to a circular economy. Blockchain technology tracks the
+											origin of materials, while artificial intelligence optimizes and better
+											integrates segments, people, content, and processes. Augmented reality
+											allows us to visualize a circular world even before we build it.</p>
+									</div>
+
+								</div>
+								<div class="elementor-accordion-item">
+									<div id="elementor-tab-title-1042" class="elementor-tab-title" data-tab="2"
+										role="button" aria-controls="elementor-tab-content-1042" aria-expanded="false">
+										<span class="elementor-accordion-icon elementor-accordion-icon-left"
+											aria-hidden="true">
+											<span class="elementor-accordion-icon-closed"><svg
+													class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
+													</path>
+												</svg></span>
+											<span class="elementor-accordion-icon-opened"><svg
+													class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+													</path>
+												</svg></span>
+										</span>
+										<a class="elementor-accordion-title" tabindex="0">Circular Tech Skills</a>
+									</div>
+									<div id="elementor-tab-content-1042"
+										class="elementor-tab-content elementor-clearfix" data-tab="2" role="region"
+										aria-labelledby="elementor-tab-title-1042">
+										<h3>Psychology and Humanity at the Heart of Change</h3>
+										<p>We cannot forget the human factor. Psychology teaches us to overcome
+											resistance, inspire behavior change, and build a circular mindset.
+											After all, the circular economy is not just about materials; it's about
+											people, communities, and well-being.</p>
+										<h3>Motivational Factors: Smart and Durable Design, Reimagining
+											Products</h3>
+										<p>Here, creativity is our ally. How can we design products that
+											last longer, are easy to repair, and can be disassembled at the end of
+											their
+											useful life? Let's explore innovative materials, smart geometries, and
+											designs that transcend planned obsolescence.</p>
+										<h3>Mindset and Circular Organizational Design</h3>
+										<p>Here we will introduce technologies to help rethink processes
+											that need to move from linearity to a systemic and circular vision.</p>
+									</div>
+
+								</div>
+								<div class="elementor-accordion-item">
+									<div id="elementor-tab-title-1043" class="elementor-tab-title" data-tab="3"
+										role="button" aria-controls="elementor-tab-content-1043" aria-expanded="false">
+										<span class="elementor-accordion-icon elementor-accordion-icon-left"
+											aria-hidden="true">
+											<span class="elementor-accordion-icon-closed"><svg
+													class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
+													</path>
+												</svg></span>
+											<span class="elementor-accordion-icon-opened"><svg
+													class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+													</path>
+												</svg></span>
+										</span>
+										<a class="elementor-accordion-title" tabindex="0">Location: Event Venue</a>
+									</div>
+									<div id="elementor-tab-content-1043"
+										class="elementor-tab-content elementor-clearfix" data-tab="3" role="region"
+										aria-labelledby="elementor-tab-title-1043">
+										<h3>Salvatore Event House – Salvador, Bahia</h3>
+										<ul class="remove-style-list">
+											<li><span class="custom-bullet"></span><strong>Main Auditorium:</strong>
+												1100 seats</li>
+											<li><span class="custom-bullet"></span><strong>Auditorium/Stands</strong>
+											</li>
+											<li><span class="custom-bullet"></span><strong>Workshop Rooms:</strong>
+												5
+												rooms with various capacities
+											</li>
+											<li><span class="custom-bullet"></span><strong>Exhibition Area</strong>
+											</li>
+										</ul>
+										<h3>Sections: Sharing Knowledge and Innovation</h3>
+										<p>The technical sections are the heart of the event, where experts and
+											enthusiasts come together to explore specific topics. Here is our
+											suggested
+											organization:</p>
+										<ul class="remove-style-list">
+											<li><span class="custom-bullet"></span><strong>Thematic
+													Selection:</strong>
+												Divide the sections into relevant themes, such as “Circular
+												Economy,”
+												“Green Technologies,” “Psychology,” “Sustainability,” and “Digital
+												Transformation.”</li>
+											<li><span class="custom-bullet"></span><strong>Speakers:</strong>
+												Invite thought leaders, academics, and experienced professionals to
+												present
+												their research and insights.
+											</li>
+										</ul>
+										<h3>Format:</h3>
+										<ul class="remove-style-list">
+											<li><span class="custom-bullet"></span><strong>Presentations:</strong>
+												Short lectures (10 to 20 minutes) followed by a Q&A session.</li>
+											<li><span class="custom-bullet"></span><strong>Panels and
+													Roundtables:</strong> Debates with experts on
+												specific topics.</li>
+										</ul>
+										<h3>Interaction:</h3>
+										<ul class="remove-style-list">
+											<li><span class="custom-bullet"></span><strong>In-Person:</strong>
+												Discussion rooms after each presentation.
+											</li>
+											<li><span class="custom-bullet"></span><strong>Online:</strong> Live
+												chat for
+												questions and comments.</li>
+										</ul>
+									</div>
+
+								</div>
+								<div class="elementor-accordion-item">
+									<div id="elementor-tab-title-1044" class="elementor-tab-title" data-tab="4"
+										role="button" aria-controls="elementor-tab-content-1044" aria-expanded="false">
+										<span class="elementor-accordion-icon elementor-accordion-icon-left"
+											aria-hidden="true">
+											<span class="elementor-accordion-icon-closed"><svg
+													class="e-font-icon-svg e-fas-angle-down" viewBox="0 0 320 512"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z">
+													</path>
+												</svg></span>
+											<span class="elementor-accordion-icon-opened"><svg
+													class="e-font-icon-svg e-fas-minus" viewBox="0 0 448 512"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z">
+													</path>
+												</svg></span>
+										</span>
+										<a class="elementor-accordion-title" tabindex="0">Objectives</a>
+									</div>
+									<div id="elementor-tab-content-1044"
+										class="elementor-tab-content elementor-clearfix" data-tab="4" role="region"
+										aria-labelledby="elementor-tab-title-1044">
+										<p><strong>Inspire, Connect, and Multiply Knowledge and Circular
+												Businesses.</strong></p>
+										<h3>Plenary Sessions: Moments of Reflection and Broad Vision</h3>
+										<p>Here's how we can organize them:</p>
+										<ul class="remove-style-list">
+											<li>
+												<p><strong>Main Theme:</strong> Each plenary session addresses a
+													broad theme, such as "Sustainability 2030," "The Power of
+													Systems Thinking," or "Innovation for a Better Future."</p>
+											</li>
+											<li>
+												<p><strong>Featured Speakers:</strong></p>
+												<ul class="remove-style-list">
+													<li><span class="custom-bullet"></span><strong>In-Person:</strong>
+														Invite influential figures, CEOs, and leaders of
+														organizations.</li>
+													<li><span class="custom-bullet"></span><strong>Online:</strong>
+														Stream global speakers via web conferencing.</li>
+												</ul>
+											</li>
+										</ul>
+										<h3>Format:</h3>
+										<ul class="remove-style-list">
+											<li><span class="custom-bullet"></span><strong>Keynotes:</strong>
+												Inspirational speeches (20 minutes).</li>
+											<li><span class="custom-bullet"></span><strong>Interviews:</strong>
+												Informal conversations with leaders.</li>
+										</ul>
+										<h3>Interaction:</h3>
+										<ul class="remove-style-list">
+											<li><span class="custom-bullet"></span><strong>In-Person:</strong>
+												Questions from the audience.</li>
+											<li><span class="custom-bullet"></span><strong>Online:</strong> Hashtags
+												and chat for virtual engagement.</li>
+										</ul>
+										<h3>Technological Platform: Connecting Multiple Worlds</h3>
+										<ul class="remove-style-list">
+											<li><span class="custom-bullet"></span><strong>Online
+													Streaming:</strong> Ensure a robust platform for live streaming
+												technical sessions and plenary sessions.</li>
+											<li><span class="custom-bullet"></span><strong>Integration:</strong>
+												Create virtual spaces for networking, discussion forums, and
+												resource sharing.</li>
+											<li><span class="custom-bullet"></span><strong>Accessibility:</strong>
+												Include subtitles and translation.</li>
+										</ul>
+									</div>
+
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<link rel="stylesheet" id="e-animations-css" href="css/animations.min.css" media="all">
-			<script type="text/javascript"
-				src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-			<script id="wp-block-template-skip-link-js-after">
-				(function () {
-					var skipLinkTarget = document.querySelector('main'),
-						sibling,
-						skipLinkTargetID,
-						skipLink;
+			<section
+				class="elementor-section elementor-top-section elementor-element elementor-element-eff39db elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+				data-id="eff39db" data-element_type="section" data-settings="{" background_background":"classic"}"="">
+				<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-cb59541"
+						data-id="cb59541" data-element_type="column">
+						<div class="elementor-widget-wrap elementor-element-populated">
+							<section
+								class="elementor-section elementor-inner-section elementor-element elementor-element-46e052c elementor-reverse-tablet elementor-reverse-mobile elementor-section-full_width elementor-section-height-default elementor-section-height-default"
+								data-id="46e052c" data-element_type="section">
+								<div class="elementor-container elementor-column-gap-default">
+									<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-476a2f9"
+										data-id="476a2f9" data-element_type="column">
+										<div class="elementor-widget-wrap elementor-element-populated">
+											<div class="elementor-element elementor-element-c4f8ff8 elementor-widget elementor-widget-image"
+												data-id="c4f8ff8" data-element_type="widget"
+												data-widget_type="image.default">
+												<div class="elementor-widget-container">
+													<img loading="lazy" decoding="async" width="353" height="358"
+														src="images/junte-se-a-nos-en.png"
+														class="attachment-full size-full wp-image-1379" alt=""
+														sizes="(max-width: 353px) 100vw, 353px">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-ace99a5"
+										data-id="ace99a5" data-element_type="column">
+										<div class="elementor-widget-wrap elementor-element-populated">
+											<div class="elementor-element elementor-element-1d77d6e elementor-widget elementor-widget-heading"
+												data-id="1d77d6e" data-element_type="widget"
+												data-widget_type="heading.default">
+												<div class="elementor-widget-container">
+													<h3 class="elementor-heading-title elementor-size-default">
+														Join us 2025
+													</h3>
+												</div>
+											</div>
+											<div class="elementor-element elementor-element-3ed93d1 elementor-widget elementor-widget-text-editor"
+												data-id="3ed93d1" data-element_type="widget"
+												data-widget_type="text-editor.default">
+												<div class="elementor-widget-container">
+													<p>Come promote your brand and image at an event that will have
+														impact across various fields of knowledge, in multiple
+														countries, with a
+														genuine purpose. We look forward to hearing from you.</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section
+				class="elementor-section elementor-top-section elementor-element elementor-element-9ae1829 elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+				data-id="9ae1829" data-element_type="section" data-settings="{" background_background":"classic"}"="">
+				<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-03cdf93"
+						data-id="03cdf93" data-element_type="column">
+						<div class="elementor-widget-wrap elementor-element-populated">
+							<section
+								class="elementor-section elementor-inner-section elementor-element elementor-element-4c6479a elementor-section-boxed elementor-section-height-default elementor-section-height-default"
+								data-id="4c6479a" data-element_type="section">
+								<div class="elementor-container elementor-column-gap-default">
+									<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-75c6fa7"
+										data-id="75c6fa7" data-element_type="column">
+										<div class="elementor-widget-wrap elementor-element-populated">
+											<div class="elementor-element elementor-element-8194577 elementor-widget elementor-widget-text-editor"
+												data-id="8194577" data-element_type="widget"
+												data-widget_type="text-editor.default">
+												<div class="elementor-widget-container">
+													<p><span style="vertical-align: inherit;"><span
+																style="vertical-align: inherit;">We are a reference
+																in supporting the transition from a linear economy
+																to a circular economy, sustainability, consulting
+																for innovation projects that combine mindset and
+																circular economy/ESG, courses, training, mentoring,
+																and project management.</span></span></p>
+													<p>Circular Tech Skills - Contacts:<br>+55 71-999748068<br>+55
+														71-9903-3324<br>recitecprodutora@gmail.com</p>
+													<p>Circular Tech Skills<br>Contacts:<br>EcoRecitec Phone - 55 71
+														999-748068<br>Decolores Phone - 55 71 9903-3324
+														<br>E-mail: CircularTechskills@eco-recitec.com.br
+													</p>
+												</div>
 
-					// Early exit if a skip-link target can't be located.
-					if (!skipLinkTarget) {
-						return;
-					}
+											</div>
+										</div>
+									</div>
+								</div>
+							</section>
+							<div class="elementor-element elementor-element-2a13f9d elementor-widget elementor-widget-heading"
+								data-id="2a13f9d" data-element_type="widget" data-widget_type="heading.default">
+								<div class="elementor-widget-container">
+									<h2 class="elementor-heading-title elementor-size-default">2024 | Eco-Recitec | All
+										rights reserved.</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div data-elementor-type="popup" data-elementor-id="1614"
+			class="elementor elementor-1614 elementor-location-popup" data-elementor-settings="{"
+			entrance_animation":"fadeinup","prevent_close_on_background_click":"yes","prevent_close_on_esc_key":"yes","entrance_animation_duration":{"unit":"px","size":1.2,"sizes":[]},"a11y_navigation":"yes","triggers":{"page_load":"yes","page_load_delay":0},"timing":[]}"=""
+			data-elementor-post-type="elementor_library">
+			<div class="elementor-section-wrap">
+				<div class="elementor-element elementor-element-16f0358 e-flex e-con-boxed e-con e-parent"
+					data-id="16f0358" data-element_type="container">
+					<div class="e-con-inner">
+						<div class="elementor-element elementor-element-6bd4988 elementor-shape-circle elementor-grid-0 e-grid-align-center elementor-widget elementor-widget-social-icons"
+							data-id="6bd4988" data-element_type="widget" data-widget_type="social-icons.default">
+							<div class="elementor-widget-container">
+								<style>
+									/*! elementor - v3.21.0 - 26-05-2024 */
+									.elementor-widget-social-icons.elementor-grid-0 .elementor-widget-container,
+									.elementor-widget-social-icons.elementor-grid-mobile-0 .elementor-widget-container,
+									.elementor-widget-social-icons.elementor-grid-tablet-0 .elementor-widget-container {
+										line-height: 1;
+										font-size: 0
+									}
 
-					/*
-					 * Get the site wrapper.
-					 * The skip-link will be injected in the beginning of it.
-					 */
-					sibling = document.querySelector('.wp-site-blocks');
+									.elementor-widget-social-icons:not(.elementor-grid-0):not(.elementor-grid-tablet-0):not(.elementor-grid-mobile-0) .elementor-grid {
+										display: inline-grid
+									}
 
-					// Early exit if the root element was not found.
-					if (!sibling) {
-						return;
-					}
+									.elementor-widget-social-icons .elementor-grid {
+										grid-column-gap: var(--grid-column-gap, 5px);
+										grid-row-gap: var(--grid-row-gap, 5px);
+										grid-template-columns: var(--grid-template-columns);
+										justify-content: var(--justify-content, center);
+										justify-items: var(--justify-content, center)
+									}
 
-					// Get the skip-link target's ID, and generate one if it doesn't exist.
-					skipLinkTargetID = skipLinkTarget.id;
-					if (!skipLinkTargetID) {
-						skipLinkTargetID = 'wp--skip-link--target';
-						skipLinkTarget.id = skipLinkTargetID;
-					}
+									.elementor-icon.elementor-social-icon {
+										font-size: var(--icon-size, 25px);
+										line-height: var(--icon-size, 25px);
+										width: calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em));
+										height: calc(var(--icon-size, 25px) + 2 * var(--icon-padding, .5em))
+									}
 
-					// Create the skip link.
-					skipLink = document.createElement('a');
-					skipLink.classList.add('skip-link', 'screen-reader-text');
-					skipLink.href = '#' + skipLinkTargetID;
-					skipLink.innerHTML = 'Pular para o conteúdo';
+									.elementor-social-icon {
+										--e-social-icon-icon-color: #fff;
+										display: inline-flex;
+										background-color: #69727d;
+										align-items: center;
+										justify-content: center;
+										text-align: center;
+										cursor: pointer
+									}
 
-					// Inject the skip link.
-					sibling.parentElement.insertBefore(skipLink, sibling);
-				}());
+									.elementor-social-icon i {
+										color: var(--e-social-icon-icon-color)
+									}
 
-			</script>
-			<script src="js/frontend-script.js" id="elementskit-framework-js-frontend-js"></script>
-			<script id="elementskit-framework-js-frontend-js-after">
-				var elementskit = {
-					resturl: 'https://rsgrowthdigital.com.br/wp-json/elementskit/v1/',
+									.elementor-social-icon svg {
+										fill: var(--e-social-icon-icon-color)
+									}
+
+									.elementor-social-icon:last-child {
+										margin: 0
+									}
+
+									.elementor-social-icon:hover {
+										opacity: .9;
+										color: #fff
+									}
+
+									.elementor-social-icon-android {
+										background-color: #a4c639
+									}
+
+									.elementor-social-icon-apple {
+										background-color: #999
+									}
+
+									.elementor-social-icon-behance {
+										background-color: #1769ff
+									}
+
+									.elementor-social-icon-bitbucket {
+										background-color: #205081
+									}
+
+									.elementor-social-icon-codepen {
+										background-color: #000
+									}
+
+									.elementor-social-icon-delicious {
+										background-color: #39f
+									}
+
+									.elementor-social-icon-deviantart {
+										background-color: #05cc47
+									}
+
+									.elementor-social-icon-digg {
+										background-color: #005be2
+									}
+
+									.elementor-social-icon-dribbble {
+										background-color: #ea4c89
+									}
+
+									.elementor-social-icon-elementor {
+										background-color: #d30c5c
+									}
+
+									.elementor-social-icon-envelope {
+										background-color: #ea4335
+									}
+
+									.elementor-social-icon-facebook,
+									.elementor-social-icon-facebook-f {
+										background-color: #3b5998
+									}
+
+									.elementor-social-icon-flickr {
+										background-color: #0063dc
+									}
+
+									.elementor-social-icon-foursquare {
+										background-color: #2d5be3
+									}
+
+									.elementor-social-icon-free-code-camp,
+									.elementor-social-icon-freecodecamp {
+										background-color: #006400
+									}
+
+									.elementor-social-icon-github {
+										background-color: #333
+									}
+
+									.elementor-social-icon-gitlab {
+										background-color: #e24329
+									}
+
+									.elementor-social-icon-globe {
+										background-color: #69727d
+									}
+
+									.elementor-social-icon-google-plus,
+									.elementor-social-icon-google-plus-g {
+										background-color: #dd4b39
+									}
+
+									.elementor-social-icon-houzz {
+										background-color: #7ac142
+									}
+
+									.elementor-social-icon-instagram {
+										background-color: #262626
+									}
+
+									.elementor-social-icon-jsfiddle {
+										background-color: #487aa2
+									}
+
+									.elementor-social-icon-link {
+										background-color: #818a91
+									}
+
+									.elementor-social-icon-linkedin,
+									.elementor-social-icon-linkedin-in {
+										background-color: #0077b5
+									}
+
+									.elementor-social-icon-medium {
+										background-color: #00ab6b
+									}
+
+									.elementor-social-icon-meetup {
+										background-color: #ec1c40
+									}
+
+									.elementor-social-icon-mixcloud {
+										background-color: #273a4b
+									}
+
+									.elementor-social-icon-odnoklassniki {
+										background-color: #f4731c
+									}
+
+									.elementor-social-icon-pinterest {
+										background-color: #bd081c
+									}
+
+									.elementor-social-icon-product-hunt {
+										background-color: #da552f
+									}
+
+									.elementor-social-icon-reddit {
+										background-color: #ff4500
+									}
+
+									.elementor-social-icon-rss {
+										background-color: #f26522
+									}
+
+									.elementor-social-icon-shopping-cart {
+										background-color: #4caf50
+									}
+
+									.elementor-social-icon-skype {
+										background-color: #00aff0
+									}
+
+									.elementor-social-icon-slideshare {
+										background-color: #0077b5
+									}
+
+									.elementor-social-icon-snapchat {
+										background-color: #fffc00
+									}
+
+									.elementor-social-icon-soundcloud {
+										background-color: #f80
+									}
+
+									.elementor-social-icon-spotify {
+										background-color: #2ebd59
+									}
+
+									.elementor-social-icon-stack-overflow {
+										background-color: #fe7a15
+									}
+
+									.elementor-social-icon-steam {
+										background-color: #00adee
+									}
+
+									.elementor-social-icon-stumbleupon {
+										background-color: #eb4924
+									}
+
+									.elementor-social-icon-telegram {
+										background-color: #2ca5e0
+									}
+
+									.elementor-social-icon-threads {
+										background-color: #000
+									}
+
+									.elementor-social-icon-thumb-tack {
+										background-color: #1aa1d8
+									}
+
+									.elementor-social-icon-tripadvisor {
+										background-color: #589442
+									}
+
+									.elementor-social-icon-tumblr {
+										background-color: #35465c
+									}
+
+									.elementor-social-icon-twitch {
+										background-color: #6441a5
+									}
+
+									.elementor-social-icon-twitter {
+										background-color: #1da1f2
+									}
+
+									.elementor-social-icon-viber {
+										background-color: #665cac
+									}
+
+									.elementor-social-icon-vimeo {
+										background-color: #1ab7ea
+									}
+
+									.elementor-social-icon-vk {
+										background-color: #45668e
+									}
+
+									.elementor-social-icon-weibo {
+										background-color: #dd2430
+									}
+
+									.elementor-social-icon-weixin {
+										background-color: #31a918
+									}
+
+									.elementor-social-icon-whatsapp {
+										background-color: #25d366
+									}
+
+									.elementor-social-icon-wordpress {
+										background-color: #21759b
+									}
+
+									.elementor-social-icon-x-twitter {
+										background-color: #000
+									}
+
+									.elementor-social-icon-xing {
+										background-color: #026466
+									}
+
+									.elementor-social-icon-yelp {
+										background-color: #af0606
+									}
+
+									.elementor-social-icon-youtube {
+										background-color: #cd201f
+									}
+
+									.elementor-social-icon-500px {
+										background-color: #0099e5
+									}
+
+									.elementor-shape-rounded .elementor-icon.elementor-social-icon {
+										border-radius: 10%
+									}
+
+									.elementor-shape-circle .elementor-icon.elementor-social-icon {
+										border-radius: 50%
+									}
+								</style>
+								<div class="elementor-social-icons-wrapper elementor-grid">
+									<span class="elementor-grid-item">
+										<a class="elementor-icon elementor-social-icon elementor-social-icon-whatsapp elementor-animation-grow elementor-repeater-item-02621c3"
+											href="http://wa.me//557186956150" target="_blank">
+											<span class="elementor-screen-only">Whatsapp</span>
+											<svg class="e-font-icon-svg e-fab-whatsapp" viewBox="0 0 448 512"
+												xmlns="http://www.w3.org/2000/svg">
+												<path
+													d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z">
+												</path>
+											</svg> </a>
+									</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<link rel="stylesheet" id="e-animations-css" href="css/animations.min.css" media="all">
+		<script type="text/javascript"
+			src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+		<script id="wp-block-template-skip-link-js-after">
+			(function () {
+				var skipLinkTarget = document.querySelector('main'),
+					sibling,
+					skipLinkTargetID,
+					skipLink;
+
+				// Early exit if a skip-link target can't be located.
+				if (!skipLinkTarget) {
+					return;
 				}
 
+				/*
+				 * Get the site wrapper.
+				 * The skip-link will be injected in the beginning of it.
+				 */
+				sibling = document.querySelector('.wp-site-blocks');
 
-			</script>
-			<script src="js/widget-scripts.js" id="ekit-widget-scripts-js"></script>
-			<script src="js/joinchat-lite.min.js" id="joinchat-lite-js"></script>
-			<script src="js/jquery-numerator.min.js" id="jquery-numerator-js"></script>
-			<script src="js/webpack-pro.runtime.min.js" id="elementor-pro-webpack-runtime-js"></script>
-			<script src="js/webpack.runtime.min.js" id="elementor-webpack-runtime-js"></script>
-			<script src="js/frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
-			<script src="js/wp-polyfill-inert.min.js" id="wp-polyfill-inert-js"></script>
-			<script src="js/regenerator-runtime.min.js" id="regenerator-runtime-js"></script>
-			<script src="js/wp-polyfill.min.js" id="wp-polyfill-js"></script>
-			<script src="js/hooks.min.js" id="wp-hooks-js"></script>
-			<script src="js/i18n.min.js" id="wp-i18n-js"></script>
-			<script id="wp-i18n-js-after">
-				wp.i18n.setLocaleData({ 'text direction\u0004ltr': ['ltr'] });
-			</script>
-			<script id="elementor-pro-frontend-js-before">
-				var ElementorProFrontendConfig = { "ajaxurl": "https:\/\/rsgrowthdigital.com.br\/wp-admin\/admin-ajax.php", "nonce": "a12216f64f", "urls": { "assets": "https:\/\/rsgrowthdigital.com.br\/wp-content\/plugins\/elementor-pro\/assets\/", "rest": "https:\/\/rsgrowthdigital.com.br\/wp-json\/" }, "shareButtonsNetworks": { "facebook": { "title": "Facebook", "has_counter": true }, "twitter": { "title": "Twitter" }, "linkedin": { "title": "LinkedIn", "has_counter": true }, "pinterest": { "title": "Pinterest", "has_counter": true }, "reddit": { "title": "Reddit", "has_counter": true }, "vk": { "title": "VK", "has_counter": true }, "odnoklassniki": { "title": "OK", "has_counter": true }, "tumblr": { "title": "Tumblr" }, "digg": { "title": "Digg" }, "skype": { "title": "Skype" }, "stumbleupon": { "title": "StumbleUpon", "has_counter": true }, "mix": { "title": "Mix" }, "telegram": { "title": "Telegram" }, "pocket": { "title": "Pocket", "has_counter": true }, "xing": { "title": "XING", "has_counter": true }, "whatsapp": { "title": "WhatsApp" }, "email": { "title": "Email" }, "print": { "title": "Print" } }, "facebook_sdk": { "lang": "pt_BR", "app_id": "" }, "lottie": { "defaultAnimationUrl": "https:\/\/rsgrowthdigital.com.br\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json" } };
-			</script>
-			<script src="js/frontend.min.js" id="elementor-pro-frontend-js"></script>
-			<script src="js/waypoints.min.js" id="elementor-waypoints-js"></script>
-			<script src="js/core.min.js" id="jquery-ui-core-js"></script>
-			<script id="elementor-frontend-js-before">
-				var elementorFrontendConfig = { "environmentMode": { "edit": false, "wpPreview": false, "isScriptDebug": false }, "i18n": { "shareOnFacebook": "Compartilhar no Facebook", "shareOnTwitter": "Compartilhar no Twitter", "pinIt": "Fixar", "download": "Baixar", "downloadImage": "Baixar imagem", "fullscreen": "Tela cheia", "zoom": "Zoom", "share": "Compartilhar", "playVideo": "Reproduzir v\u00eddeo", "previous": "Anterior", "next": "Pr\u00f3ximo", "close": "Fechar", "a11yCarouselWrapperAriaLabel": "Carrossel | Rolagem horizontal: Setas para esquerda e direita", "a11yCarouselPrevSlideMessage": "Slide anterior", "a11yCarouselNextSlideMessage": "Pr\u00f3ximo slide", "a11yCarouselFirstSlideMessage": "Este \u00e9 o primeiro slide", "a11yCarouselLastSlideMessage": "Este \u00e9 o \u00faltimo slide", "a11yCarouselPaginationBulletMessage": "Ir para o slide" }, "is_rtl": false, "breakpoints": { "xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600 }, "responsive": { "breakpoints": { "mobile": { "label": "Dispositivos m\u00f3veis no modo retrato", "value": 767, "default_value": 767, "direction": "max", "is_enabled": true }, "mobile_extra": { "label": "Dispositivos m\u00f3veis no modo paisagem", "value": 880, "default_value": 880, "direction": "max", "is_enabled": false }, "tablet": { "label": "Tablet no modo retrato", "value": 1024, "default_value": 1024, "direction": "max", "is_enabled": true }, "tablet_extra": { "label": "Tablet no modo paisagem", "value": 1200, "default_value": 1200, "direction": "max", "is_enabled": false }, "laptop": { "label": "Notebook", "value": 1366, "default_value": 1366, "direction": "max", "is_enabled": false }, "widescreen": { "label": "Tela ampla (widescreen)", "value": 2400, "default_value": 2400, "direction": "min", "is_enabled": false } } }, "version": "3.21.8", "is_static": false, "experimentalFeatures": { "e_optimized_assets_loading": true, "e_optimized_css_loading": true, "e_font_icon_svg": true, "additional_custom_breakpoints": true, "container": true, "e_swiper_latest": true, "container_grid": true, "theme_builder_v2": true, "home_screen": true, "ai-layout": true, "landing-pages": true, "page-transitions": true, "notes": true, "loop": true, "form-submissions": true, "e_scroll_snap": true }, "urls": { "assets": "https:\/\/rsgrowthdigital.com.br\/wp-content\/plugins\/elementor\/assets\/" }, "swiperClass": "swiper", "settings": { "page": [], "editorPreferences": [] }, "kit": { "active_breakpoints": ["viewport_mobile", "viewport_tablet"], "global_image_lightbox": "yes", "lightbox_enable_counter": "yes", "lightbox_enable_fullscreen": "yes", "lightbox_enable_zoom": "yes", "lightbox_enable_share": "yes", "lightbox_title_src": "title", "lightbox_description_src": "description" }, "post": { "id": 1366, "title": "ecorecitech-circular-tecskill-ecorecitech%20%E2%80%93%20RS%20GROWTH%20DIGITAL", "excerpt": "", "featuredImage": false } };
-			</script>
-			<script src="js/frontend.min_1.js" id="elementor-frontend-js"></script>
-			<script src="js/elements-handlers.min.js" id="pro-elements-handlers-js"></script>
-			<script src="js/animate-circle.min.js" id="animate-circle-js"></script>
-			<script id="elementskit-elementor-js-extra">
-				var ekit_config = { "ajaxurl": "https:\/\/rsgrowthdigital.com.br\/wp-admin\/admin-ajax.php", "nonce": "947c9f9bfc" };
-			</script>
-			<script src="js/elementor.js" id="elementskit-elementor-js"></script>
+				// Early exit if the root element was not found.
+				if (!sibling) {
+					return;
+				}
+
+				// Get the skip-link target's ID, and generate one if it doesn't exist.
+				skipLinkTargetID = skipLinkTarget.id;
+				if (!skipLinkTargetID) {
+					skipLinkTargetID = 'wp--skip-link--target';
+					skipLinkTarget.id = skipLinkTargetID;
+				}
+
+				// Create the skip link.
+				skipLink = document.createElement('a');
+				skipLink.classList.add('skip-link', 'screen-reader-text');
+				skipLink.href = '#' + skipLinkTargetID;
+				skipLink.innerHTML = 'Pular para o conteúdo';
+
+				// Inject the skip link.
+				sibling.parentElement.insertBefore(skipLink, sibling);
+			}());
+
+		</script>
+		<script src="js/frontend-script.js" id="elementskit-framework-js-frontend-js"></script>
+		<script id="elementskit-framework-js-frontend-js-after">
+			var elementskit = {
+				resturl: 'https://rsgrowthdigital.com.br/wp-json/elementskit/v1/',
+			}
+
+
+		</script>
+		<script src="js/widget-scripts.js" id="ekit-widget-scripts-js"></script>
+		<script src="js/joinchat-lite.min.js" id="joinchat-lite-js"></script>
+		<script src="js/jquery-numerator.min.js" id="jquery-numerator-js"></script>
+		<script src="js/webpack-pro.runtime.min.js" id="elementor-pro-webpack-runtime-js"></script>
+		<script src="js/webpack.runtime.min.js" id="elementor-webpack-runtime-js"></script>
+		<script src="js/frontend-modules.min.js" id="elementor-frontend-modules-js"></script>
+		<script src="js/wp-polyfill-inert.min.js" id="wp-polyfill-inert-js"></script>
+		<script src="js/regenerator-runtime.min.js" id="regenerator-runtime-js"></script>
+		<script src="js/wp-polyfill.min.js" id="wp-polyfill-js"></script>
+		<script src="js/hooks.min.js" id="wp-hooks-js"></script>
+		<script src="js/i18n.min.js" id="wp-i18n-js"></script>
+		<script id="wp-i18n-js-after">
+			wp.i18n.setLocaleData({ 'text direction\u0004ltr': ['ltr'] });
+		</script>
+		<script id="elementor-pro-frontend-js-before">
+			var ElementorProFrontendConfig = { "ajaxurl": "https:\/\/rsgrowthdigital.com.br\/wp-admin\/admin-ajax.php", "nonce": "a12216f64f", "urls": { "assets": "https:\/\/rsgrowthdigital.com.br\/wp-content\/plugins\/elementor-pro\/assets\/", "rest": "https:\/\/rsgrowthdigital.com.br\/wp-json\/" }, "shareButtonsNetworks": { "facebook": { "title": "Facebook", "has_counter": true }, "twitter": { "title": "Twitter" }, "linkedin": { "title": "LinkedIn", "has_counter": true }, "pinterest": { "title": "Pinterest", "has_counter": true }, "reddit": { "title": "Reddit", "has_counter": true }, "vk": { "title": "VK", "has_counter": true }, "odnoklassniki": { "title": "OK", "has_counter": true }, "tumblr": { "title": "Tumblr" }, "digg": { "title": "Digg" }, "skype": { "title": "Skype" }, "stumbleupon": { "title": "StumbleUpon", "has_counter": true }, "mix": { "title": "Mix" }, "telegram": { "title": "Telegram" }, "pocket": { "title": "Pocket", "has_counter": true }, "xing": { "title": "XING", "has_counter": true }, "whatsapp": { "title": "WhatsApp" }, "email": { "title": "Email" }, "print": { "title": "Print" } }, "facebook_sdk": { "lang": "pt_BR", "app_id": "" }, "lottie": { "defaultAnimationUrl": "https:\/\/rsgrowthdigital.com.br\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json" } };
+		</script>
+		<script src="js/frontend.min.js" id="elementor-pro-frontend-js"></script>
+		<script src="js/waypoints.min.js" id="elementor-waypoints-js"></script>
+		<script src="js/core.min.js" id="jquery-ui-core-js"></script>
+		<script id="elementor-frontend-js-before">
+			var elementorFrontendConfig = { "environmentMode": { "edit": false, "wpPreview": false, "isScriptDebug": false }, "i18n": { "shareOnFacebook": "Compartilhar no Facebook", "shareOnTwitter": "Compartilhar no Twitter", "pinIt": "Fixar", "download": "Baixar", "downloadImage": "Baixar imagem", "fullscreen": "Tela cheia", "zoom": "Zoom", "share": "Compartilhar", "playVideo": "Reproduzir v\u00eddeo", "previous": "Anterior", "next": "Pr\u00f3ximo", "close": "Fechar", "a11yCarouselWrapperAriaLabel": "Carrossel | Rolagem horizontal: Setas para esquerda e direita", "a11yCarouselPrevSlideMessage": "Slide anterior", "a11yCarouselNextSlideMessage": "Pr\u00f3ximo slide", "a11yCarouselFirstSlideMessage": "Este \u00e9 o primeiro slide", "a11yCarouselLastSlideMessage": "Este \u00e9 o \u00faltimo slide", "a11yCarouselPaginationBulletMessage": "Ir para o slide" }, "is_rtl": false, "breakpoints": { "xs": 0, "sm": 480, "md": 768, "lg": 1025, "xl": 1440, "xxl": 1600 }, "responsive": { "breakpoints": { "mobile": { "label": "Dispositivos m\u00f3veis no modo retrato", "value": 767, "default_value": 767, "direction": "max", "is_enabled": true }, "mobile_extra": { "label": "Dispositivos m\u00f3veis no modo paisagem", "value": 880, "default_value": 880, "direction": "max", "is_enabled": false }, "tablet": { "label": "Tablet no modo retrato", "value": 1024, "default_value": 1024, "direction": "max", "is_enabled": true }, "tablet_extra": { "label": "Tablet no modo paisagem", "value": 1200, "default_value": 1200, "direction": "max", "is_enabled": false }, "laptop": { "label": "Notebook", "value": 1366, "default_value": 1366, "direction": "max", "is_enabled": false }, "widescreen": { "label": "Tela ampla (widescreen)", "value": 2400, "default_value": 2400, "direction": "min", "is_enabled": false } } }, "version": "3.21.8", "is_static": false, "experimentalFeatures": { "e_optimized_assets_loading": true, "e_optimized_css_loading": true, "e_font_icon_svg": true, "additional_custom_breakpoints": true, "container": true, "e_swiper_latest": true, "container_grid": true, "theme_builder_v2": true, "home_screen": true, "ai-layout": true, "landing-pages": true, "page-transitions": true, "notes": true, "loop": true, "form-submissions": true, "e_scroll_snap": true }, "urls": { "assets": "https:\/\/rsgrowthdigital.com.br\/wp-content\/plugins\/elementor\/assets\/" }, "swiperClass": "swiper", "settings": { "page": [], "editorPreferences": [] }, "kit": { "active_breakpoints": ["viewport_mobile", "viewport_tablet"], "global_image_lightbox": "yes", "lightbox_enable_counter": "yes", "lightbox_enable_fullscreen": "yes", "lightbox_enable_zoom": "yes", "lightbox_enable_share": "yes", "lightbox_title_src": "title", "lightbox_description_src": "description" }, "post": { "id": 1366, "title": "ecorecitech-circular-tecskill-ecorecitech%20%E2%80%93%20RS%20GROWTH%20DIGITAL", "excerpt": "", "featuredImage": false } };
+		</script>
+		<script src="js/frontend.min_1.js" id="elementor-frontend-js"></script>
+		<script src="js/elements-handlers.min.js" id="pro-elements-handlers-js"></script>
+		<script src="js/animate-circle.min.js" id="animate-circle-js"></script>
+		<script id="elementskit-elementor-js-extra">
+			var ekit_config = { "ajaxurl": "https:\/\/rsgrowthdigital.com.br\/wp-admin\/admin-ajax.php", "nonce": "947c9f9bfc" };
+		</script>
+		<script src="js/elementor.js" id="elementskit-elementor-js"></script>
 
 
 
