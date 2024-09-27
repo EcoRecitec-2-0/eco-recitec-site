@@ -4,8 +4,8 @@
 html, body {
     width: 100% !important;
     height: 100%;
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
 }
 
 #page_5e5829d55a5bb { padding:0; width:100% }
@@ -15,7 +15,10 @@ html, body {
 [name="Container_5e5829d589f95"] { background-color:transparent !important;background-position:left top;background-repeat:repeat-x;border:0;border-style:solid; }
 [name="Container_5e5829d589f95"] { clear:both; }
 [id="_5dae1109d76a9_1571688713"] { background-color:transparent !important;background-position:left top;background-repeat:repeat-x;border:0;border-style:solid;padding-top:15px !important;padding-right:15px !important;padding-left:15px !important;padding-bottom:15px !important; }
-@media screen and (min-width: 992px) { [id="_5dae1109d76a9_1571688713"] { padding-top:15px !important;padding-right:15px !important;padding-bottom:15px !important;padding-left:15px !important; }
+@media screen and (min-width: 992px) { [id="_5dae1109d76a9_1571688713"] { padding-top:15px !important;padding-right:15px !important;padding-bottom:15px !important;padding-left:15px !important;  width: 100% !important;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;}
  }
 #ResponsiveImage-gcbmozsafk { border:0; }
 #ResponsiveImage-gcbmozsafk { border-style:solid; }
