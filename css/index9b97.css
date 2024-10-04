@@ -109,7 +109,7 @@ html, body {
 @media screen and (min-width: 992px) { [id="_25095505_1571693751"] { padding-top:10px !important;padding-bottom:10px !important; }
  }
 #_32018614_1571693751 { border-top-width:2px ;border-right-width:2px ;border-left-width:2px ;border-bottom-width:2px ;border-style:solid;padding-top:15px !important;padding-right:15px !important;padding-left:15px !important;padding-bottom:15px !important;margin-bottom:0px;border-color:rgba(55, 46, 79, 1);border-top-right-radius:0px !important;border-bottom-right-radius:0px !important;border-top-left-radius:0px !important;border-bottom-left-radius:0px !important;font-size:14px; }
-[id="_5dae253b3c400_1571693883"] { background:url("../images/page-2-event/apresentacao.png");background-position:center center;background-repeat:no-repeat;border:0;border-style:solid; }
+[id="_5dae253b3c400_1571693883"] { background:url("../images/page-2-event/apresentacao.png");background-position:center; background-size: cover; background-repeat:no-repeat; border:0;border-style:solid;  }
 #ResponsiveImage-gcbmozssxf { border:0; }
 #ResponsiveImage-gcbmozssxf { border-style:solid; }
 [name="Container_5e5829d59067c"] { background:rgba(243, 243, 243, 1);border:0;border-style:solid; }
