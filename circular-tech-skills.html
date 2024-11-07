@@ -313,6 +313,41 @@
 
 				}
 
+				/*------------------------------------------------*/
+				/* Classe para o parágrafo específico */
+				#specific-paragraph {
+					font-size: 30pt;
+				}
+
+				/* Ajuste do título com margens */
+				.text-center {
+					text-align: center;
+					margin-top: 2%;
+				}
+
+				/* Cores e estilo do texto principal */
+				.text-main {
+					color: #333333;
+				}
+
+				/* Cores e destaque para texto de realce */
+				.text-highlight {
+					color: #FF910B;
+				}
+
+				/* Cores para o texto secundário */
+				.text-secondary {
+					color: #00517a;
+				}
+
+				/* Font-size para responsividade em telas menores */
+				@media (max-width: 320px) {
+					#specific-paragraph {
+						font-size: 25pt;
+					}
+				}
+
+				/*------------------------------------------------*/
 
 
 				.botao2 .btn:hover {
@@ -632,16 +667,20 @@
 					<br>
 					<br>
 					<div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595">
-						<p style="text-align: center; margin-top: 2%;">
-							<strong><span style="font-size: 30pt"><span style="color: #333333">FORMATO PRESENCIAL -
-										<span style="color: #FF910B">SALVADOR </span>- BAHIA - BRASIL
-										<br> DIAS 10 E 11 <br>
-										FORMATO ON-LINE - <span style="color: #FF910B">INTERNACIONAL</span></span>
-										<br> DIA 9 <br>
-									<span style="color: #00517a">PALESTRANTES INTERNACIONAIS E NACIONAIS NOS DOIS
-										FORMATOS</span></span></strong>
+						<p id="specific-paragraph" class="text-center mt-2 title-text">
+							<strong>
+								<span class="text-main">
+									FORMATO PRESENCIAL - <span class="text-highlight">SALVADOR</span> - BAHIA - BRASIL
+									<br> DIAS 10 E 11 <br>
+									FORMATO ON-LINE - <span class="text-highlight">INTERNACIONAL</span>
+									<br> DIA 9 <br>
+									<span class="text-secondary">PALESTRANTES INTERNACIONAIS E NACIONAIS NOS DOIS
+										FORMATOS</span>
+								</span>
+							</strong>
 						</p>
 					</div>
+
 
 					<div class="wrap col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0"
 						id="_5dae209aa613c_1571692698">
@@ -885,7 +924,7 @@
 			<!-- Logo -->
 			<div class="row" style="display: flex; justify-content: space-between; align-items: center;">
 
-				<div class="col-xs-8 col-sm-4 col-md-4"  style="text-align: center;">
+				<div class="col-xs-8 col-sm-4 col-md-4" style="text-align: center;">
 					<p style="font-size: 12pt; color: #ffffff;"><strong>Somos referência na transição da economia linear
 							para
 							economia circular</strong></p>
