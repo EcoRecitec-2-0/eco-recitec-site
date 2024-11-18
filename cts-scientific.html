@@ -369,6 +369,108 @@
 						}
 					}
 				}
+
+				/* Geral */
+				.section-projects {
+					padding: 20px;
+				}
+
+				.content-wrapper {
+					max-width: 1200px;
+					margin: 0 auto;
+					color: #372e4f;
+				}
+
+				.heading-title {
+					font-size: 18pt;
+					color: #00517a;
+					text-align: center;
+					line-height: 1.5;
+				}
+
+				.intro-text,
+				.themes-text,
+				.deadline-text,
+				.instruction-text {
+					font-size: 16pt;
+					color: #372e4f;
+					margin: 10px 0;
+					text-align: center;
+				}
+
+				.topics-row {
+					display: flex;
+					justify-content: space-between;
+					gap: 2%;
+					margin-top: 20px;
+				}
+
+				.topics-column {
+					width: 48%;
+				}
+
+				.topic-title {
+					font-size: 15pt;
+					color: #FF910B;
+					margin-bottom: 5px;
+					display: block;
+				}
+
+				.topic-list {
+					list-style: none;
+					padding-left: 0;
+					font-size: 14pt;
+					color: #372e4f;
+				}
+
+				.btn-container {
+					text-align: center;
+					margin-top: 20px;
+				}
+
+				.btn-primary {
+					background-color: rgba(0, 171, 123, 1);
+					color: white;
+					padding: 10px 20px;
+					font-size: 14pt;
+					text-decoration: none;
+					border-radius: 5px;
+				}
+
+				.btn-primary:hover {
+					background-color: rgba(0, 171, 123, 0.8);
+				}
+
+				/* Responsividade */
+				@media (max-width: 768px) {
+					.topics-row {
+						flex-direction: column;
+						align-items: center;
+					}
+
+					.topics-column {
+						width: 100%;
+					}
+				}
+
+				@media (max-width: 320px) {
+
+					.heading-title,
+					.intro-text,
+					.themes-text,
+					.deadline-text,
+					.instruction-text {
+						font-size: 12pt;
+					}
+
+					.topic-title {
+						font-size: 14pt;
+					}
+
+					.topic-list {
+						font-size: 12pt;
+					}
+				}
 			</style>
 		</div>
 		<div class="container-fluid container_body" name="" id="GridPanel_5e5829d653740">
@@ -387,7 +489,7 @@
 														YOUR TECHNICAL SCIENTIFIC WORK AND JOIN <span
 															style="color:#FF910B">CIRCULAR TECH
 															SKILLS</span></span></strong></span>
-															<br>
+											<br>
 											<span style="font-size: 20px; color: #fff;">Date: <span
 													style="color: #FF910B">April 9th, 10th, and 11th, 2025</span><br>
 												Location: Salvatore Space in <span
@@ -423,63 +525,42 @@
 									</div>
 									<div class="col-xs-12 col-sm-8 col-md-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-0"
 										id="_28225614_1574136083">
-										<div class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0"
-											id="_1065502720_1574136083">
-											<div id="text_5e5829d659287"
-												class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0">
-												<h3>
-													<span
-														style="font-size: 18pt; color: #00517a; line-height: 2px; text-align: center;">
-														<strong style="text-align: center;">
-															Submit Your Technical and Scientific Project and Be One of
-															Our Speakers.
-														</strong>
-													</span>
-												</h3>
-												<p>
-													<span style="font-size: 16pt; color: #372e4f">
-														<strong>
-															<span>Your project will be presented, if selected, in a
-																special Science and Technology section. It may also be
-																chosen to be presented in the Main Arena. Come build
-																the Circular Tech Culture with us!</span><br>
-														</strong>
-													</span>
-												</p>
+										<div class="container-fluid section-projects">
+											<div id="text_5e5829d659287" class="content-wrapper">
+												<p class="themes-text" style="font-size: 20px;">
+												<strong>Submit Your Technical and Scientific Project and Be One of Our
+													Speakers.</strong>
+												<strong>
+													If selected, your project will be presented in a special Science and
+													Technology session. It may also be chosen to be presented in the
+													Main Arena. Come build the Circular Tech Culture with us!
+												</strong>
+												<strong>Technical/Scientific Projects must follow these themes:</strong>
+											</p>
 
-												<p>
-													<span style="font-size: 15pt; color: #333333">
-														<strong>
-															<span>Technical/scientific projects must follow the
-																following themes:</span><br>
-														</strong>
-													</span>
+												
 												</p>
-												<div style="display: flex; ">
+												<div class="topics-row">
 													<!-- Column 1 -->
-													<div style="width: 48%;">
-														<span style="color: #FF910B; font-size: 15pt;">Circular
-															Economy:</span>
-														<ul style="color: #372e4f; font-size: 14pt; list-style: none;">
+													<div class="topics-column">
+														<span class="topic-title">Circular Economy:</span>
+														<ul class="topic-list">
 															<li>Fashion</li>
 															<li>Waste</li>
 															<li>Construction</li>
 															<li>Packaging</li>
 															<li>Psychology</li>
 															<li>Circular Design</li>
-															<li>Product as a Service</li>
+															<li>Product as Service</li>
 														</ul>
-
-														<span
-															style="color: #FF910B; font-size: 15pt;">Technology:</span>
-														<ul style="color: #372e4f; font-size: 14pt; list-style: none;">
+														<span class="topic-title">Technology:</span>
+														<ul class="topic-list">
 															<li>CircularTech</li>
-															<li>EsgTech</li>
+															<li>SewerTech</li>
 															<li>GreenTech</li>
 														</ul>
-														<span style="color: #FF910B; font-size: 15pt;">Circular
-															Culture:</span>
-														<ul style="color: #372e4f; font-size: 14pt; list-style: none;">
+														<span class="topic-title">Circular Culture:</span>
+														<ul class="topic-list">
 															<li>Industry</li>
 															<li>Schools</li>
 															<li>Public Institutions</li>
@@ -491,20 +572,17 @@
 															<li>Tactical and Operational for Circularity</li>
 														</ul>
 													</div>
-
 													<!-- Column 2 -->
-													<div style="width: 48%;">
-
-														<span style="color: #FF910B; font-size: 15pt;">ESG:</span>
-														<ul style="color: #372e4f; font-size: 14pt; list-style: none;">
+													<div class="topics-column">
+														<span class="topic-title">ESG:</span>
+														<ul class="topic-list">
 															<li>Applied to public and private institutions</li>
 															<li>Governance</li>
 															<li>Social Projects</li>
 															<li>Sustainability</li>
 														</ul>
-														<span style="color: #008ce4; font-size: 15pt;">Project
-															Structure:</span>
-														<ul style="color: #372e4f; font-size: 14pt; list-style: none;">
+														<span class="topic-title">Project Structure:</span>
+														<ul class="topic-list">
 															<li>Introduction/Summary</li>
 															<li>Keywords (4)</li>
 															<li>Justification</li>
@@ -513,184 +591,175 @@
 															<li>Results</li>
 															<li>Conclusion</li>
 														</ul>
-														<span style="color: #008ce4; font-size: 15pt;">Format:</span>
-														<ul style="color: #372e4f; font-size: 14pt; list-style: none;">
-															<li>A4, Arial 11, up to 6 pages (including graphs and
-																tables)</li>
-															<li>Containing Header with Title in Arial 12 in Bold</li>
-															<li>Author Names, Institution/Company, Email, Phone Number
-															</li>
+														<span class="topic-title">Format:</span>
+														<ul class="topic-list"></ul>
+														<li>A4, Arial 11, up to 6 pages (including graphs and tables)
+														</li>
+														<li>Header with Title in Arial 12 Bold</li>
+														<li>Authors' Names, Institution/Company, Email, Phone</li>
 														</ul>
 													</div>
 												</div>
-												<div
-													style="text-align: center; align-items: center; justify-content: center;">
-													<span
-														style="color: rgba(0, 171, 123, 1); font-size: 18pt; text-align: center;">Projects
-														must be registered by 12/31/2024</span>
-
+												<div class="deadline-text">
+													<span>Projects must be submitted by December 31st, 2024</span>
 												</div>
-												<div
-													style="text-align: center; align-items: center; justify-content: center;">
-													<span
-														style="color: rgba(0, 171, 123, 1); font-size: 18pt; text-align: center;">
-														To participate, send your abstract to the email:
-														contato@eco-recitec.com.br<br />
-														And fill out the registration form using the button below
+												<div class="instruction-text">
+													<span>
+														To participate send your abstract to: contato@eco-recitec.com.br
+														<br />
+														And fill out the registration form using the button below.
 													</span>
 												</div>
 												<div class="botao1 col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0"
 													id="_7093031317_1574136500">
 													<a id="_906684011_1574136500" target="_blank"
 														class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 btn"
-														href="https://docs.google.com/forms/d/e/1FAIpQLSeHfmk_iTop9qz-DXsA730fhbX4q5T4jl6bI_Ok9TpKk64ZGA/viewform?usp=sf_link"><i
-															class="fa"></i>&nbsp;REGISTER NOW</a>
+														href="https://docs.google.com/forms/d/e/1FAIpQLSeFX5l0tM6NkyoUVI27Rd39baUnlM1NFCbfwj7WKJohQteDGw/viewform?usp=sf_link"><i
+															class="fa"></i>&nbsp;FAÇA SUA INSCRIÇÃO</a>
 												</div>
 											</div>
-
-											<div class="clear"></div>
 										</div>
-										<div class="clear"></div>
 									</div>
-									<div class="clear"></div>
 								</div>
-								<div class="clear"></div>
-								<br>
-								<br>
-								<br>
-								<br>
 
 								<div class="clear"></div>
-								<div class="container-fluid" name="Container_5e5829d58dfb8"
-									id="_5dae1c4b7c294_1571691595">
-									<p style="text-align: center; margin-top: 2%;">
-										<strong><span style="font-size: 20pt; color: #00517a">OTHER WAYS TO
-												PARTICIPATE IN CIRCULAR TECH SKILLS
-											</span></strong>
-									</p>
+							</div>
+							<div class="clear"></div>
+						</div>
+						<div class="clear"></div>
+						<br>
+						<br>
+						<br>
+						<br>
+
+						<div class="clear"></div>
+						<div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595">
+							<p style="text-align: center; margin-top: 2%;">
+								<strong><span style="font-size: 20pt; color: #00517a">OTHER WAYS TO
+										PARTICIPATE IN CIRCULAR TECH SKILLS
+									</span></strong>
+							</p>
+						</div>
+						<br>
+						<br>
+						<div class="flex col-xs-12 col-sm-12 col-md-12"
+							style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+							<!-- Primeiro Card -->
+							<div class="card" style="flex: 1 1 200px; margin-top: 40px; text-align: center;">
+								<img src="images/page-2-event/junte-se-insc-en.png" alt="Mindset"
+									style="width: 100%; max-width: 200px; height: 200px; object-fit: cover; margin-bottom: 10px;">
+								<h3 style="font-size: 16pt; color: #00517a;">
+									<strong>Special Promotion for Startups</strong>
+								</h3>
+								<div class="botao2 botaoc" style="padding: 30px;" id="_348040051_1571691348">
+									<a id="_7555871249_1571691348" target="_self"
+										class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 btn"
+										style="background-color: #FF910B; color: #ffffff; font-size: 16PX;"
+										href="cts-startup-en.html"><i class="fa"></i>&nbsp;I'M GOING</a>
 								</div>
-								<br>
-								<br>
-								<div class="flex col-xs-12 col-sm-12 col-md-12"
-									style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-									<!-- Primeiro Card -->
-									<div class="card" style="flex: 1 1 200px; margin-top: 40px; text-align: center;">
-										<img src="images/page-2-event/junte-se-insc-en.png" alt="Mindset"
-											style="width: 100%; max-width: 200px; height: 200px; object-fit: cover; margin-bottom: 10px;">
-										<h3 style="font-size: 16pt; color: #00517a;">
-											<strong>Special Promotion for Startups</strong>
-										</h3>
-										<div class="botao2 botaoc" style="padding: 30px;" id="_348040051_1571691348">
-											<a id="_7555871249_1571691348" target="_self"
-												class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 btn"
-												style="background-color: #FF910B; color: #ffffff; font-size: 16PX;"
-												href="cts-startup-en.html"><i class="fa"></i>&nbsp;I'M GOING</a>
-										</div>
-									</div>
+							</div>
 
-									<!-- Segundo Card -->
-									<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center; ">
-										<img src="images/page-2-event/linear-ao-circular-insc-en.png" alt="Parceria"
-											style="width: 100%; max-width: 200px; height: 200px; object-fit: cover; margin-bottom: 10px;">
-										<h3 style="font-size: 16pt; color: #00517a;">
-											<strong>Take advantage of our partnership plans</strong>
-										</h3>
-										<div class="botao2 botaoc"
-											style="flex: 1 1 200px; text-align: center; margin-top: 10px;"
-											id="_348040051_1571691348">
-											<a id="_7555871249_1571691348" target="_self"
-												class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 btn"
-												style="background-color: #FF910B; color: #ffffff; font-size: 16PX;"
-												href="circular-tech-skills-en.html#forms"><i class="fa"></i><strong>I
-													CAN</strong></a>
-										</div>
-									</div>
-
-									<!-- Terceiro Card -->
-									<div class="card" style="flex: 1 1 200px;  text-align: center; margin-top: 30px;">
-										<img src="images/page-2-event/inscricao-img-en.png" alt="Apresentação"
-											style="width: 100%; max-width: 200px; height: 210px; object-fit: cover; ">
-										<h3 style="font-size: 16pt; color: #00517a; margin-top: 20px;">
-											<strong>Join the event</strong>
-										</h3>
-										<div class="botao2 botaoc" style="padding: 30px;" id="_348040051_1571691348">
-											<a id="_7555871249_1571691348" target="_self"
-												class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 btn"
-												style="background-color: #FF910B; color: #ffffff; font-size: 16PX;"
-												href="cts-register.html"><i class="fa"></i>&nbsp;I WANT</a>
-										</div>
-									</div>
+							<!-- Segundo Card -->
+							<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center; ">
+								<img src="images/page-2-event/linear-ao-circular-insc-en.png" alt="Parceria"
+									style="width: 100%; max-width: 200px; height: 200px; object-fit: cover; margin-bottom: 10px;">
+								<h3 style="font-size: 16pt; color: #00517a;">
+									<strong>Take advantage of our partnership plans</strong>
+								</h3>
+								<div class="botao2 botaoc"
+									style="flex: 1 1 200px; text-align: center; margin-top: 10px;"
+									id="_348040051_1571691348">
+									<a id="_7555871249_1571691348" target="_self"
+										class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 btn"
+										style="background-color: #FF910B; color: #ffffff; font-size: 16PX;"
+										href="circular-tech-skills-en.html#forms">
+										<i class="fa"></i><strong>I CAN</strong></a>
 								</div>
-								<div class="clear"></div>
-								<div class="container-fluid" name="Container_5e5829d58dfb8"
-									id="_5dae1c4b7c294_1571691595">
-									<p style="text-align: center; margin-top: 2%;">
-										<strong><span style="font-size: 20pt; color: #00517a">PROMOTION AND
-												ORGANIZATION</span></strong>
+							</div>
 
-									</p>
-								</div>
-								<br>
-								<br>
-								<div class="flex col-xs-12 col-sm-12 col-md-12"
-									style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-									<!-- Primeiro Card -->
-									<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center;">
-										<img src="images/logo-recitec-02-02-removebg-preview-300x183.png"
-											alt="Eco-Recitec"
-											style="width: 100%; max-width: 200px; margin-bottom: 10px;">
-									</div>
-
-									<!-- Segundo Card -->
-									<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center;">
-										<img src="images/image-removebg-preview-1-300x170.png" alt="Decolores"
-											style="width: 100%; max-width: 200px;  margin-bottom: 10px;">
-									</div>
-
-									<!-- Terceiro Card -->
-									<div class="card"
-										style="flex: 1 1 200px; margin: 10px; text-align: center; margin-bottom: 30px;">
-										<img src="images/whatsapp_image_2024-06-09_at_12.33.35-removebg-preview.png"
-											alt="CEC" style="width: 100%; max-width: 200px; ">
-									</div>
+							<!-- Terceiro Card -->
+							<div class="card" style="flex: 1 1 200px;  text-align: center; margin-top: 30px;">
+								<img src="images/page-2-event/inscricao-img-en.png" alt="Apresentação"
+									style="width: 100%; max-width: 200px; height: 210px; object-fit: cover; ">
+								<h3 style="font-size: 16pt; color: #00517a; margin-top: 20px;">
+									<strong>Join the event</strong>
+								</h3>
+								<div class="botao2 botaoc" style="padding: 30px;" id="_348040051_1571691348">
+									<a id="_7555871249_1571691348" target="_self"
+										class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 btn"
+										style="background-color: #FF910B; color: #ffffff; font-size: 16PX;"
+										href="cts-register.html"><i class="fa"></i>&nbsp;I WANT</a>
 								</div>
 							</div>
 						</div>
-					</div>
-					<div class="clear"></div>
-				</div>
-				<div class="clear"></div>
-			</div>
-		</div>
+						<div class="clear"></div>
+						<div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595">
+							<p style="text-align: center; margin-top: 2%;">
+								<strong><span style="font-size: 20pt; color: #00517a">PROMOTION AND
+										ORGANIZATION</span></strong>
 
-
-		<div style="clear: both; background-color: #00517a; padding: 40px 0;">
-			<div style="clear: both; background-color: #00517a; padding: 40px 0;">
-				<div class="container-fluid" style="color: white; max-width: 1200px; margin: auto;">
-					<!-- Logo -->
-					<div class="row" style="display: flex; justify-content: space-between; align-items: center;">
-
-						<div class="col-xs-8 col-sm-4 col-md-4" style="text-align: center;">
-							<p style="font-size: 12pt; color: #ffffff;"><strong>We are a reference in the transition
-									from a
-									linear economy to a circular economy</strong></p>
-							<p style="color: #ffffff; font-size: 10pt;">
-								Sustainability, consulting for innovation projects that combine mindset and circular/ESG
-								economy, courses, training, mentoring, and project management.
 							</p>
-							<p style="font-size: 12pt; color: #ffffff;"><strong>Circular Tech Skills</strong></p>
-							<p style="font-size: 10pt; color: #ffffff;">Contact: EcoRecitec Phone - +55 71 999-748068
-							</p>
-							<p style="font-size: 10pt; color: #ffffff;">Decolores Phone - +55 71 9903-3324</p>
-							<p style="font-size: 10pt; color: #ffffff;">Email: contato@eco-recitec.com.br</p>
+						</div>
+						<br>
+						<br>
+						<div class="flex col-xs-12 col-sm-12 col-md-12"
+							style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+							<!-- Primeiro Card -->
+							<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center;">
+								<img src="images/logo-recitec-02-02-removebg-preview-300x183.png" alt="Eco-Recitec"
+									style="width: 100%; max-width: 200px; margin-bottom: 10px;">
+							</div>
+
+							<!-- Segundo Card -->
+							<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center;">
+								<img src="images/image-removebg-preview-1-300x170.png" alt="Decolores"
+									style="width: 100%; max-width: 200px;  margin-bottom: 10px;">
+							</div>
+
+							<!-- Terceiro Card -->
+							<div class="card"
+								style="flex: 1 1 200px; margin: 10px; text-align: center; margin-bottom: 30px;">
+								<img src="images/whatsapp_image_2024-06-09_at_12.33.35-removebg-preview.png" alt="CEC"
+									style="width: 100%; max-width: 200px; ">
+							</div>
 						</div>
 					</div>
-					<div class="row" style="text-align: center; margin-top: 20px;">
-						<p style="color: #ffffff; font-size: 10pt;">2024 | Eco-Recitec | All rights reserved.</p>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</div>
+
+
+	<div style="clear: both; background-color: #00517a; padding: 40px 0;">
+		<div style="clear: both; background-color: #00517a; padding: 40px 0;">
+			<div class="container-fluid" style="color: white; max-width: 1200px; margin: auto;">
+				<!-- Logo -->
+				<div class="row" style="display: flex; justify-content: space-between; align-items: center;">
+
+					<div class="col-xs-8 col-sm-4 col-md-4" style="text-align: center;">
+						<p style="font-size: 12pt; color: #ffffff;"><strong>We are a reference in the transition
+								from a
+								linear economy to a circular economy</strong></p>
+						<p style="color: #ffffff; font-size: 10pt;">
+							Sustainability, consulting for innovation projects that combine mindset and circular/ESG
+							economy, courses, training, mentoring, and project management.
+						</p>
+						<p style="font-size: 12pt; color: #ffffff;"><strong>Circular Tech Skills</strong></p>
+						<p style="font-size: 10pt; color: #ffffff;">Contact: EcoRecitec Phone - +55 71 999-748068
+						</p>
+						<p style="font-size: 10pt; color: #ffffff;">Decolores Phone - +55 71 9903-3324</p>
+						<p style="font-size: 10pt; color: #ffffff;">Email: contato@eco-recitec.com.br</p>
 					</div>
+				</div>
+				<div class="row" style="text-align: center; margin-top: 20px;">
+					<p style="color: #ffffff; font-size: 10pt;">2024 | Eco-Recitec | All rights reserved.</p>
 				</div>
 			</div>
 		</div>
+	</div>
 
 	</div>
 	<div class="clear"></div>
