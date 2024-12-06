@@ -992,14 +992,43 @@
 			width: auto;
 			z-index: 100000;
 		}
+
 		#palestrantes-cards {
-					width: 100%;
-					background-image: url('./images/page-2-event/fundo-palestrantes.png');
-					background-size: cover;
-					background-position: center;
-					background-repeat: no-repeat;
-					padding: 20px;
-				}
+			width: 100%;
+			background-image: url('./images/page-2-event/fundo-palestrantes.png');
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			padding: 20px;
+		}
+
+		.obs {
+			font-size: 17pt;
+		}
+
+		@media (max-width: 768px) {
+			.obs {
+				font-size: 14pt;
+			}
+		}
+
+		@media (max-width: 568px) {
+			.obs {
+				font-size: 13pt;
+			}
+		}
+
+		@media (max-width: 350px) {
+			.obs {
+				font-size: 12pt;
+			}
+		}
+
+		@media (max-width: 300px) {
+			.obs {
+				font-size: 8pt;
+			}
+		}
 	</style>
 	<link rel="stylesheet" id="github-embed-css" href="css/github-embed.css" media="all">
 	<link rel="stylesheet" id="hfe-style-css" href="css/header-footer-elementor.css" media="all">
@@ -2276,16 +2305,20 @@
 							</div>
 							<div class="e-con-inner" style="display: flex; justify-content: space-around; gap: 20px;">
 								<div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
-									<div class="card-caption"
-										style="font-size: 18px; line-height: 1.4; color: #FF910B; font-family: 'Montserrat'; text-align: center; padding: 5px; max-width: 880px;">
-										<p style="text-align: center; font-size: 20px;">Note: All support or sponsorships must be validated and forwarded to the companies EcoRecitec or Decolores
-										</p>
+									<div class="obs">
+										<div class="card-caption"
+											style=" line-height: 1.4; color: #FF910B; font-family: 'Montserrat'; text-align: center; padding: 5px; max-width: 880px;">
+											<p style="text-align: center; ">Note: All support or sponsorships must be
+												validated and forwarded to the companies EcoRecitec or Decolores
+											</p>
+										</div>
+										<div class="card-caption"
+											style="line-height: 1.4; color: #FF910B; font-family: 'Montserrat'; text-align: center; padding: 5px; max-width: 880px;">
+											<p style="text-align: center; ">E-mails: contato@eco-recitec.com.br ou
+												celene.recitec@donaverde.com.br
+											</p>
+										</div>
 									</div>
-									<div class="card-caption"
-									style="font-size: 18px; line-height: 1.4; color: #FF910B; font-family: 'Montserrat'; text-align: center; padding: 5px; max-width: 880px;">
-									<p style="text-align: center; font-size: 20px;">E-mails: contato@eco-recitec.com.br ou celene.recitec@donaverde.com.br
-									</p>
-								</div>
 								</div>
 							</div>
 						</div>
