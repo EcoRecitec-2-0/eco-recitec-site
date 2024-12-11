@@ -111,6 +111,26 @@ nav[id="_5dae1188b2fee_1571688840"] .navbar { position:initial; }
     border-bottom-left-radius: 0px !important;
     font-size: 14px;
 }
+#_906684011_1574136500b {
+    background-color: #008ce4; 
+    color: #ffffff; 
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-left-width: 2px;
+    border-bottom-width: 2px;
+    border-style: solid;
+    padding-top: 15px !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    padding-bottom: 15px !important;
+    margin-bottom: 0px;
+    border-color: rgba(55, 46, 79, 1);
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    font-size: 14px;
+}
 [id="_55204129_1574136666"] { background-color:transparent !important;background-position:left top;background-repeat:repeat-x;border:0;border-style:solid;padding-top:50px !important;padding-bottom:25px !important; }
 @media screen and (max-width: 767px) { [id="_55204129_1574136666"] { padding-top:25px !important; }
  }
