@@ -614,19 +614,22 @@
 							</form>
 
 							<script>
-								document.getElementById("startupForm").addEventListener("submit", async function (event) {
-									event.preventDefault(); 
-
+								document.getElementById("startupForm").addEventListener("submit", async function(event) {
+									event.preventDefault(); // Impede o envio tradicional do formulário
+								
+									// Capturar os dados do formulário
 									const formData = new FormData(this);
 									const formObject = {};
 									formData.forEach((value, key) => formObject[key] = value);
-
+								
+									// Enviar para a API em JSON
 									try {
-										const response = await fetch("https://api-form-flask.onrender.com/inscricao-startup", { 
+										const response = await fetch("https://api-form-flask.onrender.com/inscricao-startup", {
+											method: "POST",
 											headers: { "Content-Type": "application/json" },
 											body: JSON.stringify(formObject),
 										});
-
+								
 										if (response.ok) {
 											alert("Inscrição enviada com sucesso!");
 											this.reset(); // Limpa o formulário
@@ -637,8 +640,7 @@
 										alert("Erro de conexão com o servidor.");
 									}
 								});
-							</script>
-
+								</script>
 
 						</div>
 
