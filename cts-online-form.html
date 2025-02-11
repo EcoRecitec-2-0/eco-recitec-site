@@ -559,17 +559,14 @@
 
 							<script>
 								document.getElementById("inscricaoForm").addEventListener("submit", async function (event) {
-									event.preventDefault(); // Impede o envio tradicional do formulário
+									event.preventDefault(); 
 
-									// Capturar os dados do formulário
 									const formData = new FormData(this);
 									const formObject = {};
 									formData.forEach((value, key) => formObject[key] = value);
 
-									// Enviar para a API em JSON
 									try {
-										const response = await fetch("https://api-form-flask.onrender.com/inscricao-online", { // Alterado para a rota correta
-											method: "POST",
+										const response = await fetch("https://api-form-flask.onrender.com/inscricao-online", { 
 											headers: { "Content-Type": "application/json" },
 											body: JSON.stringify(formObject),
 										});

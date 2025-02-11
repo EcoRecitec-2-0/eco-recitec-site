@@ -483,7 +483,7 @@
 								style="color: #fff; padding: 15px; border-radius: 8px;">
 								Formulário de Inscrição
 							</h2>
-							<form id="inscricaoForm" class="form-horizontal"
+							<form id="startupForm" class="form-horizontal"
 								style="padding: 20px; background: #f9f9f9; border-radius: 8px; max-width: 500px; margin: 0 auto;">
 								<div class="form-group">
 									<label for="nome" class="control-label">Nome:</label>
@@ -614,22 +614,19 @@
 							</form>
 
 							<script>
-								document.getElementById("inscricaoForm").addEventListener("submit", async function(event) {
-									event.preventDefault(); // Impede o envio tradicional do formulário
-								
-									// Capturar os dados do formulário
+								document.getElementById("startupForm").addEventListener("submit", async function (event) {
+									event.preventDefault(); 
+
 									const formData = new FormData(this);
 									const formObject = {};
 									formData.forEach((value, key) => formObject[key] = value);
-								
-									// Enviar para a API em JSON
+
 									try {
-										const response = await fetch("https://api-form-flask.onrender.com/inscricao-startup", {
-											method: "POST",
+										const response = await fetch("https://api-form-flask.onrender.com/inscricao-startup", { 
 											headers: { "Content-Type": "application/json" },
 											body: JSON.stringify(formObject),
 										});
-								
+
 										if (response.ok) {
 											alert("Inscrição enviada com sucesso!");
 											this.reset(); // Limpa o formulário
@@ -640,7 +637,8 @@
 										alert("Erro de conexão com o servidor.");
 									}
 								});
-								</script>
+							</script>
+
 
 						</div>
 
