@@ -522,7 +522,9 @@
 								</div>
 
 								<div class="form-group" style="text-align: center; color: #FF910B;">
-									<label for="cargo">Você tem direito a mais 3 ingressos além do seu, responda essa pergunta com nome, cpf e email das pessoas que receberão estes ingressos.</label>
+									<label for="cargo">Você tem direito a mais 3 ingressos além do seu, responda essa
+										pergunta com nome, cpf e email das pessoas que receberão estes
+										ingressos.</label>
 								</div>
 								<div class="form-group">
 									<label for="nomePessoa1" class="control-label">Nome Pessoa 1:</label>
@@ -538,8 +540,8 @@
 
 								<div class="form-group">
 									<label for="emailPessoa1" class="control-label">Email Pessoa 1:</label>
-									<input type="email" id="emailPessoa1" name="emailPessoa1" class="form-control" required
-										placeholder="Digite o email da primeira pessoa">
+									<input type="email" id="emailPessoa1" name="emailPessoa1" class="form-control"
+										required placeholder="Digite o email da primeira pessoa">
 								</div>
 
 								<div class="form-group">
@@ -556,8 +558,8 @@
 
 								<div class="form-group">
 									<label for="emailPessoa2" class="control-label">Email Pessoa 2:</label>
-									<input type="email" id="emailPessoa2" name="emailPessoa2" class="form-control" required
-										placeholder="Digite o email da segunda pessoa">
+									<input type="email" id="emailPessoa2" name="emailPessoa2" class="form-control"
+										required placeholder="Digite o email da segunda pessoa">
 								</div>
 
 								<div class="form-group">
@@ -574,14 +576,19 @@
 
 								<div class="form-group">
 									<label for="emailPessoa3" class="control-label">Email Pessoa 3:</label>
-									<input type="email" id="emailPessoa3" name="emailPessoa3" class="form-control" required
-										placeholder="Digite o email da terceira pessoa">
+									<input type="email" id="emailPessoa3" name="emailPessoa3" class="form-control"
+										required placeholder="Digite o email da terceira pessoa">
 								</div>
 
 								<div class="form-group">
-									<label for="cargo" class="control-label">Incrição de Startup por apenas 10 x de R$ 260</label>
-									<a href="https://mpago.li/2by6aJx"  class="btn botao2" target="_blank"
-									rel="noopener noreferrer">Efetuar Pagamento</a>
+									<label for="cargo" class="control-label">Incrição de Startup por apenas 10 x de R$
+										260</label>
+									<a href="https://mpago.li/2by6aJx" class="btn botao2" target="_blank"
+										rel="noopener noreferrer">Efetuar Pagamento</a>
+									<label for="cargo" class="control-label"
+										style="color: #FF910B; font-size: 13pt; display: block; text-align: center;">
+										ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com
+									</label>
 								</div>
 
 								<div class="form-group" style="color: #008ce4; text-align: center;">
@@ -589,7 +596,9 @@
 								</div>
 
 								<div class="form-group">
-									<label>Você gostaria de participar de uma seleção para realizar um teste gratuíto do método de mindset de linear ao circular no aspecto do softskills e ficar sabendo sobre o seu perfil para a circularidade??</label>
+									<label>Você gostaria de participar de uma seleção para realizar um teste gratuíto do
+										método de mindset de linear ao circular no aspecto do softskills e ficar sabendo
+										sobre o seu perfil para a circularidade??</label>
 									<label><input type="radio" name="participar_teste" value="Sim" required> Sim</label>
 									<label><input type="radio" name="participar_teste" value="Não"> Não</label>
 								</div>
@@ -601,7 +610,8 @@
 									<label><input type="radio" name="disp_teste" value="Não"> Não </label>
 								</div>
 								<div class="form-group">
-									<label for="indicacao">Veio por meio de indicação? Se sim, nos diga quem te indicou o evento.:</label>
+									<label for="indicacao">Veio por meio de indicação? Se sim, nos diga quem te indicou
+										o evento.:</label>
 									<textarea id="indicacao" name="indicacao" class="form-control"
 										placeholder="Quem te indicou?" rows="3"></textarea>
 								</div>
@@ -614,14 +624,14 @@
 							</form>
 
 							<script>
-								document.getElementById("startupForm").addEventListener("submit", async function(event) {
+								document.getElementById("startupForm").addEventListener("submit", async function (event) {
 									event.preventDefault(); // Impede o envio tradicional do formulário
-								
+
 									// Capturar os dados do formulário
 									const formData = new FormData(this);
 									const formObject = {};
 									formData.forEach((value, key) => formObject[key] = value);
-								
+
 									// Enviar para a API em JSON
 									try {
 										const response = await fetch("https://api-form-flask.onrender.com/inscricao-startup", {
@@ -629,7 +639,7 @@
 											headers: { "Content-Type": "application/json" },
 											body: JSON.stringify(formObject),
 										});
-								
+
 										if (response.ok) {
 											alert("Inscrição enviada com sucesso!");
 											this.reset(); // Limpa o formulário
@@ -640,7 +650,7 @@
 										alert("Erro de conexão com o servidor.");
 									}
 								});
-								</script>
+							</script>
 
 						</div>
 
