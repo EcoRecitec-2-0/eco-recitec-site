@@ -455,10 +455,22 @@
 								id="_4809699299_1574129903">
 								<div class="col-xs-12 col-sm-10 col-md-8 col-xs-offset-0 col-sm-offset-1 col-md-offset-2"
 									id="_879141854_1574129903">
-									<h1>
-										<span style="color: #fff;">INSCRIÇÕES PARA O <span
-												style="color: #FF910B">CIRCULAR TECH SKILLS</span> ONLINE</span>
-									</h1>
+									<div id="""language-header">
+										<h1 id="main-title"></h1>
+									</div>
+									<script>
+										// Detecta a linguagem do navegador
+										var userLang = navigator.language || navigator.userLanguage;
+										var titleEl = document.getElementById("main-title");
+
+										if (userLang.toLowerCase().startsWith("pt")) {
+											titleEl.innerHTML =
+												'<span style="color: #fff;">INSCRIÇÕES PARA O <span style="color: #FF910B">CIRCULAR TECH SKILLS</span> ONLINE</span>';
+										} else {
+											titleEl.innerHTML =
+												'<span style="color: #fff;">REGISTRATION FOR <span style="color: #FF910B">CIRCULAR TECH SKILLS</span> ONLINE</span>';
+										}
+									</script>
 								</div>
 							</div>
 						</div>
@@ -479,77 +491,107 @@
 
 						<div class="clear"></div>
 						<div class="container">
-							<h2 class="text-center gradienteescuro"
-								style="color: #fff; padding: 15px; border-radius: 8px;">
-								Convite/Formulário de Inscrição
+							<h2 id="form-title" class="text-center gradienteescuro" style="color: #fff; padding: 15px; border-radius: 8px;">
+								<!-- O título será definido via JavaScript -->
 							</h2>
-							<form id="inscricaoForm" class="form-horizontal"
-								style="padding: 20px; background: #f9f9f9; border-radius: 8px; max-width: 500px; margin: 0 auto;">
+							<form id="inscricaoForm" class="form-horizontal" style="padding: 20px; background: #f9f9f9; border-radius: 8px; max-width: 500px; margin: 0 auto;">
 								<div class="form-group">
-									<label for="nome" class="control-label">Nome:</label>
-									<input type="text" id="nome" name="nome" class="form-control" required
-										placeholder="Digite seu nome">
+									<label for="nome" id="label-nome">Nome:</label>
+									<input type="text" id="nome" name="nome" class="form-control" required placeholder="Digite seu nome">
 								</div>
 								<div class="form-group">
-									<label for="telefone" class="control-label">Telefone:</label>
-									<input type="tel" id="telefone" name="telefone" class="form-control" required
-										placeholder="(XX) XXXXX-XXXX">
+									<label for="telefone" id="label-telefone">Telefone:</label>
+									<input type="tel" id="telefone" name="telefone" class="form-control" required placeholder="(XX) XXXXX-XXXX">
 								</div>
 								<div class="form-group">
-									<label for="email" class="control-label">Email:</label>
-									<input type="email" id="email" name="email" class="form-control" required
-										placeholder="email@exemplo.com">
+									<label for="email" id="label-email">Email:</label>
+									<input type="email" id="email" name="email" class="form-control" required placeholder="email@exemplo.com">
 								</div>
 								<div class="form-group">
-									<label for="cpf" class="control-label">CPF:</label>
-									<input type="text" id="cpf" name="cpf" class="form-control" required
-										placeholder="XXX.XXX.XXX-XX">
+									<label for="cpf" id="label-cpf">CPF:</label>
+									<input type="text" id="cpf" name="cpf" class="form-control" required placeholder="XXX.XXX.XXX-XX">
 								</div>
 								<div class="form-group">
-									<label for="linkedin" class="control-label">LinkedIn:</label>
-									<input type="url" id="linkedin" name="linkedin" class="form-control"
-										placeholder="https://linkedin.com/in/seu-perfil">
+									<label for="linkedin" id="label-linkedin">LinkedIn:</label>
+									<input type="url" id="linkedin" name="linkedin" class="form-control" placeholder="https://linkedin.com/in/seu-perfil">
 								</div>
 								<div class="form-group">
-									<label for="empresa" class="control-label">Empresa:</label>
-									<input type="text" id="empresa" name="empresa" class="form-control"
-										placeholder="Empresa que representa">
+									<label for="empresa" id="label-empresa">Empresa:</label>
+									<input type="text" id="empresa" name="empresa" class="form-control" placeholder="Empresa que representa">
 								</div>
 								<div class="form-group">
-									<label for="cargo" class="control-label">Cargo:</label>
-									<input type="text" id="cargo" name="cargo" class="form-control"
-										placeholder="Seu cargo na empresa">
+									<label for="cargo" id="label-cargo">Cargo:</label>
+									<input type="text" id="cargo" name="cargo" class="form-control" placeholder="Seu cargo na empresa">
 								</div>
 								<div class="form-group">
-									<label>Você gostaria de participar de uma seleção para realizar um teste gratuíto do
-										método de mindset de linear ao circular no aspecto do softskills e ficar sabendo
-										sobre o seu perfil para a circularidade?</label>
+									<label id="question-teste">
+										Você gostaria de participar de uma seleção para realizar um teste gratuíto do método de mindset de linear ao circular no aspecto do softskills e ficar sabendo sobre o seu perfil para a circularidade?
+									</label>
 									<label><input type="radio" name="participar_teste" value="Sim" required> Sim</label>
 									<label><input type="radio" name="participar_teste" value="Não"> Não</label>
 								</div>
 								<div class="form-group">
-									<label>Poderia disponibilizar um horário de 15 min para fazer o teste?</label>
+									<label id="question-disp">
+										Poderia disponibilizar um horário de 15 min para fazer o teste?
+									</label>
 									<br>
-									<label><input type="radio" name="disp_teste" value="Sim" required>
-										Sim</label>
+									<label><input type="radio" name="disp_teste" value="Sim" required> Sim</label>
 									<label><input type="radio" name="disp_teste" value="Não"> Não </label>
 								</div>
 								<div class="form-group">
-									<label for="indicacao">Veio por meio de indicação? Se sim, nos diga quem te indicou
-										o evento.:</label>
-									<textarea id="indicacao" name="indicacao" class="form-control"
-										placeholder="Quem te indicou?" rows="3"></textarea>
+									<label for="indicacao" id="label-indicacao">Veio por meio de indicação? Se sim, nos diga quem te indicou o evento.:</label>
+									<textarea id="indicacao" name="indicacao" class="form-control" placeholder="Quem te indicou?" rows="3"></textarea>
 								</div>
 								<div class="form-group">
-									<label for="expectativas">Expectativas em relação ao evento:</label>
-									<textarea id="expectativas" name="expectativas" class="form-control"
-										placeholder="Compartilhe suas expectativas" rows="3"></textarea>
+									<label for="expectativas" id="label-expectativas">Expectativas em relação ao evento:</label>
+									<textarea id="expectativas" name="expectativas" class="form-control" placeholder="Compartilhe suas expectativas" rows="3"></textarea>
 								</div>
 								<button type="submit" class="btn botao2">Enviar</button>
 							</form>
 
-							
 							<script>
+								// Função para alterar os textos dos rótulos de acordo com a linguagem do navegador
+								document.addEventListener('DOMContentLoaded', function() {
+									var userLang = navigator.language || navigator.userLanguage;
+									var isPt = userLang.toLowerCase().startsWith("pt");
+
+									var texts = {
+										formTitle: isPt ? "Convite/Formulário de Inscrição" : "Invitation/Registration Form",
+										nome: isPt ? "Nome:" : "Name:",
+										telefone: isPt ? "Telefone:" : "Phone:",
+										email: "Email:",
+										cpf: "CPF:",
+										linkedin: "LinkedIn:",
+										empresa: isPt ? "Empresa:" : "Company:",
+										cargo: isPt ? "Cargo:" : "Position:",
+										questionTeste: isPt ?
+											"Você gostaria de participar de uma seleção para realizar um teste gratuíto do método de mindset de linear ao circular no aspecto do softskills e ficar sabendo sobre o seu perfil para a circularidade?" :
+											"Would you like to participate in a selection for a free test of the linear to circular mindset method regarding soft skills and learn about your circularity profile?",
+										questionDisp: isPt ?
+											"Poderia disponibilizar um horário de 15 min para fazer o teste?" :
+											"Can you provide a 15-minute slot to take the test?",
+										indicacao: isPt ?
+											"Veio por meio de indicação? Se sim, nos diga quem te indicou o evento.:" :
+											"Did you come via referral? If so, tell us who referred you:",
+										expectativas: isPt ?
+											"Expectativas em relação ao evento:" :
+											"Expectations regarding the event:"
+									};
+
+									document.getElementById("form-title").innerText = texts.formTitle;
+									document.getElementById("label-nome").innerText = texts.nome;
+									document.getElementById("label-telefone").innerText = texts.telefone;
+									document.getElementById("label-email").innerText = texts.email;
+									document.getElementById("label-cpf").innerText = texts.cpf;
+									document.getElementById("label-linkedin").innerText = texts.linkedin;
+									document.getElementById("label-empresa").innerText = texts.empresa;
+									document.getElementById("label-cargo").innerText = texts.cargo;
+									document.getElementById("question-teste").innerText = texts.questionTeste;
+									document.getElementById("question-disp").innerText = texts.questionDisp;
+									document.getElementById("label-indicacao").innerText = texts.indicacao;
+									document.getElementById("label-expectativas").innerText = texts.expectativas;
+								});
+
 								function selecionarUnico(checkbox) {
 									document.querySelectorAll('input[name="tipo"]').forEach((item) => {
 										if (item !== checkbox) item.checked = false;
@@ -583,7 +625,6 @@
 									}
 								});
 							</script>
-
 
 						</div>
 
