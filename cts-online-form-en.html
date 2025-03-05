@@ -560,12 +560,16 @@
 									<textarea id="expectations" name="expectations" class="form-control"
 										placeholder="Share your expectations" rows="3"></textarea>
 								</div>
-								<button type="submit" class="btn botao2">Submit</button>
+								<button id="submitButton" type="submit" class="btn botao2">Submit</button>
 							</form>
 						
 							<script>
 								document.getElementById("registrationForm").addEventListener("submit", async function (event) {
 									event.preventDefault(); // Prevents traditional form submission
+
+									const submitButton = document.getElementById("submitButton");
+									submitButton.disabled = true;
+									submitButton.innerHTML = "Sending..."; // Shows loading
 						
 									// Capture form data
 									const formData = new FormData(this);
@@ -589,6 +593,9 @@
 									} catch (error) {
 										alert("Server connection error.");
 									}
+
+									submitButton.disabled = false;
+									submitButton.innerHTML = "Submit"; // Restaura o botão original
 								});
 							</script>
 						</div>

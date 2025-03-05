@@ -550,7 +550,7 @@
 									<textarea id="expectativas" name="expectativas" class="form-control"
 										placeholder="Share your expectations" rows="3"></textarea>
 								</div>
-								<button type="submit" class="btn botao2">Submit</button>
+								<button id="submitButton" type="submit" class="btn botao2">Submit</button>
 							</form>
 
 							
@@ -562,6 +562,10 @@
 								}
 								document.getElementById("inscricaoForm").addEventListener("submit", async function (event) {
 									event.preventDefault();
+
+									const submitButton = document.getElementById("submitButton");
+									submitButton.disabled = true;
+									submitButton.innerHTML = "Sending..."; // Shows loading
 
 									const formData = new FormData(this);
 									const formObject = {};
@@ -586,6 +590,9 @@
 									} catch (error) {
 										alert("Server connection error.");
 									}
+
+									submitButton.disabled = false;
+									submitButton.innerHTML = "Submit"; // Restaura o botão original
 								});
 							</script>
 

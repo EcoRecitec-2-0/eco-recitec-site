@@ -1882,6 +1882,10 @@
 					document.getElementById("contatoForm").addEventListener("submit", async function (event) {
 						event.preventDefault();
 
+						const submitButton = document.getElementById("submitButton");
+						submitButton.disabled = true;
+						submitButton.innerHTML = "Enviando..."; // Mostra o carregamento
+
 						// Capturar os dados do formulário
 						const formData = new FormData(this);
 						const formObject = {};
@@ -1904,6 +1908,9 @@
 						} catch (error) {
 							alert("Erro de conexão com o servidor.");
 						}
+
+						submitButton.disabled = false;
+						submitButton.innerHTML = "Enviar"; // Restaura o botão original
 					});
 				</script>
 

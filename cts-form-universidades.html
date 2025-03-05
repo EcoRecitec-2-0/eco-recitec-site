@@ -566,13 +566,17 @@
 										placeholder="Compartilhe suas expectativas" rows="3"></textarea>
 								</div>
 								<input type="hidden" name="tipo" value="Universidade">
-								<button type="submit" class="btn botao2">Enviar</button>
+								<button id="submitButton" type="submit" class="btn botao2">Enviar</button>
 							</form>
 
 							<script>
 								
 								document.getElementById("inscricaoForm").addEventListener("submit", async function (event) {
 									event.preventDefault();
+
+									const submitButton = document.getElementById("submitButton");
+									submitButton.disabled = true;
+									submitButton.innerHTML = "Enviando..."; // Mostra o carregamento
 
 									const formData = new FormData(this);
 									const formObject = {};
@@ -597,6 +601,9 @@
 									} catch (error) {
 										alert("Erro de conexão com o servidor.");
 									}
+
+									submitButton.disabled = false;
+									submitButton.innerHTML = "Enviar"; // Restaura o botão original
 								});
 							</script>
 
