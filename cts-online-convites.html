@@ -425,6 +425,9 @@
 					#ResponsiveImage-gcbmp0ahof {
 						margin-left: 10%;
 					}
+					.titleForm {
+						font-size: 20px;
+					}
 
 				}
 
@@ -484,7 +487,9 @@
 						<div class="container">
 							<h2 class="text-center gradienteescuro"
 								style="color: #fff; padding: 15px; border-radius: 8px;">
-								Convite/Formulário de Inscrição
+								<span class="titleForm">
+									Convite <br> Formulário de Inscrição
+								</span>
 							</h2>
 							<form id="inscricaoForm" class="form-horizontal"
 								style="padding: 20px; background: #f9f9f9; border-radius: 8px; max-width: 500px; margin: 0 auto;">
@@ -562,34 +567,34 @@
 								<button id="submitButton" type="submit" class="btn botao2">Enviar</button>
 							</form>
 
-							
+
 							<script>
 								function selecionarUnico(checkbox) {
 									document.querySelectorAll('input[name="tipo"]').forEach((item) => {
 										if (item !== checkbox) item.checked = false;
 									});
 								}
-							
+
 								document.getElementById("inscricaoForm").addEventListener("submit", async function (event) {
 									event.preventDefault();
-							
+
 									const submitButton = document.getElementById("submitButton");
 									submitButton.disabled = true;
 									submitButton.innerHTML = "Enviando..."; // Mostra o carregamento
-							
+
 									const formData = new FormData(this);
 									const formObject = {};
 									formData.forEach((value, key) => formObject[key] = value);
-							
+
 									console.log("Dados enviados:", formObject);
-							
+
 									try {
 										const response = await fetch("https://api-form-flask.onrender.com/inscricao-convites", {
 											method: "POST",
 											headers: { "Content-Type": "application/json" },
 											body: JSON.stringify(formObject),
 										});
-							
+
 										if (response.ok) {
 											alert("Inscrição enviada com sucesso!");
 											this.reset();
@@ -600,7 +605,7 @@
 									} catch (error) {
 										alert("Erro de conexão com o servidor.");
 									}
-							
+
 									submitButton.disabled = false;
 									submitButton.innerHTML = "Enviar"; // Restaura o botão original
 								});
