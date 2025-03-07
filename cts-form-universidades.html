@@ -444,6 +444,69 @@
 					margin-right: 15px;
 					/* Espaço entre o te*/
 				}
+				.aligned-container-bt {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					/* Espaçamento entre texto e botão */
+					margin-bottom: 20px;
+					/* Espaço entre os pares */
+				}
+
+				.text-container-bt {
+					flex: 1;
+					text-align: center;
+					/* Alinhar o texto à direita */
+					margin-right: 15px;
+					/* Espaço entre o te*/
+				}
+				.carousel-container {
+					position: relative;
+					max-width: 600px;
+					/* Ajuste conforme necessário */
+					margin: auto;
+					overflow: hidden;
+				}
+
+				.carousel-slide {
+					display: flex;
+					transition: transform 0.5s ease-in-out;
+				}
+
+				.carousel-slide img {
+					min-width: 100%;
+					height: auto;
+					display: block;
+				}
+
+				.prev,
+				.next {
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					background-color: rgba(0, 0, 0, 0.5);
+					color: #fff;
+					border: none;
+					padding: 10px;
+					cursor: pointer;
+					z-index: 1;
+				}
+
+				.prev {
+					left: 10px;
+				}
+
+				.next {
+					right: 10px;
+				}
+
+				@media (max-width: 768px) {
+
+					.prev,
+					.next {
+						padding: 5px;
+					}
+				}
 			</style>
 		</div>
 		<div class="container-fluid container_body" name="" id="GridPanel_5e5829d653740">
@@ -457,7 +520,8 @@
 									id="_879141854_1574129903">
 									<h1>
 										<span style="color: #fff;">INSCRIÇÕES PARA O <span
-												style="color: #FF910B">CIRCULAR TECH SKILLS</span> UNIVERSIDADES </span>
+												style="color: #FF910B">CIRCULAR TECH SKILLS  ONLINE<br>
+												DIA 9 DE ABRIL DE 2025</span> UNIVERSIDADES </span>
 									</h1>
 								</div>
 							</div>
@@ -465,8 +529,40 @@
 					</div>
 				</div>
 			</div>
+			<div class="carousel-container">
+				<div class="carousel-slide">
+					<img src="./images/carrossel/1.jpeg" alt="Imagem 1">
+					<img src="./images/carrossel/2.jpeg" alt="Imagem 2">
+					<img src="./images/carrossel/3.jpeg" alt="Imagem 3">
+					<img src="./images/carrossel/4.jpeg" alt="Imagem 4">
+					<img src="./images/carrossel/5.jpeg" alt="Imagem 5">
+				</div>
+				<button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+				<button class="next" onclick="moveSlide(1)">&#10095;</button>
+			</div>
 			<div class="container-fluid" name="Container_5e5829d657c88" id="_5137665525_1574129923">
 				<div class="container container_body" name="container_5e5829d658305" id="_5dd351a4bbe86_1574130084">
+					<div id="text_5e5829d659287" style="padding: 15px; text-align: center;">
+						<h3>
+							<span style="
+											font-size: 18pt;
+											color: #00517a;
+											line-height: 2px;
+											align-items: center;
+										"><strong>EU QUERO PARTICIPAR DO CIRCULAR TECH SKILLS</strong></span>
+						</h3>
+						<p>
+							<span style="font-size: 14pt; color: #333333; text-align: center;">No dia 9 de abril de
+								2025 on-line : palestrantes renomados de Portugal, Rússia, Estados Unidos, Países
+								Baixos e Brasil, trazendo um panorama Global da Economia Circular ,estratégias para
+								implementar a Economia Circular na Indústria, discutindo política, cultura,
+								mentalidade e habilidades circulares. 💡 A programação do dia 9 on-line está
+								imperdível!
+							</span>
+						</p>
+
+
+					</div>
 					<div class="tab-content">
 						<div class="tab-pane fade active in col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0"
 							id="_5dd3693288391_1574136114">
@@ -613,7 +709,63 @@
 						<br>
 						<br>
 					</div>
+					<div class="container-fluid" name="Container_5e5829d59b74c" id="_5dae5c858fd8c_1571708037"
+							style="margin: 0">
+							<div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595">
+								<p style="text-align: center; margin-top: 2%;">
+									<strong><span style="font-size: 20pt; color: #00517a">PROMOÇÃO
+										</span></strong>
+								</p>
+							</div>
+							<div class="flex col-xs-12 col-sm-12 col-md-12"
+								style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+
+								<div class="card" style="flex: 1 1 250px; margin: 10px; text-align: center;">
+									<img src="images/cec-logo.png" alt="logo Green"
+										style="width: 100%; max-width: 250px; margin-bottom: 10px;">
+								</div>
+
+
+								<div class="card" style="flex: 1 1 250px; margin: 10px; text-align: center;">
+									<img src="images/logo-recitec-02-02-removebg-preview-300x183.png" alt="Mindset"
+										style="width: 100%; max-width: 150px; margin-bottom: 10px;"><br>
+									<span style="font-size: 10pt; color: #00517a">A EcoRecitec faz parte da Comunidade
+										de
+										Inovação da
+										Fundação Ellen Mac Arthur</span>
+								</div>
+							</div>
+						</div>
+
+						<div class="container-fluid" name="Container_5e5829d59b74c" id="_5dae5c858fd8c_1571708037"
+							style="margin: 0">
+							<div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595">
+								<p style="text-align: center; margin-top: 2%;">
+									<strong><span style="font-size: 20pt; color: #00517a">APOIO
+										</span></strong>
+								</p>
+							</div>
+							<div class="flex col-xs-12 col-sm-12 col-md-12"
+								style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+
+								<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center;">
+									<img src="images/gg.png" alt="Logo GG"
+										style="width: 100%; max-width: 120px; margin-bottom: 10px;">
+									<div style="width: 180px; margin: 0 auto; text-align: center;">
+										<span style="font-size: 10pt; color: #00517a;">
+											Confederação Industrial de Moscou
+										</span>
+									</div>
+								</div>
+								<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center;">
+									<img src="images/green-logo.jpeg" alt="logo Green"
+										style="width: 100%; max-width: 150px; margin-bottom: 10px;">
+								</div>
+							</div>
+						</div>
 				</div>
+				</div>
+				
 				<div class="clear"></div>
 			</div>
 			<div class="clear"></div>
@@ -693,6 +845,20 @@
 				.addClass("nav-pills center-pills")
 				.removeClass("nav-tabs");
 		});
+	</script>
+	<script>
+		let index = 0;
+		function moveSlide(step) {
+			const slides = document.querySelector('.carousel-slide');
+			const totalSlides = slides.children.length;
+			index = (index + step + totalSlides) % totalSlides;
+			slides.style.transform = `translateX(-${index * 100}%)`;
+		}
+
+		// Chama moveSlide(1) a cada 3 segundos para avançar automaticamente
+		setInterval(function () {
+			moveSlide(1);
+		}, 3000);
 	</script>
 </body>
 
