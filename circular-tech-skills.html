@@ -770,7 +770,7 @@
 								<span class="text-main">
 									FORMATO <span style="color:#008ce4">ON-LINE</span> - <span
 										class="text-highlight">INTERNACIONAL</span>
-									<br> DIA 9 DE <br>
+									<br> DIA 9 DE ABRIL<br>
 								</span>
 							</strong>
 						</p>
@@ -813,10 +813,9 @@
 											<li>9:20h - O Design Circular na Transformação das Cadeia de Valor - Setor
 												de Alimentos. Gustavo Alves - Gerente da Comunidade de Inovação LATAm -
 												Ellen MacArthur Foundation</li>
-											<li>9:40h - Panorama da Economia Circular no Mundo- Aspectos legais,
-												normativos e práticos Visão do Ocidente </li>
-											<li>9:50h - Shalini Goyal Bhalla - International Council for Circular
-												Economy - Panorama da Economia Circular no Mundo - Visão do Oriente</li>
+											<li>9:40h - Shalini Goyal Bhalla - International Council for Circular
+												Economy - Panorama da Economia Circular no Mundo com Ênfase Oriente</li>
+												<li>9:55h - Circular Tech Skills</li>
 											<b>PAINEL 2: CIDADE, ARQUITETURA E CONSTRUÇÃO CIRCULAR E RESILIENTE.</b>
 											<li>10:00h - Arquitetura Circular - Case de Portugal
 												Carlos Oliveira- Founder - FACTOR4Sustainability</li>
@@ -1919,9 +1918,9 @@
 						</div>
 
 						<!-- Quarto Card (Repetido) -->
-						<div class="card" style="flex: 1 1 100px; margin: 10px; text-align: center;">
+						<div class="card" style="flex: 1 1 90px; margin: 10px; text-align: center;">
 							<img src="images/logo-vegah2.png" alt="Logo Vegah"
-								style="width: 100%; max-width: 150px; margin-bottom: 10px;">
+								style="width: 100%; max-width: 140px; margin-bottom: 10px;">
 						</div>
 
 						<div class="card" style="flex: 1 1 100px; margin-top: 30px; text-align: center;">
@@ -1953,17 +1952,17 @@
 				</div>
 				<br>
 				<br>
-				<div style="max-width: 800px; margin: 0 auto;">
+				<div style="max-width: 1200px; margin: 0 auto;">
 					<div class="flex col-xs-12 col-sm-12 col-md-12"
-						style="display: flex; justify-content: space-between; flex-wrap: wrap; max-width: 800px;">
+						style="display: flex; justify-content: space-between; flex-wrap: wrap; ">
 
 
 						<!-- Segundo Card -->
-						<div class="card" style="flex: 1 1 160px; margin: 10px; text-align: center;">
+						<div class="card" style="flex: 1 1 260px; margin: 10px; text-align: center;">
 							<img src="images/LOGO_CREA_PRETO.png" alt="Logo Arch"
 								style="width: 100%; max-width: 300px; margin-bottom: 10px;">
 						</div>
-						<div class="card" style="flex: 1 1 100px; margin: 10px; text-align: center;">
+						<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center;">
 							<img src="images/senge.png" alt="Logo Senge"
 								style="width: 100%; max-width: 120px; margin-bottom: 10px;">
 						</div>
@@ -1971,12 +1970,16 @@
 							<img src="images/sdg.png" alt="Logo SDG"
 								style="width: 100%; max-width: 120px; margin-bottom: 10px;">
 						</div> -->
-						<div class="card" style="flex: 1 1 100px; margin: 10px; text-align: center;">
+						<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center;">
 							<img src="images/arch.png" alt="Logo Arch"
 								style="width: 100%; max-width: 200px; margin-bottom: 10px;">
 						</div>
-						<div class="card" style="flex: 1 1 100px; margin-top: -20px; margin-left: 10px;; text-align: center;">
+						<div class="card" style="flex: 1 1 200px; margin-top: -20px; margin-left: 10px;; text-align: center;">
 							<img src="images/abena.png" alt="Logo Abena"
+								style="width: 100%; max-width: 200px; margin-bottom: 10px;">
+						</div>
+						<div class="card" style="flex: 1 1 200px; margin-top: -20px; margin-left: 10px;; text-align: center;">
+							<img src="images/bahia-fatos.png" alt="Logo Bahia Fatos"
 								style="width: 100%; max-width: 200px; margin-bottom: 10px;">
 						</div>
 
@@ -2027,16 +2030,15 @@
 					document.getElementById("contatoForm").addEventListener("submit", async function (event) {
 						event.preventDefault();
 
-						const submitButton = document.getElementById("submitButton");
+						const submitButton = this.querySelector('button[type="submit"]');
 						submitButton.disabled = true;
-						submitButton.innerHTML = "Enviando..."; // Mostra o carregamento
+						submitButton.innerHTML = '<i class="fa"></i>&nbsp;Enviando...';
 
 						// Capturar os dados do formulário
 						const formData = new FormData(this);
 						const formObject = {};
 						formData.forEach((value, key) => formObject[key] = value);
 
-						// Enviar para a API em JSON
 						try {
 							const response = await fetch("https://api-form-flask.onrender.com/contato", {
 								method: "POST",
@@ -2048,14 +2050,15 @@
 								alert("Enviado com sucesso!");
 								this.reset(); // Limpa o formulário
 							} else {
-								alert("Erro ao enviar a formulário. Tente novamente.");
+								throw new Error('Erro na resposta do servidor');
 							}
 						} catch (error) {
-							alert("Erro de conexão com o servidor.");
+							console.error('Erro:', error);
+							alert("Erro ao enviar o formulário. Por favor, tente novamente.");
+						} finally {
+							submitButton.disabled = false;
+							submitButton.innerHTML = '<i class="fa"></i>&nbsp;Enviar';
 						}
-
-						submitButton.disabled = false;
-						submitButton.innerHTML = "Enviar"; // Restaura o botão original
 					});
 				</script>
 
