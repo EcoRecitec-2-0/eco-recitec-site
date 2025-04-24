@@ -574,6 +574,7 @@
 									submitButton.disabled = true;
 									submitButton.innerHTML = "Enviando..."; // Mostra o 
 								
+									// Capturar os dados do formulário
 									const formData = new FormData(this);
 									const formObject = {};
 									formData.forEach((value, key) => formObject[key] = value);
