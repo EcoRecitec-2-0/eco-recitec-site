@@ -33,7 +33,6 @@
 
 		gtag("config", "G-4C44ZTMSEM");
 	</script>
-	<!-- Meta Pixel Code -->
 	<script>
 		!(function (f, b, e, v, n, t, s) {
 			if (f.fbq) return;
@@ -759,12 +758,17 @@
 		  const statusEl = document.getElementById("pagamentoStatus");
 		  statusEl.innerText = "Gerando link de pagamento...";
 		  this.disabled = true;
+	
+		  const form = document.getElementById("inscricaoForm");
+		  const formData = new FormData(form);
+		  const formObject = {};
+		  formData.forEach((value, key) => formObject[key] = value);
 	  
 		  try {
 			const response = await fetch("https://eb3e-179-97-232-155.ngrok-free.app/mercadopago", {
 			  method: "POST",
 			  headers: { "Content-Type": "application/json" },
-			  body: JSON.stringify({ valor: 350 })
+			  body: JSON.stringify({ ...formObject, amout: 350 }) 
 			});
 	  
 			if (!response.ok) throw new Error("Erro ao gerar pagamento");
