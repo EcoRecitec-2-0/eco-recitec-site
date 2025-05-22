@@ -1,0 +1,28 @@
+.botao-geral {
+	background-color: #FF910B;
+	color: #fff;
+	border-radius: 999px;
+	padding: 16px 32px;
+	display: inline-block;
+    border: 2px solid black;
+}
+
+.botao-geral:hover {
+    color: #fff;
+    background: rgb(254, 241, 69);
+    background: -moz-linear-gradient(-45deg,
+            rgba(115, 110, 178, 1) 0%,
+            rgba(79, 66, 113, 1) 51%,
+            rgba(55, 46, 79, 1) 100%);
+    background: -webkit-linear-gradient(-45deg,
+            rgba(115, 110, 178, 1) 0%,
+            rgba(79, 66, 113, 1) 51%,
+            rgba(55, 46, 79, 1) 100%);
+    background: linear-gradient(135deg,
+            rgba(115, 110, 178, 1) 0%,
+            rgba(79, 66, 113, 1) 51%,
+            rgba(55, 46, 79, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#736eb2', endColorstr='#372e4f', GradientType=1);
+}
+
+
