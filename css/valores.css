@@ -10,7 +10,7 @@
   --pattern-color: #cfcfcf;
 
   position: relative;
-  width: 30em;
+  width: 20em; /* Diminuiu o tamanho do card */
   background: var(--bg);
   border: 0.35em solid var(--text);
   border-radius: 0.6em;
@@ -21,6 +21,9 @@
   overflow: hidden;
   font-family: ui-sans-serif, system-ui, sans-serif;
   transform-origin: center;
+  margin: 1em;
+  display: flex;
+  flex-direction: column;
 }
 
 .card2:hover {
@@ -102,11 +105,11 @@
 
 .card2-title-area {
   position: relative;
-  padding: 1.4em;
+  padding: 1.2em;
   background: var(--primary);
   color: var(--bg);
   font-weight: 800;
-  font-size: 1.2em;
+  font-size: 1em;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -157,14 +160,14 @@
 
 .card2-body {
   position: relative;
-  padding: 1.5em;
+  padding: 1.2em;
   z-index: 2;
 }
 
 .card2-description {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.2em;
   color: var(--text);
-  font-size: 2em;
+  font-size: 1.3em;
   line-height: 1.4;
   font-weight: 500;
 }
@@ -172,8 +175,8 @@
 .feature-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1em;
-  margin-bottom: 1.5em;
+  gap: 0.7em;
+  margin-bottom: 1.2em;
 }
 
 .feature-item {
@@ -188,8 +191,8 @@
 }
 
 .feature-icon {
-  width: 1.4em;
-  height: 1.4em;
+  width: 1.2em;
+  height: 1.2em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,13 +209,13 @@
 }
 
 .feature-icon svg {
-  width: 0.9em;
-  height: 0.9em;
+  width: 0.8em;
+  height: 0.8em;
   fill: var(--bg);
 }
 
 .feature-text {
-  font-size: 1em;
+  font-size: 0.95em;
   font-weight: 600;
   color: var(--text);
 }
@@ -221,8 +224,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 1.5em;
-  padding-top: 1.2em;
+  margin-top: 1.2em;
+  padding-top: 1em;
   border-top: 0.15em dashed rgba(0, 0, 0, 0.15);
   position: relative;
 }
@@ -241,7 +244,7 @@
 
 .price {
   position: relative;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 800;
   color: var(--text);
   background: var(--bg);
@@ -260,7 +263,7 @@
 }
 
 .price-currency {
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 700;
   vertical-align: top;
   margin-right: 0.1em;
@@ -278,9 +281,9 @@
   position: relative;
   background: var(--secondary);
   color: var(--bg);
-  font-size: 0.9em;
+  font-size: 0.85em;
   font-weight: 700;
-  padding: 0.7em 1.2em;
+  padding: 0.6em 1em;
   border: 0.2em solid var(--text);
   border-radius: 0.4em;
   box-shadow: 0.3em 0.3em 0 var(--shadow-color);
@@ -336,8 +339,8 @@
 
 .accent-shape {
   position: absolute;
-  width: 2.5em;
-  height: 2.5em;
+  width: 2em;
+  height: 2em;
   background: var(--secondary);
   border: 0.15em solid var(--text);
   border-radius: 0.3em;
@@ -354,10 +357,10 @@
 
 .stamp {
   position: absolute;
-  bottom: 1.5em;
-  left: 1.5em;
-  width: 4em;
-  height: 4em;
+  bottom: 1.2em;
+  left: 1.2em;
+  width: 3em;
+  height: 3em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -379,11 +382,26 @@
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.2em;
+  height: 1.2em;
   background: var(--bg);
   border-right: 0.25em solid var(--text);
   border-top: 0.25em solid var(--text);
   border-radius: 0 0.5em 0 0;
   z-index: 1;
+}
+
+/* Quebra de linha dos cards apenas em telas pequenas */
+@media (max-width: 600px) {
+  .card2 {
+    width: 95vw;
+    min-width: 0;
+    max-width: 100%;
+    margin: 1em auto;
+  }
+  /* Se o container dos cards for flex, faz a quebra em coluna */
+  .container-fluid {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
 }
