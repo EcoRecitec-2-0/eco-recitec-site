@@ -80,7 +80,7 @@
 	<link rel="stylesheet" type="text/css" href="css/logos-carousel.css" />
 </head>
 
-  
+
 
 <body>
 	<!-- Google Tag Manager (noscript) -->
@@ -88,15 +88,23 @@
 			style="display: none; visibility: hidden"></iframe></noscript>
 	<!-- End Google Tag Manager (noscript) -->
 
-	<div id="loadingOverlay" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+	<div id="loadingOverlay"
+		style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: 9999; align-items: center; justify-content: center; flex-direction: column;">
 		<span style="color: white; font-size: 18px; margin-bottom: 15px;">Gerando Link de Pagamento, aguarde...</span>
-		<div style="width: 40px; height: 40px; border: 5px solid #f3f3f3; border-top: 5px solid #FF910B; border-radius: 50%; animation: spin 1s linear infinite;"></div>
+		<div
+			style="width: 40px; height: 40px; border: 5px solid #f3f3f3; border-top: 5px solid #FF910B; border-radius: 50%; animation: spin 1s linear infinite;">
+		</div>
 	</div>
-	  
+
 	<style>
 		@keyframes spin {
-		0% { transform: rotate(0deg); }
-		100% { transform: rotate(360deg); }
+			0% {
+				transform: rotate(0deg);
+			}
+
+			100% {
+				transform: rotate(360deg);
+			}
 		}
 	</style>
 	<div id="page_5e5829d624927">
@@ -497,15 +505,15 @@
 								style="color: #fff; padding: 15px; border-radius: 8px;">
 								Formulário de Inscrição
 								<label for="cargo" class="control-label"
-										style="color: #FF910B; font-size: 13pt; display: block; text-align: center;">
-										APÓS O PAGAMENTO, RETORNAR À PÁGINA PARA O ENVIO DOS DADOS
+									style="color: #FF910B; font-size: 13pt; display: block; text-align: center;">
+									APÓS O PAGAMENTO, RETORNAR À PÁGINA PARA O ENVIO DOS DADOS
 								</label>
 							</h2>
 							<form id="inscricaoForm" class="form-horizontal"
 								style="padding: 20px; background: #f9f9f9; border-radius: 8px; max-width: 500px; margin: 0 auto;">
 								<div class="form-group">
 									<label for="nome" class="control-label">Nome:</label>
-									<input type="text" id="nome" name="name" class="form-control" required
+									<input type="text" id="nome" name="nome" class="form-control" required
 										placeholder="Digite seu nome">
 								</div>
 								<div class="form-group">
@@ -551,37 +559,47 @@
 
 								<div class="form-group">
 									<label class="control-label">
-									  Inscrição individual por apenas R$ 350 em até 10x
+										Inscrição individual por apenas R$ 350 em até 10x
 									</label>
-									<a href="https://www.mercadopago.com.br/checkout/v1/payment/redirect/b4b342cd-3634-4723-957c-db39ed5486a0/payment-option-form-v2/?source=link&preference-id=576632754-525a377d-5f07-4043-a264-1a309c675887&router-request-id=e18b76ed-189a-47b8-bc21-08bc8567656f&p=533e3ce7e15a9611eb415a593d4edeac" target="_blank" id="pagarBtn" class="btn botao2">
-									  Gerar Link de Pagamento
+									<a href="https://www.mercadopago.com.br/checkout/v1/payment/redirect/b4b342cd-3634-4723-957c-db39ed5486a0/payment-option-form-v2/?source=link&preference-id=576632754-525a377d-5f07-4043-a264-1a309c675887&router-request-id=e18b76ed-189a-47b8-bc21-08bc8567656f&p=533e3ce7e15a9611eb415a593d4edeac"
+										target="_blank" id="pagarBtn" class="btn botao2">
+										Gerar Link de Pagamento
 									</a>
 									<p id="pagamentoStatus" style="margin-top: 10px; font-weight: bold;"></p>
 									<label class="control-label"
-									  style="color: #FF910B; font-size: 13pt; display: block; text-align: center;">
-									  ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com
+										style="color: #FF910B; font-size: 13pt; display: block; text-align: center;">
+										ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com
 									</label>
-								  </div>
-								  
+								</div>
+
 								<div class="form-group">
-									<label>Você gostaria de participar de uma seleção para realizar um teste gratuíto do método de mindset de linear ao circular no aspecto do softskills e ficar sabendo sobre o seu perfil para a circularidade??</label>
-									<label><input type="radio" name="participarSelecaoMindset" value="Sim" required> Sim</label>
-									<label><input type="radio" name="participarSelecaoMindset" value="Não"> Não</label>
+									<label>
+										Você gostaria de participar de uma seleção para realizar um teste gratuíto do
+										método de mindset de linear ao circular no aspecto do softskills e ficar sabendo
+										sobre o seu perfil para a circularidade??
+									</label>
+									<label>
+										<input type="radio" name="participar_teste" value="Sim" required> Sim
+									</label>
+									<label>
+										<input type="radio" name="participar_teste" value="Não"> Não
+									</label>
 								</div>
 								<div class="form-group">
 									<label>Poderia disponibilizar um horário de 15 min para fazer o teste?</label>
 									<br>
 									<label>
-										<input type="radio" name="disponibilidadeHorarioTeste" value="Sim" required>
+										<input type="radio" name="disp_teste" value="Sim" required>
 										Sim
 									</label>
 									<label>
-										<input type="radio" name="disponibilidadeHorarioTeste" value="Não">
+										<input type="radio" name="disp_teste" value="Não">
 										Não
 									</label>
 								</div>
 								<div class="form-group">
-									<label for="indicacao">Veio por meio de indicação? Se sim, nos diga quem te indicou o evento.:</label>
+									<label for="indicacao">Veio por meio de indicação? Se sim, nos diga quem te indicou
+										o evento.:</label>
 									<textarea id="indicacao" name="indicacao" class="form-control"
 										placeholder="Quem te indicou?" rows="3"></textarea>
 								</div>
@@ -592,7 +610,7 @@
 								</div>
 								<button id="submitButton" type="submit" class="btn botao2">Enviar</button>
 							</form>
-							  
+
 
 						</div>
 
@@ -613,22 +631,26 @@
 							</strong>
 						</div>
 						<div class="slide">
-							<img src="images/logo-recitec-02-02-removebg-preview-300x183.png" alt="Mindset" height="100" width="250" alt="" />
+							<img src="images/logo-recitec-02-02-removebg-preview-300x183.png" alt="Mindset" height="100"
+								width="250" alt="" />
 						</div>
 						<div class="slide">
-							<img src="images/whatsapp_image_2024-06-09_at_12.33.35-removebg-preview.png" height="100" width="250" alt="" />
+							<img src="images/whatsapp_image_2024-06-09_at_12.33.35-removebg-preview.png" height="100"
+								width="250" alt="" />
 						</div>
 						<div class="slide">
 							<img src="images/image-removebg-preview-1-300x170.png" height="100" width="250" alt="" />
 						</div>
 						<div class="slide">
-							<img  src="images/cec-moscow 500x498.png" alt="Logo Ciesp" height="100" width="250" alt="" />
+							<img src="images/cec-moscow 500x498.png" alt="Logo Ciesp" height="100" width="250" alt="" />
 						</div>
 						<div class="slide">
-							<img src="images/whatsapp_image_2024-06-09_at_12.36.16-removebg-preview.png" alt="Mindset" height="100" width="250" alt="" />
+							<img src="images/whatsapp_image_2024-06-09_at_12.36.16-removebg-preview.png" alt="Mindset"
+								height="100" width="250" alt="" />
 						</div>
 						<div class="slide">
-							<img src="images/page-2-event/merci.png" alt="Promoção 3 em 1" height="100" width="250" alt="" />
+							<img src="images/page-2-event/merci.png" alt="Promoção 3 em 1" height="100" width="250"
+								alt="" />
 						</div>
 						<div style="text-align: center; display: flex; align-items: center;" class="slide">
 							<strong>
@@ -638,10 +660,12 @@
 							</strong>
 						</div>
 						<div class="slide">
-							<img src="images/prefeitura-logo.jpg" alt="Logo Prefeitura de Salvador" height="100" width="250" alt="" />
+							<img src="images/prefeitura-logo.jpg" alt="Logo Prefeitura de Salvador" height="100"
+								width="250" alt="" />
 						</div>
 						<div class="slide">
-							<img src="images/MARCA FIEB PNG_FIEB  INTERNET.png" alt="Logo FIEB" height="100" width="250" alt="" />
+							<img src="images/MARCA FIEB PNG_FIEB  INTERNET.png" alt="Logo FIEB" height="100" width="250"
+								alt="" />
 						</div>
 						<div class="slide">
 							<img src="images/marca-GetIN-OK-05.png" alt="Logo GetIN" height="100" width="250" alt="" />
@@ -662,7 +686,8 @@
 							<img src="images/logo-ciesp.jpeg" alt="Logo Ciesp" height="100" width="250" alt="" />
 						</div>
 						<div class="slide">
-							<img src="images/mulheres-no-timao-logo.jpg" alt="Logo Mulheres no Timão" height="100" width="250" alt="" />
+							<img src="images/mulheres-no-timao-logo.jpg" alt="Logo Mulheres no Timão" height="100"
+								width="250" alt="" />
 						</div>
 					</div>
 				</div>
@@ -671,12 +696,13 @@
 				<div class="container-fluid" style="color: white; max-width: 1200px; margin: auto;">
 					<!-- Logo -->
 					<div class="row" style="display: flex; justify-content: space-between; align-items: center;">
-		
+
 						<div class="col-xs-8 col-sm-4 col-md-4" style="text-align: center;">
 							<p style="font-size: 12pt; color: #ffffff;"><strong>Somos referência na transição da
 									economia linear para economia circular</strong></p>
 							<p style="color: #ffffff; font-size: 10pt;"></p>
-							Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia circular/ESG,
+							Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia
+							circular/ESG,
 							cursos, treinamentos, mentoria e gestão de projetos.
 							</p>
 							<p style="font-size: 12pt; color: #ffffff;"><strong>Circular Tech Skills</strong></p>
@@ -693,7 +719,7 @@
 				</div>
 			</div>
 			<div class="clear"></div>
-			
+
 		</div>
 	</div>
 
@@ -763,49 +789,46 @@
 			}
 		});
 	</script>
-	<!-- <script>
-		document.getElementById("inscricaoForm").addEventListener("submit", async function(event) {
+	<script>
+		document.getElementById("inscricaoForm").addEventListener("submit", async function (event) {
 			event.preventDefault(); // Impede o envio tradicional do formulário
-	
+
 			const submitButton = document.getElementById("submitButton");
 			submitButton.disabled = true;
 			submitButton.innerHTML = "Enviando..."; // Mostra o carregamento
-	
+
 			const formData = new FormData(this);
 			const formObject = {};
 			formData.forEach((value, key) => formObject[key] = value);
-	
+
 			try {
 				const response = await fetch("https://api-form-flask.onrender.com/submit", {
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify(formObject),
 				});
-	
+
+				console.log("Status:", response.status);
+				const respText = await response.text();
+				console.log("Resposta do servidor:", respText);
+
 				if (response.ok) {
-					const data = await response.json();
-	
-					// Se a resposta tiver init_point, abre em nova aba
-					if (data.init_point) {
-						window.open(data.init_point, "_blank");
-					} else {
-						alert("Inscrição enviada com sucesso, cheque sua caixa de spam caso não receba o email de confirmação!!");
-						this.reset(); // Limpa o formulário
-					}
+					alert("Inscrição enviada com sucesso! Cheque sua caixa de spam caso não receba o email de confirmação.");
+					this.reset(); // Limpa o formulário
 				} else {
 					alert("Erro ao enviar a inscrição. Tente novamente.");
 				}
 			} catch (error) {
 				alert("Erro de conexão com o servidor.");
 			}
-	
+
 			submitButton.disabled = false;
 			submitButton.innerHTML = "Enviar"; // Restaura o botão original
 		});
-	</script> -->
+	</script>
 
-	
-	
+
+
 	<!-- <script>
 		document.getElementById("pagarBtn2").addEventListener("click", function () {
 			const statusEl = document.getElementById("pagamentoStatus");
@@ -823,8 +846,8 @@
 			}, 2000);
 		});
 	</!-->
-	
-	<script>
+
+	<!-- <script>
 		document.addEventListener("DOMContentLoaded", function () {
 			const loadingOverlay = document.getElementById("loadingOverlay");
 			if (loadingOverlay) {
@@ -878,9 +901,9 @@
 				}
 			});
 		}
-	</script>
-	
-	
+	</script> -->
+
+
 	<script type="text/javascript" src="js/wow.js"></script>
 	<script type="text/javascript">
 		$(function () {
