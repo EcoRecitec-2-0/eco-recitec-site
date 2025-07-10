@@ -191,6 +191,24 @@
 					font-size: 17pt;
 				}
 
+				.personCard-container.personCard--withImage {
+					margin: 10px;
+				}
+
+				#inscricoes {
+						max-width: 50%;
+    					text-align: center;
+    					margin-top: 2%;
+				}								
+
+				.page-title-2 {
+					justify-content: center;
+					text-align: center;					
+					font-size: 30pt;
+					color: #fff;
+					margin: 0px 0px 20px 0px;
+				}
+
 				@media (min-width: 1101px) {
 					.sejaUm {
 						margin-left: 30px;
@@ -249,6 +267,12 @@
 					}
 				}
 
+				@media (max-width: 767px) {
+					#_726563101_1571691348 .botao-geral {
+						margin: 6px 0px;
+					}
+				}
+
 				@media (max-width: 768px) {
 					.sejaUm {
 						margin-left: 0px;
@@ -279,8 +303,13 @@
 
 					.obs {
 						font-size: 15pt;
-					}
+					}					
 
+				}
+				@media (max-width: 754px) {
+					.personCard-container.personCard--withImage {
+						margin: 50px 10px 10px 10px;
+					}
 				}
 
 				@media (max-width: 468px) {
@@ -320,20 +349,34 @@
 					}
 
 					.container-fluid {
-						padding: 20px 0;
+						padding: 0;
 					}
+					.container-listBoxes {
+						width: 100vw;
+						overflow-x: clip;
+					}
+					.page-title-2 {
+						justify-content: center;
+						text-align: center;
+						max-width: 100vw;
+						overflow: hidden;
+						font-size: 2.3em;
+						color: #fff;
+						margin: 0px 0px 20px 0px;
+					}			
+					#inscricoes {					
+						width: 100%;
+						max-width: 100%;
+					}		
 
 					.obs {
 						font-size: 14pt;
 					}
 				}
-
-
-
-				/*------------------------------------------------*/
-				/* Classe para o parágrafo específico */
+								
 				#specific-paragraph {
 					font-size: 30pt;
+					padding: 0px 20px;
 				}
 
 				/* Ajuste do título com margens */
@@ -357,7 +400,23 @@
 					color: #00517a;
 				}
 
-				/* Font-size para responsividade em telas menores */
+				.card-caption-personText {
+					font-size: 15px;
+					line-height: 1.4;
+					color: #FF910B;
+					font-family:Montserrat;
+					text-align: center;
+					padding: 5px;
+					max-width: 180px;
+				}
+
+				.card-caption-personText p {
+					font-size: 16px;					
+					color: #FF910B;					
+					font-weight: 600;		
+					margin-top: 10px;			
+				}				
+
 				@media (max-width: 320px) {
 					#specific-paragraph {
 						font-size: 25pt;
@@ -400,7 +459,7 @@
 
 				#palestrantes-cards {
 					width: 100%;
-					background-image: url('./images/page-2-event/fundo-palestrantes.png');
+					background: #031d43;
 					background-size: cover;
 					background-position: center;
 					background-repeat: no-repeat;
@@ -630,7 +689,7 @@
 					<div class="clear"></div>
 				</div>
 				<div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595">
-					<p style="text-align: center; margin-top: 2%;">
+					<p style="text-align: center; margin: 2% 0px 10px 0px;">
 						<strong><span style="font-size: 30pt"><span style="color: #333333">VAMOS FAZER JUNTOS
 								</span> <span style="color: #00517a">ESSA JORNADA CIRCULAR</span></span></strong>
 					</p>
@@ -639,7 +698,7 @@
 					</br>
 					</br>
 				</div>
-				<div class="container" name="Container_5e5829d58e1b8" id="_6165393847_1571691601">
+				<div class="container container-listBoxes" name="Container_5e5829d58e1b8" id="_6165393847_1571691601">
 					<div class="wrap col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0 wow fadeInUp"
 						id="_5dae1c671f4fc_1571691623">
 						<div class="row equal-height">
@@ -650,7 +709,7 @@
 									<div id="text_5e5829d58ea3d"
 										class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0">
 										<p>
-											<span style="font-size: 19pt; color: #ffffff; line-height: 2px;"><strong
+											<span style="font-size: 19pt; color: #ffffff; line-height: 102%;"><strong
 													class="habTitle">Economia
 													Circular <br><br> </strong>Aplicada:</span>
 										</p>
@@ -677,16 +736,16 @@
 									<div id="text_5e5829d58effc"
 										class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0">
 										<p>
-											<span style="font-size: 19pt; color: #ffffff; line-height: 2px;"><strong
+											<span style="font-size: 19pt; color: #ffffff; line-height: 102%;"><strong
 													class="habTitle">ESG</strong></span>
 										</p>
 										<p>
 											<span style="font-size: 12pt; color: #ffffff; line-height: 1px;">
 												<ul style="font-size: 16pt; color: #ffffff;">
-													<li style="margin-bottom: 40px;">Público</li>
-													<li style="margin-bottom: 29px;">Privado</li>
-													<li style="margin-bottom: 29px;">Sustentabilidade</li>
-													<li style="margin-bottom: 33px;">Social Ambiental</li>
+													<li style="margin-bottom: 23px;">Público</li>
+													<li style="margin-bottom: 23px;">Privado</li>
+													<li style="margin-bottom: 23px;">Sustentabilidade</li>
+													<li style="margin-bottom: 23px;">Social Ambiental</li>
 												</ul>
 											</span>
 										</p>
@@ -702,10 +761,10 @@
 									<div id="text_5e5829d58f5bc"
 										class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0">
 										<p>
-											<span style="font-size: 19pt; color: #ffffff; line-height: 2px;"><strong
+											<span style="font-size: 19pt; color: #ffffff; line-height: 102%;"><strong
 													class="habTitle">Habilidades
 													Circulares
-													<br> </strong></span>
+													</strong></span>
 										</p>
 										<p>
 											<span style="font-size: 15pt; color: #ffffff; line-height: 2px;">
@@ -732,7 +791,7 @@
 									<div id="text_5e5829d58ea3d"
 										class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0">
 										<p>
-											<span style="font-size: 19pt; color: #ffffff; line-height: 2px;"><strong
+											<span style="font-size: 19pt; color: #ffffff; line-height: 102%;"><strong
 													class="habTitle">Tecnologias
 													<br><br> </strong></span>
 										</p>
@@ -770,7 +829,7 @@
 					<!-- Dia 10 -->
 					<h3 style="padding: 10px; text-align: center;" id="programacao">PROGRAMAÇÃO PRÉVIA</h3>
 					<div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595"
-					style="display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 50px 0;">
+					style="display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 50px 0; overflow: auto; max-width: 100vw;">
 					<div style="flex: 1; min-width: 300px; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center;"
 						class="programação">
 					<table style="border-collapse: collapse; min-width: 300px; max-width: 800px; text-align: left;">
@@ -933,14 +992,13 @@
 						<p id="specific-paragraph" class="text-center mt-2 title-text">
 							<strong>
 								<span class="text-main">
-									 Formato<span style="color:#008ce4"> ONLINE</span> QUE ACONTECEU NO FORMATO ONLINE DIA 9 DE ABRIL - <span
-										class="text-highlight">FOI INCRÍVEL</span>
+									Congresso Internacional Circular Tech Skills no Formato <span style="color:#008ce4">On-line</span> em 9 de abril 25 foi <span class="text-highlight">incrível</span>									 
 								</span>
 							</strong>
 						</p>
 					</div>
 					<div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595"
-						style="display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 50px 0;">
+						style="display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 50px 0; overflow: scroll; max-width: 100vw;">
 						<div style="flex: 1; min-width: 300px; max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; align-items: center;"
 							class="programação">
 							<table style="border-collapse: collapse; width: 100%; text-align: left;">
@@ -1083,51 +1141,47 @@
 					style="margin: 0">
 					<div class="container-fluid" id="_5dae1c4b7c294_1571691595" id="palestrantes">
 						<p style="text-align: center; margin-top: 2%;">
-							<strong><span style="font-size: 20pt; color: #FF910B;">COORDENADORES E PALESTRANTES
-									CONFIRMADOS</span></strong>
+							<strong><span style="font-size: 20pt; color: #FF910B;">COORDENADORES E PALESTRANTES</span></strong>
 						</p>
 					</div>
 					<br>
 					<div style="max-width: 600px; margin: 0 auto;">
 						<div class="flex col-xs-12 col-sm-12 col-md-12"
-							style="display: flex; margin: 0 auto; align-items: center; justify-content: center; text-align: center; flex-wrap: wrap; gap: 20px;">
+							style="display: flex; margin: 0 auto 50px auto; align-items: flex-start; justify-content: center; text-align: center; flex-wrap: wrap; gap: 20px;">
 
 							<div
+								class="personCard-container"
 								style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 								<div class="card"
-									style="width: 200px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
-									<img src="images/palestrantes/marca-ellen.png" alt="Marca Ellen-MacArthur"
-										style="width: 100%; height: 100%; object-fit: cover;">
-								</div>
-								<div class="card"
-									style="margin-top:-30px; width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-									<img src="images/palestrantes/ellen.png" alt="Foto Gustavo Alves"
+									style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+									<img src="images/palestrantes/katarina.jpg" alt="Foto Ekaterina Egorova"
 										style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
 								</div>
-								<div class="card-caption"
-									style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat; text-align: center; padding: 5px; max-width: 240px;">
-									<strong style="font-size: 16px; color: #ffffff;">Gustavo Alves</strong><br>
-									LatAm Innovation Community Manager <br>
-									A Importância do Design Circular na Cadeia de Valor- Setor de Alimentos <br>
-									Circular Tech Skills
+								<div class="card-caption card-caption-personText"
+									style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;; text-align: center; padding: 5px; max-width: 180px;">
+									<strong style="font-size: 16px; color: #ffffff;">Ekaterina Egorova</strong><br>
+									Desafios e Oportunidades no planejamento estratégico de cidades circulares: O caso de Kazan(Rússia), Fundadora do Moscou Circular
+									<p>CONFIRMADO</p>
 								</div>
 							</div>
 
 							<div
+								class="personCard-container"
 								style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 								<div class="card"
-									style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); margin-top: 55px;">
+									style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 									<div class="elementor-widget-container" style="height: 50px;">
 
 									</div>
 									<img src="images/palestrantes/celene.jpeg" alt="Foto Celene"
 										style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
 								</div>
-								<div class="card-caption"
+								<div class="card-caption card-caption-personText"
 									style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat; text-align: center; padding: 5px; max-width: 240px;">
 									<strong style="font-size: 16px; color: #ffffff;">Celene Brito</strong><br>
 									Direção Geral e Palestrante Mindset e Circular Skills<br>
 									CEO da EcoRecitec e CEC City Salvador
+									<p>CONFIRMADO</p>
 								</div>
 							</div>
 
@@ -1136,266 +1190,279 @@
 						</div>
 					</div>
 					<div class="flex col-xs-12 col-sm-12 col-md-12"
-						style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
-
-						
-						<div
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
-							<div class="card"
-								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-								<img src="images/palestrantes/katarina.jpg" alt="Foto Ekaterina Egorova"
-									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;; text-align: center; padding: 5px; max-width: 180px;">
-								<strong style="font-size: 16px; color: #ffffff;">Ekaterina Egorova</strong><br>
-								Desafios e Oportunidades no planejamento estratégico de cidades circulares: O caso de Kazan(Rússia), Fundadora do Moscou Circular
-							</div>
-						</div>
-
-						
-						<div
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
-							<div class="card"
-								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-								<img src="images/palestrantes/jorge.jpg" alt="Foto Jorge"
-									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat; text-align: center; padding: 5px; max-width: 180px;">
-								<strong style="font-size: 16px; color: #ffffff;">Jorge Soto</strong><br>
-								Palestrante Normas ISO 323 da Economia Circular<br>
-								Coordenação da elaboração das Normas ISO pela ABNT
-							</div>
-						</div>
+						style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; align-items: flex-start;">
 
 						<div
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
-							<div class="card"
-								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-								<img src="images/palestrantes/arlinda.jpg" alt="Promoção 3 em 1"
-									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;  text-align: center; padding: 5px; max-width: 180px;">
-								<strong style="font-size: 16px; color: #ffffff;"> Arlinda Negreiros </strong><br>
-								Palestrante - Experiência da FIEB na Gestão da Sustentabilidade e Economia Circular <br>
-								Gerente de Sustentabilidade da FIEB
-							</div>
-						</div>
-
-						
-						<div
+							class="personCard-container"
 							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 							<div class="card"
 								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 								<img src="images/palestrantes/ademir.jpg" alt="Promoção 3 em 1"
 									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
 							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;  text-align: center; padding: 5px; max-width: 180px;">
+							<div class="card-caption card-caption-personText">
 								<strong style="font-size: 16px; color: #ffffff;">Ademir Brescansin</strong><br>
 								Gerente Executivo na Green Eletron<br>
 								Palestrante sobre Logística Reversa dos Materiais Eletrônicos
+								<p>CONFIRMADO</p>
 							</div>
 						</div>
-
-						
-
-						<div
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
-							<div class="card"
-								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-								<img src="images/palestrantes/celso.jpg" alt="Foto Jorge"
-									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;; text-align: center; padding: 5px; max-width: 180px;">
-								<strong style="font-size: 16px; color: #ffffff;">Celso Bastos</strong><br>
-								Palestrante e Coordenador do Comitê de Construção Circular<br>
-								Coordenador do CEC City Vitória e Diretor da Construtora OUT
-							</div>
-						</div>
-
-						<div
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
-							<div class="card"
-								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-								<img src="images/palestrantes/carlos.jpeg" alt="Foto Carlos Oliveira"
-									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat; text-align: center; padding: 5px; max-width: 180px;">
-								<strong style="font-size: 16px; color: #ffffff;">Carlos Oliveira
-									Augusto</strong><br>
-								Palestrante Arquitetura Circular
-								Universidade Lusíada de Lisboa - Portugal<br>
-								FACTOR4Sustainability Founder
-							</div>
-						</div>
-						<!-- Terceiro Card -->
-						<div
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
-							<div class="card"
-								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-								<img src="images/palestrantes/polina.jpeg" alt="Promoção 3 em 1"
-									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;  text-align: center; padding: 5px; max-width: 180px;">
-								<strong style="font-size: 16px; color: #ffffff;">Efimova Polina</strong><br>
-								Assessora do Comitê de Construção Circular Moscou-Russia<br>
-								Coordenação Clube CEC Moscou
-							</div>
-						</div>
-
 						
 						<div
-						style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
-							<div class="card"
-								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-								<img src="images/palestrantes/flavio.jpg" alt="Promoção 3 em 1"
-									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;  text-align: center; padding: 5px; max-width: 180px;">
-								<strong style="font-size: 16px; color: #ffffff;">Flavio Nisebaum</strong><br>
-								Consultor de Economia Circular e Sustentabilidade Houston - EUA<br>
-								Coordenador do Comitê Design Circular de Produtos para a Indústria
-							</div>
-
-						</div>
-
-						
-						<div
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
-							<div class="card"
-								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-								<img src="images/palestrantes/xavier.jpg" alt="Foto Carlos Oliveira"
-									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat; text-align: center; padding: 5px; max-width: 180px;">
-								<strong style="font-size: 16px; color: #ffffff;">Xavier Veciana</strong><br>
-								Palestrante- Desenho Estratégico para Negócios Locais
-								Economia Donut<br>
-								Economista Organização ED Brasil
-							</div>
-						</div>
-
-						
-						<div
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
-							<div class="card"
-								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-								<img src="images/palestrantes/juliana.jpg" alt="Juliana Galliano"
-									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat; text-align: center; padding: 5px; max-width: 180px;">
-								<strong style="font-size: 16px; color: #ffffff;">Juliana Galliano</strong><br>
-								Coordenadora do Comitê Empreendedorismo Social e Ambiental <br>
-								Palestrante do tema ESGTech
-							</div>
-						</div>
-
-
-						<div
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
-							<div class="card"
-								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-								<img src="images/palestrantes/ilja.jpg" alt="Promoção 3 em 1"
-									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;  text-align: center; padding: 5px; max-width: 180px;">
-								<strong style="font-size: 16px; color: #ffffff;">Ilja Donkervoort</strong><br>
-								Oficial de Políticas da UE e da Cooperação Internacional<br>
-								Palestrante de Política de Economia Circular com Exemplos Práticos na Holanda
-							</div>
-						</div>
-
-
-						<div
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
-							<div class="card"
-								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
-								<img src="images/palestrantes/linn.jpg" alt="Foto Linn Lindfred"
-									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
-							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat; text-align: center; padding: 5px; max-width: 180px;">
-								<strong style="font-size: 16px; color: #ffffff;">Linn Lindfred </strong><br>
-								Palestrante: Como a Inteligência Artificial pode contribuir para a Economia Circular<br>
-								Suécia<br>
-								Founder of Circularista AB and Waste2Value
-							</div>
-						</div>
-
-						<div
+							class="personCard-container"
 							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 							<div class="card"
 								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 								<img src="images/palestrantes/jorge.jpg" alt="Foto Jorge"
 									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
 							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat; text-align: center; padding: 5px; max-width: 180px;">
+							<div class="card-caption card-caption-personText">
 								<strong style="font-size: 16px; color: #ffffff;">Jorge Soto</strong><br>
 								Palestrante Normas ISO 323 da Economia Circular<br>
 								Coordenação da elaboração das Normas ISO pela ABNT
+								<p>CONFIRMADO</p>
+							</div>
+						</div>
+
+						<div
+							class="personCard-container"
+							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							<div class="card"
+								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+								<img src="images/palestrantes/arlinda.jpg" alt="Promoção 3 em 1"
+									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+							<div class="card-caption card-caption-personText">
+								<strong style="font-size: 16px; color: #ffffff;">Arlinda Negreiros </strong><br>
+								Palestrante - Experiência da FIEB na Gestão da Sustentabilidade e Economia Circular <br>
+								Gerente de Sustentabilidade da FIEB
+								<p>CONFIRMADO</p>
+							</div>
+						</div>
+
+						<div
+							class="personCard-container personCard--withImage"
+							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center; position: relative;">
+							<div class="card"
+								style="width: 200px; overflow: hidden; display: flex; align-items: center; justify-content: center; position: absolute; left: 0; top: -60px;">
+								<img src="images/palestrantes/marca-ellen.png" alt="Marca Ellen-MacArthur"
+									style="width: 100%; height: 100%; object-fit: cover;">
+							</div>
+							<div class="card"
+								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+								<img src="images/palestrantes/ellen.png" alt="Foto Gustavo Alves"
+									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+							<div class="card-caption card-caption-personText">
+								<strong style="font-size: 16px; color: #ffffff;">Gustavo Alves</strong><br>
+								LatAm Innovation Community Manager <br>
+								A Importância do Design Circular na Cadeia de Valor- Setor de Alimentos <br>
+								Circular Tech Skills
+								<p>A CONFIRMAR ETAPA 2</p>
+							</div>
+						</div>																		
+
+						<div
+							class="personCard-container"
+							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							<div class="card"
+								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+								<img src="images/palestrantes/celso.jpg" alt="Foto Jorge"
+									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+							<div class="card-caption card-caption-personText">
+								<strong style="font-size: 16px; color: #ffffff;">Celso Bastos</strong><br>
+								Palestrante e Coordenador do Comitê de Construção Circular<br>
+								Coordenador do CEC City Vitória e Diretor da Construtora OUT
+								<p>A CONFIRMAR ETAPA 2</p>
+							</div>
+						</div>
+
+						<div
+							class="personCard-container"
+							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							<div class="card"
+								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+								<img src="images/palestrantes/carlos.jpeg" alt="Foto Carlos Oliveira"
+									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+							<div class="card-caption card-caption-personText">
+								<strong style="font-size: 16px; color: #ffffff;">Carlos Oliveira
+									Augusto</strong><br>
+								Palestrante Arquitetura Circular
+								Universidade Lusíada de Lisboa - Portugal<br>
+								FACTOR4Sustainability Founder
+								<p>A CONFIRMAR ETAPA 2</p>
+							</div>
+						</div>
+						<!-- Terceiro Card -->
+						<div
+							class="personCard-container"
+							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							<div class="card"
+								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+								<img src="images/palestrantes/polina.jpeg" alt="Promoção 3 em 1"
+									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+							<div class="card-caption card-caption-personText">
+								<strong style="font-size: 16px; color: #ffffff;">Efimova Polina</strong><br>
+								Assessora do Comitê de Construção Circular Moscou-Russia<br>
+								Coordenação Clube CEC Moscou
+								<p>A CONFIRMAR ETAPA 2</p>
+							</div>
+						</div>
+
+						
+						<div
+							class="personCard-container"
+							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							<div class="card"
+								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+								<img src="images/palestrantes/flavio.jpg" alt="Promoção 3 em 1"
+									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+							<div class="card-caption card-caption-personText">
+								<strong style="font-size: 16px; color: #ffffff;">Flavio Nisebaum</strong><br>
+								Consultor de Economia Circular e Sustentabilidade Houston - EUA<br>
+								Coordenador do Comitê Design Circular de Produtos para a Indústria
+								<p>CONFIRMADO</p>
+							</div>
+
+						</div>
+
+						
+						<div
+							class="personCard-container"
+							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							<div class="card"
+								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+								<img src="images/palestrantes/xavier.jpg" alt="Foto Carlos Oliveira"
+									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+							<div class="card-caption card-caption-personText">
+								<strong style="font-size: 16px; color: #ffffff;">Xavier Veciana</strong><br>
+								Palestrante- Desenho Estratégico para Negócios Locais
+								Economia Donut<br>
+								Economista Organização ED Brasil
+								<p>CONFIRMADO</p>
+							</div>
+						</div>
+
+						
+						<div
+							class="personCard-container"
+							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							<div class="card"
+								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+								<img src="images/palestrantes/juliana.jpg" alt="Juliana Galliano"
+									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+							<div class="card-caption card-caption-personText">
+								<strong style="font-size: 16px; color: #ffffff;">Juliana Galliano</strong><br>
+								Coordenadora do Comitê Empreendedorismo Social e Ambiental <br>
+								Palestrante do tema ESGTech
+								<p>A CONFIRMAR ETAPA 2</p>
+							</div>
+						</div>
+
+
+						<div
+							class="personCard-container"
+							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							<div class="card"
+								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+								<img src="images/palestrantes/ilja.jpg" alt="Promoção 3 em 1"
+									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+							<div class="card-caption card-caption-personText">
+								<strong style="font-size: 16px; color: #ffffff;">Ilja Donkervoort</strong><br>
+								Oficial de Políticas da UE e da Cooperação Internacional<br>
+								Palestrante de Política de Economia Circular com Exemplos Práticos na Holanda
+								<p>A CONFIRMAR ETAPA 2</p>
+							</div>
+						</div>
+
+
+						<div
+							class="personCard-container"
+							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							<div class="card"
+								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+								<img src="images/palestrantes/linn.jpg" alt="Foto Linn Lindfred"
+									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+							<div class="card-caption card-caption-personText">
+								<strong style="font-size: 16px; color: #ffffff;">Linn Lindfred </strong><br>
+								Palestrante: Como a Inteligência Artificial pode contribuir para a Economia Circular<br>
+								Suécia<br>
+								Founder of Circularista AB and Waste2Value
+								<p>A CONFIRMAR ETAPA 2</p>
+							</div>
+						</div>
+
+						<div
+							class="personCard-container"
+							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							<div class="card"
+								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+								<img src="images/palestrantes/jorge.jpg" alt="Foto Jorge"
+									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+							</div>
+							<div class="card-caption card-caption-personText">
+								<strong style="font-size: 16px; color: #ffffff;">Jorge Soto</strong><br>
+								Palestrante Normas ISO 323 da Economia Circular<br>
+								Coordenação da elaboração das Normas ISO pela ABNT
+								<p>CONFIRMADO</p>
 							</div>
 						</div>
 						<!-- Quarto Card -->
 						<div
+							class="personCard-container"
 							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 							<div class="card"
 								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 								<img src="images/palestrantes/shalini.jpg" alt="Promoção 3 em 1"
 									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
 							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;  text-align: center; padding: 5px; max-width: 180px;">
+							<div class="card-caption card-caption-personText">
 								<strong style="font-size: 16px; color: #ffffff;">Shalini Goyal Bhalla</strong><br>
 								Palestrante - Panorama da Economia Circular no Mundo Vista do Oriente <br>
 								International Council for Circular Economy - Índia
+								<p>A CONFIRMAR ETAPA 2</p>
 							</div>
 						</div>
 
-
-
-						<!-- Primeiro Card -->
-
-						<!-- Quinto Card -->
 						<div
+							class="personCard-container"
 							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 							<div class="card"
 								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 								<img src="images/palestrantes/andreFraga.jpg" alt="Promoção 3 em 1"
 									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
 							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;  text-align: center; padding: 5px; max-width: 180px;">
+							<div class="card-caption card-caption-personText">
 								<strong style="font-size: 16px; color: #ffffff;">André Fraga</strong><br>
 								Palestrante de Cultura Circular em Comunidades e Stakeholders<br>
 								Vereador do Partido Verde em Salvador
+								<p>A CONFIRMAR ETAPA 2</p>
 							</div>
 						</div>
 
 
 
 						<div
+							class="personCard-container"
 							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 							<div class="card"
 								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 								<img src="images/palestrantes/ivan-euler.jpg" alt="Promoção 3 em 1"
 									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
 							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;  text-align: center; padding: 5px; max-width: 180px;">
+							<div class="card-caption card-caption-personText">
 								<strong style="font-size: 16px; color: #ffffff;"> Ivan Euler </strong><br>
 								Palestrante - Cidades Resilientes e Circulares<br>
 								Secretário - SECIS - Prefeitura Municipal de Salvador
+								<p>A CONFIRMAR ETAPA 2</p>
 							</div>
 						</div>
 						<!-- Sétimo Card -->
@@ -1404,33 +1471,35 @@
 
 
 						<div
+							class="personCard-container"
 							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 							<div class="card"
 								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 								<img src="images/palestrantes/oswaldo.jpeg" alt="Foto do palestrante Oswaldo"
 									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
 							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat; text-align: center; padding: 5px; max-width: 180px;">
+							<div class="card-caption card-caption-personText">
 								<strong style="font-size: 16px; color: #ffffff;">Oswaldo Serrano de
 									Oliveira</strong><br>
 								Coordenador do Comitê ESG - Instituições Públicas<br>
 								Conselheiro da CEDAE
+								<p>CONFIRMADO</p>
 							</div>
 						</div>
 						<div
+							class="personCard-container"
 							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 							<div class="card"
 								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 								<img src="images/palestrantes/luiz.jpg" alt="Promoção 3 em 1"
 									style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
 							</div>
-							<div class="card-caption"
-								style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;  text-align: center; padding: 5px; max-width: 180px;">
+							<div class="card-caption card-caption-personText">
 								<strong style="font-size: 16px; color: #ffffff;">Luiz Fernando Araújo
 									Bueno</strong><br>
 								Coordenador de Comitê ESG do Congresso<br>
 								Diretor de Sustentabilidade CIESP
+								<p>A CONFIRMAR ETAPA 2</p>
 							</div>
 						</div>
 
@@ -1443,6 +1512,7 @@
 							</div>
 						</div> -->
 						<div
+							class="personCard-container"
 							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 							<div
 								style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
@@ -1451,12 +1521,13 @@
 									<img src="images/palestrantes/soraya.jpeg" alt="Promoção 3 em 1"
 										style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
 								</div>
-								<div class="card-caption"
-									style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;  text-align: center; padding: 5px; max-width: 180px;">
+								<div class="card-caption card-caption-personText"
+>
 									<strong style="font-size: 16px; color: #ffffff;">Dra Soraya Giovanetti
 										El-Deir</strong><br>
 									Coordenadora do Comitê de Economia Circular e Resíduos Sólidos <br>
 									Professora de EC - UFRPE
+									<p>A CONFIRMAR ETAPA 2</p>
 								</div>
 							</div>
 						</div>
@@ -1679,10 +1750,10 @@
 								id="_1695980164_1571708070">
 								<div id="text_5e5829d58fb7d"
 									class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0">
-									<h2 style="justify-content: center; text-align: center">
-										<strong><span style="font-size: 30pt; color: #ffffff">PLANO ESPECIAL PARA
+									<h2 class="page-title-2">
+										<strong><span>PLANO ESPECIAL PARA
 												<span style="color: #c05e08">STARTUPS</span> COM APRESENTAÇÃO DE PITCH</span></strong>
-										<strong><span style="color: #c05e08; font-size: 30pt; ">CONFIRA AQUI </span>
+										<strong><span style="color: #c05e08;">CONFIRA AQUI </span>
 										</strong>
 									</h2>
 									<div class="botao1 botaoc col-xs-12 " id="_1568036774_1571691348">
@@ -1703,7 +1774,7 @@
 			<br>
 			<br>
 			<div style="display: flex; justify-content: center; align-items: center; text-align: center;" class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595">
-				<p style="max-width: 50%; text-align: center; margin-top: 2%;" id="inscricoes">
+				<p id="inscricoes">
 					<strong><span style="font-size: 30pt">
 							<span style="color: #00517a"><span style="color: #FF910B; font-size: 40pt">CONGRESSO INTERNACIONAL </span>DE
 								ECONOMIA
@@ -1934,7 +2005,7 @@
 						</div>
 					
 						<div class="card2-title-area">
-						<span>ATÉ 04 DE SETEMBRO</span>
+						<span>DE 26 DE JULHO à 04 DE SETEMBRO DE 2025</span>
 						</div>
 					
 						<div class="card2-body">
