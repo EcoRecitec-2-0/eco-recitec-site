@@ -94,21 +94,12 @@ nav[id="_5dae1188b2fee_1571688840"] .navbar { position:initial; }
  #_906684011_1574136500 {
     background-color: rgba(255, 145, 11, 0.9); 
     color: #ffffff; 
-    border-top-width: 2px;
-    border-right-width: 2px;
-    border-left-width: 2px;
-    border-bottom-width: 2px;
+    border-width: 2px;    
     border-style: solid;
-    padding-top: 15px !important;
-    padding-right: 15px !important;
-    padding-left: 15px !important;
-    padding-bottom: 15px !important;
+    padding-top: 15px !important;    
     margin-bottom: 0px;
     border-color: rgba(55, 46, 79, 1);
-    border-top-right-radius: 0px !important;
-    border-bottom-right-radius: 0px !important;
-    border-top-left-radius: 0px !important;
-    border-bottom-left-radius: 0px !important;
+    border-radius: 0px !important;    
     font-size: 14px;
 }
 [id="_55204129_1574136666"] { background-color:transparent !important;background-position:left top;background-repeat:repeat-x;border:0;border-style:solid;padding-top:50px !important;padding-bottom:25px !important; }
