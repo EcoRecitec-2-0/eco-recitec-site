@@ -24,6 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 	<link rel="stylesheet" type="text/css"
 		href="../netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" />
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
 	<link rel="stylesheet" type="text/css" href="css/equipe2726.css?t=5e5829d61ca72" />
 	<link rel="stylesheet" type="text/css" href="css/index9b97.css" />
@@ -207,6 +208,21 @@
 					font-size: 30pt;
 					color: #fff;
 					margin: 0px 0px 20px 0px;
+				}				
+
+				.managePersonsContainer {
+					display: flex;
+					justify-content: center;
+					flex-wrap: wrap;
+					gap: 20px;
+					flex-direction: row;
+					flex-wrap: nowrap;
+				}
+
+				@media (max-width: 814px) {
+					.managePersonsContainer {
+						flex-direction: column;
+					}
 				}
 
 				@media (min-width: 1101px) {
@@ -646,7 +662,7 @@
 										</h2>
 										<p style="text-align: center">
 											<em><span style="font-size: 20pt; color: #ffffff">Venha participar do <span
-														style="color: #FF910B"> I Congressos Internacional </span>de
+														style="color: #FF910B"> <span style="font-family: 'Times New Roman', Times, serif; font-weight: 600;">I</span> Congressos Internacional </span>de
 													Economia Circular, Sustentabilidade, Tecnologia e Habilidades.<br>
 													Etapa presencial: <span style="color: #FF910B">4 e 5 de setembro de
 														2025</span>
@@ -666,11 +682,11 @@
 								<!-- Botões -->
 								<div class=""
 									id="_726563101_1571691348" style="text-align: center;">
-									<a href="#contato" class="botao-geral">
+									<a href="#contato" class="button buttonStyled">
 										<strong>QUERO SER PARCEIRO</strong>
 									</a>
 
-									<a href="cts-inscricao.html" class="botao-geral">
+									<a href="cts-inscricao.html" class="button buttonStyled">
 										<strong>QUERO ME INSCREVER</strong>
 									</a>
 
@@ -815,7 +831,7 @@
 					<br>
 					<br>
 					<br>
-					<div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595">
+					<div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595" data-aos="fade-right">
 						<p id="specific-paragraph" class="text-center mt-2 title-text">
 							<strong>
 								<span class="text-main">
@@ -1418,7 +1434,7 @@
 						<!-- Quarto Card -->
 						<div
 							class="personCard-container"
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							style="order: 1; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 							<div class="card"
 								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 								<img src="images/palestrantes/shalini.jpg" alt="Promoção 3 em 1"
@@ -1434,7 +1450,7 @@
 
 						<div
 							class="personCard-container"
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							style="order: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 							<div class="card"
 								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 								<img src="images/palestrantes/andreFraga.jpg" alt="Promoção 3 em 1"
@@ -1452,7 +1468,7 @@
 
 						<div
 							class="personCard-container"
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							style="order: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 							<div class="card"
 								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 								<img src="images/palestrantes/ivan-euler.jpg" alt="Promoção 3 em 1"
@@ -1488,7 +1504,7 @@
 						</div>
 						<div
 							class="personCard-container"
-							style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+							style="order: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
 							<div class="card"
 								style="width: 150px; height: 150px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 								<img src="images/palestrantes/luiz.jpg" alt="Promoção 3 em 1"
@@ -1594,12 +1610,10 @@
 						</div>
 						<br>
 						<div style="max-width: 600px; margin: 0 auto;">
-							<div class="flex col-xs-12 col-sm-12 col-md-12"
-								style="display: flex;  flex-wrap: wrap; gap: 10px;">
-
+							<div class="flex col-xs-12 col-sm-12 col-md-12 managePersonsContainer">
 								<!-- Primeiro Card -->
 								<div
-									style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+									style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 10px; text-align: center; order: -2;">
 									<div class="card"
 										style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 										<img src="images/palestrantes/celene3.jpg" alt="Foto Celene"
@@ -1615,7 +1629,7 @@
 
 								<!-- Segundo Card -->
 								<div
-									style="display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1 1 200px; margin: 10px; text-align: center;">
+									style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 10px; text-align: center;">
 									<div class="card"
 										style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
 										<img src="images/palestrantes/danilodaisy.jpeg" alt="Foto Jorge"
@@ -1627,6 +1641,20 @@
 											Sampaio</strong><br>
 										<strong style="font-size: 16px; color: #c05e08;">Decolores</strong><br>
 										Eventos
+									</div>
+								</div>
+
+								<div
+									style="display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 10px; text-align: center; order: -1;">
+									<div class="card"
+										style="width: 200px; height: 200px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);">
+										<img src="images/palestrantes/arlinda.jpg" alt="Foto Arlinda"
+											style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+									</div>
+									<div class="card-caption"
+										style="font-size: 14px; line-height: 1.4; color: #FF910B; font-family:Montserrat;; text-align: center; padding: 5px; max-width: 180px;">
+										<strong style="font-size: 16px; color: #ffffff;">Arlinda Negreiros</strong><br>
+										<strong style="font-size: 16px; color: #c05e08;">Representante FIEB</strong><br>										
 									</div>
 								</div>
 							</div>
@@ -2091,7 +2119,49 @@
 				<div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595">
 					<p style="text-align: center; margin-top: 2%;">
 						<strong><span style="font-size: 20pt; color: #c05e08">
-								ORGANIZAÇÃO E REALIZAÇÃO
+								REALIZAÇÃO
+							</span></strong>
+					</p>
+				</div>
+				<br>
+				<div style="max-width: 1000px; margin: 0 auto;">
+					<div class="flex col-xs-12 col-sm-12 col-md-12"
+						style="display: flex; justify-content: space-between; flex-wrap: wrap;">											
+
+						<div class="card" style="flex: 1 1 250px; margin: 10px; text-align: center;">
+							<img src="images/MARCA FIEB PNG_FIEB  INTERNET.png" alt="Logo FIEB"
+								style="width: 100%; max-width: 250px; margin-bottom: 10px;">
+							<div style="width: 180px; min-height: 125px; margin: 0 auto; text-align: center;">
+								<span style="font-size: 14pt; color: #00517a;"><b>
+										Federação das Indústrias do Estado da Bahia
+									</b>
+								</span>
+							</div>
+						</div>
+
+						<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center; width: 100%; padding: 50px;">
+							<img src="images/page-2-event/image-removebg-preview.png" alt="Mindset"
+								style="width: 100%; max-width: 300px; margin-bottom: 10px;"><br>
+							<span style="font-size: 10pt; color: #00517a">A Circular Tech Skills é referência em dar suporte para a transição da economia linear para economia circular</span>
+						</div>
+
+						<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center; width: 100%; padding: 50px;">
+							<img src="images/logo-recitec-02-02-removebg-preview-300x183.png" alt="Mindset"
+								style="width: 100%; max-width: 300px; margin-bottom: 10px;"><br>
+							<span style="font-size: 10pt; color: #00517a">A EcoRecitec faz parte da Comunidade de
+								Inovação da
+								Fundação Ellen Mac Arthur</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="container-fluid" name="Container_5e5829d59b74c" id="_5dae5c858fd8c_1571708037"
+				style="margin: 0">
+				<div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595">
+					<p style="text-align: center; margin-top: 2%;">
+						<strong><span style="font-size: 20pt; color: #c05e08">
+								ORGANIZAÇÃO
 							</span></strong>
 					</p>
 				</div>
@@ -2099,21 +2169,17 @@
 				<div style="max-width: 1000px; margin: 0 auto;">
 					<div class="flex col-xs-12 col-sm-12 col-md-12"
 						style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-						<!-- Primeiro Card -->
-						<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center;">
-							<img src="images/image-removebg-preview-1-300x170.png" alt="Decolores"
-								style="width: 100%; max-width: 300px;  margin-bottom: 10px;">
-						</div>
 
-
-						<!-- Segundo Card -->
 						<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center;">
 							<img src="images/whatsapp_image_2024-06-09_at_12.33.35-removebg-preview.png"
 								alt="CEC Salvador" style="width: 100%; max-width: 300px; ">
 						</div>
 
+						<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center;">
+							<img src="images/image-removebg-preview-1-300x170.png" alt="Decolores"
+								style="width: 100%; max-width: 300px;  margin-bottom: 10px;">
+						</div>
 
-						<!-- Terceiro Card -->
 						<div class="card" style="flex: 1 1 200px; margin: 10px; text-align: center; width: 100%; padding: 50px;">
 							<img src="images/logo-recitec-02-02-removebg-preview-300x183.png" alt="Mindset"
 								style="width: 100%; max-width: 300px; margin-bottom: 10px;"><br>
@@ -2194,17 +2260,7 @@
 									</b>
 								</span>
 							</div>
-						</div>
-						<div class="card" style="flex: 1 1 250px; margin: 10px; text-align: center;">
-							<img src="images/MARCA FIEB PNG_FIEB  INTERNET.png" alt="Logo FIEB"
-								style="width: 100%; max-width: 250px; margin-bottom: 10px;">
-							<div style="width: 180px; min-height: 125px; margin: 0 auto; text-align: center;">
-								<span style="font-size: 14pt; color: #00517a;"><b>
-										Federação das Indústrias do Estado da Bahia
-									</b>
-								</span>
-							</div>
-						</div>
+						</div>						
 						<div class="card" style="flex: 1 1 250px; margin-top: 0px; text-align: center;">
 							<img src="images/marca-GetIN-OK-05.png" alt="Logo GetIN"
 								style="width: 100%; max-width: 250px; ">
@@ -2401,21 +2457,23 @@
 			<br>
 			<br>
 
-			<div style="clear: both; background-color: #00517a; padding: 20px 0;">
+			<footer style="clear: both; background-color: #00517a; padding: 20px 0;">
 				<div class="container-fluid" style="color: white; max-width: 1200px; margin: auto;">
 					<!-- Logo -->
 					<div class="row" style="display: flex; justify-content: space-between; align-items: center;">
 
 						<div class="col-xs-8 col-sm-4 col-md-4" style="text-align: center;">
-							<p style="font-size: 12pt; color: #ffffff;"><strong>Somos referência na transição da
-									economia
-									linear
-									para
-									economia circular</strong></p>
-							<p style="color: #ffffff; font-size: 10pt;">
-								Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia
-								circular/ESG, cursos, treinamentos, mentorias e gestão de projetos.
-							</p>
+							<div>
+								<p style="font-size: 12pt; color: #ffffff;"><strong>Somos referência na transição da
+										economia
+										linear
+										para
+										economia circular</strong></p>
+								<p style="color: #ffffff; font-size: 10pt;">
+									Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia
+									circular/ESG, cursos, treinamentos, mentorias e gestão de projetos.
+								</p>
+							</div>
 							<p style="font-size: 12pt; color: #ffffff;"><strong>Circular Tech Skills</strong></p>
 							<p style="font-size: 10pt; color: #ffffff;">Contato: EcoRecitec Telefone - 55 71 999-748068
 							</p>
@@ -2428,10 +2486,9 @@
 						</p>
 					</div>
 				</div>
-			</div>
+			</footer>
 		</div>
-		<div class="clear"></div>
-		<!-- Scripts da página -->
+		<div class="clear"></div>		
 
 		<!-- jQuery Modal -->
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
@@ -2440,6 +2497,10 @@
 		<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="js/jquery-migrate-1.4.1.min.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script>
+  			AOS.init();
+		</script>
 		<script id="anchor_code" type="text/javascript">
 			$(function () {
 				$("a").on("click", function (e) {

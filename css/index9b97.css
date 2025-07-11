@@ -27,11 +27,11 @@ html, body {
 #GridPanel_5e5829d58c2ac { padding:0; }
 [name="Container_5e5829d58c49c"] { background-color:transparent !important;background-position:left top;background-repeat:repeat-x;border:0;border-style:solid; }
 [name="Container_5e5829d58c49c"] { width:100%;padding:0; }
-[name="Container_5e5829d58c6b2"] { background:url("../images/page-2-event/topo-fundo.png");background-size:cover;background-position:left top;background-repeat: no-repeat;border:0;border-style:solid; margin-top: -115px;}
+[name="Container_5e5829d58c6b2"] { background:url("https://images.pexels.com/photos/30567575/pexels-photo-30567575.jpeg");background-size:cover;background-position: center;background-repeat: no-repeat;border:0;border-style:solid; margin-top: -115px;}
 [name="Container_5e5829d58c6b2"] { width:100%;padding:0; }
 [name="Container_5e5829d58c8ca"] { background:RGBA(0, 0, 0, 0.51);border:0;border-style:solid; }
 [name="Container_5e5829d58c8ca"] { width:100%;padding:0; }
-[name="Container_5e5829d58cad7"] { background:RGBA(0, 0, 0, 0.2);border:0;border-style:solid; }
+[name="Container_5e5829d58cad7"] { background:RGBA(0, 0, 0, 0.5);border:0;border-style:solid; }
 [name="Container_5e5829d58cad7"] { width:100%;padding:0; }
 [name="Container_5e5829d58cce7"] { background-color:transparent !important;background-repeat:repeat-x;border:0;border-style:solid; align-items: center; justify-content: center; margin-top: 100px;}
 [name="Container_5e5829d58cce7"] { padding-top:2px !important;padding-bottom:250px !important; }
