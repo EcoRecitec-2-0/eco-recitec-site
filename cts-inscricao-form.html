@@ -1330,7 +1330,7 @@
                         pagamentoStatus.textContent = "Inscrição enviada com sucesso! Cheque sua caixa de spam caso não receba o email de confirmação.";
                         
                         // Chamada para o backend de e-mail
-                        const emailResponse = await fetch("http://localhost:3000/api/submit", {
+                        const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
