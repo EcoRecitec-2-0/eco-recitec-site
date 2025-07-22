@@ -849,7 +849,7 @@
 
                                 <div class="form-group" id="comprovantePagamentoGroup">
                                     <label for="comprovantePagamento" class="control-label">Comprovante de Pagamento:</label>
-                                    <input type="file" id="comprovantePagamento" name="comprovantePagamento" class="form-control" required>
+                                    <input type="file" id="comprovantePagamento" name="comprovantePagamento" class="form-control">
                                 </div>
 
                                 <div class="form-group">
@@ -1158,7 +1158,7 @@
                 const submitButton = document.getElementById('submitButton');
                 const qrCodeImage = document.getElementById('qrCodeImage');
                 const comprovantePagamentoGroup = document.getElementById('comprovantePagamentoGroup'); // Novo: Referência ao grupo do comprovante
-
+                const comprovantePagamento = document.getElementById("comprovantePagamento")
 
                 // Lógica para alternar o texto do botão e visibilidade dos campos
                 paymentMethodSelect.addEventListener('change', () => {
@@ -1174,6 +1174,7 @@
                         qrcodeContainer.style.display = 'none'; // Esconde o container do QR Code
                         pixContainer.style.display = 'none'; // Esconde o container do PIX copia e cola
                         comprovantePagamentoGroup.style.display = 'block'; // Mostra o comprovante para cartão
+                        comprovantePagamento.required = true;
                     } else {
                         warningLabel.textContent = ""
                         cardFormContainer.classList.add('hidden');
@@ -1184,6 +1185,7 @@
                         qrcodeContainer.style.display = 'none'; // Esconde o container do QR Code
                         pixContainer.style.display = 'none'; // Esconde o container do PIX copia e cola
                         comprovantePagamentoGroup.style.display = 'none'; // Esconde o comprovante para PIX
+                        comprovantePagamento.removeAttribute('required');
                     }
                 });
 
