@@ -555,6 +555,54 @@
             display: none; /* Oculta por padrão, será exibido via JS se necessário */
         }
 
+        #qrcode {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .pixContainer {
+            box-sizing: content-box;
+            display: none;
+            align-items: center;
+            justify-content: space-between;
+            background: #fff;
+            padding: 4px 4px 4px 10px;
+            height: 35px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 4px 1px #00000063;
+            margin: 20px 0px 0px 0px;
+        }
+        .pixContainer button {
+            box-sizing: border-box;
+            padding: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: auto;
+            aspect-ratio: 1/1;
+            background: #008ce4;
+            color: #fff;
+            border: 0px;
+            font-size: 20px;
+            outline-width: 0px;
+            border-radius: 10px;
+        }
+        .pixContainer p {
+            width: 100%;
+            max-width: 100%;
+            
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-wrap: nowrap;
+            white-space: nowrap;
+            color: #1e1e1e;
+            margin: 0px;
+            font-weight: 600;
+        }
+
         /* Media Queries */
         @media (max-width: 768px) {
             .btn {
@@ -700,12 +748,8 @@
                                         placeholder="Seu cargo na empresa">
                                 </div>
 
-                                <!-- Início do sistema de pagamento Mercado Pago (comentado) -->
-                                <!--
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Inscrição individual por apenas R$ 350 em até 7x
-                                    </label>
+                                <!-- Início do sistema de pagamento -->
+                                <div class="form-group">                                    
 
                                     <div class="form-group">
                                         <label for="payment-method">Escolha o Método de Pagamento:</label>
@@ -715,7 +759,10 @@
                                         </select>
                                     </div>
 
+                                    <!-- Campos PCI do Mercado Pago (comentados, pois a integração direta está pausada) -->
                                     <div id="card-form-container" class="hidden">                                                                                
+                                         <!-- campos de endereço (comentados) -->
+                                        <!--
                                         <div class="address-fields-group">
                                             <div class="form-group">
                                                 <label for="streetName" class="control-label">Rua:</label>
@@ -738,7 +785,11 @@
                                                     placeholder="UF">
                                             </div>
                                         </div>
+                                        -->
+                                        <!-- Fim dos campos de endereço (comentados) -->
 
+                                        <!-- Campos PCI do Mercado Pago (comentados) -->
+                                        <!--
                                         <div class="form-group">
                                             <label for="form-checkout__cardNumber">Número do Cartão:</label>
                                             <div id="form-checkout__cardNumber" class="mercadopago-fields"></div>
@@ -778,23 +829,27 @@
                                         <input type="hidden" id="paymentMethodId" name="paymentMethodId">
                                         <input type="hidden" id="transactionAmount" name="transactionAmount" value="350">
                                         <input type="hidden" id="description" name="description" value="Pagamento da inscrição do congresso EcoRecitec">
+                                        -->
                                     </div>
+                                    <!-- Fim dos Campos PCI do Mercado Pago (comentados) -->
 
-                                    <button type="button" id="payButton" class="btn botao2">Processar Pagamento</button>
+                                    <button type="button" id="payButton" class="btn botao2">Processar Pagamento (PIX)</button>
                                     <p id="pagamentoStatus" style="margin-top: 10px; font-weight: bold;"></p>
-                                    <label class="control-label form-subtitle">
-                                        ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com
+                                    <img id="qrCodeImage" src="" alt="QR Code PIX" style="display: none; max-width: 100%; height: auto; margin-top: 15px;">
+                                    <label class="control-label form-subtitle" id="warningLabel">
+                                        
                                     </label>
+                                    <div id="qrcode"></div>
+                                    <div class="pixContainer" id="pixContainer">
+                                        <p id="pixCopyText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat quas nisi culpa eveniet error, quis officiis neque sapiente tenetur. Aperiam omnis ea veniam cupiditate possimus quos, adipisci in vel?</p>
+                                        <button id="copyPixButton" type="button"><ion-icon name="copy-outline"></ion-icon></button>
+                                    </div>
                                 </div>
-                                -->
-                                <!-- Fim do sistema de pagamento Mercado Pago (comentado) -->
+                                <!-- Fim do sistema de pagamento -->
 
-                                <div class="form-group">
+                                <div class="form-group" id="comprovantePagamentoGroup">
                                     <label for="comprovantePagamento" class="control-label">Comprovante de Pagamento:</label>
                                     <input type="file" id="comprovantePagamento" name="comprovantePagamento" class="form-control" required>
-                                    <p style="margin-top: 10px; font-weight: bold; color: #000;">
-                                        Por favor, anexe o comprovante de pagamento. Obrigado!
-                                    </p>
                                 </div>
 
                                 <div class="form-group">
@@ -845,7 +900,6 @@
                                 </div>
                                 <!-- Botão de envio do formulário de inscrição -->
                                 <button id="submitButton" type="submit" class="btn botao2">Enviar Inscrição</button>
-                                <p id="pagamentoStatus" style="margin-top: 10px; font-weight: bold; color: #000;" ></p>
                             </form>
 
 
@@ -855,526 +909,453 @@
                         <br>
                     </div>
                 </div>
-                <div class="clear"></div>
-            </div>
-            <div style="width: 100%; margin-top: 5px; margin-bottom: 40px;">
-                <div class="slider">
-                    <div class="slide-track">
-                        <div class="slide">
-                            <img src="images/logo-recitec-02-02-removebg-preview-300x183.png" alt="Mindset" height="100"
-                                width="250" />
-                        </div>
-                        <div class="slide">
-                            <img src="images/MARCA FIEB PNG_FIEB  INTERNET.png" alt="Logo FIEB" height="100" width="250"
-                                />
-                        </div>
-                        <div class="slide">
-                            <img src="images/whatsapp_image_2024-06-09_at_12.33.35-removebg-preview.png" height="100"
-                                width="250" />
-                        </div>
-                        <div class="slide">
-                            <img src="images/image-removebg-preview-1-300x170.png" height="100" width="250" />
-                        </div>
-                        <div class="slide">
-                            <img src="images/cec-moscow 500x498.png" alt="Logo Ciesp" height="100" width="250"
-                                />
-                        </div>
-                        <div class="slide">
-                            <img src="images/whatsapp_image_2024-06-09_at_12.36.16-removebg-preview.png" alt="Mindset"
-                                height="100" width="250" />
-                        </div>
-                        <div class="slide">
-                            <img src="images/page-2-event/merci.png" alt="Logo merci" height="100" width="250"
-                                />
-                        </div>
-                        <div class="slide" style="display: flex; align-items: center;">
-                            <img src="images/prefeitura-logo.jpg" alt="Logo Prefeitura de Salvador"
-                                class="prefeitura-logo" width="250" />
-                        </div>
-                        <div class="slide" style="display: flex; align-items: center;">
-                            <img src="images/marca-GetIN-OK-05.png" alt="Logo GetIN" class="getin-logo" width="250"
-                                />
-                        </div>
-                        <div class="slide">
-                            <img src="images/hub.png" alt="Logo Hub Salvador" height="100" width="250" />
-                        </div>
-                        <div class="slide">
-                            <img src="images/vox.png" alt="Logo VoxLink" height="100" width="250" />
-                        </div>
-                        <div class="slide">
-                            <img src="images/polen-logo.jpg" alt="logo Polen" height="100" width="250" />
-                        </div>
-                        <div class="slide">
-                            <img src="images/green-logo.jpeg" alt="logo Green" height="100" width="250" />
-                        </div>
-                        <div class="slide">
-                            <img src="images/logo-ciesp.jpeg" alt="Logo Ciesp" height="100" width="250" />
-                        </div>
-                        <div class="slide">
-                            <img src="images/mulheres-no-timao-logo.jpg" alt="Logo Mulheres no Timão" height="100"
-                                width="250" />
+                <div style="width: 100%; margin-top: 5px; margin-bottom: 40px;">
+                    <div class="slider">
+                        <div class="slide-track">
+                            <div class="slide">
+                                <img src="images/logo-recitec-02-02-removebg-preview-300x183.png" alt="Mindset" height="100"
+                                    width="250" />
+                            </div>
+                            <div class="slide">
+                                <img src="images/MARCA FIEB PNG_FIEB  INTERNET.png" alt="Logo FIEB" height="100" width="250"
+                                    />
+                            </div>
+                            <div class="slide">
+                                <img src="images/whatsapp_image_2024-06-09_at_12.33.35-removebg-preview.png" height="100"
+                                    width="250" />
+                            </div>
+                            <div class="slide">
+                                <img src="images/image-removebg-preview-1-300x170.png" height="100" width="250" />
+                            </div>
+                            <div class="slide">
+                                <img src="images/cec-moscow 500x498.png" alt="Logo Ciesp" height="100" width="250"
+                                    />
+                            </div>
+                            <div class="slide">
+                                <img src="images/whatsapp_image_2024-06-09_at_12.36.16-removebg-preview.png" alt="Mindset"
+                                    height="100" width="250" />
+                            </div>
+                            <div class="slide">
+                                <img src="images/page-2-event/merci.png" alt="Logo merci" height="100" width="250"
+                                    />
+                            </div>
+                            <div class="slide" style="display: flex; align-items: center;">
+                                <img src="images/prefeitura-logo.jpg" alt="Logo Prefeitura de Salvador"
+                                    class="prefeitura-logo" width="250" />
+                            </div>
+                            <div class="slide" style="display: flex; align-items: center;">
+                                <img src="images/marca-GetIN-OK-05.png" alt="Logo GetIN" class="getin-logo" width="250"
+                                    />
+                            </div>
+                            <div class="slide">
+                                <img src="images/hub.png" alt="Logo Hub Salvador" height="100" width="250" />
+                            </div>
+                            <div class="slide">
+                                <img src="images/vox.png" alt="Logo VoxLink" height="100" width="250" />
+                            </div>
+                            <div class="slide">
+                                <img src="images/polen-logo.jpg" alt="logo Polen" height="100" width="250" />
+                            </div>
+                            <div class="slide">
+                                <img src="images/green-logo.jpeg" alt="logo Green" height="100" width="250" />
+                            </div>
+                            <div class="slide">
+                                <img src="images/logo-ciesp.jpeg" alt="Logo Ciesp" height="100" width="250" />
+                            </div>
+                            <div class="slide">
+                                <img src="images/mulheres-no-timao-logo.jpg" alt="Logo Mulheres no Timão" height="100"
+                                    width="250" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="footerDiv">
-                <div class="container-fluid footer-text-color footer-container">
-                    <!-- Logo -->
-                    <div class="row footer-row-flex">
+                <div class="footerDiv">
+                    <div class="container-fluid footer-text-color footer-container">
+                        <!-- Logo -->
+                        <div class="row footer-row-flex">
 
-                        <div class="col-xs-8 col-sm-4 col-md-4 footer-col-center">
-                            <p class="footer-heading"><strong>Somos referência na transição da
-                                        economia linear para economia circular</strong></p>
-                            <p class="footer-text"></p>
-                                Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia
-                                circular/ESG, cursos, treinamentos, mentoria e gestão de projetos.
+                            <div class="col-xs-8 col-sm-4 col-md-4 footer-col-center">
+                                <p class="footer-heading"><strong>Somos referência na transição da
+                                            economia linear para economia circular</strong></p>
+                                <p class="footer-text"></p>
+                                    Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia
+                                    circular/ESG, cursos, treinamentos, mentoria e gestão de projetos.
+                                </p>
+                                <p class="footer-heading"><strong>Circular Tech Skills</strong></p>
+                                <p class="footer-text">Contato: EcoRecitec Telefone - 55 71 999-748068
+                                </p>
+                                <p class="footer-text">Decolores Telefone - 55 71 9903-3324</p>
+                                <p class="footer-text">Email: eco.recitec@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="row footer-bottom-row">
+                            <p class="footer-text">2025 | Eco-Recitec | Todos os direitos reservados.
                             </p>
-                            <p class="footer-heading"><strong>Circular Tech Skills</strong></p>
-                            <p class="footer-text">Contato: EcoRecitec Telefone - 55 71 999-748068
-                            </p>
-                            <p class="footer-text">Decolores Telefone - 55 71 9903-3324</p>
-                            <p class="footer-text">Email: eco.recitec@gmail.com</p>
                         </div>
                     </div>
-                    <div class="row footer-bottom-row">
-                        <p class="footer-text">2025 | Eco-Recitec | Todos os direitos reservados.
-                        </p>
-                    </div>
                 </div>
+                <div class="clear"></div>
+
             </div>
-            <div class="clear"></div>
+        </div>
+
+
+
 
         </div>
-    </div>
-
-
-
-
-    </div>
-    <div class="clear"></div>
-    <!-- Scripts da página -->
-    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="js/jquery-migrate-1.4.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
-    <script id="anchor_code" type="text/javascript">
-        $(function () {
-            $("a").on("click", function (e) {
-                if (
-                    $('[id*="' + this.hash.replace("#", "") + '"]').length > 0 &&
-                    location.pathname.replace(/^\//, "") ==
-                    this.pathname.replace(/^\//, "") &&
-                    location.hostname == this.hostname
-                ) {
-                    var target = this.hash;
-                    var $target = $(target);
-
-                    var verify = function () {
-                        if (
-                            $(target).length > 0 ||
-                            (target.indexOf("#") >= 0 && $(target).css("display") != "none")
-                        ) {
-                            e.preventDefault();
-                            $("html, body")
-                                .stop()
-                                .animate({
-                                    scrollTop: $(target).offset().top,
-                                },
-                                    900,
-                                    "swing",
-                                    function () {
-                                        window.location.hash = target;
-                                    }
-                                );
-                            return false;
-                        } else return 1;
-                    };
+        <div class="clear"></div>
+        <!-- Scripts da página -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/jquery-migrate-1.4.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+        <script id="anchor_code" type="text/javascript">
+            $(function () {
+                $("a").on("click", function (e) {
                     if (
-                        $(".navbar-collapse.in") &&
-                        $(".navbar-collapse.in").collapse &&
-                        $(this).closest(".navbar-collapse.in") &&
-                        $(this).closest(".navbar-collapse.in").length > 0
+                        $('[id*="' + this.hash.replace("#", "") + '"]').length > 0 &&
+                        location.pathname.replace(/^\//, "") ==
+                        this.pathname.replace(/^\//, "") &&
+                        location.hostname == this.hostname
                     ) {
-                        $(".navbar-collapse.in").on("hidden.bs.collapse", verify);
-                        $(".navbar-collapse.in").collapse("hide");
-                        $(".navbar-collapse.in").off("hidden.bs.collapse", verify);
-                        return false;
-                    } else return verify();
-                }
-            });
-        });
+                        var target = this.hash;
+                        var $target = $(target);
 
-        $(".navbar-collapse.in").on("click", function (e) {
-            if (
-                $(e.target).is("a") &&
-                $(e.target).attr("class") != "dropdown-toggle"
-            ) {
-                $(this).collapse("hide");
-            }
-        });
-    </script>
-    <!-- O SDK do Mercado Pago foi comentado, pois a integração de pagamento está pausada. -->
-    <!-- <script src="https://sdk.mercadopago.com/js/v2"></script> -->
-    <script type="text/javascript">
-        let date = new Date();
-        const valueToPay = 350; // Valor da inscrição
-
-        /**
-         * Função para criar o pagamento no backend.
-         * Esta função está desativada para fins de depuração do erro "cc_rejected_high_risk".
-         * Será reativada após a resolução do problema de risco.
-         */
-        /*
-        async function createPay(email, value, paymentType, payerCpf, payerName, payerPhone, streetName, streetNumber, zipCode, federalUnit, cardData = null) {
-            console.log('Iniciando createPay (função desativada para depuração de "cc_rejected_high_risk")...');
-            return new Promise((resolve, reject) => {
-                // Simula uma rejeição por alto risco para fins de teste
-                reject(new Error("Pagamento desativado: Erro 'cc_rejected_high_risk' a ser resolvido."));
-            });
-        }
-        */
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const loadingOverlay = document.getElementById('loadingOverlay');
-            // Os elementos relacionados ao Mercado Pago foram comentados, pois a integração de pagamento está pausada.
-            // const paymentMethodSelect = document.getElementById('payment-method');
-            // const cardFormContainer = document.getElementById('card-form-container');
-            // const addressFieldsGroup = document.querySelector('.address-fields-group');
-            // const payButton = document.getElementById('payButton');
-            const pagamentoStatus = document.getElementById('pagamentoStatus');
-            const inscricaoForm = document.getElementById('inscricaoForm');
-            const submitButton = document.getElementById('submitButton');
-
-            // As variáveis e lógicas relacionadas ao Mercado Pago foram comentadas, pois a integração de pagamento está pausada.
-            // let mp;
-            // let cardFieldsInitialized = false;
-
-            // Funções auxiliares para selects (comentadas, pois não são usadas sem o Mercado Pago)
-            /*
-            function createSelectOptions(elem, options, labelsAndKeys = { label: "name", value: "id" }, labelFormatter = null) {
-                const { label, value } = labelsAndKeys;
-                elem.options.length = 0;
-                const tempOptions = document.createDocumentFragment();
-                options.forEach(option => {
-                    const optValue = option[value];
-                    let optLabel;
-                    if (labelFormatter && typeof labelFormatter === 'function') {
-                        optLabel = labelFormatter(option);
-                    } else {
-                        optLabel = option[label];
+                        var verify = function () {
+                            if (
+                                $(target).length > 0 ||
+                                (target.indexOf("#") >= 0 && $(target).css("display") != "none")
+                            ) {
+                                e.preventDefault();
+                                $("html, body")
+                                    .stop()
+                                    .animate({
+                                        scrollTop: $(target).offset().top,
+                                    },
+                                        900,
+                                        "swing",
+                                        function () {
+                                            window.location.hash = target;
+                                        }
+                                    );
+                                return false;
+                            } else return 1;
+                        };
+                        if (
+                            $(".navbar-collapse.in") &&
+                            $(".navbar-collapse.in").collapse &&
+                            $(this).closest(".navbar-collapse.in") &&
+                            $(this).closest(".navbar-collapse.in").length > 0
+                        ) {
+                            $(".navbar-collapse.in").on("hidden.bs.collapse", verify);
+                            $(".navbar-collapse.in").collapse("hide");
+                            $(".navbar-collapse.in").off("hidden.bs.collapse", verify);
+                            return false;
+                        } else return verify();
                     }
-                    const opt = document.createElement('option');
-                    opt.value = optValue;
-                    opt.textContent = optLabel;
-                    tempOptions.appendChild(opt);
                 });
-                elem.appendChild(tempOptions);
-            }
+            });
 
-            function clearHTMLSelectChildrenFrom(element) {
-                const currOptions = [...element.children];
-                currOptions.forEach(child => child.remove());
-            }
-
-            function createSelectElementPlaceholder(element, placeholder) {
-                const optionElement = document.createElement('option');
-                optionElement.textContent = placeholder;
-                optionElement.setAttribute('selected', "");
-                optionElement.setAttribute('disabled', "");
-                element.appendChild(optionElement);
-            }
-
-            // Obter tipos de documento (comentado)
-            async function getIdentificationTypes() {
-                try {
-                    const identificationTypes = await mp.getIdentificationTypes();
-                    const identificationTypeElement = document.getElementById('form-checkout__identificationType');
-                    createSelectOptions(identificationTypeElement, identificationTypes);
-                } catch (e) {
-                    console.error('Erro ao obter tipos de identificação: ', e);
+            $(".navbar-collapse.in").on("click", function (e) {
+                if (
+                    $(e.target).is("a") &&
+                    $(e.target).attr("class") != "dropdown-toggle"
+                ) {
+                    $(this).collapse("hide");
                 }
-            }
+            });
+        </script>
+        <!-- O SDK do Mercado Pago foi comentado, pois a integração de pagamento está pausada. -->
+        <!-- <script src="https://sdk.mercadopago.com/js/v2"></script> -->
+        <script type="text/javascript">
+            let date = new Date();
+            const valueToPay = 350; // Valor da inscrição
+            const warningLabel = document.getElementById("warningLabel")      
+            const qrcodeContainer = document.getElementById("qrcode");      
 
-            // Atualiza configurações dos campos PCI (comentado)
-            function updatePCIFieldsSettings(paymentMethod, cardNumberElementRef, securityCodeElementRef) {
-                const { settings } = paymentMethod;
-
-                const cardNumberSettings = settings[0].card_number;
-                cardNumberElementRef.update({
-                    settings: cardNumberSettings
-                });
-
-                const securityCodeSettings = settings[0].security_code;
-                securityCodeElementRef.update({
-                    settings: securityCodeSettings
-                });
-            }
-
-            async function getIssuers(paymentMethodId, bin) {
-                try {
-                    return await mp.getIssuers({ paymentMethodId, bin });
-                } catch (e) {
-                    console.error('Erro ao obter emissores: ', e);
-                    return [];
-                }
-            }
-
-            async function updateIssuer(paymentMethod, bin) {
-                const issuerPlaceholder = "Banco emissor";
-                const issuerElement = document.getElementById('form-checkout__issuer');
-                const { additional_info_needed, issuer } = paymentMethod;
-                let issuerOptions = [issuer];
-
-                if (additional_info_needed && additional_info_needed.includes('issuer_id')) {
-                    issuerOptions = await getIssuers(paymentMethod.id, bin);
-                }
-                clearHTMLSelectChildrenFrom(issuerElement);
-                createSelectElementPlaceholder(issuerElement, issuerPlaceholder);
-                createSelectOptions(issuerElement, issuerOptions);
-            }
-
-            async function updateInstallments(paymentMethod, bin) {
-                const installmentsPlaceholder = "Parcelas";
-                const installmentsElement = document.getElementById('form-checkout__installments');
-                const transactionAmountElement = document.getElementById('transactionAmount');
-                try {
-                    const installments = await mp.getInstallments({
-                        amount: transactionAmountElement.value,
-                        bin,
-                        paymentTypeId: 'credit_card'
-                    });
-                    const installmentOptions = installments[0].payer_costs;
-
-                    const formatInstallmentLabel = (option) => {
-                        const numInstallments = option.installments;
-                        const installmentAmount = option.installment_amount.toFixed(2).replace('.', ',');
-                        return `${numInstallments} parcelas de R$ ${installmentAmount}`;
+            /**
+             * Função para criar o pagamento no backend.
+             * Esta função é utilizada para processar pagamentos PIX.
+             */
+            async function createPay(email, value, paymentType, payerCpf, payerName, payerPhone, streetName, streetNumber, zipCode, federalUnit, cardData = null) {
+                console.log('Iniciando createPay...');
+                return new Promise(async (resolve, reject) => {
+                    let requestBody = {
+                        payerEmail: email,
+                        value: value,
+                        paymentType: paymentType,
+                        payerCpf: payerCpf,
+                        payerName: payerName,
+                        payerPhone: payerPhone,
+                        streetName: streetName,
+                        streetNumber: streetNumber,
+                        zipCode: zipCode,
+                        federalUnit: federalUnit,
+                        date: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
                     };
 
-                    clearHTMLSelectChildrenFrom(installmentsElement);
-                    createSelectElementPlaceholder(installmentsElement, installmentsPlaceholder);
-                    createSelectOptions(installmentsElement, installmentOptions, { label: 'recommended_message', value: 'installments' }, formatInstallmentLabel);
-                } catch (error) {
-                    console.error('Erro ao obter parcelas: ', error);
-                }
-            }
-
-            // Limpa e define placeholders para os selects de Banco Emissor e Parcelas (comentado)
-            function clearSelectsAndSetPlaceholders() {
-                const issuerPlaceholder = "Banco emissor";
-                const installmentsPlaceholder = "Parcelas";
-                const issuerElement = document.getElementById('form-checkout__issuer');
-                const installmentsElement = document.getElementById('form-checkout__installments');
-
-                clearHTMLSelectChildrenFrom(issuerElement);
-                createSelectElementPlaceholder(issuerElement, issuerPlaceholder);
-
-                clearHTMLSelectChildrenFrom(installmentsElement);
-                createSelectElementPlaceholder(installmentsElement, installmentsPlaceholder);
-            }
-
-            let cardNumberElement, expirationDateElement, securityCodeElement;
-            */
-
-            // Evento de mudança no seletor de método de pagamento (comentado)
-            /*
-            paymentMethodSelect.addEventListener('change', () => {
-                console.log('Método de pagamento alterado para:', paymentMethodSelect.value);
-                if (paymentMethodSelect.value === 'card') {
-                    cardFormContainer.classList.remove('hidden');
-                    addressFieldsGroup.style.display = 'block';
-
-                    if (!cardFieldsInitialized) {
-                        if (!mp) {
-                            mp = new MercadoPago('APP_USR-c806680b-7bac-4f55-ad50-d2126ae80d58', {
-                                locale: 'pt-BR'
-                            });
-                        }
-
-                        try {
-                            cardNumberElement = mp.fields.create('cardNumber', {
-                                placeholder: "Número do cartão"
-                            }).mount('form-checkout__cardNumber');
-                            expirationDateElement = mp.fields.create('expirationDate', {
-                                placeholder: "MM/AA",
-                            }).mount('form-checkout__expirationDate');
-                            securityCodeElement = mp.fields.create('securityCode', {
-                                placeholder: "CVV"
-                            }).mount('form-checkout__securityCode');
-                            
-                            let currentBin;
-                            cardNumberElement.on('binChange', async (data) => {
-                                const { bin } = data;
-                                try {
-                                    if (!bin && document.getElementById('paymentMethodId').value) {
-                                        clearSelectsAndSetPlaceholders();
-                                        document.getElementById('paymentMethodId').value = "";
-                                    }
-
-                                    if (bin && bin !== currentBin) {
-                                        const { results } = await mp.getPaymentMethods({ bin });
-                                        const paymentMethod = results[0];
-
-                                        document.getElementById('paymentMethodId').value = paymentMethod.id;
-                                        updatePCIFieldsSettings(paymentMethod, cardNumberElement, securityCodeElement);
-                                        updateIssuer(paymentMethod, bin);
-                                        updateInstallments(paymentMethod, bin);
-                                    }
-                                    currentBin = bin;
-                                } catch (e) {
-                                    console.error('Erro ao obter métodos de pagamento: ', e)
-                                }
-                            });
-
-                            getIdentificationTypes();
-                            cardFieldsInitialized = true;
-                        } catch (e) {
-                            console.error('Erro ao criar/montar campos do Mercado Pago:', e);
-                            pagamentoStatus.style.color = 'red';
-                            pagamentoStatus.textContent = 'Erro ao carregar campos de pagamento. Tente novamente.';
-                        }
+                    if (cardData) {
+                        requestBody.token = cardData.token;
+                        requestBody.installments = cardData.installments;
+                        // Adicionar paymentMethodId e issuerId ao requestBody se existirem
+                        const paymentMethodId = document.getElementById('paymentMethodId').value;
+                        const issuerId = document.getElementById('form-checkout__issuer').value;
+                        if (paymentMethodId) requestBody.paymentMethodId = paymentMethodId;
+                        if (issuerId) requestBody.issuerId = issuerId;
                     }
-                } else {
-                    cardFormContainer.classList.add('hidden');
-                    addressFieldsGroup.style.display = 'none';
+
+                    let requestOptions = {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(requestBody)
+                    };
+
+                    try {
+                        const response = await fetch('http://localhost:3000/api/createpay', requestOptions);
+                        console.log('Resposta da requisição de pagamento recebida:', response);
+                        if (!response.ok) {
+                            const errorData = await response.json().catch(() => ({ message: 'Erro desconhecido no servidor.' }));
+                            console.error('Erro na resposta do servidor (createPay):', errorData);
+                            throw new Error(errorData.error || errorData.message || 'Erro ao enviar requisição: ' + response.status);
+                        }
+                        const data = await response.json();
+                        console.log('Dados de pagamento recebidos:', data);
+                        resolve(data);
+                    } catch (error) {
+                        console.error('Erro ao chamar createPay:', error);
+                        reject(error);
+                    }
+                });
+            }
+
+            window.copyPixCode = function(textToCopy) {
+                const tempInput = document.createElement('textarea');
+                tempInput.value = textToCopy;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                try {
+                    document.execCommand('copy');                    
+                } catch (err) {
+                    console.error('Falha ao copiar: ', err);
+                    alert('Erro ao copiar. Por favor, copie manualmente.'); // Mensagem de alerta em caso de erro
+                } finally {
+                    document.body.removeChild(tempInput);
                 }
-            });
-            */
+            };
+        
+            document.addEventListener('DOMContentLoaded', () => {
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                const paymentMethodSelect = document.getElementById('payment-method');
+                const cardFormContainer = document.getElementById('card-form-container'); // Mantido para referência, mas estará oculto
+                const addressFieldsGroup = document.querySelector('.address-fields-group'); // Mantido para referência, mas estará oculto
+                const payButton = document.getElementById('payButton');
+                const pagamentoStatus = document.getElementById('pagamentoStatus');
+                const inscricaoForm = document.getElementById('inscricaoForm');
+                const submitButton = document.getElementById('submitButton');
+                const qrCodeImage = document.getElementById('qrCodeImage');
+                const comprovantePagamentoGroup = document.getElementById('comprovantePagamentoGroup'); // Novo: Referência ao grupo do comprovante
 
-            // Lógica para o botão de "Processar Pagamento" (agora desativado)
-            /*
-            payButton.addEventListener('click', async () => {
-                console.log('Botão Processar Pagamento clicado.');
-                const email = document.getElementById('email').value;
-                const cpf = document.getElementById('cpf').value;
-                const nome = document.getElementById('nome').value;
-                const telefone = document.getElementById('telefone').value;
-                
-                const paymentType = paymentMethodSelect.value;
 
-                if (!email || !cpf || !nome || !telefone) {
-                    pagamentoStatus.style.color = 'red';
-                    pagamentoStatus.textContent = 'Por favor, preencha seu nome, e-mail, CPF e telefone.';
-                    return;
-                }
+                // Lógica para alternar o texto do botão e visibilidade dos campos
+                paymentMethodSelect.addEventListener('change', () => {
+                    console.log('Método de pagamento alterado para:', paymentMethodSelect.value);
+                    if (paymentMethodSelect.value === 'card') {
+                        warningLabel.textContent = "ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com"
+                        // Esconde os campos do Mercado Pago (já comentados no HTML)
+                        cardFormContainer.classList.add('hidden');
+                        /* addressFieldsGroup.style.display = 'none'; */
+                        payButton.textContent = 'Obter Link de Pagamento (Cartão)';
+                        pagamentoStatus.textContent = '';
+                        qrCodeImage.style.display = 'none'; // Esconde o QR Code quando muda para cartão
+                        qrcodeContainer.style.display = 'none'; // Esconde o container do QR Code
+                        pixContainer.style.display = 'none'; // Esconde o container do PIX copia e cola
+                        comprovantePagamentoGroup.style.display = 'block'; // Mostra o comprovante para cartão
+                    } else {
+                        warningLabel.textContent = ""
+                        cardFormContainer.classList.add('hidden');
+                        /* addressFieldsGroup.style.display = 'none'; */
+                        payButton.textContent = 'Processar Pagamento (PIX)';
+                        pagamentoStatus.textContent = ''; // Limpa qualquer status anterior
+                        qrCodeImage.style.display = 'none'; // Esconde o QR Code ao mudar para PIX, até ser gerado
+                        qrcodeContainer.style.display = 'none'; // Esconde o container do QR Code
+                        pixContainer.style.display = 'none'; // Esconde o container do PIX copia e cola
+                        comprovantePagamentoGroup.style.display = 'none'; // Esconde o comprovante para PIX
+                    }
+                });
 
-                let streetName = '';
-                let streetNumber = '';
-                let zipCode = '';
-                let federalUnit = '';
+                // Lógica para o botão de "Processar Pagamento" / "Obter Link de Pagamento"
+                payButton.addEventListener('click', async () => {
+                    console.log('Botão de pagamento clicado.');
+                    const email = document.getElementById('email').value;
+                    const cpf = document.getElementById('cpf').value;
+                    const nome = document.getElementById('nome').value;
+                    const telefone = document.getElementById('telefone').value;
+                    
+                    const paymentType = paymentMethodSelect.value;
 
-                if (paymentType === 'card') {
-                    streetName = document.getElementById('streetName').value;
-                    streetNumber = document.getElementById('streetNumber').value;
-                    zipCode = document.getElementById('zipCode').value;
-                    federalUnit = document.getElementById('federalUnit').value;
-
-                    if (!streetName || !streetNumber || !zipCode || !federalUnit) {
+                    // Campos sempre obrigatórios
+                    if (!email || !cpf || !nome || !telefone) {
                         pagamentoStatus.style.color = 'red';
-                        pagamentoStatus.textContent = 'Para pagamento com cartão, por favor, preencha todos os campos de endereço.';
+                        pagamentoStatus.textContent = 'Por favor, preencha seu nome, e-mail, CPF e telefone.';
                         return;
                     }
-                }
 
-                loadingOverlay.style.display = 'flex';
-                pagamentoStatus.textContent = 'Processando pagamento...';                
+                    // Campos de endereço não são mais obrigatórios no frontend para cartão, pois é link externo
+                    let streetName = '';
+                    let streetNumber = '';
+                    let zipCode = '';
+                    let federalUnit = '';
 
-                try {
-                    // Simulação de erro cc_rejected_high_risk
-                    pagamentoStatus.style.color = 'red';
-                    pagamentoStatus.textContent = 'Erro de pagamento: cc_rejected_high_risk. Funcionalidade desativada para resolução futura.';
-                    payButton.classList.add('hidden');
-                    submitButton.classList.remove('hidden');
-                    console.error("Erro de pagamento simulado: cc_rejected_high_risk. Por favor, resolva este erro no backend.");
-                    
-                } catch (error) {
-                    console.error("Erro no fluxo de pagamento:", error);
-                    pagamentoStatus.style.color = 'red';
-                    pagamentoStatus.textContent = `Erro: ${error.message}`;
-                } finally {
-                    loadingOverlay.style.display = 'none';
-                }
-            });
-            */
-            
-            inscricaoForm.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                console.log('Formulário de inscrição enviado.');
+                    loadingOverlay.style.display = 'flex';
+                    pagamentoStatus.textContent = 'Processando...';
+                    qrCodeImage.style.display = 'none'; // Esconde o QR Code enquanto processa               
+                    qrcodeContainer.style.display = 'none'; // Esconde o container do QR Code
+                    pixContainer.style.display = 'none'; // Esconde o container do PIX copia e cola
 
-                submitButton.disabled = true;
-                submitButton.innerHTML = 'Enviando...';
-                loadingOverlay.style.display = 'flex';
-                loadingOverlay.querySelector('span').textContent = 'Enviando formulário de inscrição, aguarde...';
+                    try {
+                        if (paymentType === 'pix') {
+                            // Limpa o CPF para enviar apenas dígitos
+                            const cleanedCpf = cpf.replace(/\D/g, ''); 
+                            // Limpa o telefone para enviar apenas dígitos
+                            const cleanedPhone = telefone.replace(/\D/g, '');
+                            // Limpa o CEP para enviar apenas dígitos (se preenchido)
+                            const cleanedZipCode = zipCode ? zipCode.replace(/\D/g, '') : '';
 
+                            const payRes = await createPay(email, valueToPay, paymentType, cleanedCpf, nome, cleanedPhone, streetName, streetNumber, cleanedZipCode, federalUnit); 
+                            let pixContainer = document.getElementById("pixContainer")
+                            let pixCopyText = document.getElementById("pixCopyText")
+                            let copyPixButton = document.getElementById("copyPixButton")
+                            
+                            // Limpa o conteúdo anterior do container do QR Code
+                            qrcodeContainer.innerHTML = '';
 
-                const formData = new FormData(inscricaoForm);
-                const formObject = {};
-                formData.forEach((value, key) => {
-                    formObject[key] = value;
+                            new QRCode(qrcodeContainer, `${payRes.result.point_of_interaction.transaction_data.qr_code}`);
+                            qrcodeContainer.style.display = 'flex'; // Torna o container do QR Code visível
+                            pixContainer.style.display = "flex"
+                            pixCopyText.textContent = `${payRes.result.point_of_interaction.transaction_data.qr_code}`
+                            copyPixButton.onclick = () => {
+                                window.copyPixCode(pixCopyText.textContent); // Copia o texto do PIX
+                                copyPixButton.innerHTML= `<ion-icon name="checkmark-circle-outline"></ion-icon>`
+                                copyPixButton.style.background = "#1fb956"
+                                setTimeout(() => {
+                                    copyPixButton.innerHTML= `<ion-icon name="copy-outline"></ion-icon>`
+                                    copyPixButton.style.background = ""
+                                }, 2000);
+                            };
+                            console.log("Resposta final do pagamento PIX:", payRes);
+
+                            if (payRes.result) {
+                                pagamentoStatus.style.color = 'orange';
+                                pagamentoStatus.innerHTML = `Pagamento PIX gerado com sucesso! Escaneie o QR Code ou use o código abaixo.`;
+                                submitButton.classList.remove('hidden'); // Permite envio do formulário após obter o PIX
+                            } else {
+                                pagamentoStatus.style.color = 'red';
+                                pagamentoStatus.textContent = 'Erro ao gerar PIX. Resposta inesperada do servidor. Tente novamente.';
+                                qrcodeContainer.style.display = 'none';
+                                pixContainer.style.display = 'none';
+                            }
+                        } else if (paymentType === 'card') {
+                            // URL externa para pagamento com cartão de crédito
+                            const externalCardLink = 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/b4b342cd-3634-4723-957c-db39ed5486a0/payment-option-form-v2/?source=link&preference-id=576632754-525a377d-5f07-4043-a264-1a309c675887&router-request-id=e18b76ed-189a-47b8-bc21-08bc8567656f&p=533e3ce7e15a9611eb415a593d4edeac'; // Substitua pelo seu link real do Mercado Pago ou outro gateway
+                            pagamentoStatus.style.color = 'blue';
+                            pagamentoStatus.innerHTML = `Clique <a href="${externalCardLink}" target="_blank" style="color: blue; text-decoration: underline;">aqui</a> para pagar com cartão de crédito.`;
+                            window.open(externalCardLink, '_blank'); // Abre o link em uma nova aba
+                            submitButton.classList.remove('hidden'); // Permite envio do formulário após o link ser fornecido
+                        }
+                    } catch (error) {
+                        console.error("Erro no fluxo de pagamento:", error);
+                        pagamentoStatus.style.color = 'red';
+                        pagamentoStatus.textContent = `Erro: ${error.message}. Por favor, verifique os dados e tente novamente.`;
+                        qrcodeContainer.style.display = 'none';
+                        pixContainer.style.display = 'none';
+                    } finally {
+                        loadingOverlay.style.display = 'none';
+                    }
                 });
-                formObject["data"] = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-                console.log('Dados do formulário:', formObject);
+                
+                inscricaoForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    console.log('Formulário de inscrição enviado.');
 
-                try {                    
-                    const response = await fetch("https://api-form-flask.onrender.com/submit", {
-                        method: "POST",
-                        headers: { "Content-Type": "application/json" },
-                        body: JSON.stringify(formObject),
+                    submitButton.disabled = true;
+                    submitButton.innerHTML = 'Enviando...';
+                    loadingOverlay.style.display = 'flex';
+                    loadingOverlay.querySelector('span').textContent = 'Enviando formulário de inscrição, aguarde...';
+
+
+                    const formData = new FormData(inscricaoForm);
+                    const formObject = {};
+                    formData.forEach((value, key) => {
+                        formObject[key] = value;
                     });
+                    formObject["data"] = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+                    console.log('Dados do formulário:', formObject);
 
-                    console.log("Status:", response.status);
-                    const respText = await response.text();
-                    console.log("Resposta do servidor:", respText);
-
-                    if (response.ok) {
-                        pagamentoStatus.style.color = 'green';
-                        pagamentoStatus.textContent = "Inscrição enviada com sucesso! Cheque sua caixa de spam caso não receba o email de confirmação.";
-                        
-                        // Chamada para o backend de e-mail
-                        const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
+                    try {                    
+                        const response = await fetch("https://api-form-flask.onrender.com/submit", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(formObject),
                         });
-                        console.log('Resposta da requisição de envio do formulário (e-mail) recebida:', emailResponse);
 
-                        if (!emailResponse.ok) {
-                            const errorData = await emailResponse.json().catch(() => ({ message: 'Erro desconhecido ao enviar e-mail.' }));
-                            console.error('Erro na resposta do servidor (envio do e-mail):', errorData);
-                            pagamentoStatus.textContent += ' Erro ao enviar e-mail de confirmação.';
+                        console.log("Status:", response.status);
+                        const respText = await response.text();
+                        console.log("Resposta do servidor:", respText);
+
+                        if (response.ok) {
+                            pagamentoStatus.style.color = 'green';
+                            pagamentoStatus.textContent = "Inscrição enviada com sucesso! Cheque sua caixa de spam caso não receba o email de confirmação.";
+                            
+                            // Chamada para o backend de e-mail
+                            const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(formObject),
+                            });
+                            console.log('Resposta da requisição de envio do formulário (e-mail) recebida:', emailResponse);
+
+                            if (!emailResponse.ok) {
+                                const errorData = await emailResponse.json().catch(() => ({ message: 'Erro desconhecido ao enviar e-mail.' }));
+                                console.error('Erro na resposta do servidor (envio do e-mail):', errorData);
+                                pagamentoStatus.textContent += ' Erro ao enviar e-mail de confirmação.';
+                            } else {
+                                const result = await emailResponse.json();
+                                console.log('Resultado do envio do e-mail:', result);
+                            }
+                            inscricaoForm.reset();
                         } else {
-                            const result = await emailResponse.json();
-                            console.log('Resultado do envio do e-mail:', result);
-                        }
-                        inscricaoForm.reset();
-                        // Oculta o botão de envio e exibe o de pagamento novamente para um novo ciclo, se necessário
-                        // submitButton.classList.add('hidden'); // Não ocultar mais, pois o pagamento está fora do fluxo
-                        // payButton.classList.remove('hidden'); // Não existe mais um payButton ativo
-                    } else {
+                            pagamentoStatus.style.color = 'red';
+                            pagamentoStatus.textContent = "Erro ao enviar a inscrição. Tente novamente.";
+                        }			                    
+                    } catch (error) {
+                        console.error('Erro ao enviar formulário de inscrição:', error);
                         pagamentoStatus.style.color = 'red';
-                        pagamentoStatus.textContent = "Erro ao enviar a inscrição. Tente novamente.";
-                    }			                    
-                } catch (error) {
-                    console.error('Erro ao enviar formulário de inscrição:', error);
-                    pagamentoStatus.style.color = 'red';
-                    pagamentoStatus.textContent = 'Erro ao enviar formulário de inscrição: ' + error.message;
-                    // submitButton.classList.remove('hidden'); // Não ocultar mais, pois o pagamento está fora do fluxo
-                } finally {
-                    loadingOverlay.style.display = 'none';
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = 'Enviar Inscrição';
+                        pagamentoStatus.textContent = 'Erro ao enviar formulário de inscrição: ' + error.message;
+                    } finally {
+                        loadingOverlay.style.display = 'none';
+                        submitButton.disabled = false;
+                        submitButton.innerHTML = 'Enviar Inscrição';
+                    }
+                });
+
+                // Garante que o botão de envio do formulário esteja visível por padrão
+                submitButton.classList.remove('hidden');
+
+                // Inicializa o estado do campo de comprovante ao carregar a página
+                if (paymentMethodSelect.value === 'pix') {
+                    comprovantePagamentoGroup.style.display = 'none';
+                } else {
+                    comprovantePagamentoGroup.style.display = 'block';
                 }
             });
+        </script>
+        <script type="text/javascript" src="js/wow.js"></script>
+    </body>
 
-            // Oculta o container do cartão e os campos de endereço no carregamento inicial
-            // cardFormContainer.classList.add('hidden'); // Comentado, pois o HTML já está comentado
-            // addressFieldsGroup.style.display = 'none'; // Comentado, pois o HTML já está comentado
-            // O botão de envio do formulário agora é visível por padrão
-            // submitButton.classList.add('hidden'); // Removido para que o botão seja visível
-        });
-    </script>
-    <script type="text/javascript" src="js/wow.js"></script>
-</body>
-
-</html>
+    </html>
