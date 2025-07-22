@@ -1115,7 +1115,7 @@
                     };
 
                     try {
-                        const response = await fetch('http://localhost:3000/api/createpay', requestOptions);
+                        const response = await fetch('https://ecorecitec-api.vercel.app/api/createpay', requestOptions);
                         console.log('Resposta da requisição de pagamento recebida:', response);
                         if (!response.ok) {
                             const errorData = await response.json().catch(() => ({ message: 'Erro desconhecido no servidor.' }));
