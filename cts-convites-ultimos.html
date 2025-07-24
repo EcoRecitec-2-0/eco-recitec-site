@@ -21,7 +21,7 @@
     <!-- End Google Tag Manager -->
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4C44ZTMSEM"></script>
+    <script async src="https://www.googlesyndication.com/pagead/js/adsbygoogle.js?id=G-4C44ZTMSEM"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -297,6 +297,7 @@
 
         /* Estilos do carrossel */
         .carousel-container {
+            display: none;
             position: relative;
             max-width: 600px;
             /* Ajuste conforme necessário */
@@ -346,15 +347,15 @@
 
         /* Estilos do formulário de inscrição */
         .whatsapp-float-container {
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-start;
             position: fixed;
             width: 100px;
             right: 1%;
             bottom: 6%;
             z-index: 10;
             margin-left: auto;
+            display: flex; /* Adicionado para consistência */
+            justify-content: flex-end; /* Adicionado para consistência */
+            align-items: flex-start; /* Adicionado para consistência */
         }
 
         .whatsapp-icon {
@@ -369,20 +370,20 @@
             color: #FF910B;
         }
 
-        .form-title {
+        .form-header-title { /* Nova classe para h2 do formulário */
             color: #fff;
             padding: 15px;
             border-radius: 8px;
         }
 
-        .form-subtitle {
+        .form-subtitle-label { /* Nova classe para label de subtitulo do formulario */
             color: #FF910B;
             font-size: 13pt;
             display: block;
             text-align: center;
         }
 
-        .form-card {
+        .form-main-card { /* Nova classe para o estilo do formulario */
             padding: 20px;
             background: #f9f9f9;
             border-radius: 8px;
@@ -452,6 +453,210 @@
 			.btn, .btn:hover, a, a:hover {
 				transition: 0.5s;
 			}
+		/* Estilos para a sobreposição de carregamento */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        /* Estilos para o texto de carregamento */
+        .loading-text {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        /* Estilos para o spinner */
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #FF910B;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+		@keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        /* Organização */
+        .organization-section-title {
+            text-align: center;
+            margin-top: 2%;
+        }
+        .organization-title-text {
+            font-size: 20pt;
+            color: #00517a;
+        }
+        .organization-cards-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .organization-card {
+            flex: 1 1 300px; /* Base size */
+            margin: 10px;
+            text-align: center;
+        }
+        .organization-card-img {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 10px;
+        }
+        .organization-card-text {
+            font-size: 10pt;
+            color: #00517a;
+        }
+        .organization-card-img-medium {
+            max-width: 200px;
+        }
+        .organization-card-img-small {
+            max-width: 250px;
+        }
+
+        /* Apoio */
+        .support-section-title {
+            text-align: center;
+            margin-top: 2%;
+        }
+        .support-title-text {
+            font-size: 20pt;
+            color: #00517a;
+        }
+        .support-cards-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .support-card {
+            flex: 1 1 150px; /* Base size for support logos */
+            margin: 10px;
+            text-align: center;
+        }
+        .support-card-img {
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 10px;
+        }
+        .support-card-content {
+            width: 150px;
+            min-height: 100px; /* Adjusted min-height for consistent layout */
+            margin: 0 auto;
+            text-align: center;
+        }
+        .support-card-text {
+            font-size: 12pt;
+            color: #00517a;
+        }
+        .support-card-img-small-120 {
+            max-width: 120px;
+        }
+        .support-card-img-medium-200 {
+            max-width: 200px;
+        }
+        .support-card-img-medium-240 {
+            max-width: 240px;
+        }
+        .support-card-img-small-150 {
+            max-width: 150px;
+        }
+        .support-card-content-height-40 {
+            min-height: 40px; /* Specific min-height */
+        }
+        .support-card-content-height-205 {
+            min-height: 205px; /* Specific min-height */
+        }
+        .support-card-img-small-80 {
+            max-width: 80px;
+        }
+        /* Nova classe para o titulo da chamada para ação */
+        .call-to-action-title {
+            font-size: 18pt;
+            color: #00517a;
+            line-height: 2px;
+            align-items: center;
+        }
+        /* Nova classe para o texto de descrição */
+        .description-text {
+            font-size: 14pt;
+            color: #333333;
+            text-align: center;
+        }
+        /* Estilos do modal de feedback */
+        .feedback-modal {
+            display: none; /* Oculto por padrão */
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .feedback-modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .feedback-modal-title {
+            font-family: "Montserrat", sans-serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #00517a;
+        }
+
+        .feedback-modal-message {
+            font-family: "Source Sans Pro", sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        .feedback-modal-button {
+            background-color: #00517a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .feedback-modal-button:hover {
+            background-color: #FF910B;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
     </style>
 </head>
 
@@ -460,6 +665,20 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T68WPL8" height="0" width="0"
             style="display: none; visibility: hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+
+	<!-- Overlay de carregamento -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <span class="loading-text">Enviando formulário...</span>
+        <div class="spinner"></div>
+    </div>
+
+    <div id="feedbackModal" class="feedback-modal">
+        <div class="feedback-modal-content">
+            <h2 id="feedbackTitle" class="feedback-modal-title"></h2>
+            <p id="feedbackMessage" class="feedback-modal-message"></p>
+            <button id="feedbackCloseButton" class="feedback-modal-button">Fechar</button>
+        </div>
+    </div>
 
     <div id="page_5e5829d624927">
         <div class="container-fluid" name="" id="Header-gcbmp09r6v">
@@ -508,17 +727,12 @@
 
             <div class="container-fluid" name="Container_5e5829d657c88" id="_5137665525_1574129923">
                 <div class="container container_body" name="container_5e5829d658305" id="_5dd351a4bbe86_1574130084">
-                    <div id="text_5e5829d659287" style="padding: 15px; text-align: center;">
+                    <div id="text_5e5829d659287" class="text-center" style="padding: 15px;">
                         <h3>
-                            <span style="
-                                    font-size: 18pt;
-                                    color: #00517a;
-                                    line-height: 2px;
-                                    align-items: center;
-                                "><strong>EU QUERO PARTICIPAR DO CIRCULAR TECH SKILLS</strong></span>
+                            <span class="call-to-action-title"><strong>EU QUERO PARTICIPAR DO CIRCULAR TECH SKILLS</strong></span>
                         </h3>
                         <p>
-                            <span style="font-size: 14pt; color: #333333; text-align: center;">No dia 4 e 5 de setembro de
+                            <span class="description-text">No dia 4 e 5 de setembro de
                                 2025 presencial: palestrantes renomados de Portugal, Rússia, Estados Unidos, Países
                                 Baixos e Brasil, trazendo um panorama Global da Economia Circular ,estratégias para
                                 implementar a Economia Circular na Indústria, discutindo política, cultura,
@@ -529,13 +743,13 @@
                     </div>
                     <div class="tab-content">                        
                         <div class="container">                           
-									<h2 class="text-center gradienteescuro" style="color: #fff; padding: 15px; border-radius: 8px;">
+									<h2 class="text-center gradienteescuro form-header-title">
 									Formulário de Inscrição
-									<label for="cargo" class="control-label" style="color: #FF910B; font-size: 13pt; display: block; text-align: center;">
+									<label for="cargo" class="control-label form-subtitle-label">
 										DIA 4 E 5 DE SETEMBRO
 									</label>
 									</h2>
-                            <form id="inscricaoForm" class="form-horizontal form-card">
+                            <form id="inscricaoForm" class="form-horizontal form-main-card">
                                 <div class="form-group">
                                     <label for="nome" class="control-label">Nome:</label>
                                     <input type="text" id="nome" name="nome" class="form-control" required
@@ -648,14 +862,17 @@
                                     event.preventDefault();
 
                                     const submitButton = document.getElementById("submitButton");
+									const loadingOverlay = document.getElementById("loadingOverlay");
+                                    
                                     submitButton.disabled = true;
                                     submitButton.innerHTML = "Enviando..."; // Mostra o carregamento
+									loadingOverlay.style.display = 'flex'; // Exibe a tela de carregamento
 
                                     const formData = new FormData(this);
                                     const formObject = {};
                                     formData.forEach((value, key) => formObject[key] = value);
 
-                                    console.log("Dados enviados:", formObject);
+                                    console.log("Dados enviados:", formObject); // Check the values in the console
 
                                     try {
                                         // Enviar dados para a API Flask
@@ -689,25 +906,56 @@
                                         }
 
                                         if (flaskResponse.ok) {
-                                            let message = "Inscrição enviada com sucesso!";
+                                            let message = "Sua inscrição foi enviada com sucesso.";
                                             if (emailSent) {
-                                                message += " Um e-mail de confirmação foi enviado (verifique sua caixa de spam).";
+                                                message += " Um e-mail de confirmação foi enviado para o seu endereço (verifique a caixa de entrada e a pasta de spam).";
                                             } else if (formObject.participar_ecossistema === "Sim") {
                                                 message += " Houve um problema ao enviar o e-mail de integração ao ecossistema, mas sua inscrição foi registrada.";
                                             }
-                                            alert(message);
+                                            // Substituir alert por modal de feedback
+                                            displayFeedbackModal(true, "Formulário Enviado com Sucesso!", message);
                                             this.reset();
                                         } else {
                                             const errorText = await flaskResponse.text();
-                                            alert(`Erro ao enviar a inscrição: ${errorText}`);
+                                            // Substituir alert por modal de feedback
+                                            displayFeedbackModal(false, "Erro no Envio do Formulário", `Ocorreu um erro ao enviar sua inscrição: ${errorText}. Por favor, tente novamente.`);
                                         }
                                     } catch (error) {
-                                        alert("Erro de conexão com o servidor.");
+                                        // Substituir alert por modal de feedback
+                                        displayFeedbackModal(false, "Erro de Conexão", "Ocorreu um erro de conexão com o servidor. Por favor, verifique sua internet e tente novamente.");
                                     } finally {
                                         submitButton.disabled = false;
                                         submitButton.innerHTML = "Enviar"; // Restaura o botão original
+										loadingOverlay.style.display = 'none'; // Oculta a tela de carregamento
                                     }
                                 });
+
+                                // Função para exibir o modal de feedback
+                                function displayFeedbackModal(isSuccess, title, message) {
+                                    const modal = document.getElementById('feedbackModal');
+                                    const modalTitle = document.getElementById('feedbackTitle');
+                                    const modalMessage = document.getElementById('feedbackMessage');
+                                    const formElement = document.getElementById('inscricaoForm'); // Referência ao formulário
+
+                                    modalTitle.textContent = title;
+                                    modalMessage.textContent = message;
+
+                                    if (isSuccess) {
+                                        modalTitle.style.color = '#28a745'; // Verde para sucesso
+                                    } else {
+                                        modalTitle.style.color = '#dc3545'; // Vermelho para erro
+                                    }
+
+                                    modal.style.display = 'flex'; // Exibe o modal
+                                    formElement.style.display = 'none'; // Oculta o formulário
+
+                                    // Event listener para o botão de fechar o modal
+                                    document.getElementById('feedbackCloseButton').onclick = function() {
+                                        modal.style.display = 'none'; // Oculta o modal
+                                        formElement.style.display = 'block'; // Mostra o formulário novamente
+                                        // O formulário já é resetado no sucesso no bloco try, então não precisamos resetar aqui
+                                    };
+                                }
                             </script>
 
 
@@ -724,24 +972,23 @@
                 <div class="container-fluid" name="Container_5e5829d59b74c" id="_5dae5c858fd8c_1571708037"
                     style="margin: 0">
                     <div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595">
-                        <p style="text-align: center; margin-top: 2%;">
-                            <strong><span style="font-size: 20pt; color: #00517a">ORGANIZAÇÃO
+                        <p class="organization-section-title">
+                            <strong><span class="organization-title-text">ORGANIZAÇÃO
                                 </span></strong>
                         </p>
                     </div>
-                    <div class="flex col-xs-12 col-sm-12 col-md-12"
-                        style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+                    <div class="flex col-xs-12 col-sm-12 col-md-12 organization-cards-container">
 
-                        <div class="card" style="flex: 1 1 300px; margin: 10px; text-align: center;">
-                            <img src="images/cec-logo.png" alt="logo Green"
-                                style="width: 100%; max-width: 300px; margin-bottom: 10px;">
+                        <div class="card organization-card">
+                            <img src="images/cec-logo.png" alt="logo Green" class="organization-card-img organization-card-img-large">
                         </div>
 
 
-                        <div class="card" style="flex: 1 1 250px; margin: 10px; text-align: center;">
+                        <div class="card organization-card" style="flex: 1 1 250px;"> <!-- Mantido inline por ser valor específico do flex-basis -->
                             <img src="images/logo-recitec-02-02-removebg-preview-300x183.png" alt="Mindset"
-                                style="width: 100%; max-width: 200px; margin-bottom: 10px;"><br>
-                            <span style="font-size: 10pt; color: #00517a">A EcoRecitec faz parte da Comunidade
+                                class="organization-card-img organization-card-img-medium">
+                            <br>
+                            <span class="organization-card-text">A EcoRecitec faz parte da Comunidade
                                 de
                                 Inovação da
                                 Fundação Ellen Mac Arthur</span>
@@ -749,9 +996,9 @@
 
 
 
-                        <div class="card" style="flex: 1 1 300px; margin: 10px; text-align: center;">
+                        <div class="card organization-card">
                             <img src="images/image-removebg-preview-1-300x170.png" alt="logo Decolores"
-                                style="width: 100%; max-width: 250px; margin-bottom: 10px;">
+                                class="organization-card-img organization-card-img-small">
                         </div>
                     </div>
                 </div>
@@ -761,25 +1008,22 @@
         <div class="container-fluid" name="Container_5e5829d59b74c" id="_5dae5c858fd8c_1571708037"
             style="margin: 0 auto; max-width: 1200px;">
             <div class="container-fluid" name="Container_5e5829d58dfb8" id="_5dae1c4b7c294_1571691595">
-                <p style="text-align: center; margin-top: 2%;">
-                    <strong><span style="font-size: 20pt; color: #00517a">APOIO
+                <p class="support-section-title">
+                    <strong><span class="support-title-text">APOIO
                                 </span></strong>
                 </p>
             </div>
 
-            <div class="flex col-xs-12 col-sm-12 col-md-12"
-                style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-                <div class="card" style="flex: 1 1 150px; margin: 10px; text-align: center;">
-                    <img src="images/LOGO_CREA_PRETO.png" alt="Logo GetIN"
-                        style="width: 100%; max-width: 300px; margin-bottom: 10px;">
-                    <div style="width: 150px; min-height: 100px; margin: 0 auto; text-align: center;">
+            <div class="flex col-xs-12 col-sm-12 col-md-12 support-cards-container">
+                <div class="card support-card">
+                    <img src="images/LOGO_CREA_PRETO.png" alt="Logo GetIN" class="support-card-img support-card-img-large">
+                    <div class="support-card-content">
                     </div>
                 </div>
-                <div class="card" style="flex: 1 1 150px; margin: 10px; text-align: center;">
-                    <img src="images/MARCA FIEB PNG_FIEB  INTERNET.png" alt="Logo FIEB"
-                        style="width: 100%; max-width: 120px; margin-bottom: 10px;">
-                    <div style="width: 150px; min-height: 100px; margin: 0 auto; text-align: center;">
-                        <span style="font-size: 12pt; color: #00517a;"><b>
+                <div class="card support-card">
+                    <img src="images/MARCA FIEB PNG_FIEB  INTERNET.png" alt="Logo FIEB" class="support-card-img support-card-img-small-120">
+                    <div class="support-card-content">
+                        <span class="support-card-text"><b>
                                 Federação das Indústrias do Estado da Bahia
                             </b>
                         </span>
@@ -787,23 +1031,20 @@
                 </div>
 
 
-                <div class="card" style="flex: 1 1 150px; margin: 10px; text-align: center;">
-                    <img src="images/abena.png" alt="Logo VoxLink"
-                        style="width: 100%; max-width: 200px; margin-bottom: 10px;">
-                    <div style="width: 150px; min-height: 100px; margin: 0 auto; text-align: center;">
+                <div class="card support-card">
+                    <img src="images/abena.png" alt="Logo VoxLink" class="support-card-img support-card-img-medium-200">
+                    <div class="support-card-content">
                     </div>
 
                 </div>
                 <div class="card" style="flex: 1 1 150px; margin: 10px; text-align: center;">
-                    <img src="images/marca-GetIN-OK-12.png" alt="Logo GetIN"
-                        style="width: 100%; max-width: 150px; margin-bottom: 10px;">
-                    <div style="width: 150px; min-height: 40px; margin: 0 auto; text-align: center;">
+                    <img src="images/marca-GetIN-OK-12.png" alt="Logo GetIN" class="support-card-img support-card-img-small-150">
+                    <div class="support-card-content support-card-content-height-40">
                     </div>
                 </div>
-                <div class="card" style="flex: 1 1 150px; margin: 10px; text-align: center;">
-                    <img src="images/vox.png" alt="Logo VoxLink"
-                        style="width: 100%; max-width: 240px; margin-bottom: 10px;">
-                    <div style="width: 150px; min-height: 100px; margin: 0 auto; text-align: center;">
+                <div class="card support-card">
+                    <img src="images/vox.png" alt="Logo VoxLink" class="support-card-img support-card-img-medium-240">
+                    <div class="support-card-content">
                     </div>
 
                 </div>
@@ -813,30 +1054,27 @@
         </div>
         <div class="container-fluid" name="Container_5e5829d59b74c" id="_5dae5c858fd8c_1571708037"
             style="margin: 0 auto; max-width: 800px;">
-            <div class="flex col-xs-12 col-sm-12 col-md-12"
-                style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-                <div class="card" style="flex: 1 1 150px; margin: 10px; text-align: center;">
-                    <img src="images/prefeitura-logo.jpg" alt="Logo Prefeitura de Salvador"
-                        style="width: 100%; max-width: 120px; margin-bottom: 10px;">
-                    <div style="width: 150px; min-height: 100px; margin: 0 auto; text-align: center;">
-                        <span style="font-size: 10pt; color: #00517a;"><b>
+            <div class="flex col-xs-12 col-sm-12 col-md-12 support-cards-container">
+                <div class="card support-card">
+                    <img src="images/prefeitura-logo.jpg" alt="Logo Prefeitura de Salvador" class="support-card-img support-card-img-small-120">
+                    <div class="support-card-content">
+                        <span class="support-card-text"><b>
                                 Secretaria de Sustentabilidade, Resiliência e Bem-estar e Proteção Animal
                             </b>
                         </span>
                     </div>
                 </div>
-                <div class="card" style="flex: 1 1 150px; margin: 10px; text-align: center;">
-                    <img src="images/gg.png" alt="Logo GG" style="width: 100%; max-width: 80px; margin-bottom: 10px;">
-                    <div style="width: 150px; min-height: 100px; margin: 0 auto; text-align: center;">
-                        <span style="font-size: 10pt; min-height: 205px; color: #00517a;">
+                <div class="card support-card">
+                    <img src="images/gg.png" alt="Logo GG" class="support-card-img support-card-img-small-80">
+                    <div class="support-card-content support-card-content-height-205">
+                        <span class="support-card-text">
                             <b>Confederação Industrial de Moscou</b>
                         </span>
                     </div>
                 </div>
-                <div class="card" style="flex: 1 1 150px; margin: 10px; text-align: center;">
-                    <img src="images/bahia-fatos.png" alt="Logo bahia-fatos"
-                        style="width: 100%; max-width: 150px; margin-bottom: 10px;">
-                    <div style="width: 150px; min-height: 100px; margin: 0 auto; text-align: center;">
+                <div class="card support-card">
+                    <img src="images/bahia-fatos.png" alt="Logo bahia-fatos" class="support-card-img support-card-img-small-150">
+                    <div class="support-card-content">
 
                     </div>
                 </div>
@@ -845,7 +1083,7 @@
         <div class="clear"></div>
     </div>
     </div>
-    <div style="clear: both; background-color: #00517a; padding: 20px 0;">
+    <div style="clear: both; background-color: #00517a; padding: 20px 0; overflow: hidden;">
         <div class="container-fluid" style="color: white; max-width: 1200px; margin: auto;">
             <!-- Logo -->
             <div class="row" style="display: flex; justify-content: space-between; align-items: center;">
@@ -959,6 +1197,106 @@
         setInterval(function () {
             moveSlide(1);
         }, 3000);
+
+        // Form submission logic
+        document.getElementById("inscricaoForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+
+            const submitButton = document.getElementById("submitButton");
+			const loadingOverlay = document.getElementById("loadingOverlay");
+            
+            submitButton.disabled = true;
+            submitButton.innerHTML = "Enviando..."; // Mostra o carregamento
+			loadingOverlay.style.display = 'flex'; // Exibe a tela de carregamento
+
+            const formData = new FormData(this);
+            const formObject = {};
+            formData.forEach((value, key) => formObject[key] = value);
+
+            console.log("Dados enviados:", formObject); // Check the values in the console
+
+            try {
+                // Enviar dados para a API Flask
+                const flaskResponse = await fetch("https://api-form-flask.onrender.com/inscricao-convites", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formObject),
+                });
+
+                let emailSent = false;
+                // Verificar se o usuário deseja participar do ecossistema e enviar e-mail
+                if (formObject.participar_ecossistema === "Sim") {
+                    console.log("Usuário deseja participar do ecossistema. Enviando e-mail...");
+                    try {
+                        const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(formObject),
+                        });
+                        if (emailResponse.ok) {
+                            console.log("E-mail de ecossistema enviado com sucesso.");
+                            emailSent = true;
+                        } else {
+                            console.error("Erro ao enviar e-mail de ecossistema:", await emailResponse.text());
+                        }
+                    } catch (emailError) {
+                        console.error("Erro de conexão ao enviar e-mail de ecossistema:", emailError);
+                    }
+                }
+
+                if (flaskResponse.ok) {
+                    let message = "Sua inscrição foi enviada com sucesso.";
+                    if (emailSent) {
+                        message += " Um e-mail de confirmação foi enviado para o seu endereço (verifique a caixa de entrada e a pasta de spam).";
+                    } else if (formObject.participar_ecossistema === "Sim") {
+                        message += " Houve um problema ao enviar o e-mail de integração ao ecossistema, mas sua inscrição foi registrada.";
+                    }
+                    // Substituir alert por modal de feedback
+                    displayFeedbackModal(true, "Formulário Enviado com Sucesso!", message);
+                    this.reset();
+                } else {
+                    const errorText = await flaskResponse.text();
+                    // Substituir alert por modal de feedback
+                    displayFeedbackModal(false, "Erro no Envio do Formulário", `Ocorreu um erro ao enviar sua inscrição: ${errorText}. Por favor, tente novamente.`);
+                }
+            } catch (error) {
+                // Substituir alert por modal de feedback
+                displayFeedbackModal(false, "Erro de Conexão", "Ocorreu um erro de conexão com o servidor. Por favor, verifique sua internet e tente novamente.");
+            } finally {
+                submitButton.disabled = false;
+                submitButton.innerHTML = "Enviar"; // Restaura o botão original
+				loadingOverlay.style.display = 'none'; // Oculta a tela de carregamento
+            }
+        });
+
+        // Função para exibir o modal de feedback
+        function displayFeedbackModal(isSuccess, title, message) {
+            const modal = document.getElementById('feedbackModal');
+            const modalTitle = document.getElementById('feedbackTitle');
+            const modalMessage = document.getElementById('feedbackMessage');
+            const formElement = document.getElementById('inscricaoForm'); // Referência ao formulário
+
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+
+            if (isSuccess) {
+                modalTitle.style.color = '#28a745'; // Verde para sucesso
+            } else {
+                modalTitle.style.color = '#dc3545'; // Vermelho para erro
+            }
+
+            modal.style.display = 'flex'; // Exibe o modal
+            formElement.style.display = 'none'; // Oculta o formulário
+
+            // Event listener para o botão de fechar o modal
+            document.getElementById('feedbackCloseButton').onclick = function() {
+                modal.style.display = 'none'; // Oculta o modal
+                formElement.style.display = 'block'; // Mostra o formulário novamente
+                // O formulário já é resetado no sucesso no bloco try, então não precisamos resetar aqui
+            };
+        }
     </script>
 </body>
 
