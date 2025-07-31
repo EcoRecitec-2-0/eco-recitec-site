@@ -3,7 +3,7 @@
 }
 
 button {
-   cursor: pointer;
+  cursor: pointer;
 }
 
 body {
@@ -33,8 +33,8 @@ body {
 .blogHeader__LogoDiv h2 {
   font-family: "Montserrat Alternates", sans-serif;
   font-weight: 700;
-  font-size: 16px;
-  margin: 0px;
+  font-size: 18px;
+  margin: 5px 0px 0px 0px;
 }
 
 .blogHeader__NavDiv {
@@ -85,6 +85,16 @@ body {
   justify-content: center;
   color: #1e1e1e;
   text-align: center;
+  line-height: 110%;
+}
+
+.main__subTitle {
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  color: #000;
+  font-size: 22px;
+  font-weight: 500;
+  margin: 0px;
 }
 
 .main__button {
@@ -112,14 +122,14 @@ body {
 }
 
 .main__cardsDiv::-webkit-scrollbar-track {
-    background-color: #F4F4F4;
+  background-color: #f4f4f4;
 }
 .main__cardsDiv::-webkit-scrollbar {
-    height: 7px;
-    background: #F4F4F4;
+  height: 7px;
+  background: #f4f4f4;
 }
 .main__cardsDiv::-webkit-scrollbar-thumb {
-    background: #4d61ff;
+  background: #4d61ff;
 }
 
 .blogCard {
@@ -185,7 +195,19 @@ body {
   outline-width: 0px;
   background: transparent;
   font-size: 20px;
-  font-weight: 600;  
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.blogCard__like ion-icon {
+  background: #f1f4f9;
+  padding: 8px;
+  font-size: 28px;
+  border-radius: 8px;
+  color: #2639cc;
 }
 
 .blogCard__share {
@@ -198,7 +220,155 @@ body {
   align-items: center;
   justify-content: center;
   border-radius: 1000px;
-  padding: 10px 20px;  
+  padding: 10px 20px;
   border: 0px;
   outline-width: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.blogCard__share ion-icon {
+  font-size: 22px;
+  color: #fff;
+}
+
+.main__postsDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin: 100px 0px 0px 0px;
+}
+
+.postcard {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 1080px;
+  margin: 28px 0px;
+  background: transparent;
+  border-radius: 20px;
+  padding: 35px;
+}
+
+.postcard__div-1 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 25px;
+}
+
+.postcard__tag {
+  font-family: "Montserrat Alternates", sans-serif;
+  background: var(--bck);
+  padding: 8px 34px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #000;
+  margin: 0px;
+}
+
+.postcard__date {
+  font-family: "Inter", sans-serif;
+  color: #000;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0px;
+}
+
+.postcard__title {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 45px;
+  color: #000;
+  margin: 10px 0px 22px 0px;
+}
+
+.postcard__text {
+  font-family: "Inter", sans-serif;
+  color: #1e1e1e;
+  font-size: 20px;
+  font-weight: 500;
+  margin: 18px 0px;
+  line-height: 180%;
+}
+
+.postcard__lineDiv {
+  background: #8396a5;
+  width: 100%;
+  height: 2px;
+}
+
+.postcard__div-2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px 0px 10px 0px;
+  gap: 60px;
+}
+
+.postcard__likeButton {
+  font-family: "Montserrat Alternates", sans-serif;
+  color: #2639cc;
+  border: 0px;
+  outline-width: 0px;
+  background: transparent;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.postcard__likeButton ion-icon {
+  background: #f1f4f9;
+  padding: 8px;
+  font-size: 28px;
+  border-radius: 8px;
+  color: #2639cc;
+}
+
+.postcard__shareButton {
+  font-family: "Montserrat Alternates", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  background: #2639cc;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1000px;
+  padding: 10px 20px;
+  border: 0px;
+  outline-width: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.postcard__shareButton ion-icon {
+  font-size: 22px;
+  color: #fff;
+}
+
+.postcard__imgWrapper {
+  width: 100%;
+  height: 400px;
+  background: #f1f4f9;
+  overflow: hidden;
+  margin: 0px 0px 30px 0px;
+}
+
+.postcard__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
