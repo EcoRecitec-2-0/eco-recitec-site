@@ -1,96 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- Google Tag Manager -->
-		<script>
-			(function (w, d, s, l, i) {
-				w[l] = w[l] || [];
-				w[l].push({
-					"gtm.start": new Date().getTime(),
-					event: "gtm.js",
-				});
-				var f = d.getElementsByTagName(s)[0],
-					j = d.createElement(s),
-					dl = l != "dataLayer" ? "&l=" + l : "";
-				j.async = true;
-				j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-				f.parentNode.insertBefore(j, f);
-			})(window, document, "script", "dataLayer", "GTM-T68WPL8");
-		</script>
-		<!-- End Google Tag Manager -->
-		<!-- Meta Pixel Code -->
-		<script>
-			!(function (f, b, e, v, n, t, s) {
-				if (f.fbq) return;
-				n = f.fbq = function () {
-					n.callMethod
-						? n.callMethod.apply(n, arguments)
-						: n.queue.push(arguments);
-				};
-				if (!f._fbq) f._fbq = n;
-				n.push = n;
-				n.loaded = !0;
-				n.version = "2.0";
-				n.queue = [];
-				t = b.createElement(e);
-				t.async = !0;
-				t.src = v;
-				s = b.getElementsByTagName(e)[0];
-				s.parentNode.insertBefore(t, s);
-			})(
-				window,
-				document,
-				"script",
-				"https://connect.facebook.net/en_US/fbevents.js"
-			);
-			fbq("init", "980082836024765");
-			fbq("track", "PageView");
-		</script>
-		<noscript
-			><img
-				height="1"
-				width="1"
-				style="display: none"
-				src="https://www.facebook.com/tr?id=980082836024765&ev=PageView&noscript=1"
-		/></noscript>
-		<!-- End Meta Pixel Code -->
-		<!-- Remember to include jQuery :) -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  <head>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-T68WPL8");
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- Meta Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "980082836024765");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=980082836024765&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    <!-- Remember to include jQuery :) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
-		<!-- jQuery Modal -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
-		/>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
-	</head>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
 
-	<body>
-		<!-- Google Tag Manager (noscript) -->
-		<noscript
-			><iframe
-				src="https://www.googletagmanager.com/ns.html?id=GTM-T68WPL8"
-				height="0"
-				width="0"
-				style="display: none; visibility: hidden"
-			></iframe
-		></noscript>
-		<!-- End Google Tag Manager (noscript) -->
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-T68WPL8"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-		<!-- Modal HTML embedded directly into document -->
-		<div id="ex3" class="modal">
-			<p>Thanks for clicking. That felt good.</p>
-			<a href="#" rel="modal:close">Close</a>
-		</div>
+    <!-- Modal HTML embedded directly into document -->
+    <div id="ex3" class="modal">
+      <p>Thanks for clicking. That felt good.</p>
+      <a href="#" rel="modal:close">Close</a>
+    </div>
 
-		<!-- Link to open the modal -->
-		<p><a href="#ex3" rel="modal:open">Open Modal</a></p>
-		<div
-					style="display:flex; justify-content: flex-end; align-items: flex-start; position: fixed; width: 100px; right:1%;bottom: 6%; z-index: +10; margin-left: auto; ">
-					<a href="https://api.whatsapp.com/send?phone=5571986956150" target="_blank"><img class="jarallax-img"
-							style="width: 100px" src="images/logo/logo-whatsapp.png" alt="" /></a></div>
-	</body>
+    <!-- Link to open the modal -->
+    <p><a href="#ex3" rel="modal:open">Open Modal</a></p>
+    <div
+      style="
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        position: fixed;
+        width: 100px;
+        right: 1%;
+        bottom: 6%;
+        z-index: +10;
+        margin-left: auto;
+      "
+    >
+      <a
+        href="https://api.whatsapp.com/send?phone=5571986956150"
+        target="_blank"
+        ><img
+          class="jarallax-img"
+          style="width: 100px"
+          src="images/logo/logo-whatsapp.png"
+          alt=""
+      /></a>
+    </div>
+  </body>
+  <script type="module" src="scripts/paceAcessCount.js"></script>
 </html>

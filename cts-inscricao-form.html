@@ -654,6 +654,13 @@
             background-color: #FF910B;
         }
 
+        .form__text {
+            text-align: center;
+            width: 100%;
+            color: #FF910B;
+            font-weight: 600;
+        }
+
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
@@ -809,36 +816,7 @@
                                     <label for="cargo" class="control-label">Cargo:</label>
                                     <input type="text" id="cargo" name="cargo" class="form-control"
                                         placeholder="Seu cargo na empresa">
-                                </div>
-
-                                <div class="form-group">                                    
-
-                                    <div class="form-group">
-                                        <label for="payment-method">Escolha o Método de Pagamento:</label>
-                                        <select id="payment-method" class="form-control">
-                                            <option value="pix">PIX</option>
-                                            <option value="card">Cartão de Crédito/Débito</option>
-                                        </select>
-                                    </div>
-
-                                    <div id="card-form-container" class="hidden">                                                                                
-                                         </div>
-                                    <button type="button" id="payButton" class="btn botao2">Processar Pagamento (PIX)</button>
-                                    <p id="pagamentoStatus" style="margin-top: 10px; font-weight: bold;"></p>
-                                    <img id="qrCodeImage" src="" alt="QR Code PIX" style="display: none; max-width: 100%; height: auto; margin-top: 15px;">
-                                    <label class="control-label form-subtitle" id="warningLabel">
-                                        
-                                    </label>
-                                    <div id="qrcode"></div>
-                                    <div class="pixContainer" id="pixContainer">
-                                        <p id="pixCopyText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat quas nisi culpa eveniet error, quis officiis neque sapiente tenetur. Aperiam omnis ea veniam cupiditate possimus quos, adipisci in vel?</p>
-                                        <button id="copyPixButton" type="button"><ion-icon name="copy-outline"></ion-icon></button>
-                                    </div>
-                                </div>
-                                <div class="form-group" id="comprovantePagamentoGroup">
-                                    <label for="comprovantePagamento" class="control-label">Comprovante de Pagamento:</label>
-                                    <input type="file" id="comprovantePagamento" name="comprovantePagamento" class="form-control">
-                                </div>
+                                </div>                                
 
                                 <div class="form-group">
                                     <label>
@@ -885,6 +863,35 @@
                                     <label for="expectativas">Expectativas em relação ao evento:</label>
                                     <textarea id="expectativas" name="expectativas" class="form-control"
                                         placeholder="Compartilhe suas expectativas" rows="3"></textarea>
+                                </div>
+                                <p class="form__text">Agora é com você! Faça o pagamento do evento no valor de R$ 350,00</p>
+                                <div class="form-group">                                    
+
+                                    <div class="form-group" style="margin: 0px 0px 15px 0px;">
+                                        <label for="payment-method">Escolha o Método de Pagamento:</label>
+                                        <select id="payment-method" class="form-control">
+                                            <option value="pix">PIX</option>
+                                            <option value="card">Cartão de Crédito/Débito</option>
+                                        </select>
+                                    </div>
+
+                                    <div id="card-form-container" class="hidden">                                                                                
+                                         </div>
+                                    <button type="button" id="payButton" class="btn botao2">Processar Pagamento (PIX)</button>
+                                    <p id="pagamentoStatus" style="margin-top: 10px; font-weight: bold;"></p>
+                                    <img id="qrCodeImage" src="" alt="QR Code PIX" style="display: none; max-width: 100%; height: auto; margin-top: 15px;">
+                                    <label class="control-label form-subtitle" id="warningLabel" style="text-align: center;">
+                                        
+                                    </label>
+                                    <div id="qrcode"></div>
+                                    <div class="pixContainer" id="pixContainer">
+                                        <p id="pixCopyText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat quas nisi culpa eveniet error, quis officiis neque sapiente tenetur. Aperiam omnis ea veniam cupiditate possimus quos, adipisci in vel?</p>
+                                        <button id="copyPixButton" type="button"><ion-icon name="copy-outline"></ion-icon></button>
+                                    </div>
+                                </div>
+                                <div class="form-group" id="comprovantePagamentoGroup">
+                                    <label for="comprovantePagamento" class="control-label">Comprovante de Pagamento:</label>
+                                    <input type="file" id="comprovantePagamento" name="comprovantePagamento" class="form-control">
                                 </div>
                                 <button id="submitButton" type="submit" class="btn botao2" style="display: none;">Enviar Inscrição</button>
                             </form>
@@ -1095,7 +1102,7 @@
              * Função para criar o pagamento no backend.
              * Esta função é utilizada para processar pagamentos PIX.
              */
-            async function createPay(email, value, paymentType, payerCpf, payerName, payerPhone, streetName, streetNumber, zipCode, federalUnit, cardData = null) {
+            async function createPay(email, value, paymentType, payerCpf, payerName, payerPhone, streetName = null, streetNumber = null, zipCode = null, federalUnit = null, cardData = null) {
                 console.log('Iniciando createPay...');
                 return new Promise(async (resolve, reject) => {
                     let requestBody = {
@@ -1378,14 +1385,9 @@
                     const cpf = document.getElementById('cpf').value;
                     const nome = document.getElementById('nome').value;
                     const telefone = document.getElementById('telefone').value;
-                    
+                    const zipCode = document.getElementById("cidade").value
                     const paymentType = paymentMethodSelect.value;
-
-                    // Campos de endereço não são mais obrigatórios no frontend para cartão, pois é link externo
-                    let streetName = '';
-                    let streetNumber = '';
-                    let zipCode = '';
-                    let federalUnit = '';
+                    
 
                     loadingOverlay.style.display = 'flex';
                     pagamentoStatus.textContent = 'Processando...';
@@ -1399,10 +1401,9 @@
                             const cleanedCpf = cpf.replace(/\D/g, ''); 
                             // Limpa o telefone para enviar apenas dígitos
                             const cleanedPhone = telefone.replace(/\D/g, '');
-                            // Limpa o CEP para enviar apenas dígitos (se preenchido)
-                            const cleanedZipCode = zipCode ? cleanedZipCode.replace(/\D/g, '') : '';
+                            // Limpa o CEP para enviar apenas dígitos (se preenchido)                            
 
-                            const payRes = await createPay(email, valueToPay, paymentType, cleanedCpf, nome, cleanedPhone, streetName, streetNumber, cleanedZipCode, federalUnit); 
+                            const payRes = await createPay(email, valueToPay, paymentType, cleanedCpf, nome, cleanedPhone); 
                             
                             // Limpa o conteúdo anterior do container do QR Code
                             qrcodeContainer.innerHTML = '';
@@ -1511,6 +1512,7 @@
             });
         </script>
         <script type="text/javascript" src="js/wow.js"></script>
+        <script type="module" src="scripts/paceAcessCount.js"></script>
     </body>
 
     </html>
