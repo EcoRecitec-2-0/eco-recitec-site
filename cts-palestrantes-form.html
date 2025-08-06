@@ -792,6 +792,7 @@
                                         <option value="">Selecione uma opção</option>
                                         <option value="palestrante">Palestrante</option>
                                         <option value="parceiro">Parceiro</option>
+                                        <option value="parceiro e palestrante">Parceiro e Palestrante</option>
                                     </select>
                                 </div>
 
@@ -1134,6 +1135,11 @@
                     setRequired([tituloPalestra, resumoPalestra, miniCurriculo], true);
                 } else if (participationTypeSelect.value === 'parceiro') {
                     partnerFields.style.display = 'block';
+                    setRequired([categoriaParceria], true);
+                } else if (participationTypeSelect.value === 'parceiro e palestrante') {
+                    partnerFields.style.display = 'block';
+                    speakerFields.style.display = 'block';
+                    setRequired([tituloPalestra, resumoPalestra, miniCurriculo], true);
                     setRequired([categoriaParceria], true);
                 }
             });
