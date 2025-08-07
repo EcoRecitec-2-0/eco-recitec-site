@@ -13,11 +13,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const actualDate = new Date().toLocaleDateString('pt-BR');
+const pagePath = `${window.location.pathname}`.replace(".html", "").replace("/", "");
+const docRef = doc(db, "webViews", pagePath);
+
+// Armazena o momento em que a página foi carregada
+const startTime = new Date().getTime();
 
 window.addEventListener("load", async () => {
-   if (localStorage.lastPage != `${window.location.pathname}`.replace(".html", "") || localStorage.lastPageDate != actualDate) {
-      const pagePath = `${window.location.pathname}`.replace(".html", "").replace("/", "");
-      const docRef = doc(db, "webViews", pagePath);
+   if (localStorage.lastPage != pagePath || localStorage.lastPageDate != actualDate) {
       try {
          const docSnap = await getDoc(docRef);
          if (docSnap.exists()) {
@@ -39,11 +42,27 @@ window.addEventListener("load", async () => {
                dateView: [{ date: actualDate, dayViews: 1 }]
             });
          }
-         localStorage.setItem("lastPage", `${window.location.pathname}`.replace(".html", ""));
-         localStorage.setItem("lastPageDate", `${actualDate}`);
-
+         localStorage.setItem("lastPage", pagePath);
+         localStorage.setItem("lastPageDate", actualDate);
       } catch (error) {
          console.error("Erro ao registrar a visualização:", error);
+      }
+   }
+});
+
+window.addEventListener("beforeunload", async () => {
+   const endTime = new Date().getTime();
+   const timeOnPage = (endTime - startTime) / 1000; // Tempo em segundos
+
+   if (timeOnPage > 1) { // Ignora se o tempo for muito curto
+      try {
+         // Use runTransaction para garantir a atomicidade da operação
+         await updateDoc(docRef, {
+            totalTime: increment(timeOnPage),
+            visitCount: increment(1)
+         });
+      } catch (error) {
+         console.error("Erro ao registrar o tempo de permanência:", error);
       }
    }
 });

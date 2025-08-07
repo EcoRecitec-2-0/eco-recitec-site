@@ -15,6 +15,7 @@ const db = getFirestore(app);
 
 const routesChartDiv = document.getElementById("routesChart");
 const allAcessChartDiv = document.getElementById("allAcessChart");
+const averageTimeChartDiv = document.getElementById("averageTimeChart"); // Novo div
 
 function addChartStyles(canvas, full = false) {
    canvas.style.minWidth = "500px";
@@ -24,34 +25,44 @@ function addChartStyles(canvas, full = false) {
       canvas.style.width = "calc(100vw - 240px)";
    } else {
       canvas.style.width = "calc(50vw - 240px)";
-
    }
 }
 
+// Cria os canvas para os gráficos
 const routesChartCanvas = document.createElement("canvas");
 routesChartDiv.insertAdjacentElement("beforeend", routesChartCanvas);
+const averageTimeChartCanvas = document.createElement("canvas");
+averageTimeChartDiv.insertAdjacentElement("beforeend", averageTimeChartCanvas);
 const allAcessChartCanvas = document.createElement("canvas");
 allAcessChartDiv.insertAdjacentElement("beforeend", allAcessChartCanvas);
 
+// Aplica os estilos
 addChartStyles(routesChartCanvas, true);
-addChartStyles(allAcessChartCanvas);
+addChartStyles(averageTimeChartCanvas, true);
+addChartStyles(allAcessChartCanvas, true);
 
+// --- Processamento dos dados ---
 const querySnapshot = await getDocs(collection(db, "webViews"));
 
 const allViewsId = [];
 const viewsByRoute = [];
 const dailyViewsTotal = {};
+const averageTimeByRoute = []; 
 
 querySnapshot.forEach((doc) => {
    const data = doc.data();
-
    allViewsId.push(doc.id);
    viewsByRoute.push(data.views);
+
+   // Calcula o tempo médio por rota
+   const totalTime = data.totalTime || 0;
+   const visitCount = data.visitCount || 0;
+   const averageTime = visitCount > 0 ? (totalTime / visitCount) : 0;
+   averageTimeByRoute.push(averageTime.toFixed(2)); // Arredonda para duas casas decimais
 
    data.dateView.forEach(dailyData => {
       const date = dailyData.date;
       const dayViews = dailyData.dayViews;
-
       dailyViewsTotal[date] = (dailyViewsTotal[date] || 0) + dayViews;
    });
 });
@@ -64,8 +75,6 @@ const dailyLabels = Object.keys(dailyViewsTotal).sort((a, b) => {
    return dateA - dateB;
 });
 const dailyData = dailyLabels.map(date => dailyViewsTotal[date]);
-console.log(dailyData);
-
 
 
 // --- Gráfico de Barras: Visualizações por Rota ---
@@ -111,6 +120,34 @@ new Chart(allAcessChartCanvas, {
          title: {
             display: true,
             text: 'Total de Acessos Diários'
+         }
+      }
+   }
+});
+
+// --- Gráfico: Tempo Médio de Permanência por Rota ---
+new Chart(averageTimeChartCanvas, {
+   type: 'bar',
+   data: {
+      labels: allViewsId,
+      datasets: [{
+         label: 'Tempo Médio na Página (segundos)',
+         data: averageTimeByRoute,
+         borderWidth: 1,
+         backgroundColor: 'rgba(75, 192, 192, 0.2)',
+         borderColor: 'rgba(75, 192, 192, 1)',
+      }]
+   },
+   options: {
+      scales: {
+         y: {
+            beginAtZero: true
+         }
+      },
+      plugins: {
+         title: {
+            display: true,
+            text: 'Tempo Médio de Permanência por Rota'
          }
       }
    }
