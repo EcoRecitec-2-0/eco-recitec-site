@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-import { getFirestore, doc, setDoc, updateDoc, increment, arrayUnion, arrayRemove } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
 const firebaseConfig = {
    apiKey: "AIzaSyBi-ZjFHow2yDm-TEOTQlp_8DG6yKr6-9k",
    authDomain: "ecorecitecweb.firebaseapp.com",
@@ -15,25 +16,34 @@ const actualDate = new Date().toLocaleDateString('pt-BR');
 
 window.addEventListener("load", async () => {
    if (localStorage.lastPage != `${window.location.pathname}`.replace(".html", "") || localStorage.lastPageDate != actualDate) {
+      const pagePath = `${window.location.pathname}`.replace(".html", "").replace("/", "");
+      const docRef = doc(db, "webViews", pagePath);
       try {
-         const washingtonRef = doc(db, "webViews", `${window.location.pathname}`.replace(".html", "").replace("/", ""));
-         await updateDoc(washingtonRef, {
-            views: increment(1),
-            dateView: arrayUnion(`${actualDate}`)
-         });
-         localStorage.setItem("lastPage", `${window.location.pathname}`.replace(".html", ""))
-         localStorage.setItem("lastPageDate", `${actualDate}`)
-      } catch (error) {
-         if (`${error}`.includes("No document to update:")) {
-            await setDoc(doc(db, "webViews", `${window.location.pathname}`.replace(".html", "").replace("/", "")), {
-               views: 1,
-               dateView: [`${actualDate}`]
+         const docSnap = await getDoc(docRef);
+         if (docSnap.exists()) {
+            const data = docSnap.data();
+            let dateView = data.dateView || [];
+            let todayData = dateView.find(item => item.date === actualDate);
+            if (todayData) {
+               todayData.dayViews = (todayData.dayViews || 0) + 1;
+            } else {
+               dateView.push({ date: actualDate, dayViews: 1 });
+            }
+            await updateDoc(docRef, {
+               views: increment(1),
+               dateView: dateView
             });
-            localStorage.setItem("lastPage", `${window.location.pathname}`.replace(".html", ""))
-            localStorage.setItem("lastPageDate", `${actualDate}`)
          } else {
-            console.log(error);
+            await setDoc(docRef, {
+               views: 1,
+               dateView: [{ date: actualDate, dayViews: 1 }]
+            });
          }
+         localStorage.setItem("lastPage", `${window.location.pathname}`.replace(".html", ""));
+         localStorage.setItem("lastPageDate", `${actualDate}`);
+
+      } catch (error) {
+         console.error("Erro ao registrar a visualização:", error);
       }
    }
-})
+});

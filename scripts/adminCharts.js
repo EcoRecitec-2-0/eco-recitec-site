@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-import { getFirestore, doc, setDoc, updateDoc, increment, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+
 const firebaseConfig = {
    apiKey: "AIzaSyBi-ZjFHow2yDm-TEOTQlp_8DG6yKr6-9k",
    authDomain: "ecorecitecweb.firebaseapp.com",
@@ -11,30 +12,70 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const routesChartDiv = document.getElementById("routesChart")
-const allAcessChartDiv = document.getElementById("allAcessChart")
-const allViewsId = []
-const allViewsData = []
+
+const routesChartDiv = document.getElementById("routesChart");
+const allAcessChartDiv = document.getElementById("allAcessChart");
+
+function addChartStyles(canvas, full = false) {
+   canvas.style.minWidth = "500px";
+   canvas.style.height = "auto";
+   canvas.style.aspectRatio = "2/1";
+   if (full == true) {
+      canvas.style.width = "calc(100vw - 240px)";
+   } else {
+      canvas.style.width = "calc(50vw - 240px)";
+
+   }
+}
+
+const routesChartCanvas = document.createElement("canvas");
+routesChartDiv.insertAdjacentElement("beforeend", routesChartCanvas);
+const allAcessChartCanvas = document.createElement("canvas");
+allAcessChartDiv.insertAdjacentElement("beforeend", allAcessChartCanvas);
+
+addChartStyles(routesChartCanvas, true);
+addChartStyles(allAcessChartCanvas);
 
 const querySnapshot = await getDocs(collection(db, "webViews"));
+
+const allViewsId = [];
+const viewsByRoute = [];
+const dailyViewsTotal = {};
+
 querySnapshot.forEach((doc) => {
-   allViewsId.push(doc.id)
-   allViewsData.push(doc.data())
-   console.log(doc.id, " => ", doc.data());
+   const data = doc.data();
+
+   allViewsId.push(doc.id);
+   viewsByRoute.push(data.views);
+
+   data.dateView.forEach(dailyData => {
+      const date = dailyData.date;
+      const dayViews = dailyData.dayViews;
+
+      dailyViewsTotal[date] = (dailyViewsTotal[date] || 0) + dayViews;
+   });
 });
 
-let routesChartcanvas = document.createElement("canvas")
-routesChartDiv.insertAdjacentElement("beforeend", routesChartcanvas)
-let allAcesscanvas = document.createElement("canvas")
-allAcessChartDiv.insertAdjacentElement("beforeend", allAcesscanvas)
+const dailyLabels = Object.keys(dailyViewsTotal).sort((a, b) => {
+   const [dayA, monthA, yearA] = a.split('/').map(Number);
+   const [dayB, monthB, yearB] = b.split('/').map(Number);
+   const dateA = new Date(yearA, monthA - 1, dayA);
+   const dateB = new Date(yearB, monthB - 1, dayB);
+   return dateA - dateB;
+});
+const dailyData = dailyLabels.map(date => dailyViewsTotal[date]);
+console.log(dailyData);
 
-new Chart(routesChartcanvas, {
+
+
+// --- Gráfico de Barras: Visualizações por Rota ---
+new Chart(routesChartCanvas, {
    type: 'bar',
    data: {
       labels: allViewsId,
       datasets: [{
-         label: 'Visitas por rota',
-         data: allViewsData.map(el => el.views),
+         label: 'Visitas por Rota',
+         data: viewsByRoute,
          borderWidth: 1
       }]
    },
@@ -47,15 +88,21 @@ new Chart(routesChartcanvas, {
    }
 });
 
+// --- Gráfico de Linha: Total de Visitas por Dia ---
 
-new Chart(allAcesscanvas, {
+console.log(dailyData);
+
+new Chart(allAcessChartCanvas, {
    type: 'line',
    data: {
-      labels: allViewsId,
+      labels: dailyLabels,
       datasets: [{
-         label: 'Visitas Por dia',
-         data: allViewsData.map(el => el.views),
-         borderWidth: 1
+         label: 'Total de Visitas Por Dia',
+         data: dailyData,
+         borderWidth: 1,
+         backgroundColor: 'rgba(54, 162, 235, 0.2)',
+         borderColor: 'rgba(54, 162, 235, 1)',
+         tension: 0.1
       }]
    },
    options: {
@@ -63,7 +110,7 @@ new Chart(allAcesscanvas, {
       plugins: {
          title: {
             display: true,
-            text: (ctx) => 'Point Style: ' + ctx.chart.data.datasets[0].pointStyle,
+            text: 'Total de Acessos Diários'
          }
       }
    }
