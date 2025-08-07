@@ -263,15 +263,21 @@ body {
   gap: 25px;
 }
 
+.tags-container {
+    display: flex;
+    gap: 10px;
+}
+
 .postcard__tag {
   font-family: "Montserrat Alternates", sans-serif;
-  background: var(--bck);
+  /* background: var(--bck); */
   padding: 8px 34px;
   border-radius: 8px;
   font-weight: 500;
   font-size: 18px;
   color: #000;
   margin: 0px;
+  transition: background-color 0.3s ease;
 }
 
 .postcard__date {
