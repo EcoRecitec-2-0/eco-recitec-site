@@ -1,62 +1,99 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 // Sua configuração do Firebase
 const firebaseConfig = {
-   apiKey: "AIzaSyBi-ZjFHow2yDm-TEOTQlp_8DG6yKr6-9k",
-   authDomain: "ecorecitecweb.firebaseapp.com",
-   projectId: "ecorecitecweb",
-   storageBucket: "ecorecitecweb.firebasestorage.app",
-   messagingSenderId: "308957538407",
-   appId: "1:308957538407:web:b2f42d3da7c252907a0cc2"
+    apiKey: "AIzaSyBi-ZjFHow2yDm-TEOTQlp_8DG6yKr6-9k",
+    authDomain: "ecorecitecweb.firebaseapp.com",
+    projectId: "ecorecitecweb",
+    storageBucket: "ecorecitecweb.firebasestorage.app",
+    messagingSenderId: "308957538407",
+    appId: "1:308957538407:web:b2f42d3da7c252907a0cc2"
 };
 
 // Inicialização do Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+const blogCardsDiv = document.getElementById("blogCardsDiv");
 const blogPostsDiv = document.getElementById("blogPostsDiv");
 
+// Função para gerar uma cor clara aleatória para as tags
 function generateRandomLightColor() {
-   // Escolhe um valor aleatório entre 192 (C0 em hex) e 255 (FF em hex)
-   // Isso garante que a cor será sempre em tons pastel/claros
-   const r = Math.floor(Math.random() * (255 - 192 + 1) + 192);
-   const g = Math.floor(Math.random() * (255 - 192 + 1) + 192);
-   const b = Math.floor(Math.random() * (255 - 192 + 1) + 192);
-
-   // Converte os valores para hexadecimal e garante 2 dígitos
-   const hexR = r.toString(16).padStart(2, '0');
-   const hexG = g.toString(16).padStart(2, '0');
-   const hexB = b.toString(16).padStart(2, '0');
-
-   return `#${hexR}${hexG}${hexB}`;
+    const r = Math.floor(Math.random() * (255 - 192 + 1) + 192);
+    const g = Math.floor(Math.random() * (255 - 192 + 1) + 192);
+    const b = Math.floor(Math.random() * (255 - 192 + 1) + 192);
+    const hexR = r.toString(16).padStart(2, '0');
+    const hexG = g.toString(16).padStart(2, '0');
+    const hexB = b.toString(16).padStart(2, '0');
+    return `#${hexR}${hexG}${hexB}`;
 }
 
-// Função para buscar e exibir os posts
-async function fetchBlogPosts() {
-   try {
-      const querySnapshot = await getDocs(collection(db, "blogPosts"));
+// Função principal para buscar e exibir os posts
+async function fetchAndDisplayPosts() {
+    try {
+        // Consulta o Firestore, ordenando os posts por data de criação
+        const postsRef = collection(db, "blogPosts");
+        const q = query(postsRef, orderBy("createdAt", "desc"));
+        const querySnapshot = await getDocs(q);
 
-      blogPostsDiv.innerHTML = '';
+        const allPosts = [];
+        const cardPosts = [];
 
-      querySnapshot.forEach((doc) => {
-         const post = doc.data();
-         const postId = doc.id;
+        // Filtra os posts para as duas seções
+        querySnapshot.forEach((doc) => {
+            const post = doc.data();
+            allPosts.push(post);
+            // Pega os 4 primeiros posts com imagem para os cards
+            if (cardPosts.length < 4 && post.imageUrl) {
+                cardPosts.push(post);
+            }
+        });
 
-         const hasImage = post.imageUrl && post.imageUrl.trim() !== '';
+        // Limpa as divs de posts
+        blogCardsDiv.innerHTML = '';
+        blogPostsDiv.innerHTML = '';
 
-         // Cria o HTML para o post
-         const postElement = document.createElement("article");
-         postElement.className = "postcard";
+        // Preenche a seção de cards
+        cardPosts.forEach(post => {
+            const cardElement = document.createElement("article");
+            cardElement.className = "blogCard";
 
-         // Gera as tags dinamicamente, aplicando uma cor aleatória a cada uma
-         const tagsHtml = post.tags.map(tag => {
-            const randomColor = generateRandomLightColor();
-            return `<p class="postcard__tag" style="background-color: ${randomColor}">${tag}</p>`;
-         }).join('');
+            // Trunca o texto para caber no card
+            const truncatedContent = post.content.length > 90 ? post.content.substring(0, 90) + '...' : post.content;
 
-         // Estrutura do HTML do post
-         postElement.innerHTML = `
+            cardElement.innerHTML = `
+                <div class="blogCard__div-1">
+                    <img class="blogCard__image" src="${post.imageUrl}" alt="${post.title}" />
+                </div>
+                <p class="blogCard__text">
+                    <strong>${post.tags.join(', ')}:</strong> ${truncatedContent}
+                </p>
+                <div class="blogCard__div-2">
+                    <button type="button" class="blogCard__like">
+                        <ion-icon name="heart-outline"></ion-icon>Like
+                    </button>
+                    <button type="button" class="blogCard__share">
+                        <ion-icon name="share-social-outline"></ion-icon>Share
+                    </button>
+                </div>
+            `;
+            blogCardsDiv.appendChild(cardElement);
+        });
+
+        // Preenche a seção de lista de posts (a partir do código anterior)
+        allPosts.forEach(post => {
+            const postElement = document.createElement("article");
+            postElement.className = "postcard";
+
+            const hasImage = post.imageUrl && post.imageUrl.trim() !== '';
+
+            const tagsHtml = post.tags.map(tag => {
+                const randomColor = generateRandomLightColor();
+                return `<p class="postcard__tag" style="background-color: ${randomColor}">${tag}</p>`;
+            }).join('');
+
+            postElement.innerHTML = `
                 ${hasImage ? `
                     <div class="postcard__imgWrapper">
                         <img class="postcard__img" src="${post.imageUrl}" alt="${post.title}" />
@@ -81,14 +118,15 @@ async function fetchBlogPosts() {
                 </div>
             `;
 
-         blogPostsDiv.appendChild(postElement);
-      });
+            blogPostsDiv.appendChild(postElement);
+        });
 
-   } catch (error) {
-      console.error("Erro ao buscar as postagens:", error);
-      blogPostsDiv.innerHTML = "<p>Não foi possível carregar as postagens. Tente novamente mais tarde.</p>";
-   }
+    } catch (error) {
+        console.error("Erro ao buscar as postagens:", error);
+        blogCardsDiv.innerHTML = "<p>Não foi possível carregar os posts em destaque.</p>";
+        blogPostsDiv.innerHTML = "<p>Não foi possível carregar a lista de posts.</p>";
+    }
 }
 
 // Chama a função para exibir os posts quando a página carregar
-fetchBlogPosts();
+fetchAndDisplayPosts();

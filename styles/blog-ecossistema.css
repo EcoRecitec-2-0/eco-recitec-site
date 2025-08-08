@@ -149,18 +149,18 @@ body {
 
 .blogCard__div-1 {
   width: 100%;
-  aspect-ratio: 1/1;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #f1f4f9;
-  padding: 15px 15px 0px 15px;
+  padding: 15px 15px 15px 15px;
 }
 
 .blogCard__image {
   height: 100%;
   width: 100%;
   object-fit: contain;
+  border-radius: 12px;
 }
 
 .blogCard__text {
@@ -264,13 +264,12 @@ body {
 }
 
 .tags-container {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .postcard__tag {
   font-family: "Montserrat Alternates", sans-serif;
-  /* background: var(--bck); */
   padding: 8px 34px;
   border-radius: 8px;
   font-weight: 500;
