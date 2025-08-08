@@ -1023,41 +1023,41 @@
 							headers: { "Content-Type": "application/json" },
 							body: JSON.stringify(formObject),					
 						})
-                    console.log("Status do envio para API Flask:", flaskResponse.status);
-                    const flaskRespText = await flaskResponse.text();
-                    console.log("Resposta da API Flask:", flaskRespText);
+                        console.log("Status do envio para API Flask:", flaskResponse.status);
+                        const flaskRespText = await flaskResponse.text();
+                        console.log("Resposta da API Flask:", flaskRespText);
 
-                    // 2. Enviar e-mail via API
-                    const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(formObject),
-                    });
-                    let emailSent = false;
-                    if (emailResponse.ok) {
-                        console.log("E-mail de ecossistema enviado com sucesso.");
-                        emailSent = true;
-                    } else {
-                        console.error("Erro ao enviar e-mail de ecossistema:", await emailResponse.text());
-                    }
-                    console.log('Resposta da requisição de envio do formulário (e-mail) recebida:', emailResponse);
-
-                    if (flaskResponse.ok && emailResponse.ok) {
-                        let message = "Sua inscrição foi enviada com sucesso.";
-                        if (emailSent) {
-                            message += " Um e-mail de confirmação foi enviado para o seu endereço (verifique a caixa de entrada e a pasta de spam).";
-                        } else if (formObject.participar_ecossistema === "Sim") {
-                            message += " Houve um problema ao enviar o e-mail de integração ao ecossistema, mas sua inscrição foi registrada.";
+                        // 2. Enviar e-mail via API
+                        const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(formObject),
+                        });
+                        let emailSent = false;
+                        if (emailResponse.ok) {
+                            console.log("E-mail de ecossistema enviado com sucesso.");
+                            emailSent = true;
+                        } else {
+                            console.error("Erro ao enviar e-mail de ecossistema:", await emailResponse.text());
                         }
-                        // Substituir alert por modal de feedback
-                        displayFeedbackModal(true, "Formulário Enviado com Sucesso!", message);                    
-                        inscricaoForm.reset();
-                    } else {
-                        pagamentoStatus.style.color = 'red';
-                        pagamentoStatus.textContent = "Erro ao enviar a inscrição (1124). Tente novamente.";
-                    }			                    
+                        console.log('Resposta da requisição de envio do formulário (e-mail) recebida:', emailResponse);
+
+                        if (flaskResponse.ok && emailResponse.ok) {
+                            let message = "Sua inscrição foi enviada com sucesso.";
+                            if (emailSent) {
+                                message += " Um e-mail de confirmação foi enviado para o seu endereço (verifique a caixa de entrada e a pasta de spam).";
+                            } else if (formObject.participar_ecossistema === "Sim") {
+                                message += " Houve um problema ao enviar o e-mail de integração ao ecossistema, mas sua inscrição foi registrada.";
+                            }
+                            // Substituir alert por modal de feedback
+                            displayFeedbackModal(true, "Formulário Enviado com Sucesso!", message);                    
+                            inscricaoForm.reset();
+                        } else {
+                            pagamentoStatus.style.color = 'red';
+                            pagamentoStatus.textContent = "Erro ao enviar a inscrição (1124). Tente novamente.";
+                        }			                    
                 } catch (error) {
                     console.error('Erro ao enviar formulário de inscrição para as APIs:', error);
                     pagamentoStatus.style.color = 'red';
