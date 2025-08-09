@@ -86,653 +86,367 @@
 	<!-- Google Tag Manager (noscript) -->
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T68WPL8" height="0" width="0"
 			style="display: none; visibility: hidden"></iframe></noscript>
-			<div id="loadingOverlay" class="loading-overlay" style="display: none;">
-        <span class="loading-text">Processando Pagamento, aguarde...</span>
-        <div class="spinner"></div>
-    </div>
-
-    <div id="feedbackModal" class="feedback-modal">
-        <div class="feedback-modal-content">
-            <h2 id="feedbackTitle" class="feedback-modal-title"></h2>
-            <p id="feedbackMessage" class="feedback-modal-message"></p>
-            <button id="feedbackCloseButton" class="feedback-modal-button">Fechar</button>
-        </div>
-    </div>
 	<!-- End Google Tag Manager (noscript) -->
 	<div id="page_5e5829d624927">
 		<div class="container-fluid" name="" id="Header-gcbmp09r6v">
 			<link
 				href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,600,700,800|Source+Sans+Pro:300,400,400i,700&amp;display=swap"
 				rel="stylesheet" />
-			<style>
-        /* Keyframes para o spinner de carregamento */
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* Estilos para a sobreposição de carregamento */
-        .loading-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        /* Estilos para o texto de carregamento */
-        .loading-text {
-            color: white;
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-
-        /* Estilos para o spinner */
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #FF910B;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        /* Estilos adicionais para os campos do Mercado Pago */
-        .mercadopago-fields {
-            border: 1px solid #ddd;
-            padding: 10px;
-            border-radius: 4px;
-            height: 40px;
-            min-height: 40px; /* Garante altura mínima para o iframe */
-            display: flex;
-            align-items: center;
-            background-color: #fff;
-            box-sizing: border-box; /* Inclui padding e borda na altura total */
-        }
-
-        /* Estilos específicos para os iframes injetados pelo Mercado Pago */
-        .mercadopago-fields iframe {
-            width: 100% !important;
-            height: 100% !important;
-            border: none !important;
-            background-color: transparent !important;
-        }
-
-        /* Estilos de fonte para títulos e corpo */
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: "Montserrat", sans-serif;
-        }
-
-        body {
-            font-family: "Source Sans Pro", sans-serif;
-        }
-
-        /* Estilos para itens de menu */
-        .menu_item {
-            font-family: "Montserrat", sans-serif;
-        }
-
-        /* Estilos para o botão de toggle da navbar */
-        .navbar-toggle {
-            background-color: #333333;
-            float: right;
-            border: 0px;
-        }
-
-        .navbar-default .navbar-toggle:hover,
-        .navbar-default .navbar-toggle:focus {
-            background-color: #333333;
-            border-radius: 0;
-        }
-
-        /* Classes de display flex */
-        .flex {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .wrap {
-            display: flex;
-            flex-wrap: wrap;
-        }
-
-        .cover {
-            background-size: cover;
-        }
-
-        /* Estilos de transição para botões e links */
-        .btn,
-        .btn:hover,
-        a,
-        a:hover {
-            transition: 0.5s;
-        }
-
-        /* Estilos para botões centralizados */
-        .botaoc .btn {
-            margin: 0 auto;
-            display: table;
-            float: none;
-        }
-
-        /* Estilos para o botão 1 */
-        .botao1 .btn {
-            width: auto;
-            white-space: pre-wrap;
-            height: auto;
-            color: #372e4f;
-            background-color: #fff;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
-
-        /* Hover do botão 1 */
-        .botao1 .btn:hover {
-            color: #fff;
-            background: rgb(115, 110, 178);
-            background: -moz-linear-gradient(135deg,
-                    rgba(115, 110, 178, 1) 0%,
-                    rgba(79, 66, 113, 1) 51%,
-                    rgba(55, 46, 79, 1) 100%);
-            background: -webkit-linear-gradient(135deg,
-                    rgba(115, 110, 178, 1) 0%,
-                    rgba(79, 66, 113, 1) 51%,
-                    rgba(55, 46, 79, 1) 100%);
-            background: linear-gradient(135deg,
-                    rgba(115, 110, 178, 1) 0%,
-                    rgba(79, 66, 113, 1) 51%,
-                    rgba(55, 46, 79, 1) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#736eb2', endColorstr='#372e4f', GradientType=1);
-        }
-
-        /* Estilos para o botão 2 */
-        .botao2 .btn {
-            width: auto;
-            white-space: pre-wrap;
-            height: auto;
-            color: #008ce4;
-            background-color: #fff;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
-
-        /* Estilos para o botão 3 */
-        .botao3 {
-            width: auto;
-            white-space: pre-wrap;
-            height: auto;
-            background-color: #fff;
-            font-weight: bold;
-            letter-spacing: 3px;
-        }
-
-        /* Hover do botão 3 */
-        .botao3:hover {
-            color: #fff;
-            background: #FF910B;
-            background: -moz-linear-gradient(45deg,
-                    rgba(0, 108, 153, 1) 0%,
-                    rgba(0, 185, 191, 1) 20%,
-                    #FF910B 100%);
-            background: -webkit-linear-gradient(45deg,
-                    rgba(0, 108, 153, 1) 0%,
-                    rgba(0, 185, 191, 1) 20%,
-                    #FF910B 100%);
-            background: linear-gradient(45deg,
-                    rgba(0, 108, 153, 1) 0%,
-                    rgba(0, 185, 191, 1) 50%,
-                    #FF910B 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006c99', endColorstr='#00ab7b',
-                    GradientType=1);
-        }
-
-        /* Hover do botão 2 */
-        .botao2 .btn:hover {
-            color: #fff;
-            background: rgb(0, 108, 153);
-            background: -moz-linear-gradient(45deg,
-                    rgba(0, 108, 153, 1) 0%,
-                    rgba(0, 185, 191, 1) 50%,
-                    rgba(0, 171, 123, 1) 100%);
-            background: -webkit-linear-gradient(45deg,
-                    rgba(0, 108, 153, 1) 0%,
-                    rgba(0, 185, 191, 1) 50%,
-                    rgba(0, 171, 123, 1) 100%);
-            background: linear-gradient(45deg,
-                    rgba(0, 108, 153, 1) 0%,
-                    rgba(0, 185, 191, 1) 50%,
-                    rgba(0, 171, 123, 1) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006c99', endColorstr='#00ab7b',
-                    GradientType=1);
-        }
-
-        /* Estilos para o container principal */
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Espaçamento inferior para grupos de formulário */
-        form .form-group {
-            margin-bottom: 15px;
-        }
-
-        /* Largura total para campos e botões de formulário */
-        form .form-control,
-        form button {
-            width: 100%;
-        }
-
-        /* Estilos para o botão de sucesso do formulário */
-        form .btn-success {
-            max-width: 200px;
-            margin: 0 auto;
-            display: block;
-        }
-
-        /* Cores de gradiente */
-        .gradienteroxo {
-            background: rgb(115, 110, 178);
-            background: -moz-linear-gradient(135deg,
-                    rgba(115, 110, 178, 1) 0%,
-                    rgba(79, 66, 113, 1) 51%,
-                    rgba(55, 46, 79, 1) 100%);
-            background: -webkit-linear-gradient(135deg,
-                    rgba(115, 110, 178, 1) 0%,
-                    rgba(79, 66, 113, 1) 51%,
-                    rgba(55, 46, 79, 1) 100%);
-            background: linear-gradient(135deg,
-                    rgba(115, 110, 178, 1) 0%,
-                    rgba(79, 66, 113, 1) 51%,
-                    rgba(55, 46, 79, 1) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#736eb2', endColorstr='#372e4f', GradientType=1);
-        }
-
-        .gradienteverde {
-            background: rgb(254, 241, 69);
-            background: -moz-linear-gradient(135deg,
-                    rgba(254, 241, 69, 1) 0%,
-                    rgba(173, 217, 0, 1) 51%,
-                    rgba(99, 168, 0, 1) 100%);
-            background: -webkit-linear-gradient(135deg,
-                    rgba(254, 241, 69, 1) 0%,
-                    rgba(173, 217, 0, 1) 51%,
-                    rgba(99, 168, 0, 1) 100%);
-            background: linear-gradient(135deg,
-                    rgba(254, 241, 69, 1) 0%,
-                    rgba(173, 217, 0, 1) 51%,
-                    rgba(99, 168, 0, 1) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fef145', endColorstr='#63a800', GradientType=1);
-        }
-
-        .gradienterosa {
-            background: rgb(255, 35, 68);
-            background: -moz-linear-gradient(45deg,
-                    rgba(255, 35, 68, 1) 0%,
-                    rgba(255, 161, 0, 1) 100%);
-            background: -webkit-linear-gradient(45deg,
-                    rgba(255, 35, 68, 1) 0%,
-                    rgba(255, 161, 0, 1) 100%);
-            background: linear-gradient(45deg,
-                    rgba(255, 35, 68, 1) 0%,
-                    rgba(255, 161, 0, 1) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2344', endColorstr='#ffa100', GradientType=1);
-        }
-
-        .gradienteazul {
-            background: rgb(0, 108, 153);
-            background: -moz-linear-gradient(45deg,
-                    rgba(0, 108, 153, 1) 0%,
-                    rgba(0, 185, 191, 1) 50%,
-                    rgba(0, 171, 123, 1) 100%);
-            background: -webkit-linear-gradient(45deg,
-                    rgba(0, 108, 153, 1) 0%,
-                    rgba(0, 185, 191, 1) 50%,
-                    rgba(0, 171, 123, 1) 100%);
-            background: linear-gradient(45deg,
-                    rgba(0, 108, 153, 1) 0%,
-                    rgba(0, 185, 191, 1) 50%,
-                    rgba(0, 171, 123, 1) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006c99', endColorstr='#00ab7b', GradientType=1);
-        }
-
-        .gradienteescuro {
-            background: rgb(0, 51, 84);
-            background: -moz-radial-gradient(center,
-                    ellipse cover,
-                    rgba(0, 51, 84, 1) 0%,
-                    rgba(0, 81, 122, 1) 100%);
-            background: -webkit-radial-gradient(center,
-                    ellipse cover,
-                    rgba(0, 51, 84, 1) 0%,
-                    rgba(0, 81, 122, 1) 100%);
-            background: radial-gradient(ellipse at center,
-                    rgba(0, 51, 84, 1) 0%,
-                    rgba(0, 81, 122, 1) 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#003354', endColorstr='#00517a', GradientType=1);
-        }
-
-        /* Estilos para os grupos de botões */
-        .botao1,
-        .botao2,
-        .botao3 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .botao1 {
-            margin-top: 20px;
-        }
-
-        .botao2,
-        .botao3 {
-            margin-top: 10px;
-        }
-
-        /* Estilos gerais para botões */
-        .btn {
-            text-align: center;
-            padding: 10px 20px;
-            background-color: #00517a;
-            color: white;
-            border-radius: 5px;
-            font-size: 14pt;
-        }
-
-        .btn:hover {
-            background-color: #FF910B;
-            color: white;
-        }
-
-        /* Container alinhado para texto e botão */
-        .aligned-container-bt {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .text-container-bt {
-            flex: 1;
-            text-align: center;
-            margin-right: 15px;
-        }
-
-        /* Estilos para o botão flutuante do WhatsApp */
-        .whatsapp-float-container {
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-start;
-            position: fixed;
-            width: 100px;
-            right: 1%;
-            bottom: 6%;
-            z-index: 10;
-            margin-left: auto;
-        }
-
-        .whatsapp-icon {
-            width: 130px;
-        }
-
-        /* Estilos para texto branco */
-        .text-white {
-            color: #fff;
-        }
-
-        /* Estilos para texto de destaque */
-        .text-highlight {
-            color: #FF910B;
-        }
-
-        /* Estilos para o título do formulário */
-        .form-title {
-            color: #fff;
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        /* Estilos para o subtítulo do formulário */
-        .form-subtitle {
-            color: #FF910B;
-            font-size: 13pt;
-            display: block;
-            text-align: center;
-        }
-
-        /* Estilos para o cartão do formulário */
-        .form-card {
-            padding: 20px;
-            background: #f9f9f9;
-            border-radius: 8px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        /* Estilos específicos para logos no slider */
-        .prefeitura-logo {
-            margin-right: 72px;
-            height: 70px;
-        }
-
-        .getin-logo {
-            height: 80px;
-        }
-
-        /* Estilos para o rodapé */
-        .footer-text-color {
-            color: white;
-        }
-
-        .footer-container {
-            max-width: 1200px;
-            margin: auto;
-        }
-
-        .footer-row-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .footer-col-center {
-            text-align: center;
-        }
-
-        .footer-heading {
-            font-size: 12pt;
-            color: #ffffff;
-        }
-
-        .footer-text {
-            font-size: 10pt;
-            color: #ffffff;
-        }
-
-        .footer-bottom-row {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* Classe utilitária para esconder elementos */
-        .hidden {
-            visibility: hidden;
-        }
-        /* Classe para ocultar campos de endereço quando não forem obrigatórios */
-        .address-fields-group {
-            display: none; /* Oculta por padrão, será exibido via JS se necessário */
-        }
-
-        #qrcode {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-        }
-
-        .pixContainer {
-            box-sizing: content-box;
-            display: none;
-            align-items: center;
-            justify-content: space-between;
-            background: #fff;
-            padding: 4px 4px 4px 10px;
-            height: 35px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 4px 1px #00000063;
-            margin: 20px 0px 0px 0px;
-        }
-        .pixContainer button {
-            box-sizing: border-box;
-            padding: 0px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            width: auto;
-            aspect-ratio: 1/1;
-            background: #008ce4;
-            color: #fff;
-            border: 0px;
-            font-size: 20px;
-            outline-width: 0px;
-            border-radius: 10px;
-        }
-        .pixContainer p {
-            width: 100%;
-            max-width: 100%;
-            
-            overflow: hidden;
-            text-overflow: ellipsis;
-            text-wrap: nowrap;
-            white-space: nowrap;
-            color: #1e1e1e;
-            margin: 0px;
-            font-weight: 600;
-        }
-
-
-        /* Estilos do modal de feedback */
-        .feedback-modal {
-            display: none; /* Oculto por padrão */
-            position: fixed;
-            z-index: 10000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .feedback-modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            max-width: 500px;
-            width: 90%;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        .feedback-modal-title {
-            font-family: "Montserrat", sans-serif;
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: #00517a;
-        }
-
-        .feedback-modal-message {
-            font-family: "Source Sans Pro", sans-serif;
-            font-size: 16px;
-            line-height: 1.5;
-            color: #333;
-            margin-bottom: 25px;
-        }
-
-        .feedback-modal-button {
-            background-color: #00517a;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-
-        .feedback-modal-button:hover {
-            background-color: #FF910B;
-        }
-
-        .form__text {
-            text-align: center;
-            width: 100%;
-            color: #FF910B;
-            font-weight: 600;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-
-        /* Media Queries */
-        @media (max-width: 768px) {
-            .btn {
-                font-size: 14px;
-                padding: 8px 16px;
-            }
-
-            .botao1 .btn,
-            .botao2 .btn,
-            .botao3 {
-                width: 100%;
-                height: auto;
-            }
-
-            #ResponsiveImage-gcbmp0ahof {
-                margin-left: 10%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .btn {
-                font-size: 12px;
-                padding: 6px 12px;
-            }
-
-            .botao1 .btn,
-            .botao2 .btn,
-            .botao3 {
-                width: 90%;
-                margin: 0 auto;
-            }
-        }
-    </style>
+			<style type="text/css">
+				h1,
+				h2,
+				h3,
+				h4 {
+					font-family: "Montserrat", sans-serif;
+				}
+
+				body {
+					font-family: "Source Sans Pro", sans-serif;
+				}
+
+				/*MENU*/
+				.menu_item {
+					font-family: "Montserrat", sans-serif;
+				}
+
+				.navbar-toggle {
+					background-color: #333333;
+					float: right;
+					border: 0px;
+				}
+
+				.navbar-default .navbar-toggle:hover,
+				.navbar-default .navbar-toggle:focus {
+					background-color: #333333;
+					border-radius: 0;
+				}
+
+				/*DISPLAYS*/
+				.flex {
+					display: flex;
+					flex-wrap: wrap;
+					align-items: center;
+				}
+
+				.wrap {
+					display: flex;
+					flex-wrap: wrap;
+				}
+
+				.cover {
+					background-size: cover;
+				}
+
+				/*BOTOES*/
+				.btn,
+				.btn:hover,
+				a,
+				a:hover {
+					transition: 0.5s;
+				}
+
+				.botaoc .btn {
+					margin: 0 auto;
+					display: table;
+					float: none;
+				}
+
+				.botao1 .btn {
+					width: auto;
+					white-space: pre-wrap;
+					height: auto;
+					color: #372e4f;
+					background-color: #fff;
+					font-weight: bold;
+					letter-spacing: 3px;
+				}
+
+				.botao1 .btn:hover {
+					color: #fff;
+					background: rgb(254, 241, 69);
+					background: -moz-linear-gradient(-45deg,
+							rgba(115, 110, 178, 1) 0%,
+							rgba(79, 66, 113, 1) 51%,
+							rgba(55, 46, 79, 1) 100%);
+					background: -webkit-linear-gradient(-45deg,
+							rgba(115, 110, 178, 1) 0%,
+							rgba(79, 66, 113, 1) 51%,
+							rgba(55, 46, 79, 1) 100%);
+					background: linear-gradient(135deg,
+							rgba(115, 110, 178, 1) 0%,
+							rgba(79, 66, 113, 1) 51%,
+							rgba(55, 46, 79, 1) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#736eb2', endColorstr='#372e4f', GradientType=1);
+				}
+
+				.botao2 .btn {
+					width: auto;
+					white-space: pre-wrap;
+					height: auto;
+					color: #008ce4;
+					background-color: #fff;
+					font-weight: bold;
+					letter-spacing: 3px;
+				}
+
+				.botao3 {
+					width: auto;
+					white-space: pre-wrap;
+					height: auto;
+
+					background-color: #fff;
+					font-weight: bold;
+					letter-spacing: 3px;
+				}
+
+				.botao3:hover {
+					color: #fff;
+					background: #FF910B;
+					background: -moz-linear-gradient(45deg,
+							rgba(0, 108, 153, 1) 0%,
+							rgba(0, 185, 191, 1) 20%,
+							#FF910B 100%);
+					background: -webkit-linear-gradient(45deg,
+							rgba(0, 108, 153, 1) 0%,
+							rgba(0, 185, 191, 1) 20%,
+							#FF910B 100%);
+					background: linear-gradient(45deg,
+							rgba(0, 108, 153, 1) 0%,
+							rgba(0, 185, 191, 1) 50%,
+							#FF910B 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006c99', endColorstr='#00ab7b',
+							GradientType=1);
+				}
+
+				.botao2 .btn:hover {
+					color: #fff;
+					background: rgb(0, 108, 153);
+					background: -moz-linear-gradient(45deg,
+							rgba(0, 108, 153, 1) 0%,
+							rgba(0, 185, 191, 1) 50%,
+							rgba(0, 171, 123, 1) 100%);
+					background: -webkit-linear-gradient(45deg,
+							rgba(0, 108, 153, 1) 0%,
+							rgba(0, 185, 191, 1) 50%,
+							rgba(0, 171, 123, 1) 100%);
+					background: linear-gradient(45deg,
+							rgba(0, 108, 153, 1) 0%,
+							rgba(0, 185, 191, 1) 50%,
+							rgba(0, 171, 123, 1) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006c99', endColorstr='#00ab7b',
+							GradientType=1);
+				}
+
+				.container {
+					max-width: 600px;
+					/* Limita a largura máxima do formulário */
+					margin: 0 auto;
+					/* Centraliza o contêiner */
+					padding: 20px;
+				}
+
+				form .form-group {
+					margin-bottom: 15px;
+				}
+
+				form .form-control,
+				form button {
+					width: 100%;
+					/* Garante que os campos e botões respeitem o limite do formulário */
+				}
+
+				form .btn-success {
+					max-width: 200px;
+					/* Limita o tamanho do botão de pagamento */
+					margin: 0 auto;
+					/* Centraliza o botão */
+					display: block;
+				}
+
+				@media (max-width: 768px) {
+					.btn {
+						font-size: 14px;
+						/* Reduz o tamanho da fonte */
+						padding: 8px 16px;
+						/* Reduz o espaçamento interno */
+					}
+
+					.botao1 .btn,
+					.botao2 .btn,
+					.botao3 {
+						width: 100%;
+						/* Faz o botão ocupar toda a largura, se necessário */
+						height: auto;
+						/* Ajusta a altura automaticamente */
+					}
+				}
+
+				@media (max-width: 480px) {
+					.btn {
+						font-size: 12px;
+						/* Reduz ainda mais o tamanho da fonte */
+						padding: 6px 12px;
+						/* Ajusta o espaçamento interno */
+					}
+
+					.botao1 .btn,
+					.botao2 .btn,
+					.botao3 {
+						width: 90%;
+						/* Ajusta a largura para telas muito pequenas */
+						margin: 0 auto;
+						/* Centraliza o botão */
+					}
+				}
+			</style>
+			<div class="container-fluid" name="Container_5e5829d651ae0" id="_5dae10f61a5b1_1571688694">
+				<div
+					style="display:flex; justify-content: flex-end; align-items: flex-start; position: fixed; width: 100px; right:1%;bottom: 6%; z-index: +10; margin-left: auto; ">
+					<a href="https://api.whatsapp.com/send?phone=5571986956150" target="_blank"><img
+							class="jarallax-img" style="width: 130px" src="images/logo/logo-whatsapp.png" alt="" /></a>
+				</div>
+			</div>
+			<style type="text/css">
+				.gradienteroxo {
+					background: rgb(254, 241, 69);
+					background: -moz-linear-gradient(-45deg,
+							rgba(115, 110, 178, 1) 0%,
+							rgba(79, 66, 113, 1) 51%,
+							rgba(55, 46, 79, 1) 100%);
+					background: -webkit-linear-gradient(-45deg,
+							rgba(115, 110, 178, 1) 0%,
+							rgba(79, 66, 113, 1) 51%,
+							rgba(55, 46, 79, 1) 100%);
+					background: linear-gradient(135deg,
+							rgba(115, 110, 178, 1) 0%,
+							rgba(79, 66, 113, 1) 51%,
+							rgba(55, 46, 79, 1) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#736eb2', endColorstr='#372e4f', GradientType=1);
+				}
+
+				.gradienteverde {
+					background: rgb(254, 241, 69);
+					background: -moz-linear-gradient(-45deg,
+							rgba(254, 241, 69, 1) 0%,
+							rgba(173, 217, 0, 1) 51%,
+							rgba(99, 168, 0, 1) 100%);
+					background: -webkit-linear-gradient(-45deg,
+							rgba(254, 241, 69, 1) 0%,
+							rgba(173, 217, 0, 1) 51%,
+							rgba(99, 168, 0, 1) 100%);
+					background: linear-gradient(135deg,
+							rgba(254, 241, 69, 1) 0%,
+							rgba(173, 217, 0, 1) 51%,
+							rgba(99, 168, 0, 1) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fef145', endColorstr='#63a800', GradientType=1);
+				}
+
+				.gradienterosa {
+					background: rgb(255, 35, 68);
+					background: -moz-linear-gradient(45deg,
+							rgba(255, 35, 68, 1) 0%,
+							rgba(255, 161, 0, 1) 100%);
+					background: -webkit-linear-gradient(45deg,
+							rgba(255, 35, 68, 1) 0%,
+							rgba(255, 161, 0, 1) 100%);
+					background: linear-gradient(45deg,
+							rgba(255, 35, 68, 1) 0%,
+							rgba(255, 161, 0, 1) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2344', endColorstr='#ffa100', GradientType=1);
+				}
+
+				.gradienteazul {
+					background: rgb(0, 108, 153);
+					background: -moz-linear-gradient(45deg,
+							rgba(0, 108, 153, 1) 0%,
+							rgba(0, 185, 191, 1) 50%,
+							rgba(0, 171, 123, 1) 100%);
+					background: -webkit-linear-gradient(45deg,
+							rgba(0, 108, 153, 1) 0%,
+							rgba(0, 185, 191, 1) 50%,
+							rgba(0, 171, 123, 1) 100%);
+					background: linear-gradient(45deg,
+							rgba(0, 108, 153, 1) 0%,
+							rgba(0, 185, 191, 1) 50%,
+							rgba(0, 171, 123, 1) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006c99', endColorstr='#00ab7b', GradientType=1);
+				}
+
+				.gradienteescuro {
+					background: rgb(0, 51, 84);
+					background: -moz-radial-gradient(center,
+							ellipse cover,
+							rgba(0, 51, 84, 1) 0%,
+							rgba(0, 81, 122, 1) 100%);
+					background: -webkit-radial-gradient(center,
+							ellipse cover,
+							rgba(0, 51, 84, 1) 0%,
+							rgba(0, 81, 122, 1) 100%);
+					background: radial-gradient(ellipse at center,
+							rgba(0, 51, 84, 1) 0%,
+							rgba(0, 81, 122, 1) 100%);
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#003354', endColorstr='#00517a', GradientType=1);
+				}
+
+				.botao1 {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-top: 20px;
+				}
+
+				.botao2 {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-top: 10px;
+				}
+
+				.botao3 {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin-top: 10px;
+				}
+
+				.btn {
+					text-align: center;
+					padding: 10px 20px;
+					background-color: #00517a;
+					color: white;
+					border-radius: 5px;
+					font-size: 14pt;
+				}
+
+				.btn:hover {
+					background-color: #FF910B;
+					color: white;
+				}
+
+				@media (max-width: 768px) {
+					#ResponsiveImage-gcbmp0ahof {
+						margin-left: 10%;
+					}
+
+				}
+
+				.aligned-container-bt {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					/* Espaçamento entre texto e botão */
+					margin-bottom: 20px;
+					/* Espaço entre os pares */
+				}
+
+				.text-container-bt {
+					flex: 1;
+					text-align: center;
+					/* Alinhar o texto à direita */
+					margin-right: 15px;
+					/* Espaço entre o te*/
+				}
+			</style>
 		</div>
 		<div class="container-fluid container_body" name="" id="GridPanel_5e5829d653740">
 			<div class="container-fluid" name="Container_5e5829d653980" id="_1473562621_1574129903">
@@ -837,6 +551,31 @@
 								</div>
 								<div class="form-group">
 
+									<label for="cargo" class="control-label"
+										style="color: #FF910B; font-size: 13pt; display: block; text-align: center;">
+										Inscrição de estudante por apenas R$ 237
+									</label>
+
+									<a href="https://mpago.li/2523B3j" class="btn botao2" target="_blank"
+										rel="noopener noreferrer">Efetuar Pagamento</a>
+									<label for="cargo" class="control-label"
+										style="color: #FF910B; font-size: 13pt; display: block; text-align: center;">
+										ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com
+									</label>
+								</div>
+								<div class="form-group">
+									<label>Você gostaria de participar de uma seleção para realizar um teste gratuíto do
+										método de mindset de linear ao circular no aspecto do softskills e ficar sabendo
+										sobre o seu perfil para a circularidade?</label>
+									<label><input type="radio" name="participar_teste" value="Sim" required> Sim</label>
+									<label><input type="radio" name="participar_teste" value="Não"> Não</label>
+								</div>
+								<div class="form-group">
+									<label>Poderia disponibilizar um horário de 15 min para fazer o teste?</label>
+									<br>
+									<label><input type="radio" name="disp_teste" value="Sim" required>
+										Sim</label>
+									<label><input type="radio" name="disp_teste" value="Não"> Não </label>
 								</div>
 								<div class="form-group">
 									<label for="indicacao">Veio por meio de indicação? Se sim, nos diga quem te indicou
@@ -849,509 +588,49 @@
 									<textarea id="expectativas" name="expectativas" class="form-control"
 										placeholder="Compartilhe suas expectativas" rows="3"></textarea>
 								</div>
-								<div class="form-group">
-									<label>Ao se inscrever no congresso você tem direito a um bônus de 30 dias de
-                                        integração ao nosso ecossistema.
-                                        Deseja participar do ecossistema gratuitamente por 30 dias?</label>
-									<label><input type="radio" name="participar_teste" value="Sim" required> Sim</label>
-									<label><input type="radio" name="participar_teste" value="Não"> Não</label>
-								</div>
-								<div class="form-group">
-									<label>Autorizo a utilização da minha imagem (fotografia, vídeo ou outras formas de
-                                        registro audiovisual) captada durante o evento, para fins de divulgação
-                                        institucional em materiais físicos e/ou digitais, por tempo indeterminado.</label>
-									<br>
-									<label><input type="radio" name="disp_teste" value="Sim" required>Sim</label>
-									<label><input type="radio" name="disp_teste" value="Não">Não</label>
-								</div>
-                                <div class="form-group">
-                                    <label>Declaro que li e concordo com o tratamento dos dados fornecidos neste
-                                        formulário, conforme descrito na Política de Privacidade do evento, em
-                                        conformidade com a Lei nº 13.709/2018 – LGPD. <a href="#">Termos de uso</a>
-                                    </label>
-                                    <br>
-                                    <label>
-                                        <input type="radio" name="accept_lgpd" value="Sim" required>
-                                        Sim
-                                    </label>
-                                </div>
-								<p class="form__text">Agora é com você! Faça o pagamento do evento no valor de R$ 237,00</p>
-                                <div class="form-group">                                    
-
-                                    <div class="form-group" style="margin: 0px 0px 15px 0px;">
-                                        <label for="payment-method">Escolha o Método de Pagamento:</label>
-                                        <select id="payment-method" class="form-control">
-                                            <option value="pix">PIX</option>
-                                            <option value="card">Cartão de Crédito/Débito</option>
-                                        </select>
-                                    </div>
-
-                                    <div id="card-form-container" class="hidden">                                                                                
-                                         </div>
-                                    <button type="button" id="payButton" class="btn botao2">Processar Pagamento (PIX)</button>
-                                    <p id="pagamentoStatus" style="margin-top: 10px; font-weight: bold;"></p>
-                                    <img id="qrCodeImage" src="" alt="QR Code PIX" style="display: none; max-width: 100%; height: auto; margin-top: 15px;">
-                                    <label class="control-label form-subtitle" id="warningLabel" style="text-align: center;">
-                                        
-                                    </label>
-                                    <div id="qrcode"></div>
-                                    <div class="pixContainer" id="pixContainer">
-                                        <p id="pixCopyText">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam quaerat quas nisi culpa eveniet error, quis officiis neque sapiente tenetur. Aperiam omnis ea veniam cupiditate possimus quos, adipisci in vel?</p>
-                                        <button id="copyPixButton" type="button"><ion-icon name="copy-outline"></ion-icon></button>
-                                    </div>
-                                </div>
-                                <div class="form-group" id="comprovantePagamentoGroup">
-                                    <label for="comprovantePagamento" class="control-label">Comprovante de Pagamento:</label>
-                                    <input type="file" id="comprovantePagamento" name="comprovantePagamento" class="form-control">
-                                </div>							
 								<button id="submitButton" type="submit" class="btn botao2">Enviar</button>
 							</form>
 							
-
-							<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-							<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-							<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 							<script>
 								function selecionarUnico(checkbox) {
 									document.querySelectorAll('input[name="tipo"]').forEach((item) => {
 										if (item !== checkbox) item.checked = false;
 									});
 								}
-								let date = new Date();
-            const valueToPay = 237; // Valor da inscrição
-            const warningLabel = document.getElementById("warningLabel")      
-            const qrcodeContainer = document.getElementById("qrcode");      
-            let pollingIntervalId;
-            // IMPORTANTE: Em produção, mude 'http://localhost:3000' para a URL base do seu backend Next.js (ex: 'https://seubackend.vercel.app')
-            let hostPort = "https://ecorecitec-api.vercel.app"; 
+								document.getElementById("inscricaoForm").addEventListener("submit", async function (event) {
+									event.preventDefault();
 
-            /**
-             * Função para validar se todos os campos obrigatórios do formulário estão preenchidos.
-             * @returns {boolean} True se todos os campos obrigatórios estiverem preenchidos, False caso contrário.
-             */
-            function validateFormFields() {
-                // Valida campos de input, textarea e select com o atributo 'required'
-                const requiredInputs = document.querySelectorAll('#inscricaoForm input[required]:not([type="radio"]), input[required]:not([type="checkbox"]), #inscricaoForm textarea[required], #inscricaoForm select[required]');
-                for (const field of requiredInputs) {
-                    if (!field.value.trim()) {														
-                        return false; // Campo de texto obrigatório vazio
-                    }
-                }                                
+									const submitButton = document.getElementById("submitButton");
+									submitButton.disabled = true;
+									submitButton.innerHTML = "Enviando..."; // Mostra o carregamento
 
-                return true; // Todos os campos obrigatórios estão preenchidos
-            }
+									const formData = new FormData(this);
+									const formObject = {};
+									formData.forEach((value, key) => formObject[key] = value);
 
-            /**
-             * Função para criar o pagamento no backend.
-             * Esta função é utilizada para processar pagamentos PIX.
-             */
-            async function createPay(email, value, paymentType, payerCpf, payerName, payerPhone, streetName = null, streetNumber = null, zipCode = null, federalUnit = null, cardData = null) {
-                console.log('Iniciando createPay...');
-                return new Promise(async (resolve, reject) => {
-                    let requestBody = {
-                        payerEmail: email,
-                        value: value,
-                        paymentType: paymentType,
-                        payerCpf: payerCpf,
-                        payerName: payerName,
-                        payerPhone: payerPhone,
-                        streetName: streetName,
-                        streetNumber: streetNumber,
-                        zipCode: zipCode,
-                        federalUnit: federalUnit,
-                        date: `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`
-                    };
+									console.log("Dados enviados:", formObject); // Verifique os valores no console
 
-                    if (cardData) {
-                        requestBody.token = cardData.token;
-                        requestBody.installments = cardData.installments;
-                        // Adicionar paymentMethodId e issuerId ao requestBody se existirem
-                        const paymentMethodId = document.getElementById('paymentMethodId').value;
-                        const issuerId = document.getElementById('form-checkout__issuer').value;
-                        if (paymentMethodId) requestBody.paymentMethodId = paymentMethodId;
-                        if (issuerId) requestBody.issuerId = issuerId;
-                    }
+									try {
+										const response = await fetch("https://api-form-flask.onrender.com/inscricao-estudante", {
+											method: "POST",
+											headers: { "Content-Type": "application/json" },
+											body: JSON.stringify(formObject),
+										});
 
-                    let requestOptions = {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify(requestBody)
-                    };
+										if (response.ok) {
+											alert("Inscrição enviada com sucesso, cheque sua caixa de spam caso não receba o email de confirmação!!");
+											this.reset();
+										} else {
+											const errorText = await response.text();
+											alert(`Erro ao enviar a inscrição: ${errorText}`);
+										}
+									} catch (error) {
+										alert("Erro de conexão com o servidor.");
+									}
 
-                    try {
-                        // A URL agora é relativa, assumindo que o backend Next.js está no mesmo domínio
-                        const response = await fetch(`${hostPort}/api/createpay`, requestOptions);
-                        console.log('Resposta da requisição de pagamento recebida:', response);
-                        if (!response.ok) {
-                            const errorData = await response.json().catch(() => ({ message: 'Erro desconhecido no servidor.' }));
-                            console.error('Erro na resposta do servidor (createPay):', errorData);
-                            throw new Error(errorData.error || errorData.message || 'Erro ao enviar requisição: ' + response.status);
-                        }
-                        const data = await response.json();
-                        console.log('Dados de pagamento recebidos:', data);
-                        resolve(data);
-                    } catch (error) {
-                        console.error('Erro ao chamar createPay:', error);
-                        reject(error);
-                    }
-                });
-            }
-
-            /**
-             * Função para enviar os dados completos da inscrição para as APIs externas.
-             * Esta função é chamada após a confirmação do pagamento PIX ou ao submeter o formulário para cartão.
-             */
-            async function sendInscriptionDataToApis() {
-                console.log('Iniciando envio dos dados da inscrição para as APIs...');
-                loadingOverlay.style.display = 'flex';
-                loadingOverlay.querySelector('span').textContent = 'Enviando formulário de inscrição, aguarde...';
-
-                const formData = new FormData(inscricaoForm);
-                const formObject = {};
-                formData.forEach((value, key) => {
-                    formObject[key] = value;
-                });
-                formObject["data"] = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-                console.log('Dados do formulário para envio:', formObject);
-					 
-					 
-					try {
-						const flaskResponse = await fetch("https://api-form-flask.onrender.com/inscricao-estudante", {
-							method: "POST",
-							headers: { "Content-Type": "application/json" },
-							body: JSON.stringify(formObject),					
-						})
-                        console.log("Status do envio para API Flask:", flaskResponse.status);
-                        const flaskRespText = await flaskResponse.text();
-                        console.log("Resposta da API Flask:", flaskRespText);
-
-                        // 2. Enviar e-mail via API
-                        const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(formObject),
-                        });
-                        let emailSent = false;
-                        if (emailResponse.ok) {
-                            console.log("E-mail de ecossistema enviado com sucesso.");
-                            emailSent = true;
-                        } else {
-                            console.error("Erro ao enviar e-mail de ecossistema:", await emailResponse.text());
-                        }
-                        console.log('Resposta da requisição de envio do formulário (e-mail) recebida:', emailResponse);
-
-                        if (flaskResponse.ok && emailResponse.ok) {
-                            let message = "Sua inscrição foi enviada com sucesso.";
-                            if (emailSent) {
-                                message += " Um e-mail de confirmação foi enviado para o seu endereço (verifique a caixa de entrada e a pasta de spam).";
-                            } else if (formObject.participar_ecossistema === "Sim") {
-                                message += " Houve um problema ao enviar o e-mail de integração ao ecossistema, mas sua inscrição foi registrada.";
-                            }
-                            // Substituir alert por modal de feedback
-                            displayFeedbackModal(true, "Formulário Enviado com Sucesso!", message);                    
-                            inscricaoForm.reset();
-                        } else {
-                            pagamentoStatus.style.color = 'red';
-                            pagamentoStatus.textContent = "Erro ao enviar a inscrição (1124). Tente novamente.";
-                        }			                    
-                } catch (error) {
-                    console.error('Erro ao enviar formulário de inscrição para as APIs:', error);
-                    pagamentoStatus.style.color = 'red';
-                    pagamentoStatus.textContent = 'Erro ao enviar formulário de inscrição: ' + error.message;
-                } finally {
-                    loadingOverlay.style.display = 'none';
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = 'Enviar Inscrição';
-                }
-            }
-
-            // Função para exibir o modal de feedback
-            function displayFeedbackModal(isSuccess, title, message) {
-                const modal = document.getElementById('feedbackModal');
-                const modalTitle = document.getElementById('feedbackTitle');
-                const modalMessage = document.getElementById('feedbackMessage');
-                const formElement = document.getElementById('inscricaoForm'); // Referência ao formulário
-
-                modalTitle.textContent = title;
-                modalMessage.textContent = message;
-
-                if (isSuccess) {
-                    modalTitle.style.color = '#28a745'; // Verde para sucesso
-                } else {
-                    modalTitle.style.color = '#dc3545'; // Vermelho para erro
-                }
-
-                modal.style.display = 'flex'; // Exibe o modal
-                formElement.style.display = 'none'; // Oculta o formulário
-
-                // Event listener para o botão de fechar o modal
-                document.getElementById('feedbackCloseButton').onclick = function() {
-                    modal.style.display = 'none'; // Oculta o modal
-                    formElement.style.display = 'block'; // Mostra o formulário novamente
-                    // O formulário já é resetado no sucesso no bloco try, então não precisamos resetar aqui
-                };
-            }
-
-            window.copyPixCode = function(textToCopy) {
-                const tempInput = document.createElement('textarea');
-                tempInput.value = textToCopy;
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                try {
-                    document.execCommand('copy');                    
-                } catch (err) {
-                    console.error('Falha ao copiar: ', err);
-                    // Não usar alert(), apenas logar o erro.
-                } finally {
-                    document.body.removeChild(tempInput);
-                }
-            };
-        
-            document.addEventListener('DOMContentLoaded', () => {
-                const loadingOverlay = document.getElementById('loadingOverlay');
-                const paymentMethodSelect = document.getElementById('payment-method');
-                const cardFormContainer = document.getElementById('card-form-container'); // Mantido para referência, mas estará oculto
-                const addressFieldsGroup = document.querySelector('.address-fields-group'); // Mantido para referência, mas estará oculto
-                const payButton = document.getElementById('payButton');
-                const pagamentoStatus = document.getElementById('pagamentoStatus');
-                const inscricaoForm = document.getElementById('inscricaoForm');
-                const submitButton = document.getElementById('submitButton');
-                const qrCodeImage = document.getElementById('qrCodeImage');
-                const pixContainer = document.getElementById('pixContainer');
-                const pixCopyText = document.getElementById('pixCopyText');
-                const copyPixButton = document.getElementById('copyPixButton');
-                const comprovantePagamentoGroup = document.getElementById('comprovantePagamentoGroup'); // Novo: Referência ao grupo do comprovante
-                const comprovantePagamento = document.getElementById("comprovantePagamento");
-
-                // Função para verificar o status do pagamento (polling)
-                async function checkPaymentStatus(paymentId) {
-                    try {
-                        // A URL agora é relativa, assumindo que o backend Next.js está no mesmo domínio
-                        const response = await fetch(`${hostPort}/api/checkpaystatus?paymentId=${paymentId}`); 
-                        if (!response.ok) {
-                            throw new Error('Erro ao verificar status do pagamento.');
-                        }
-                        const data = await response.json();
-                        console.log('Status do pagamento:', data.status);
-
-                        if (data.status === 'approved') { 
-                            clearInterval(pollingIntervalId); 
-                            pagamentoStatus.style.color = 'green';
-                            pagamentoStatus.textContent = 'Pagamento aprovado! Enviando sua inscrição...';
-                            comprovantePagamentoGroup.style.display = 'none'; 
-                            warningLabel.textContent = ""; 
-                            comprovantePagamento.removeAttribute('required'); 
-                            
-                            // Envia o formulário automaticamente após a confirmação do pagamento
-                            sendInscriptionDataToApis(); // Chama a função para enviar para as APIs
-
-                        } else if (data.status === 'rejected' || data.status === 'cancelled') { 
-                            clearInterval(pollingIntervalId); 
-                            pagamentoStatus.style.color = 'red';
-                            pagamentoStatus.textContent = 'Pagamento não aprovado. Por favor, tente novamente.';
-                            submitButton.style.display = 'none'; 
-                            comprovantePagamentoGroup.style.display = 'none'; 
-                            warningLabel.textContent = ""; 
-                            comprovantePagamento.removeAttribute('required'); 
-                        } else {
-                            // Pagamento ainda pendente, atualiza a mensagem se necessário
-                            pagamentoStatus.style.color = 'orange';
-                            pagamentoStatus.textContent = 'Pagamento PIX pendente. Aguardando confirmação...';
-                            submitButton.style.display = 'none'; 
-                            comprovantePagamentoGroup.style.display = 'none'; 
-                            warningLabel.textContent = ""; 
-                            comprovantePagamento.removeAttribute('required'); 
-                        }
-                    } catch (error) {
-                        console.error('Erro ao verificar status do pagamento:', error);
-                        clearInterval(pollingIntervalId); 
-                        pagamentoStatus.style.color = 'red';
-                        pagamentoStatus.textContent = 'Erro ao verificar status do pagamento. Por favor, tente novamente.';
-                        submitButton.style.display = 'none'; 
-                        comprovantePagamentoGroup.style.display = 'none'; 
-                        warningLabel.textContent = ""; 
-                        comprovantePagamento.removeAttribute('required'); 
-                    }
-                }
-
-
-                // Lógica para alternar o texto do botão e visibilidade dos campos
-                paymentMethodSelect.addEventListener('change', () => {
-                    // Limpa qualquer polling anterior ao mudar o método de pagamento
-                    if (pollingIntervalId) {
-                        clearInterval(pollingIntervalId);
-                    }
-
-                    console.log('Método de pagamento alterado para:', paymentMethodSelect.value);
-                    if (paymentMethodSelect.value === 'card') {
-                        warningLabel.textContent = "ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com";
-                        cardFormContainer.classList.add('hidden');
-                        payButton.textContent = 'Obter Link de Pagamento (Cartão)';
-                        pagamentoStatus.textContent = '';
-                        qrCodeImage.style.display = 'none'; 
-                        qrcodeContainer.style.display = 'none'; 
-                        pixContainer.style.display = 'none'; 
-                        comprovantePagamentoGroup.style.display = 'block'; // Mostra o comprovante para cartão
-                        comprovantePagamento.required = true; // Torna o campo de comprovante obrigatório
-                        submitButton.style.display = 'block'; // Mostra o botão de envio para cartão
-                    } else { // PIX selecionado
-                        warningLabel.textContent = "";
-                        cardFormContainer.classList.add('hidden');
-                        payButton.textContent = 'Processar Pagamento (PIX)';
-                        pagamentoStatus.textContent = ''; 
-                        qrCodeImage.style.display = 'none'; 
-                        qrcodeContainer.style.display = 'none'; 
-                        pixContainer.style.display = 'none'; 
-                        comprovantePagamentoGroup.style.display = 'none'; // Esconde o comprovante para PIX
-                        comprovantePagamento.removeAttribute('required'); // Remove o 'required'
-                        submitButton.style.display = 'none'; // Esconde o botão de envio para PIX (até ser aprovado)
-                    }
-                });
-
-                // Lógica para o botão de "Processar Pagamento" / "Obter Link de Pagamento"
-                payButton.addEventListener('click', async () => {
-                    console.log('Botão de pagamento clicado.');
-                    
-                    // Valida todos os campos do formulário antes de processar o pagamento
-                    if (!validateFormFields() && paymentMethodSelect.value != 'card') {														
-                        pagamentoStatus.style.color = 'red';
-                        pagamentoStatus.textContent = 'Por favor, preencha todos os campos obrigatórios do formulário antes de prosseguir com o pagamento.';
-                        return;
-                    }
-
-                    const email = document.getElementById('email').value;
-                    const cpf = "00000000000";
-                    const nome = document.getElementById('nome').value;
-                    const telefone = document.getElementById('telefone').value;
-                    const zipCode = document.getElementById("cidade").value
-                    const paymentType = paymentMethodSelect.value;
-                    
-
-                    loadingOverlay.style.display = 'flex';
-                    pagamentoStatus.textContent = 'Processando...';
-                    qrCodeImage.style.display = 'none'; 
-                    qrcodeContainer.style.display = 'none'; 
-                    pixContainer.style.display = 'none';                                                             
-
-                    try {
-                        if (paymentType === 'pix') {
-                            // Limpa o CPF para enviar apenas dígitos
-                            const cleanedCpf = cpf.replace(/\D/g, ''); 
-                            // Limpa o telefone para enviar apenas dígitos
-                            const cleanedPhone = telefone.replace(/\D/g, '');
-                            // Limpa o CEP para enviar apenas dígitos (se preenchido)                            
-
-                            const payRes = await createPay(email, valueToPay, paymentType, cleanedCpf, nome, cleanedPhone); 
-                            
-                            // Limpa o conteúdo anterior do container do QR Code
-                            qrcodeContainer.innerHTML = '';
-
-                            if (payRes.result && payRes.result.point_of_interaction && payRes.result.point_of_interaction.transaction_data.qr_code) {
-                                const qrCodeData = payRes.result.point_of_interaction.transaction_data.qr_code;
-                                const paymentId = payRes.result.id; // Captura o ID do pagamento
-
-                                new QRCode(qrcodeContainer, {
-                                    text: qrCodeData,
-                                    width: 128,
-                                    height: 128,
-                                    colorDark : "#000000",
-                                    colorLight : "#ffffff",
-                                    correctLevel : QRCode.CorrectLevel.H
-                                });
-                                qrcodeContainer.style.display = 'flex'; // Torna o container do QR Code visível
-                                pixContainer.style.display = "flex";
-                                pixCopyText.textContent = qrCodeData;
-                                copyPixButton.onclick = () => {
-                                    window.copyPixCode(pixCopyText.textContent); // Copia o texto do PIX
-                                    copyPixButton.innerHTML= `<ion-icon name="checkmark-circle-outline"></ion-icon>`;
-                                    copyPixButton.style.background = "#1fb956";
-                                    setTimeout(() => {
-                                        copyPixButton.innerHTML= `<ion-icon name="copy-outline"></ion-icon>`;
-                                        copyPixButton.style.background = "";
-                                    }, 2000);
-                                };
-                                
-                                pagamentoStatus.style.color = 'orange';
-                                pagamentoStatus.innerHTML = `Pagamento PIX gerado com sucesso! Escaneie o QR Code ou use o código abaixo. <br> Aguardando confirmação...`;
-                                
-                                // Inicia o polling para verificar o status do pagamento
-                                pollingIntervalId = setInterval(() => checkPaymentStatus(paymentId), 5000); // Verifica a cada 5 segundos
-
-                            } else if (payRes.result && payRes.result.point_of_interaction && payRes.result.point_of_interaction.transaction_data.ticket_url) {
-                                // Fallback: se apenas o ticket_url estiver disponível (sem dados diretos do QR code)
-                                const ticketUrl = payRes.result.point_of_interaction.transaction_data.ticket_url;
-                                pagamentoStatus.style.color = 'orange';
-                                pagamentoStatus.innerHTML = `
-                                    <p>Pagamento PIX pendente.</p>
-                                    <p>Para ver o QR Code e detalhes, <a href="${ticketUrl}" target="_blank" style="color: blue; text-decoration: underline;">clique aqui para pagar</a>.</p>
-                                    <br> Aguardando confirmação...
-                                `;
-                                qrcodeContainer.style.display = 'none'; 
-                                pixContainer.style.display = 'none'; 
-                                // Não inicia polling aqui, pois o usuário precisa ir para a URL externa
-                                submitButton.style.display = 'none'; 
-                            } else {
-                                pagamentoStatus.style.color = 'red';
-                                pagamentoStatus.textContent = 'Erro ao gerar PIX. Nenhuma informação de pagamento válida recebida. Tente novamente.';
-                                qrcodeContainer.style.display = 'none';
-                                pixContainer.style.display = 'none';
-                                submitButton.style.display = 'none'; 
-                            }
-                        } else if (paymentType === 'card') {
-                            // URL externa para pagamento com cartão de crédito
-                            const externalCardLink = 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/b4b342cd-3634-4723-957c-db39ed5486a0/payment-option-form-v2/?source=link&preference-id=576632754-525a377d-5f07-4043-a264-1a309c675887&router-request-id=e18b76ed-189a-47b8-bc21-08bc8567656f&p=533e3ce7e15a9611eb415a593d4edeac'; // Substitua pelo seu link real do Mercado Pago ou outro gateway
-                            pagamentoStatus.style.color = 'blue';
-                            pagamentoStatus.innerHTML = `Clique <a href="${externalCardLink}" target="_blank" style="color: blue; text-decoration: underline;">aqui</a> para pagar com cartão de crédito.`;
-                            window.open(externalCardLink, '_blank'); // Abre o link em uma nova aba
-                            submitButton.style.display = 'block'; // Mostra o botão de envio para cartão
-                        }
-                    } catch (error) {
-                        console.error("Erro no fluxo de pagamento:", error);
-                        pagamentoStatus.style.color = 'red';
-                        pagamentoStatus.textContent = `Erro: ${error.message}. Por favor, verifique os dados e tente novamente.`;
-                        qrcodeContainer.style.display = 'none';
-                        pixContainer.style.display = 'none';
-                        submitButton.style.display = 'none'; 
-                    } finally {
-                        loadingOverlay.style.display = 'none';
-                    }
-                });
-                
-                // Este event listener agora só será acionado para o fluxo de cartão, onde o botão de submit é visível.
-                inscricaoForm.addEventListener('submit', async (e) => {
-                    e.preventDefault(); // Previne o envio padrão do formulário
-                    console.log('Formulário de inscrição enviado (via botão Submit, provavelmente para Cartão ou PIX após confirmação).');
-
-                    submitButton.disabled = true;
-                    submitButton.innerHTML = 'Enviando...';
-                    loadingOverlay.style.display = 'flex';
-                    loadingOverlay.querySelector('span').textContent = 'Enviando formulário de inscrição, aguarde...';
-
-                    // Chama a função para enviar para as APIs externas
-                    sendInscriptionDataToApis();
-                });
-
-                // Inicializa o estado do campo de comprovante e do botão de envio ao carregar a página
-                if (paymentMethodSelect.value === '') { 
-                    paymentMethodSelect.value = 'pix';
-                }
-
-                if (paymentMethodSelect.value === 'pix') {
-                    comprovantePagamentoGroup.style.display = 'none';
-                    warningLabel.textContent = "";
-                    comprovantePagamento.removeAttribute('required');
-                    submitButton.style.display = 'none'; 
-                } else { // 'card' é o padrão ou outra opção
-                    comprovantePagamentoGroup.style.display = 'block';
-                    warningLabel.textContent = "ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com";
-                    comprovantePagamento.required = true;
-                    submitButton.style.display = 'block'; 
-                }
-            });
+									submitButton.disabled = false;
+									submitButton.innerHTML = "Enviar"; // Restaura o botão original
+								});
 							</script>
 
 
@@ -1412,10 +691,10 @@
 					<img src="images/marca-GetIN-OK-05.png" alt="Logo GetIN" height="100" width="250" alt="" />
 				</div>
 				<div class="slide">
-					<img src="images/hub.png" alt="Logo Hub Salvador" height="250" width="250" alt="" />
+					<img src="images/hub.png" alt="Logo Hub Salvador" height="100" width="250" alt="" />
 				</div>
 				<div class="slide">
-					<img src="images/SEBRAE_MARCA_AZUL-01.jpg" alt="Logo VoxLink" height="200" width="350" alt="Logo Sebrae" />
+					<img src="images/vox.png" alt="Logo VoxLink" height="100" width="250" alt="" />
 				</div>
 				<div class="slide">
 					<img src="images/polen-logo.jpg" alt="logo Polen" height="100" width="250" alt="" />
@@ -1507,7 +786,6 @@
 				.removeClass("nav-tabs");
 		});
 	</script>
-	<script type="module" src="scripts/paceAcessCount.js"></script>
 </body>
 
 </html>
