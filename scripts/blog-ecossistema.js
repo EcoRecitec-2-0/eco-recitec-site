@@ -55,7 +55,7 @@ async function fetchAndDisplayPosts() {
         blogPostsDiv.innerHTML = '';
 
         // Preenche a seção de cards
-        cardPosts.forEach(post => {
+        cardPosts.forEach((post, index) => {
             const cardElement = document.createElement("article");
             cardElement.className = "blogCard";
 
@@ -73,16 +73,32 @@ async function fetchAndDisplayPosts() {
                     <button type="button" class="blogCard__like">
                         <ion-icon name="heart-outline"></ion-icon>Like
                     </button>
-                    <button type="button" class="blogCard__share">
+                    <button type="button" class="blogCard__share" id="shareButton${index}">
                         <ion-icon name="share-social-outline"></ion-icon>Share
                     </button>
                 </div>
             `;
+            // Adiciona o evento de compartilhamento
+            const shareButton = cardElement.querySelector(`#shareButton${index}`);
+            shareButton.addEventListener("click", () => {
+                const shareData = {
+                    title: post.title,
+                    text: truncatedContent,
+                    url: window.location.href // URL da página atual
+                };
+                if (navigator.share) {
+                    navigator.share(shareData)
+                        .then(() => console.log('Compartilhamento bem-sucedido'))
+                        .catch((error) => console.error('Erro ao compartilhar:', error));
+                } else {
+                    alert('Compartilhamento não suportado neste navegador.');
+                }
+            });
             blogCardsDiv.appendChild(cardElement);
         });
 
         // Preenche a seção de lista de posts (a partir do código anterior)
-        allPosts.forEach(post => {
+        allPosts.forEach((post, index) => {
             const postElement = document.createElement("article");
             postElement.className = "postcard";
 
@@ -112,15 +128,29 @@ async function fetchAndDisplayPosts() {
                     <button type="button" class="postcard__likeButton">
                         <ion-icon name="heart-outline"></ion-icon>Like
                     </button>
-                    <button type="button" class="postcard__shareButton">
+                    <button type="button" class="postcard__shareButton" id="shareCardButton${index}>
                         <ion-icon name="share-social-outline"></ion-icon>Share
                     </button>
                 </div>
             `;
-
+            // Adiciona o evento de compartilhamento
+            const shareCardButton = postElement.children[hasImage ? 5 : 4].children[1];
+            shareCardButton.addEventListener("click", () => {
+                const shareData = {
+                    title: post.title,
+                    text: post.content.length > 100 ? post.content.substring(0, 100) + '...' : post.content,
+                    url: window.location.href // URL da página atual
+                };
+                if (navigator.share) {
+                    navigator.share(shareData)
+                        .then(() => console.log('Compartilhamento bem-sucedido'))
+                        .catch((error) => console.error('Erro ao compartilhar:', error));
+                } else {
+                    alert('Compartilhamento não suportado neste navegador.');
+                }
+            });
             blogPostsDiv.appendChild(postElement);
         });
-
     } catch (error) {
         console.error("Erro ao buscar as postagens:", error);
         blogCardsDiv.innerHTML = "<p>Não foi possível carregar os posts em destaque.</p>";
