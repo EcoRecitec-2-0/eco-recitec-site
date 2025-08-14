@@ -979,13 +979,13 @@
                     formData.append('telefone', formObject.telefone);
                     formData.append('data', formObject.data);
                     formData.append('valor', valueToPay);
-                    const sendToCelene = await fetch("https://ecorecitec-api.vercel.app/api/send-payRecibe", {
+                    const sendToCelene = await fetch("https://ecorecitec-api.vercel.app/api/send-payRecibe", {                    
                         method: 'POST',
-                         headers: {
-                            'Content-Type': 'multipart/form-data'
-                        },                    
                         body: formData,
-                    });
+                        })
+                        .then(res => res.json())
+                        .then(data => console.log(data))
+                        .catch(err => console.error('Erro ao enviar inscrição:', err));
 
                     if (response.ok) {
                         pagamentoStatus.style.color = 'green';
