@@ -700,95 +700,6 @@
                                         placeholder="Seu cargo na empresa">
                                 </div>
 
-                                <!-- Início do sistema de pagamento Mercado Pago (comentado) -->
-                                <!--
-                                <div class="form-group">
-                                    <label class="control-label">
-                                        Inscrição individual por apenas R$ 350 em até 7x
-                                    </label>
-
-                                    <div class="form-group">
-                                        <label for="payment-method">Escolha o Método de Pagamento:</label>
-                                        <select id="payment-method" class="form-control">
-                                            <option value="pix">PIX</option>
-                                            <option value="card">Cartão de Crédito/Débito</option>
-                                        </select>
-                                    </div>
-
-                                    <div id="card-form-container" class="hidden">                                                                                
-                                        <div class="address-fields-group">
-                                            <div class="form-group">
-                                                <label for="streetName" class="control-label">Rua:</label>
-                                                <input type="text" id="streetName" name="streetName" class="form-control" 
-                                                    placeholder="Nome da Rua">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="streetNumber" class="control-label">Número:</label>
-                                                <input type="text" id="streetNumber" name="streetNumber" class="form-control" 
-                                                    placeholder="Número do Endereço">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="zipCode" class="control-label">CEP:</label>
-                                                <input type="text" id="zipCode" name="zipCode" class="form-control" 
-                                                    placeholder="XXXXX-XXX">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="federalUnit" class="control-label">Estado (UF):</label>
-                                                <input type="text" id="federalUnit" name="federalUnit" class="form-control" 
-                                                    placeholder="UF">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="form-checkout__cardNumber">Número do Cartão:</label>
-                                            <div id="form-checkout__cardNumber" class="mercadopago-fields"></div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="form-checkout__expirationDate">Data de Expiração (MM/AA):</label>
-                                            <div id="form-checkout__expirationDate" class="mercadopago-fields"></div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="form-checkout__securityCode">Código de Segurança (CVV):</label>
-                                            <div id="form-checkout__securityCode" class="mercadopago-fields"></div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="form-checkout__cardholderName">Titular do Cartão:</label>
-                                            <input type="text" id="form-checkout__cardholderName" class="form-control" placeholder="Nome completo no cartão" />
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="form-checkout__issuer">Banco Emissor:</label>
-                                            <select id="form-checkout__issuer" name="issuer" class="form-control">
-                                                <option value="" disabled selected>Banco emissor</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="form-checkout__installments">Parcelas:</label>
-                                            <select id="form-checkout__installments" name="installments" class="form-control">
-                                                <option value="" disabled selected>Parcelas</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="form-checkout__identificationType">Tipo de Documento:</label>
-                                            <select id="form-checkout__identificationType" name="identificationType" class="form-control">
-                                                <option value="" disabled selected>Tipo de documento</option>
-                                            </select>
-                                        </div>
-                                        <input type="hidden" id="form-checkout__identificationNumber" name="identificationNumber" />
-                                        <input type="hidden" id="token" name="token">
-                                        <input type="hidden" id="paymentMethodId" name="paymentMethodId">
-                                        <input type="hidden" id="transactionAmount" name="transactionAmount" value="350">
-                                        <input type="hidden" id="description" name="description" value="Pagamento da inscrição do congresso EcoRecitec">
-                                    </div>
-
-                                    <button type="button" id="payButton" class="btn botao2">Processar Pagamento</button>
-                                    <p id="pagamentoStatus" style="margin-top: 10px; font-weight: bold;"></p>
-                                    <label class="control-label form-subtitle">
-                                        ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com
-                                    </label>
-                                </div>
-                                -->
-                                <!-- Fim do sistema de pagamento Mercado Pago (comentado) -->
-
                                 <div class="form-group">
                                     <label for="cargo" class="control-label"
 										style="color: #FF910B; font-size: 13pt; display: block; text-align: center;">
@@ -1019,289 +930,16 @@
             }
         });
     </script>
-    <!-- O SDK do Mercado Pago foi comentado, pois a integração de pagamento está pausada. -->
-    <!-- <script src="https://sdk.mercadopago.com/js/v2"></script> -->
+
     <script type="text/javascript">
         let date = new Date();
-        const valueToPay = 350; // Valor da inscrição
-
-        /**
-         * Função para criar o pagamento no backend.
-         * Esta função está desativada para fins de depuração do erro "cc_rejected_high_risk".
-         * Será reativada após a resolução do problema de risco.
-         */
-        /*
-        async function createPay(email, value, paymentType, payerCpf, payerName, payerPhone, streetName, streetNumber, zipCode, federalUnit, cardData = null) {
-            console.log('Iniciando createPay (função desativada para depuração de "cc_rejected_high_risk")...');
-            return new Promise((resolve, reject) => {
-                // Simula uma rejeição por alto risco para fins de teste
-                reject(new Error("Pagamento desativado: Erro 'cc_rejected_high_risk' a ser resolvido."));
-            });
-        }
-        */
+        const valueToPay = 350; 
 
         document.addEventListener('DOMContentLoaded', () => {
             const loadingOverlay = document.getElementById('loadingOverlay');
-            // Os elementos relacionados ao Mercado Pago foram comentados, pois a integração de pagamento está pausada.
-            // const paymentMethodSelect = document.getElementById('payment-method');
-            // const cardFormContainer = document.getElementById('card-form-container');
-            // const addressFieldsGroup = document.querySelector('.address-fields-group');
-            // const payButton = document.getElementById('payButton');
             const pagamentoStatus = document.getElementById('pagamentoStatus');
             const inscricaoForm = document.getElementById('inscricaoForm');
-            const submitButton = document.getElementById('submitButton');
-
-            // As variáveis e lógicas relacionadas ao Mercado Pago foram comentadas, pois a integração de pagamento está pausada.
-            // let mp;
-            // let cardFieldsInitialized = false;
-
-            // Funções auxiliares para selects (comentadas, pois não são usadas sem o Mercado Pago)
-            /*
-            function createSelectOptions(elem, options, labelsAndKeys = { label: "name", value: "id" }, labelFormatter = null) {
-                const { label, value } = labelsAndKeys;
-                elem.options.length = 0;
-                const tempOptions = document.createDocumentFragment();
-                options.forEach(option => {
-                    const optValue = option[value];
-                    let optLabel;
-                    if (labelFormatter && typeof labelFormatter === 'function') {
-                        optLabel = labelFormatter(option);
-                    } else {
-                        optLabel = option[label];
-                    }
-                    const opt = document.createElement('option');
-                    opt.value = optValue;
-                    opt.textContent = optLabel;
-                    tempOptions.appendChild(opt);
-                });
-                elem.appendChild(tempOptions);
-            }
-
-            function clearHTMLSelectChildrenFrom(element) {
-                const currOptions = [...element.children];
-                currOptions.forEach(child => child.remove());
-            }
-
-            function createSelectElementPlaceholder(element, placeholder) {
-                const optionElement = document.createElement('option');
-                optionElement.textContent = placeholder;
-                optionElement.setAttribute('selected', "");
-                optionElement.setAttribute('disabled', "");
-                element.appendChild(optionElement);
-            }
-
-            // Obter tipos de documento (comentado)
-            async function getIdentificationTypes() {
-                try {
-                    const identificationTypes = await mp.getIdentificationTypes();
-                    const identificationTypeElement = document.getElementById('form-checkout__identificationType');
-                    createSelectOptions(identificationTypeElement, identificationTypes);
-                } catch (e) {
-                    console.error('Erro ao obter tipos de identificação: ', e);
-                }
-            }
-
-            // Atualiza configurações dos campos PCI (comentado)
-            function updatePCIFieldsSettings(paymentMethod, cardNumberElementRef, securityCodeElementRef) {
-                const { settings } = paymentMethod;
-
-                const cardNumberSettings = settings[0].card_number;
-                cardNumberElementRef.update({
-                    settings: cardNumberSettings
-                });
-
-                const securityCodeSettings = settings[0].security_code;
-                securityCodeElementRef.update({
-                    settings: securityCodeSettings
-                });
-            }
-
-            async function getIssuers(paymentMethodId, bin) {
-                try {
-                    return await mp.getIssuers({ paymentMethodId, bin });
-                } catch (e) {
-                    console.error('Erro ao obter emissores: ', e);
-                    return [];
-                }
-            }
-
-            async function updateIssuer(paymentMethod, bin) {
-                const issuerPlaceholder = "Banco emissor";
-                const issuerElement = document.getElementById('form-checkout__issuer');
-                const { additional_info_needed, issuer } = paymentMethod;
-                let issuerOptions = [issuer];
-
-                if (additional_info_needed && additional_info_needed.includes('issuer_id')) {
-                    issuerOptions = await getIssuers(paymentMethod.id, bin);
-                }
-                clearHTMLSelectChildrenFrom(issuerElement);
-                createSelectElementPlaceholder(issuerElement, issuerPlaceholder);
-                createSelectOptions(issuerElement, issuerOptions);
-            }
-
-            async function updateInstallments(paymentMethod, bin) {
-                const installmentsPlaceholder = "Parcelas";
-                const installmentsElement = document.getElementById('form-checkout__installments');
-                const transactionAmountElement = document.getElementById('transactionAmount');
-                try {
-                    const installments = await mp.getInstallments({
-                        amount: transactionAmountElement.value,
-                        bin,
-                        paymentTypeId: 'credit_card'
-                    });
-                    const installmentOptions = installments[0].payer_costs;
-
-                    const formatInstallmentLabel = (option) => {
-                        const numInstallments = option.installments;
-                        const installmentAmount = option.installment_amount.toFixed(2).replace('.', ',');
-                        return `${numInstallments} parcelas de R$ ${installmentAmount}`;
-                    };
-
-                    clearHTMLSelectChildrenFrom(installmentsElement);
-                    createSelectElementPlaceholder(installmentsElement, installmentsPlaceholder);
-                    createSelectOptions(installmentsElement, installmentOptions, { label: 'recommended_message', value: 'installments' }, formatInstallmentLabel);
-                } catch (error) {
-                    console.error('Erro ao obter parcelas: ', error);
-                }
-            }
-
-            // Limpa e define placeholders para os selects de Banco Emissor e Parcelas (comentado)
-            function clearSelectsAndSetPlaceholders() {
-                const issuerPlaceholder = "Banco emissor";
-                const installmentsPlaceholder = "Parcelas";
-                const issuerElement = document.getElementById('form-checkout__issuer');
-                const installmentsElement = document.getElementById('form-checkout__installments');
-
-                clearHTMLSelectChildrenFrom(issuerElement);
-                createSelectElementPlaceholder(issuerElement, issuerPlaceholder);
-
-                clearHTMLSelectChildrenFrom(installmentsElement);
-                createSelectElementPlaceholder(installmentsElement, installmentsPlaceholder);
-            }
-
-            let cardNumberElement, expirationDateElement, securityCodeElement;
-            */
-
-            // Evento de mudança no seletor de método de pagamento (comentado)
-            /*
-            paymentMethodSelect.addEventListener('change', () => {
-                console.log('Método de pagamento alterado para:', paymentMethodSelect.value);
-                if (paymentMethodSelect.value === 'card') {
-                    cardFormContainer.classList.remove('hidden');
-                    addressFieldsGroup.style.display = 'block';
-
-                    if (!cardFieldsInitialized) {
-                        if (!mp) {
-                            mp = new MercadoPago('APP_USR-c806680b-7bac-4f55-ad50-d2126ae80d58', {
-                                locale: 'pt-BR'
-                            });
-                        }
-
-                        try {
-                            cardNumberElement = mp.fields.create('cardNumber', {
-                                placeholder: "Número do cartão"
-                            }).mount('form-checkout__cardNumber');
-                            expirationDateElement = mp.fields.create('expirationDate', {
-                                placeholder: "MM/AA",
-                            }).mount('form-checkout__expirationDate');
-                            securityCodeElement = mp.fields.create('securityCode', {
-                                placeholder: "CVV"
-                            }).mount('form-checkout__securityCode');
-                            
-                            let currentBin;
-                            cardNumberElement.on('binChange', async (data) => {
-                                const { bin } = data;
-                                try {
-                                    if (!bin && document.getElementById('paymentMethodId').value) {
-                                        clearSelectsAndSetPlaceholders();
-                                        document.getElementById('paymentMethodId').value = "";
-                                    }
-
-                                    if (bin && bin !== currentBin) {
-                                        const { results } = await mp.getPaymentMethods({ bin });
-                                        const paymentMethod = results[0];
-
-                                        document.getElementById('paymentMethodId').value = paymentMethod.id;
-                                        updatePCIFieldsSettings(paymentMethod, cardNumberElement, securityCodeElement);
-                                        updateIssuer(paymentMethod, bin);
-                                        updateInstallments(paymentMethod, bin);
-                                    }
-                                    currentBin = bin;
-                                } catch (e) {
-                                    console.error('Erro ao obter métodos de pagamento: ', e)
-                                }
-                            });
-
-                            getIdentificationTypes();
-                            cardFieldsInitialized = true;
-                        } catch (e) {
-                            console.error('Erro ao criar/montar campos do Mercado Pago:', e);
-                            pagamentoStatus.style.color = 'red';
-                            pagamentoStatus.textContent = 'Erro ao carregar campos de pagamento. Tente novamente.';
-                        }
-                    }
-                } else {
-                    cardFormContainer.classList.add('hidden');
-                    addressFieldsGroup.style.display = 'none';
-                }
-            });
-            */
-
-            // Lógica para o botão de "Processar Pagamento" (agora desativado)
-            /*
-            payButton.addEventListener('click', async () => {
-                console.log('Botão Processar Pagamento clicado.');
-                const email = document.getElementById('email').value;
-                const cpf = document.getElementById('cpf').value;
-                const nome = document.getElementById('nome').value;
-                const telefone = document.getElementById('telefone').value;
-                
-                const paymentType = paymentMethodSelect.value;
-
-                if (!email || !cpf || !nome || !telefone) {
-                    pagamentoStatus.style.color = 'red';
-                    pagamentoStatus.textContent = 'Por favor, preencha seu nome, e-mail, CPF e telefone.';
-                    return;
-                }
-
-                let streetName = '';
-                let streetNumber = '';
-                let zipCode = '';
-                let federalUnit = '';
-
-                if (paymentType === 'card') {
-                    streetName = document.getElementById('streetName').value;
-                    streetNumber = document.getElementById('streetNumber').value;
-                    zipCode = document.getElementById('zipCode').value;
-                    federalUnit = document.getElementById('federalUnit').value;
-
-                    if (!streetName || !streetNumber || !zipCode || !federalUnit) {
-                        pagamentoStatus.style.color = 'red';
-                        pagamentoStatus.textContent = 'Para pagamento com cartão, por favor, preencha todos os campos de endereço.';
-                        return;
-                    }
-                }
-
-                loadingOverlay.style.display = 'flex';
-                pagamentoStatus.textContent = 'Processando pagamento...';                
-
-                try {
-                    // Simulação de erro cc_rejected_high_risk
-                    pagamentoStatus.style.color = 'red';
-                    pagamentoStatus.textContent = 'Erro de pagamento: cc_rejected_high_risk. Funcionalidade desativada para resolução futura.';
-                    payButton.classList.add('hidden');
-                    submitButton.classList.remove('hidden');
-                    console.error("Erro de pagamento simulado: cc_rejected_high_risk. Por favor, resolva este erro no backend.");
-                    
-                } catch (error) {
-                    console.error("Erro no fluxo de pagamento:", error);
-                    pagamentoStatus.style.color = 'red';
-                    pagamentoStatus.textContent = `Erro: ${error.message}`;
-                } finally {
-                    loadingOverlay.style.display = 'none';
-                }
-            });
-            */
+            const submitButton = document.getElementById('submitButton')
             
             inscricaoForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -1331,19 +969,31 @@
                     console.log("Status:", response.status);
                     const respText = await response.text();
                     console.log("Resposta do servidor:", respText);
+                                        
+                    let comprovantePagamento = document.getElementById('comprovantePagamento');
+                    const recibeEmailData = new FormData();
+                    formData.append('payRecibe', comprovantePagamento.files[0]);                        
+                    formData.append('sheetsName', "Geral");
+                    formData.append('nome', formObject.nome);
+                    formData.append('email', formObject.email);
+                    formData.append('telefone', formObject.telefone);
+                    formData.append('data', formObject.data);
+                    formData.append('valor', valueToPay);
+                    const sendToCelene = await fetch("https://ecorecitec-api.vercel.app/api/send-payRecibe", {
+                        method: 'POST',                        
+                        body: formData,
+                    });
 
                     if (response.ok) {
                         pagamentoStatus.style.color = 'green';
-                        pagamentoStatus.textContent = "Inscrição enviada com sucesso! Cheque sua caixa de spam caso não receba o email de confirmação.";
-                        
-                        // Chamada para o backend de e-mail
+                        pagamentoStatus.textContent = "Inscrição enviada com sucesso! Cheque sua caixa de spam caso não receba o email de confirmação.";                                            
                         const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
                             method: 'POST',
                             headers: {
                                 'Content-Type': 'application/json',
                             },
                             body: JSON.stringify(formObject),
-                        });
+                        });                        
                         console.log('Resposta da requisição de envio do formulário (e-mail) recebida:', emailResponse);
 
                         if (!emailResponse.ok) {
@@ -1355,9 +1005,7 @@
                             console.log('Resultado do envio do e-mail:', result);
                         }
                         inscricaoForm.reset();
-                        // Oculta o botão de envio e exibe o de pagamento novamente para um novo ciclo, se necessário
-                        // submitButton.classList.add('hidden'); // Não ocultar mais, pois o pagamento está fora do fluxo
-                        // payButton.classList.remove('hidden'); // Não existe mais um payButton ativo
+                    
                     } else {
                         pagamentoStatus.style.color = 'red';
                         pagamentoStatus.textContent = "Erro ao enviar a inscrição. Tente novamente.";
@@ -1366,7 +1014,7 @@
                     console.error('Erro ao enviar formulário de inscrição:', error);
                     pagamentoStatus.style.color = 'red';
                     pagamentoStatus.textContent = 'Erro ao enviar formulário de inscrição: ' + error.message;
-                    // submitButton.classList.remove('hidden'); // Não ocultar mais, pois o pagamento está fora do fluxo
+                    
                 } finally {
                     loadingOverlay.style.display = 'none';
                     submitButton.disabled = false;
@@ -1374,11 +1022,6 @@
                 }
             });
 
-            // Oculta o container do cartão e os campos de endereço no carregamento inicial
-            // cardFormContainer.classList.add('hidden'); // Comentado, pois o HTML já está comentado
-            // addressFieldsGroup.style.display = 'none'; // Comentado, pois o HTML já está comentado
-            // O botão de envio do formulário agora é visível por padrão
-            // submitButton.classList.add('hidden'); // Removido para que o botão seja visível
         });
     </script>
     <script type="text/javascript" src="js/wow.js"></script>
