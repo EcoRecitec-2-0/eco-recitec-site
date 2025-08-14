@@ -971,7 +971,8 @@
                     console.log("Resposta do servidor:", respText);
                                         
                     let comprovantePagamento = document.getElementById('comprovantePagamento');
-                    const recibeEmailData = new FormData();
+                    const formData = new FormData();
+
                     formData.append('payRecibe', comprovantePagamento.files[0]);                        
                     formData.append('sheetsName', "Geral");
                     formData.append('nome', formObject.nome);
@@ -979,13 +980,14 @@
                     formData.append('telefone', formObject.telefone);
                     formData.append('data', formObject.data);
                     formData.append('valor', valueToPay);
+
                     const sendToCelene = await fetch("https://ecorecitec-api.vercel.app/api/send-payRecibe", {                    
                         method: 'POST',
                         body: formData,
-                        })
-                        .then(res => res.json())
-                        .then(data => console.log(data))
-                        .catch(err => console.error('Erro ao enviar inscrição:', err));
+                    })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(err => console.error('Erro ao enviar inscrição:', err));
 
                     if (response.ok) {
                         pagamentoStatus.style.color = 'green';
