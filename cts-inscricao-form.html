@@ -987,22 +987,24 @@
                     if (response.ok) {
                         pagamentoStatus.style.color = 'green';
                         pagamentoStatus.textContent = "Inscrição enviada com sucesso! Cheque sua caixa de spam caso não receba o email de confirmação.";                                            
-                        const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(formObject),
-                        });                        
-                        console.log('Resposta da requisição de envio do formulário (e-mail) recebida:', emailResponse);
+                        if (formObject.participar_ecossistema == "Sim") {
+                            const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(formObject),
+                            });                        
+                            console.log('Resposta da requisição de envio do formulário (e-mail) recebida:', emailResponse);
 
-                        if (!emailResponse.ok) {
-                            const errorData = await emailResponse.json().catch(() => ({ message: 'Erro desconhecido ao enviar e-mail.' }));
-                            console.error('Erro na resposta do servidor (envio do e-mail):', errorData);
-                            pagamentoStatus.textContent += ' Erro ao enviar e-mail de confirmação.';
-                        } else {
-                            const result = await emailResponse.json();
-                            console.log('Resultado do envio do e-mail:', result);
+                            if (!emailResponse.ok) {
+                                const errorData = await emailResponse.json().catch(() => ({ message: 'Erro desconhecido ao enviar e-mail.' }));
+                                console.error('Erro na resposta do servidor (envio do e-mail):', errorData);
+                                pagamentoStatus.textContent += ' Erro ao enviar e-mail de confirmação.';
+                            } else {
+                                const result = await emailResponse.json();
+                                console.log('Resultado do envio do e-mail:', result);
+                            }
                         }
                         inscricaoForm.reset();
                     
