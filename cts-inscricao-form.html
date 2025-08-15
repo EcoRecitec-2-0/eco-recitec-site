@@ -970,32 +970,20 @@
                     console.log("Status:", response.status);
                     const respText = await response.text();
                     console.log("Resposta do servidor:", respText);
-                                        
-                    let comprovantePagamento = document.getElementById('comprovantePagamento');
-                    const formData = new FormData();
-
-                    formData.append('payRecibe', comprovantePagamento.files[0]);                        
-                    formData.append('sheetsName', "Geral");
-                    formData.append('nome', formObject.nome);
-                    formData.append('email', formObject.email);
-                    formData.append('telefone', formObject.telefone);
-                    formData.append('data', formObject.data);
-                    formData.append('valor', valueToPay);
-
-                    const sendToCelene = await fetch("https://ecorecitec-api.vercel.app/api/sendrecibe", {                    
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(formObject),
-                    })
-                    .then(res => res.json())
-                    .then(data => console.log(data))
-                    .catch(err => console.error('Erro ao enviar inscrição:', err));
 
                     if (response.ok) {
                         pagamentoStatus.style.color = 'green';
                         pagamentoStatus.textContent = "Inscrição enviada com sucesso! Cheque sua caixa de spam caso não receba o email de confirmação.";                                            
+
+                        const sendCelene = await fetch("https://ecorecitec-api.vercel.app/api/sendrecibe", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(formObject),
+                        });                        
+                        console.log('Resposta da requisição de envio de comprovante:', sendCelene);
+
                         if (formObject.participar_ecossistema == "Sim") {
                             const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
                                 method: 'POST',
