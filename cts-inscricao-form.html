@@ -718,7 +718,7 @@
                                 <div class="form-group">
                                     <label>
                                         Ao se inscrever no congresso você tem direito a um bônus de 4 meses de integração ao nosso ecossistema.
-                                        Deseja participar do ecossistema gratuitamente por 30 dias?
+                                        Deseja participar do ecossistema gratuitamente por 4 meses?
                                     </label>
                                     <label>
                                         <input type="radio" name="participar_ecossistema" value="Sim" required> Sim
@@ -981,7 +981,7 @@
                     formData.append('data', formObject.data);
                     formData.append('valor', valueToPay);
 
-                    const sendToCelene = await fetch("https://ecorecitec-api.vercel.app/api/send-payRecibe", {                    
+                    const sendToCelene = await fetch("http://localhost:3000/api/send-payRecibe", {                    
                         method: 'POST',
                         body: formData,
                     })
