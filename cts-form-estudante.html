@@ -558,8 +558,9 @@
 
 									<a href="https://mpago.li/2523B3j" class="btn botao2" target="_blank"
 										rel="noopener noreferrer">Efetuar Pagamento</a>
-									<label for="cargo" class="control-label"
-										style="color: #FF910B; font-size: 13pt; display: block; text-align: center;">
+									<label for="comprovantePagamento" class="control-label">Anexe o Comprovante de Pagamento Aqui:</label>
+									<input type="file" id="comprovantePagamento" name="comprovantePagamento" class="form-control" required>                                                                        
+									<label class="control-label form-subtitle" style="text-align: left;">
 										ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com
 									</label>
 								</div>
@@ -592,6 +593,9 @@
 							</form>
 							
 							<script>
+								let date = new Date();
+								const valueToPay = 237; 
+
 								function selecionarUnico(checkbox) {
 									document.querySelectorAll('input[name="tipo"]').forEach((item) => {
 										if (item !== checkbox) item.checked = false;
@@ -607,7 +611,8 @@
 									const formData = new FormData(this);
 									const formObject = {};
 									formData.forEach((value, key) => formObject[key] = value);
-
+									formObject["data"] = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+									formObject["ecossystMoths"] = `4 meses`;
 									console.log("Dados enviados:", formObject); // Verifique os valores no console
 
 									try {
@@ -616,6 +621,25 @@
 											headers: { "Content-Type": "application/json" },
 											body: JSON.stringify(formObject),
 										});
+
+										let comprovantePagamento = document.getElementById('comprovantePagamento');
+										const formData = new FormData();
+
+										formData.append('payRecibe', comprovantePagamento.files[0]);                        
+										formData.append('sheetsName', "Estudante");
+										formData.append('nome', formObject.nome);
+										formData.append('email', formObject.email);
+										formData.append('telefone', formObject.telefone);
+										formData.append('data', formObject.data);
+										formData.append('valor', valueToPay);
+
+										const sendToCelene = await fetch("https://ecorecitec-api.vercel.app/api/sendrecibe", {                    
+												method: 'POST',
+												body: formData,
+										})
+										.then(res => res.json())
+										.then(data => console.log(data))
+										.catch(err => console.error('Erro ao enviar inscrição:', err));
 
 										if (response.ok) {
 											alert("Inscrição enviada com sucesso, cheque sua caixa de spam caso não receba o email de confirmação!!");
