@@ -2525,6 +2525,14 @@
 								body: JSON.stringify(formObject),
 							});
 
+							const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submitCalendy", {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(formObject),
+                        });
+
 							if (response.ok) {
 								alert("Enviado com sucesso!");
 								this.reset(); // Limpa o formulário
