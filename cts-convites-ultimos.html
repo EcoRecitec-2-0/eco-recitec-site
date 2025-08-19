@@ -796,20 +796,7 @@
                                     <input type="text" id="cargo" name="cargo" class="form-control"
                                         placeholder="Seu cargo na empresa">
                                 </div>
-
-                                <div class="form-group">
-                                    <label>
-                                        Ao se inscrever no congresso você tem direito a um bônus de 30 dias de
-                                        integração ao nosso ecossistema.
-                                        Deseja participar do ecossistema gratuitamente por 30 dias?
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="participar_ecossistema" value="Sim" required> Sim
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="participar_ecossistema" value="Não"> Não
-                                    </label>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>
                                         Autorizo a utilização da minha imagem (fotografia, vídeo ou outras formas de
@@ -848,117 +835,6 @@
                                 </div>
                                 <button id="submitButton" type="submit" class="btn botao2">Enviar</button>
                             </form>
-
-
-                            <script>
-                                // Função para selecionar um único checkbox (mantida do código original)
-                                function selecionarUnico(checkbox) {
-                                    document.querySelectorAll('input[name="tipo"]').forEach((item) => {
-                                        if (item !== checkbox) item.checked = false;
-                                    });
-                                }
-
-                                document.getElementById("inscricaoForm").addEventListener("submit", async function (event) {
-                                    event.preventDefault();
-
-                                    const submitButton = document.getElementById("submitButton");
-									const loadingOverlay = document.getElementById("loadingOverlay");
-                                    
-                                    submitButton.disabled = true;
-                                    submitButton.innerHTML = "Enviando..."; // Mostra o carregamento
-									loadingOverlay.style.display = 'flex'; // Exibe a tela de carregamento
-
-                                    const formData = new FormData(this);
-                                    const formObject = {};
-                                    formObject["ecossystMoths"] = `30 dias`;
-                                    formData.forEach((value, key) => formObject[key] = value);
-
-                                    console.log("Dados enviados:", formObject); // Check the values in the console
-
-                                    try {
-                                        // Enviar dados para a API Flask
-                                        const flaskResponse = await fetch("https://api-form-flask.onrender.com/inscricao-convites", {
-                                            method: "POST",
-                                            headers: { "Content-Type": "application/json" },
-                                            body: JSON.stringify(formObject),
-                                        });
-
-                                        let emailSent = false;
-                                        // Verificar se o usuário deseja participar do ecossistema e enviar e-mail
-                                        if (formObject.participar_ecossistema === "Sim") {
-                                            console.log("Usuário deseja participar do ecossistema. Enviando e-mail...");
-                                            try {
-                                                const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
-                                                    method: 'POST',
-                                                    headers: {
-                                                        'Content-Type': 'application/json',
-                                                    },
-                                                    body: JSON.stringify(formObject),
-                                                });
-                                                if (emailResponse.ok) {
-                                                    console.log("E-mail de ecossistema enviado com sucesso.");
-                                                    emailSent = true;
-                                                } else {
-                                                    console.error("Erro ao enviar e-mail de ecossistema:", await emailResponse.text());
-                                                }
-                                            } catch (emailError) {
-                                                console.error("Erro de conexão ao enviar e-mail de ecossistema:", emailError);
-                                            }
-                                        }
-
-                                        if (flaskResponse.ok) {
-                                            let message = "Sua inscrição foi enviada com sucesso.";
-                                            if (emailSent) {
-                                                message += " Um e-mail de confirmação foi enviado para o seu endereço (verifique a caixa de entrada e a pasta de spam).";
-                                            } else if (formObject.participar_ecossistema === "Sim") {
-                                                message += " Houve um problema ao enviar o e-mail de integração ao ecossistema, mas sua inscrição foi registrada.";
-                                            }
-                                            // Substituir alert por modal de feedback
-                                            displayFeedbackModal(true, "Formulário Enviado com Sucesso!", message);
-                                            this.reset();
-                                        } else {
-                                            const errorText = await flaskResponse.text();
-                                            // Substituir alert por modal de feedback
-                                            displayFeedbackModal(false, "Erro no Envio do Formulário", `Ocorreu um erro ao enviar sua inscrição: ${errorText}. Por favor, tente novamente.`);
-                                        }
-                                    } catch (error) {
-                                        // Substituir alert por modal de feedback
-                                        displayFeedbackModal(false, "Erro de Conexão", "Ocorreu um erro de conexão com o servidor. Por favor, verifique sua internet e tente novamente.");
-                                    } finally {
-                                        submitButton.disabled = false;
-                                        submitButton.innerHTML = "Enviar"; // Restaura o botão original
-										loadingOverlay.style.display = 'none'; // Oculta a tela de carregamento
-                                    }
-                                });
-
-                                // Função para exibir o modal de feedback
-                                function displayFeedbackModal(isSuccess, title, message) {
-                                    const modal = document.getElementById('feedbackModal');
-                                    const modalTitle = document.getElementById('feedbackTitle');
-                                    const modalMessage = document.getElementById('feedbackMessage');
-                                    const formElement = document.getElementById('inscricaoForm'); // Referência ao formulário
-
-                                    modalTitle.textContent = title;
-                                    modalMessage.textContent = message;
-
-                                    if (isSuccess) {
-                                        modalTitle.style.color = '#28a745'; // Verde para sucesso
-                                    } else {
-                                        modalTitle.style.color = '#dc3545'; // Vermelho para erro
-                                    }
-
-                                    modal.style.display = 'flex'; // Exibe o modal
-                                    formElement.style.display = 'none'; // Oculta o formulário
-
-                                    // Event listener para o botão de fechar o modal
-                                    document.getElementById('feedbackCloseButton').onclick = function() {
-                                        modal.style.display = 'none'; // Oculta o modal
-                                        formElement.style.display = 'block'; // Mostra o formulário novamente
-                                        // O formulário já é resetado no sucesso no bloco try, então não precisamos resetar aqui
-                                    };
-                                }
-                            </script>
-
 
                         </div>
 
@@ -1222,39 +1098,10 @@
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(formObject),
-                });
-
-                let emailSent = false;
-                // Verificar se o usuário deseja participar do ecossistema e enviar e-mail
-                if (formObject.participar_ecossistema === "Sim") {
-                    console.log("Usuário deseja participar do ecossistema. Enviando e-mail...");
-                    try {
-                        const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(formObject),
-                        });
-                        if (emailResponse.ok) {
-                            console.log("E-mail de ecossistema enviado com sucesso.");
-                            emailSent = true;
-                        } else {
-                            console.error("Erro ao enviar e-mail de ecossistema:", await emailResponse.text());
-                        }
-                    } catch (emailError) {
-                        console.error("Erro de conexão ao enviar e-mail de ecossistema:", emailError);
-                    }
-                }
+                });                
 
                 if (flaskResponse.ok) {
-                    let message = "Sua inscrição foi enviada com sucesso.";
-                    if (emailSent) {
-                        message += " Um e-mail de confirmação foi enviado para o seu endereço (verifique a caixa de entrada e a pasta de spam).";
-                    } else if (formObject.participar_ecossistema === "Sim") {
-                        message += " Houve um problema ao enviar o e-mail de integração ao ecossistema, mas sua inscrição foi registrada.";
-                    }
-                    // Substituir alert por modal de feedback
+                    let message = "Sua inscrição foi enviada com sucesso.";                  
                     displayFeedbackModal(true, "Formulário Enviado com Sucesso!", message);
                     this.reset();
                 } else {
