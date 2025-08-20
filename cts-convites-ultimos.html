@@ -1108,7 +1108,24 @@
                     const errorText = await flaskResponse.text();
                     // Substituir alert por modal de feedback
                     displayFeedbackModal(false, "Erro no Envio do Formulário", `Ocorreu um erro ao enviar sua inscrição: ${errorText}. Por favor, tente novamente.`);
-                }
+                }                
+                const qrcodeResponse = await fetch("https://ecorecitec-api.vercel.app/api/addPersonInDatabase",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify([formObject]),
+                    }
+                );
+                if (qrcodeResponse.ok) {
+                    console.log("E-mail com QRCode enviado com sucesso.");
+                } else {
+                    console.error(
+                    "Erro ao enviar e-mail com QRCode:",
+                    await qrcodeResponse.text()
+                    );
+                }            
             } catch (error) {
                 // Substituir alert por modal de feedback
                 displayFeedbackModal(false, "Erro de Conexão", "Ocorreu um erro de conexão com o servidor. Por favor, verifique sua internet e tente novamente.");
@@ -1116,7 +1133,7 @@
                 submitButton.disabled = false;
                 submitButton.innerHTML = "Enviar"; // Restaura o botão original
 				loadingOverlay.style.display = 'none'; // Oculta a tela de carregamento
-            }
+            }          
         });
 
         // Função para exibir o modal de feedback

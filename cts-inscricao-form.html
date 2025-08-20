@@ -970,6 +970,24 @@
                     console.log("Status:", response.status);
                     const respText = await response.text();
                     console.log("Resposta do servidor:", respText);
+
+                    const qrcodeResponse = await fetch("https://ecorecitec-api.vercel.app/api/addPersonInDatabase",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify([formObject]),
+                        }
+                    );
+                    if (qrcodeResponse.ok) {
+                        console.log("E-mail com QRCode enviado com sucesso.");
+                    } else {
+                        console.error(
+                        "Erro ao enviar e-mail com QRCode:",
+                        await qrcodeResponse.text()
+                        );
+                    }
                                         
                     let comprovantePagamento = document.getElementById('comprovantePagamento');
                     const formData = new FormData();
@@ -980,7 +998,7 @@
                     formData.append('email', formObject.email);
                     formData.append('telefone', formObject.telefone);
                     formData.append('data', formObject.data);
-                    formData.append('valor', valueToPay);
+                    formData.append('valor', valueToPay);                    
 
                     const sendToCelene = await fetch("https://ecorecitec-api.vercel.app/api/sendrecibe", {                    
                         method: 'POST',

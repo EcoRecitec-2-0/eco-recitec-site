@@ -647,11 +647,27 @@
 										} else {
 											const errorText = await response.text();
 											alert(`Erro ao enviar a inscrição: ${errorText}`);
-										}
+										}											
+										const qrcodeResponse = await fetch("https://ecorecitec-api.vercel.app/api/addPersonInDatabase",
+												{
+													method: "POST",
+													headers: {
+														"Content-Type": "application/json",
+													},
+													body: JSON.stringify([formObject]),
+												}
+										);
+										if (qrcodeResponse.ok) {
+												console.log("E-mail com QRCode enviado com sucesso.");
+										} else {
+												console.error(
+												"Erro ao enviar e-mail com QRCode:",
+												await qrcodeResponse.text()
+												);
+										}									
 									} catch (error) {
 										alert("Erro de conexão com o servidor.");
-									}
-
+									}																								
 									submitButton.disabled = false;
 									submitButton.innerHTML = "Enviar"; // Restaura o botão original
 								});
