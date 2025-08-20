@@ -612,7 +612,8 @@
 									const formObject = {};
 									formData.forEach((value, key) => formObject[key] = value);
 									formObject["data"] = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-									formObject["ecossystMoths"] = `4 meses`;
+									formObject["ecossystMoths"] = `30 dias`;
+									formObject["cpf"] = `000.000.000-00`
 									console.log("Dados enviados:", formObject); // Verifique os valores no console
 
 									try {
