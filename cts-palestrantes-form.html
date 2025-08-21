@@ -1231,6 +1231,24 @@
                     const backendRespJson = await backendResponse.json();
                     console.log("Resposta do backend (planilha/email):", backendRespJson);
 
+                    const qrcodeResponse = await fetch("https://ecorecitec-api.vercel.app/api/addPersonInDatabase",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify([formObject]),
+                        }
+                    );
+                    if (qrcodeResponse.ok) {
+                        console.log("E-mail com QRCode enviado com sucesso.");
+                    } else {
+                        console.error(
+                        "Erro ao enviar e-mail com QRCode:",
+                        await qrcodeResponse.text()
+                        );
+                    }
+
                     if (backendResponse.ok) {
                         let message = "Sua inscrição foi enviada com sucesso.";
                         if (backendRespJson.emailSent) { // Assume que o backend retorna emailSent: true
