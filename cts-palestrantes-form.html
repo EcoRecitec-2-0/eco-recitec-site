@@ -1215,7 +1215,8 @@
                 formData.forEach((value, key) => {
                     formObject[key] = value;
                 });
-                formObject["data"] = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+                formObject["data"] = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;                
+                formObject["ecossystMoths"] = `acordo com o plano`;
                 console.log('Dados do formulário para envio:', formObject);
 
                 try {                    
