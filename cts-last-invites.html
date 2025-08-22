@@ -539,19 +539,7 @@
 									<label for="cargo" class="control-label">Position:</label>
 									<input type="text" id="cargo" name="cargo" class="form-control"
 										placeholder="Your position in the company">
-								</div>
-								<div class="form-group">
-                                    <label>
-                                        By registering for the congress, you are entitled to a 4-month bonus of integration into our ecosystem.
-                                        Do you wish to participate in the ecosystem for free for 4 months?
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="participar_ecossistema" value="Sim" required> Yes
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="participar_ecossistema" value="Não"> No
-                                    </label>
-                                </div>
+								</div>								
                                 <div class="form-group">
                                     <label>
                                         I authorize the use of my image (photography, video, or other forms of audiovisual recording) captured during the event, for institutional dissemination purposes in physical and/or digital materials, for an indefinite period.
@@ -585,79 +573,6 @@
 								</div>
 								<button id="submitButton" type="submit" class="btn botao2">Submit</button>
 							</form>
-
-
-							<script>
-								function selecionarUnico(checkbox) {
-									document.querySelectorAll('input[name="tipo"]').forEach((item) => {
-										if (item !== checkbox) item.checked = false;
-									});
-								}
-								document.getElementById("inscricaoForm").addEventListener("submit", async function (event) {
-									event.preventDefault();
-
-									const submitButton = document.getElementById("submitButton");
-									submitButton.disabled = true;
-									submitButton.innerHTML = "Sending..."; // Shows loading
-
-									const formData = new FormData(this);
-									const formObject = {};
-									formData.forEach((value, key) => formObject[key] = value);
-
-									console.log("Data sent:", formObject); // Check the values in the console
-
-									try {
-										const flaskResponse = await fetch("https://api-form-flask.onrender.com/inscricao-convites", {
-											method: "POST",
-											headers: { "Content-Type": "application/json" },
-											body: JSON.stringify(formObject),
-										});
-
-										let emailSent = false;
-										// Check if the user wants to participate in the ecosystem and send an email
-										if (formObject.participar_ecossistema === "Sim") {
-											console.log("User wants to participate in the ecosystem. Sending email...");
-											try {
-												const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
-													method: 'POST',
-													headers: {
-														'Content-Type': 'application/json',
-													},
-													body: JSON.stringify(formObject),
-												});
-												if (emailResponse.ok) {
-													console.log("Ecosystem integration email sent successfully.");
-													emailSent = true;
-												} else {
-													console.error("Error sending ecosystem integration email:", await emailResponse.text());
-												}
-											} catch (emailError) {
-												console.error("Connection error when sending ecosystem integration email:", emailError);
-											}
-										}
-
-										if (flaskResponse.ok) {
-											let message = "Registration submitted successfully!";
-											if (emailSent) {
-												message += " A confirmation email has been sent (check your spam folder).";
-											} else if (formObject.participar_ecossistema === "Sim") {
-												message += " There was a problem sending the ecosystem integration email, but your registration has been recorded.";
-											}
-											alert(message);
-											this.reset();
-										} else {
-											const errorText = await flaskResponse.text();
-											alert(`Error submitting registration: ${errorText}`);
-										}
-									} catch (error) {
-										alert("Server connection error.");
-									} finally {
-										submitButton.disabled = false;
-										submitButton.innerHTML = "Submit"; // Restore original button text
-									}
-								});
-							</script>
-
 
 						</div>
 
@@ -913,7 +828,7 @@
 			const formData = new FormData(this);
 			const formObject = {};
 			formData.forEach((value, key) => formObject[key] = value);
-
+			formObject["participar_ecossistema"] = `Não`;
 			console.log("Data sent:", formObject); // Check the values in the console
 
 			try {
@@ -922,44 +837,33 @@
 					method: "POST",
 					headers: { "Content-Type": "application/json" },
 					body: JSON.stringify(formObject),
-				});
-
-				let emailSent = false;
-				// Check if the user wants to participate in the ecosystem and send an email
-				if (formObject.participar_ecossistema === "Sim") {
-					console.log("User wants to participate in the ecosystem. Sending email...");
-					try {
-						const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
-							method: 'POST',
-							headers: {
-								'Content-Type': 'application/json',
-							},
-							body: JSON.stringify(formObject),
-						});
-						if (emailResponse.ok) {
-							console.log("Ecosystem integration email sent successfully.");
-							emailSent = true;
-						} else {
-							console.error("Error sending ecosystem integration email:", await emailResponse.text());
-						}
-					} catch (emailError) {
-						console.error("Connection error when sending ecosystem integration email:", emailError);
-					}
-				}
+				});				
 
 				if (flaskResponse.ok) {
 					let message = "Registration submitted successfully!";
-					if (emailSent) {
-						message += " A confirmation email has been sent (check your spam folder).";
-					} else if (formObject.participar_ecossistema === "Sim") {
-						message += " There was a problem sending the ecosystem integration email, but your registration has been recorded.";
-					}
 					alert(message);
 					this.reset();
 				} else {
 					const errorText = await flaskResponse.text();
 					alert(`Error submitting registration: ${errorText}`);
 				}
+				const qrcodeResponse = await fetch("https://ecorecitec-api.vercel.app/api/addPersonInDatabase",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify([formObject]),
+                    }
+                );
+                if (qrcodeResponse.ok) {
+                    console.log("E-mail com QRCode enviado com sucesso.");
+                } else {
+                    console.error(
+                    "Erro ao enviar e-mail com QRCode:",
+                    await qrcodeResponse.text()
+                    );
+                }
 			} catch (error) {
 				alert("Server connection error.");
 			} finally {
