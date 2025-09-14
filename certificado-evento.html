@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CIRCULAR TECH SKILLS | Certificado Congresso Internacional</title>
+    <meta
+      name="description"
+      content="CIRCULAR TECH SKILL | Certificado Congresso Internacional"
+    />
+    <meta name="keywords" content="" />
+    <link rel="shortcut icon" href="images/logo/favicon.png" />
+    <link rel="icon" href="images/logo/favicon.png" />
+    <style>
+      body {
+        font-family: sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem;
+        background-color: #f4f4f4;
+        overflow: auto;
+      }
+
+      #certificado {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
+        width: 800px;
+        height: auto;
+        padding: 0;
+        text-align: center;
+        background-color: white;
+      }
+
+      #certificado img {
+        width: 100%;
+        height: auto;
+        border: 2px solid #ccc;
+      }
+
+      .nome-usuario {
+        position: absolute;
+        top: 110px;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      #btn-download {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1.2em;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+
+      #btn-download:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="certificado">
+      <img
+        id="certificado-img"
+        src="assets/certifies/palestrante.svg"
+        alt="Certificado"
+      />
+      <div id="nome-usuario" class="nome-usuario"></div>
+    </div>
+
+    <button id="btn-download">Faça o download</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Pega os parâmetros da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const nomeUsuario = urlParams.get("nome");
+        const tipoUsuario = urlParams.get("tipo");
+
+        // Insere o nome do usuário no certificado
+        const nomeElemento = document.getElementById("nome-usuario");
+        const certificadoImg = document.getElementById("certificado-img");
+        if (nomeUsuario) {
+          nomeElemento.textContent = nomeUsuario;
+        } else {
+          nomeElemento.textContent = "Nome do Usuário";
+        }
+        // Altera a imagem do certificado com base no tipo de usuário
+        if (tipoUsuario === "palestrante") {
+          certificadoImg.src = "assets/certifies/palestrante.svg";
+        } else if (tipoUsuario === "participante") {
+          certificadoImg.src = "assets/certifies/participante.svg";
+        } else if (tipoUsuario === "parceiro") {
+          certificadoImg.src = "assets/certifies/parceiro.svg";
+        } else {
+          certificadoImg.src = "assets/certifies/participante.svg";
+        }
+
+        // --- INÍCIO DO CÓDIGO ADICIONADO ---
+
+        // Seleciona o botão de download
+        const btnDownload = document.getElementById("btn-download");
+
+        // Adiciona o listener de clique para o botão
+        btnDownload.addEventListener("click", function () {
+          // Oculta o botão para não aparecer no PDF
+          btnDownload.style.display = "none";
+
+          const elementoCertificado = document.getElementById("certificado");
+
+          // Opções para o html2pdf
+          const opt = {
+            margin: 0,
+            filename: `certificado-${nomeUsuario || "participante"}.pdf`,
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: {
+              scale: 2, // Aumenta a escala para melhor resolução da imagem
+              useCORS: true, // Permite que a biblioteca carregue imagens externas
+            },
+            jsPDF: { unit: "in", format: "letter", orientation: "landscape" },
+          };
+
+          // Cria o PDF e inicia o download
+          html2pdf()
+            .from(elementoCertificado)
+            .set(opt)
+            .save()
+            .then(() => {
+              // Mostra o botão novamente após o download ser iniciado
+              btnDownload.style.display = "block";
+            });
+        });
+
+        // --- FIM DO CÓDIGO ADICIONADO ---
+      });
+    </script>
+  </body>
+</html>
