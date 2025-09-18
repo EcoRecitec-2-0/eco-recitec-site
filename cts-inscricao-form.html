@@ -624,7 +624,7 @@
                                     id="_879141854_1574129903">
                                     <h1>
                                         <span class="text-white">INSCRIÇÕES PARA O <span
-                                                class="text-highlight">CIRCULAR TECH SKILLS</span></span>
+                                                class="text-highlight">ECOSSISTEMA CIRCULAR TECH SKILLS</span></span>
                                     </h1>
                                 </div>
                             </div>
@@ -699,6 +699,95 @@
                                     <input type="text" id="cargo" name="cargo" class="form-control"
                                         placeholder="Seu cargo na empresa">
                                 </div>
+                                
+                               <div class="form-group">
+                                    <label>
+                                        Como você gostaria de participar?
+                                    </label>
+                                    <br>
+                                    <label>
+                                        <input type="radio" name="participa_como" value="Individual"> Membro individual
+                                    </label>
+                                    <br>
+                                    <label>
+                                        <input type="radio" name="participa_como" value="Parceiro"> Parceiro(a) institucional ou coletivo (com agendamento de reunião)
+                                    </label>
+                                </div>
+
+                                <div class="form-group forIndividual" style="display: none;">
+                                    <label>
+                                        Você pertence a alguma empresa, startup ou similar?
+                                    </label>
+                                    <br>
+                                    <label>
+                                        <input type="radio" name="pertence_startup" value="Individual"> Sim
+                                    </label>
+                                    <br>
+                                    <label>
+                                        <input type="radio" name="pertence_startup" value="Parceiro"> Não
+                                    </label>
+                                </div>
+
+                                <div class="form-group forIndividual" style="display: none;">
+                                    <label for="pertence_empresa" class="control-label">Se sim qual?</label>
+                                    <input type="text" id="pertence_empresa" name="pertence_empresa" class="form-control"
+                                        placeholder="Digite o nome da empresa">
+                                </div>
+
+                                <div class="form-group forIndividual" style="display: none;">
+                                    <label>
+                                        Quais áreas mais te interessam?
+                                    </label>
+                                    <br>
+                                    <label>
+                                        <input type="radio" name="areas_interesse" value="Trocas de saberes"> Trocas de saberes
+                                    </label>
+                                    <br>
+                                    <label>
+                                        <input type="radio" name="areas_interesse" value="Encontros presenciais"> Encontros presenciais
+                                    </label>
+                                    <br>
+                                    <label>
+                                        <input type="radio" name="areas_interesse" value="Projetos colaborativos"> Projetos colaborativos
+                                    </label>
+                                    <br>
+                                    <label>
+                                        <input type="radio" name="areas_interesse" value="Formação continuada / mentorias"> Formação continuada / mentorias
+                                    </label>
+                                    <br>
+                                    <label>
+                                        <input type="radio" name="areas_interesse" value="Comunidade online"> Comunidade online
+                                    </label>
+                                    <br>
+                                    <label>
+                                        <input type="radio" name="areas_interesse" value="Outros"> Outros
+                                    </label>
+                                </div>
+                                <div class="form-group forIndividual" style="display: none;">
+                                    <label for="habilidade_ou_saber" class="control-label">Gostaria de contribuir com alguma habilidade ou saber?</label>
+                                    <input type="text" id="habilidade_ou_saber" name="habilidade_ou_saber" class="form-control"
+                                        placeholder="Digite a habilidade ou saber">
+                                </div>
+
+                                <div class="form-group forInstitucional" style="display: none;">
+                                    <label for="organizacao_ou_pj" class="control-label">Nome da organização ou Pessoa Jurídica (PJ)</label>
+                                    <input type="text" id="organizacao_ou_pj" name="organizacao_ou_pj" class="form-control"
+                                        placeholder="Digite o nome da organização ou PJ">
+                                </div>
+
+                                <p class="forInstitucional" style="display: none; font-size: 14px; font-weight: 600; color: #FF910B; text-align: center;">Agende uma reunião pelo calendly. Link para o calendly:<br><a href="https://calendly.com/celene-recitec/30min">https://calendly.com/celene-recitec/30min</a></p>
+
+                                <div class="form-group">
+                                    <label for="indicacao">Veio por meio de indicação? Se sim, nos diga quem te indicou
+                                        o evento.:</label>
+                                    <textarea id="indicacao" name="indicacao" class="form-control"
+                                        placeholder="Quem te indicou?" rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="expectativas">Expectativas em relação ao evento:</label>
+                                    <textarea id="expectativas" name="expectativas" class="form-control"
+                                        placeholder="Compartilhe suas expectativas" rows="3"></textarea>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="cargo" class="control-label"
@@ -749,18 +838,7 @@
                                         <input type="radio" name="disp_teste" value="Sim" required>
                                         Sim
                                     </label>
-                                </div>
-                                <div class="form-group">
-                                    <label for="indicacao">Veio por meio de indicação? Se sim, nos diga quem te indicou
-                                        o evento.:</label>
-                                    <textarea id="indicacao" name="indicacao" class="form-control"
-                                        placeholder="Quem te indicou?" rows="3"></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label for="expectativas">Expectativas em relação ao evento:</label>
-                                    <textarea id="expectativas" name="expectativas" class="form-control"
-                                        placeholder="Compartilhe suas expectativas" rows="3"></textarea>
-                                </div>
+                                </div>                                
                                 <!-- Botão de envio do formulário de inscrição -->
                                 <button id="submitButton" type="submit" class="btn botao2">Enviar Inscrição</button>
                                 <p id="pagamentoStatus" style="margin-top: 10px; font-weight: bold; color: #000;" ></p>
@@ -957,6 +1035,22 @@
     <script type="text/javascript">
         let date = new Date();
         const valueToPay = 530; 
+
+
+        let forIndividualElements = document.querySelectorAll('.forIndividual');
+        let forInstitucionalElements = document.querySelectorAll('.forInstitucional');
+
+        document.querySelectorAll('input[name="participa_como"]').forEach((elem) => {
+            elem.addEventListener("change", function (event) {
+                if (event.target.value === "Individual") {
+                    forIndividualElements.forEach(el => el.style.display = 'block');
+                    forInstitucionalElements.forEach(el => el.style.display = 'none');
+                } else if (event.target.value === "Parceiro") {
+                    forIndividualElements.forEach(el => el.style.display = 'none');
+                    forInstitucionalElements.forEach(el => el.style.display = 'block');
+                }
+            });
+        });
 
         document.addEventListener('DOMContentLoaded', () => {
             const loadingOverlay = document.getElementById('loadingOverlay');
