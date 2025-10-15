@@ -405,3 +405,46 @@
     align-items: stretch !important;
   }
 }
+
+@media (max-width: 400px) {
+  .card2 {
+    width: 100% !important;
+    max-width: 95vw !important;
+  }
+  
+  .card2 .card2-title-area {
+    font-weight: 600 !important;
+    font-size: 0.7em !important;
+    padding: 0.8em 0.5em !important;
+    line-height: 1.3 !important;
+    letter-spacing: 0.02em !important;
+  }
+  
+  .card2 .card2-title-area span {
+    font-size: 0.95em !important;
+    padding: 0 !important;
+    word-break: break-word !important;
+    display: inline-block !important;
+    white-space: normal !important;
+    max-width: 100% !important;
+  }
+  
+  .card2-description {
+    font-size: 0.9em !important;
+  }
+  
+  .card2-body {
+    padding: 1em !important;
+  }
+}
+
+@media (max-width: 375px) {
+  .card2 .card2-title-area {
+    font-size: 0.6em !important;
+    padding: 0.7em 0.4em !important;
+  }
+  
+  .card2 .card2-title-area span {
+    font-size: 0.9em !important;
+  }
+}
