@@ -1180,6 +1180,9 @@
                         );
                     }
                                         
+                    // COMENTADO: Código relacionado ao envio de comprovante de pagamento
+                    // O campo 'comprovantePagamento' está comentado no HTML, causando erro ao tentar acessar .files[0]
+                    /*
                     let comprovantePagamento = document.getElementById('comprovantePagamento');
                     const formData = new FormData();
 
@@ -1198,6 +1201,7 @@
                     .then(res => res.json())
                     .then(data => console.log(data))
                     .catch(err => console.error('Erro ao enviar inscrição:', err));
+                    */
 
                     if (response.ok) {
                         pagamentoStatus.style.color = 'green';

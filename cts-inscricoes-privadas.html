@@ -237,7 +237,6 @@
             max-width: 600px;
             /* Limita a largura máxima do formulário */
             margin: 0 auto;
-            /* Centraliza o contêiner */
             padding: 20px;
         }
 
@@ -248,59 +247,46 @@
         form .form-control,
         form button {
             width: 100%;
-            /* Garante que os campos e botões respeitem o limite do formulário */
         }
 
         form .btn-success {
             max-width: 200px;
-            /* Limita o tamanho do botão de pagamento */
             margin: 0 auto;
-            /* Centraliza o botão */
             display: block;
         }
 
         @media (max-width: 768px) {
             .btn {
                 font-size: 14px;
-                /* Reduz o tamanho da fonte */
                 padding: 8px 16px;
-                /* Reduz o espaçamento interno */
             }
 
             .botao1 .btn,
             .botao2 .btn,
             .botao3 {
                 width: 100%;
-                /* Faz o botão ocupar toda a largura, se necessário */
                 height: auto;
-                /* Ajusta a altura automaticamente */
             }
         }
 
         @media (max-width: 480px) {
             .btn {
                 font-size: 12px;
-                /* Reduz ainda mais o tamanho da fonte */
                 padding: 6px 12px;
-                /* Ajusta o espaçamento interno */
             }
 
             .botao1 .btn,
             .botao2 .btn,
             .botao3 {
                 width: 90%;
-                /* Ajusta a largura para telas muito pequenas */
                 margin: 0 auto;
-                /* Centraliza o botão */
             }
         }
 
-        /* Estilos do carrossel */
         .carousel-container {
             display: none;
             position: relative;
             max-width: 600px;
-            /* Ajuste conforme necessário */
             margin: auto;
             overflow: hidden;
         }
@@ -703,7 +689,7 @@
                                     id="_879141854_1574129903">
                                     <h1 style="text-transform: uppercase;">
                                         <span class="text-white"><span
-                                                class="text-highlight" style="text-transform: uppercase;">Participe do Ecossistema Circular Tech Skills.</span><br>Conecte-se a um ecossistema que inspira inovação com propósito.</span>
+                                                class="text-highlight" style="text-transform: uppercase;">Participe do Ecossistema Circular Tech Skills.</span><br>Aula Inaugural Gratuita</span>
                                     </h1>
                                 </div>
                             </div>
@@ -732,11 +718,11 @@
                         </h3>
                         <p>
                             <span class="description-text">
-                                Apresentamos o Ecossistema Circular Tech Skills – uma jornada contínua com um plano de lançamento de 10 
+                                Apresentamos o Ecossistema Circular Tech Skills – uma jornada contínua com um plano de lançamento de 4, 6 e 12 
                                 meses em educação continuada, com foco em mentalidade sistêmica, cultura ecossistêmica e governança 
                                 evolutiva, utilizando o inovador método de mindset do linear ao circular.                                
                                 🚀 Transforme seu modo de pensar. Conecte-se a um ecossistema que inspira inovação com propósito. 
-                                O futuro é circular. Venha fazer parte dessa construção!
+                                O futuro é circular. Venha fazer parte dessa construção! Você poderá fazer a sua inscrição gratuita para aula inaugural e ficar ciente da Jornada de Linear ao Circular.
                             </span>
                         </p>
                     </div>
@@ -873,10 +859,14 @@
                                 <p class="forInstitucional" style="display: none; font-size: 14px; font-weight: 600; color: #FF910B; text-align: center;">Agende uma reunião pelo calendly. Link para o calendly:<br><a href="https://calendly.com/celene-recitec/30min">https://calendly.com/celene-recitec/30min</a></p>
 
                                 <div class="form-group">
-                                    <label for="indicacao">Veio por meio de indicação? Se sim, nos diga quem te indicou
-                                        o evento.:</label>
-                                    <textarea id="indicacao" name="indicacao" class="form-control"
-                                        placeholder="Quem te indicou?" rows="3"></textarea>
+                                    <label for="indicacao" class="control-label">Qual o tipo da sua organização?</label>
+                                    <select id="indicacao" name="indicacao" class="form-control">
+                                        <option value="">Selecione uma opção</option>
+                                        <option value="Amigo/Familiar">Amigo/Familiar</option>
+                                        <option value="Redes Sociais">Redes Sociais</option>
+                                        <option value="Parceiro/Instituição">Parceiro/Instituição</option>
+                                        <option value="Outro">Outro</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="expectativas">Expectativas em relação ao evento:</label>
@@ -887,7 +877,7 @@
                                 <div class="form-group">
                                     <label>
                                         Autorizo a utilização da minha imagem (fotografia, vídeo ou outras formas de
-                                        registro audiovisual) captada durante o evento, para fins de divulgação
+                                        registro audiovisual) captada durante as lives, interações e cursos, para fins de divulgação
                                         institucional em materiais físicos e/ou digitais, por tempo indeterminado.
                                     </label>
                                     <label>
@@ -917,6 +907,10 @@
                                         Concordo
                                     </label>
                                 </div>
+
+                                <p>
+
+                                </p>
                                 <button id="submitButton" type="submit" class="btn botao2">Enviar</button>
                             </form>
 
