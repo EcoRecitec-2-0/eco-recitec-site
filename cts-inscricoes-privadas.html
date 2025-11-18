@@ -796,26 +796,6 @@
 
                                 <div class="form-group forIndividual" style="display: none;">
                                     <label>
-                                        Você pertence a alguma empresa, startup ou similar?
-                                    </label>
-                                    <br>
-                                    <label>
-                                        <input type="radio" name="pertence_startup" value="Individual"> Sim
-                                    </label>
-                                    <br>
-                                    <label>
-                                        <input type="radio" name="pertence_startup" value="Parceiro"> Não
-                                    </label>
-                                </div>
-
-                                <div class="form-group forIndividual" style="display: none;">
-                                    <label for="pertence_empresa" class="control-label">Se sim qual?</label>
-                                    <input type="text" id="pertence_empresa" name="pertence_empresa" class="form-control"
-                                        placeholder="Digite o nome da empresa">
-                                </div>
-
-                                <div class="form-group forIndividual" style="display: none;">
-                                    <label>
                                         Quais áreas mais te interessam?
                                     </label>
                                     <br>
@@ -855,9 +835,9 @@
                                         placeholder="Digite o nome da organização ou PJ">
                                 </div>
 
-                                <p class="forInstitucional" style="display: none; font-size: 14px; font-weight: 600; color: #FF910B; text-align: center;">Agende uma reunião pelo calendly. Link para o calendly:<br><a href="https://calendly.com/celene-recitec/30min">https://calendly.com/celene-recitec/30min</a></p>
+                                <!-- <p class="forInstitucional" style="display: none; font-size: 14px; font-weight: 600; color: #FF910B; text-align: center;">Agende uma reunião pelo calendly. Link para o calendly:<br><a href="https://calendly.com/celene-recitec/30min">https://calendly.com/celene-recitec/30min</a></p> -->
 
-                                <div class="form-group">
+                                <div class="form-group forInstitucional" style="display: none;">
                                     <label for="indicacao" class="control-label">Qual o tipo da sua organização?</label>
                                     <select id="indicacao" name="indicacao" class="form-control">
                                         <option value="">Selecione uma opção</option>
@@ -1185,6 +1165,14 @@
             const formObject = {};
             formData.forEach((value, key) => formObject[key] = value);            
             formObject["participar_ecossistema"] = `Não`;
+            
+            // Define a aba baseado no tipo de participação
+            if (formObject.participa_como === "Parceiro") {
+                formObject["pagina"] = "CONVITES-PARCEIROS";
+            } else {
+                formObject["pagina"] = "CONVITES-INDIVIDUAL";
+            }
+            
             try {
                 // Enviar dados para a API Flask
                 const flaskResponse = await fetch("https://api-form-flask.onrender.com/inscricao-convites", {

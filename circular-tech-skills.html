@@ -1292,8 +1292,7 @@
 					<p id="specific-paragraph" class="text-center mt-2 title-text">
 						<strong>
 							<span class="text-main">
-								<span class="text-secondary">PALESTRANTES INTERNACIONAIS E NACIONAIS NOS DOIS
-									FORMATOS</span>
+								<span class="text-secondary">PALESTRANTES PRINCIPAIS INTERNACIONAIS E NACIONAIS</span>
 							</span>
 						</strong>
 					</p>
@@ -1350,8 +1349,8 @@
 										<div class="card-caption card-caption-personText">
 											<strong style="font-size: 16px; color: #ffffff;">Arlinda Negreiros
 											</strong><br>
-											Direção Estratégica para a Indústria. Relevância do Planejamento e Gestão
-											para a Economia Circular<br>
+											 Relevância do Planejamento e Gestão
+											para a Economia Circular para a Indústria<br>
 											Gerente de Sustentabilidade da FIEB
 											<p>CONFIRMADO</p>
 										</div>
@@ -1957,56 +1956,12 @@
 												&#8250;
 											</button>
 										</div>
-
-										<!-- Indicadores -->
-										<div class="carousel-indicators"
-											style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
-											<span class="indicator active" data-slide="0"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #FF910B; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="1"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="2"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="3"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="4"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="5"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="6"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="7"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="8"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="9"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="10"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="11"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="12"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="13"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="15"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="16"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-											<span class="indicator" data-slide="17"
-												style="width: 12px; height: 12px; border-radius: 50%; background-color: #cccccc; cursor: pointer; transition: 0.3s;"></span>
-										</div>
 									</div>
 
 									<style>
 										.carousel-btn:hover {
 											background-color: #00517a;
 											transform: translateY(-50%) scale(1.1);
-										}
-
-										.indicator.active {
-											background-color: #FF910B !important;
-											transform: scale(1.2);
 										}
 
 										@media (max-width: 768px) {
@@ -2023,21 +1978,10 @@
 											let currentSlide = 0;
 											const slides = document.querySelectorAll('.carousel-slide');
 											const track = document.querySelector('.carousel-track');
-											const indicators = document.querySelectorAll('.indicator');
 											const totalSlides = slides.length;
 
 											function updateCarousel() {
 												track.style.transform = `translateX(-${currentSlide * 100}%)`;
-
-												indicators.forEach((indicator, index) => {
-													if (index === currentSlide) {
-														indicator.classList.add('active');
-														indicator.style.backgroundColor = '#FF910B';
-													} else {
-														indicator.classList.remove('active');
-														indicator.style.backgroundColor = '#cccccc';
-													}
-												});
 											}
 
 											document.querySelector('.carousel-next').addEventListener('click', function () {
@@ -2048,13 +1992,6 @@
 											document.querySelector('.carousel-prev').addEventListener('click', function () {
 												currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
 												updateCarousel();
-											});
-
-											indicators.forEach((indicator, index) => {
-												indicator.addEventListener('click', function () {
-													currentSlide = index;
-													updateCarousel();
-												});
 											});
 
 											// Auto-play (opcional)
