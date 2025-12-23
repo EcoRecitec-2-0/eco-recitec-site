@@ -412,3 +412,17 @@ html, body {
 #text_5e5829d5a06e3 { border:0;border-style:solid;padding-top:8px !important;padding-right:5px !important;padding-left:5px !important; }
 
  .center { float:none;margin-left:auto;margin-right:auto; }
+
+@media screen and (max-width: 334px) {
+    .page-title-2 {
+        font-size: 1.2rem !important;
+        word-break: break-word;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .page-title-2 {
+        font-size: 1.5rem !important;
+        word-break: break-word;
+    }
+}
