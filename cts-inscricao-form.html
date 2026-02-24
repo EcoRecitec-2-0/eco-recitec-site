@@ -783,6 +783,33 @@
             animation: fadeInUp 0.3s ease;
         }
 
+        /* ===== TOAST ===== */
+        .toast-notification {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(120px);
+            padding: 14px 28px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            color: #fff;
+            z-index: 99999;
+            opacity: 0;
+            transition: all 0.4s ease;
+            max-width: 90%;
+            text-align: center;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+            pointer-events: none;
+        }
+        .toast-notification.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        .toast-success { background: linear-gradient(135deg, #00b9bf, #00517a); }
+        .toast-error   { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+
         /* Media Queries */
         @media (max-width: 768px) {
             .btn {
@@ -828,6 +855,7 @@
         <span class="loading-text">Enviando inscrição, aguarde...</span>
         <div class="spinner"></div>
     </div>
+    <div id="toastNotification" class="toast-notification"></div>
 
     <div id="page_5e5829d624927">
         <div class="container-fluid" name="" id="Header-gcbmp09r6v">
@@ -1362,6 +1390,15 @@
             });
         });
 
+        function showToast(message, type) {
+            const toast = document.getElementById('toastNotification');
+            toast.textContent = message;
+            toast.className = 'toast-notification toast-' + type;
+            void toast.offsetWidth;
+            toast.classList.add('show');
+            setTimeout(function() { toast.classList.remove('show'); }, 4500);
+        }
+
         function validateStep(step) {
             const stepEl = document.querySelector('.form-step[data-step="' + step + '"]');
             const inputs = stepEl.querySelectorAll('input[required], select[required], textarea[required]');
@@ -1508,42 +1545,24 @@
 
                     if (response.ok) {
                         if (isParceiro) {
-                            // Parceiro: mostrar etapa WhatsApp
+                            showToast('Inscrição enviada! Inicie o contato pelo WhatsApp.', 'success');
                             goToStep(5);
                             document.querySelector('.step-progress').style.display = 'none';
                         } else {
-                            pagamentoStatus.style.color = 'green';
-                            pagamentoStatus.textContent = "Inscrição enviada com sucesso! Cheque sua caixa de spam caso não receba o email de confirmação.";
+                            showToast('Inscrição enviada com sucesso! Verifique sua caixa de spam caso não receba o e-mail de confirmação.', 'success');
+                            inscricaoForm.reset();
+                            isParceiro = false;
+                            forIndividualElements.forEach(el => el.style.display = 'none');
+                            forInstitucionalElements.forEach(el => el.style.display = 'none');
+                            document.getElementById('step5Indicator').style.display = 'none';
+                            setTimeout(function() { goToStep(1); }, 400);
                         }
-                        if (formObject.participar_ecossistema == "Sim") {
-                            const emailResponse = await fetch("https://ecorecitec-api.vercel.app/api/submit", {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: JSON.stringify(formObject),
-                            });
-                            console.log('Resposta da requisição de envio do formulário (e-mail) recebida:', emailResponse);
-
-                            if (!emailResponse.ok) {
-                                const errorData = await emailResponse.json().catch(() => ({ message: 'Erro desconhecido ao enviar e-mail.' }));
-                                console.error('Erro na resposta do servidor (envio do e-mail):', errorData);
-                                pagamentoStatus.textContent += ' Erro ao enviar e-mail de confirmação.';
-                            } else {
-                                const result = await emailResponse.json();
-                                console.log('Resultado do envio do e-mail:', result);
-                            }
-                        }
-                        inscricaoForm.reset();
-                    
                     } else {
-                        pagamentoStatus.style.color = 'red';
-                        pagamentoStatus.textContent = "Erro ao enviar a inscrição. Tente novamente.";
-                    }			                    
+                        showToast('Erro ao enviar a inscrição. Tente novamente.', 'error');
+                    }
                 } catch (error) {
                     console.error('Erro ao enviar formulário de inscrição:', error);
-                    pagamentoStatus.style.color = 'red';
-                    pagamentoStatus.textContent = 'Erro ao enviar formulário de inscrição: ' + error.message;
+                    showToast('Erro ao enviar formulário: ' + error.message, 'error');
                     
                 } finally {
                     loadingOverlay.style.display = 'none';
