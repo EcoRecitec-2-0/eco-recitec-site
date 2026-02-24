@@ -825,7 +825,7 @@
     <!-- End Google Tag Manager (noscript) -->
 
     <div id="loadingOverlay" class="loading-overlay" style="display: none;">
-        <span class="loading-text">Enviando inscrição, aguarde...</span>
+        <span class="loading-text">Processando Pagamento, aguarde...</span>
         <div class="spinner"></div>
     </div>
 
@@ -877,7 +877,7 @@
                             <h2 class="text-center gradienteescuro form-title">
                                 Formulário de Inscrição
                                 <label for="cargo" class="control-label form-subtitle">
-                                    INSCRIÇÃO GRATUITA — PREENCHA OS DADOS ABAIXO
+                                    APÓS O PAGAMENTO, RETORNAR À PÁGINA PARA O ENVIO DOS DADOS
                                 </label>
                             </h2>
                             <form id="inscricaoForm" class="form-horizontal form-card">
@@ -899,7 +899,7 @@
                                     </div>
                                     <div class="step-indicator" data-step="4">
                                         <div class="step-number">4</div>
-                                        <span class="step-label" id="step4Label">Termos</span>
+                                        <span class="step-label" id="step4Label">Plano</span>
                                     </div>
                                     <div class="step-indicator" data-step="5" id="step5Indicator" style="display: none;">
                                         <div class="step-number">5</div>
@@ -1081,9 +1081,87 @@
                                     </div>
                                 </div>
 
-                                <!-- ETAPA 4: Termos (ambos) -->
+                                <!-- ETAPA 4: Plano (Individual) + Termos (ambos) -->
                                 <div class="form-step" data-step="4">
-                                    <h4 class="step-title">Termos</h4>
+                                    <h4 class="step-title" id="step4Title">Plano e Termos</h4>
+
+                                    <!-- Plano - só para Individual -->
+                                    <div id="planoSection">
+                                        <div class="form-group">
+                                            <label for="plano" class="control-label" style="color: #FF910B; font-size: 13pt; display: block; text-align: center;">
+                                                Escolha seu plano de inscrição:
+                                            </label>
+
+                                            <select id="plano" name="plano" class="form-control" required style="
+                                                padding: 10px 15px;
+                                                border: 2px solid #FF910B;
+                                                border-radius: 8px;
+                                                font-size: 14pt;
+                                                font-weight: 600;
+                                                color: #333;
+                                                background-color: #fff;
+                                                cursor: pointer;
+                                                transition: all 0.3s ease;
+                                                margin-bottom: 20px;
+                                                height: auto;
+                                                min-height: 50px;
+                                                line-height: 1.5;
+                                            ">
+                                                <option value="" disabled selected style="color: #999;">Selecione um plano</option>
+                                                <option value="4" style="color: #00517a;">4 meses - R$ 350</option>
+                                                <option value="10" style="color: #00517a;">10 meses - R$ 770</option>
+                                                <option value="12" style="color: #00517a;">12 meses - R$ 870</option>
+                                            </select>
+
+                                            <div id="botaoPagamento" style="display: none; text-align: center; margin: 20px 0;">
+                                                <a id="linkPagamento" href="#" target="_blank" class="btn botao2">
+                                                    Ir para Pagamento
+                                                </a>
+                                            </div>
+
+                                            <div id="comprovanteSection" style="display: none;">
+                                                <label class="control-label form-subtitle" style="text-align: left; margin-top: 10px;">
+                                                    ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <style>
+                                            #plano:hover {
+                                                border-color: #00517a;
+                                                box-shadow: 0 0 10px rgba(255, 145, 11, 0.3);
+                                            }
+                                            #plano:focus {
+                                                outline: none;
+                                                border-color: #FF910B;
+                                                box-shadow: 0 0 15px rgba(255, 145, 11, 0.5);
+                                            }
+                                        </style>
+
+                                        <script>
+                                            document.getElementById('plano').addEventListener('change', function() {
+                                                const botaoPagamento = document.getElementById('botaoPagamento');
+                                                const linkPagamento = document.getElementById('linkPagamento');
+                                                const comprovanteSection = document.getElementById('comprovanteSection');
+                                                const valor = this.value;
+
+                                                if (valor) {
+                                                    const links = {
+                                                        '4': 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/5a8326a6-4767-4ac0-87eb-0ac33904681c/payment-option-form/?source=link&preference-id=576632754-525a377d-5f07-4043-a264-1a309c675887&router-request-id=59a774f3-571c-4529-9d8b-2cba737f4d17&p=00db173fac91323d020813b0f58f4c08',
+                                                        '10': 'https://mpago.la/2Vd9ghR',
+                                                        '12': 'https://mpago.la/1TdaJQj'
+                                                    };
+
+                                                    linkPagamento.href = links[valor];
+                                                    botaoPagamento.style.display = 'block';
+                                                    comprovanteSection.style.display = 'block';
+                                                } else {
+                                                    botaoPagamento.style.display = 'none';
+                                                    comprovanteSection.style.display = 'none';
+                                                }
+                                            });
+                                        </script>
+                                    </div>
 
                                     <!-- Termos - para ambos -->
                                     <div class="form-group">
@@ -1346,17 +1424,30 @@
 
         document.querySelectorAll('input[name="participa_como"]').forEach((elem) => {
             elem.addEventListener("change", function (event) {
+                const planoSection = document.getElementById('planoSection');
+                const planoSelect = document.getElementById('plano');
+                const step4Title = document.getElementById('step4Title');
+
+                const step4Label = document.getElementById('step4Label');
                 const step5Indicator = document.getElementById('step5Indicator');
 
                 if (event.target.value === "Individual") {
                     isParceiro = false;
                     forIndividualElements.forEach(el => el.style.display = 'block');
                     forInstitucionalElements.forEach(el => el.style.display = 'none');
+                    planoSection.style.display = '';
+                    planoSelect.required = true;
+                    step4Title.textContent = 'Plano e Termos';
+                    step4Label.textContent = 'Plano';
                     step5Indicator.style.display = 'none';
                 } else if (event.target.value === "Parceiro") {
                     isParceiro = true;
                     forIndividualElements.forEach(el => el.style.display = 'none');
                     forInstitucionalElements.forEach(el => el.style.display = 'block');
+                    planoSection.style.display = 'none';
+                    planoSelect.required = false;
+                    step4Title.textContent = 'Termos';
+                    step4Label.textContent = 'Termos';
                     step5Indicator.style.display = '';
                 }
             });
@@ -1452,6 +1543,7 @@
                     formObject[key] = value;
                 });
                 formObject["data"] = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+                formObject["ecossystMoths"] = `4 meses`;
                 console.log('Dados do formulário:', formObject);
 
                 try {                    
