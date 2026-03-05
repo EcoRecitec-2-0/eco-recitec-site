@@ -73,10 +73,11 @@
     <!-- Estilos da página -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="css/inscricao15f10.css?t=5e5829d665d37" />
+    <link rel="stylesheet" type="text/css" href="css/inscricao15f10.css?t=65e829d665d38" />
     <link rel="stylesheet" type="text/css" href="css/animate.css" />
     <link rel="stylesheet" type="text/css" href="css/logos-carousel.css" />
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
 
     <style>
         /* Keyframes para o spinner de carregamento */
@@ -873,14 +874,19 @@
             <div class="container-fluid" name="Container_5e5829d653980" id="_1473562621_1574129903">
                 <div class="container-fluid cover" name="Container_5e5829d656592" id="_8168426439_1574129903">
                     <div class="container-fluid" name="Container_5e5829d6567b1" id="_3959301425_1575521599">
+                        <div style="text-align:center;padding:12px 0 8px;">
+                            <img src="images/image-removebg-preview.png" alt="Ecosystem8Skills" style="height:90px;width:auto;filter:drop-shadow(0 3px 18px rgba(0,0,0,0.55));">
+                        </div>
                         <div class="container-fluid" name="Container_5e5829d6569d8" id="_1925128157_1574129903">
                             <div class="container wow fadeInDown" name="Container_5e5829d656bf5"
                                 id="_4809699299_1574129903">
                                 <div class="col-xs-12 col-sm-10 col-md-8 col-xs-offset-0 col-sm-offset-1 col-md-offset-2"
                                     id="_879141854_1574129903">
                                     <h1>
-                                        <span class="text-white">INSCRIÇÕES PARA O <span
-                                                class="text-highlight">ECOSSISTEMA CIRCULAR TECH SKILLS</span></span>
+                                        <span class="text-white">
+                                            <span data-i18n="heroText">INSCRIÇÕES PARA O</span><br>
+                                                            <span class="text-highlight" data-i18n="brandName">Ecossistema Circular 8 Skills - Ecosystem8Skills</span>
+                                        </span>
                                     </h1>
                                 </div>
                             </div>
@@ -902,10 +908,11 @@
 
                         <div class="clear"></div>
                         <div class="container">
-                            <h2 class="text-center gradienteescuro form-title">
-                                Formulário de Inscrição
+                            <button id="langToggleBtn" onclick="toggleLanguage()" style="position:fixed;top:18px;right:18px;z-index:9999;background:linear-gradient(135deg,#FF910B,#ff6b00);color:#fff;border:none;border-radius:8px;padding:14px 30px;font-size:17px;font-weight:700;font-family:'Montserrat',sans-serif;cursor:pointer;letter-spacing:1.5px;box-shadow:0 4px 16px rgba(255,107,0,0.45);transition:all 0.3s ease;display:flex;align-items:center;gap:10px;"><span class="fi fi-us" style="width:22px;height:22px;font-size:22px;"></span> EN</button>
+                            <h2 class="text-center gradienteescuro form-title" style="font-size:clamp(1.2rem,5vw,2rem);line-height:1.2;">
+                                <span data-i18n="formTitle">Formulário de Inscrição</span>
                                 <label for="cargo" class="control-label form-subtitle">
-                                    APÓS O PAGAMENTO, RETORNAR À PÁGINA PARA O ENVIO DOS DADOS
+                                    <span data-i18n="formSubtitle">APÓS O PAGAMENTO, RETORNAR À PÁGINA PARA O ENVIO DOS DADOS</span>
                                 </label>
                             </h2>
                             <form id="inscricaoForm" class="form-horizontal form-card">
@@ -915,208 +922,172 @@
                                     <div class="step-progress-bar" id="progressBar"></div>
                                     <div class="step-indicator active" data-step="1">
                                         <div class="step-number">1</div>
-                                        <span class="step-label">Pessoal</span>
+                                        <span class="step-label" data-i18n="step1Label">Pessoal</span>
                                     </div>
                                     <div class="step-indicator" data-step="2">
                                         <div class="step-number">2</div>
-                                        <span class="step-label">Profissional</span>
+                                        <span class="step-label" data-i18n="step2Label">Profissional</span>
                                     </div>
                                     <div class="step-indicator" data-step="3">
                                         <div class="step-number">3</div>
-                                        <span class="step-label">Participação</span>
+                                        <span class="step-label" data-i18n="step3Label">Participação</span>
                                     </div>
                                     <div class="step-indicator" data-step="4">
                                         <div class="step-number">4</div>
-                                        <span class="step-label" id="step4Label">Plano</span>
+                                        <span class="step-label" id="step4Label" data-i18n="step4Label">Plano</span>
                                     </div>
                                     <div class="step-indicator" data-step="5" id="step5Indicator" style="display: none;">
                                         <div class="step-number">5</div>
-                                        <span class="step-label">Contato</span>
+                                        <span class="step-label" data-i18n="step5Label">Contato</span>
                                     </div>
                                 </div>
 
                                 <!-- ETAPA 1: Dados Pessoais -->
                                 <div class="form-step active" data-step="1">
-                                    <h4 class="step-title">Dados Pessoais</h4>
+                                    <h4 class="step-title" data-i18n="step1Title">Dados Pessoais</h4>
                                     <div class="form-group">
-                                        <label for="nome" class="control-label">Nome:</label>
+                                        <label for="nome" class="control-label" data-i18n="labelNome">Nome:</label>
                                         <input type="text" id="nome" name="nome" class="form-control" required
-                                            placeholder="Digite seu nome">
+                                            data-i18n-ph="phNome" placeholder="Digite seu nome">
                                     </div>
                                     <div class="form-group">
-                                        <label for="telefone" class="control-label">Telefone:</label>
+                                        <label for="telefone" class="control-label" data-i18n="labelTelefone">Telefone:</label>
                                         <input type="tel" id="telefone" name="telefone" class="form-control" required
-                                            placeholder="(XX) XXXXX-XXXX">
+                                            data-i18n-ph="phTelefone" placeholder="(XX) XXXXX-XXXX">
                                     </div>
                                     <div class="form-group">
-                                        <label for="email" class="control-label">Email:</label>
+                                        <label for="email" class="control-label" data-i18n="labelEmail">Email:</label>
                                         <input type="email" id="email" name="email" class="form-control" required
-                                            placeholder="email@exemplo.com">
+                                            data-i18n-ph="phEmail" placeholder="email@exemplo.com">
                                     </div>
                                     <div class="form-group">
-                                        <label for="pais" class="control-label">País:</label>
+                                        <label for="pais" class="control-label" data-i18n="labelPais">País:</label>
                                         <input type="text" id="pais" name="pais" class="form-control" required
-                                            placeholder="Digite seu país">
+                                            data-i18n-ph="phPais" placeholder="Digite seu país">
                                     </div>
                                     <div class="form-group">
-                                        <label for="cidade" class="control-label">Cidade:</label>
+                                        <label for="cidade" class="control-label" data-i18n="labelCidade">Cidade:</label>
                                         <input type="text" id="cidade" name="cidade" class="form-control" required
-                                            placeholder="Digite sua cidade">
+                                            data-i18n-ph="phCidade" placeholder="Digite sua cidade">
                                     </div>
                                     <div class="form-group">
-                                        <label for="cpf" class="control-label">CPF:</label>
+                                        <label for="cpf" class="control-label" data-i18n="labelCpf">CPF:</label>
                                         <input type="text" id="cpf" name="cpf" class="form-control" required
-                                            placeholder="XXX.XXX.XXX-XX">
+                                            data-i18n-ph="phCpf" placeholder="XXX.XXX.XXX-XX">
                                     </div>
                                     <div class="step-nav">
-                                        <button type="button" class="btn-step btn-next" onclick="nextStep(1)">Próximo</button>
+                                        <button type="button" class="btn-step btn-next" onclick="nextStep(1)" data-i18n="btnNext">Próximo</button>
                                     </div>
                                 </div>
 
                                 <!-- ETAPA 2: Dados Profissionais -->
                                 <div class="form-step" data-step="2">
-                                    <h4 class="step-title">Dados Profissionais</h4>
+                                    <h4 class="step-title" data-i18n="step2Title">Dados Profissionais</h4>
                                     <div class="form-group">
-                                        <label for="linkedin" class="control-label">LinkedIn:</label>
+                                        <label for="linkedin" class="control-label" data-i18n="labelLinkedin">LinkedIn:</label>
                                         <input type="text" id="linkedin" name="linkedin" class="form-control"
-                                            placeholder="https://linkedin.com/in/seu-perfil">
+                                            data-i18n-ph="phLinkedin" placeholder="https://linkedin.com/in/seu-perfil">
                                     </div>
                                     <div class="form-group">
-                                        <label for="empresa" class="control-label">Empresa:</label>
+                                        <label for="empresa" class="control-label" data-i18n="labelEmpresa">Empresa:</label>
                                         <input type="text" id="empresa" name="empresa" class="form-control"
-                                            placeholder="Empresa que representa">
+                                            data-i18n-ph="phEmpresa" placeholder="Empresa que representa">
                                     </div>
                                     <div class="form-group">
-                                        <label for="cargo" class="control-label">Cargo:</label>
+                                        <label for="cargo" class="control-label" data-i18n="labelCargo">Cargo:</label>
                                         <input type="text" id="cargo" name="cargo" class="form-control"
-                                            placeholder="Seu cargo na empresa">
+                                            data-i18n-ph="phCargo" placeholder="Seu cargo na empresa">
                                     </div>
                                     <div class="step-nav">
-                                        <button type="button" class="btn-step btn-prev" onclick="prevStep(2)">Voltar</button>
-                                        <button type="button" class="btn-step btn-next" onclick="nextStep(2)">Próximo</button>
+                                        <button type="button" class="btn-step btn-prev" onclick="prevStep(2)" data-i18n="btnBack">Voltar</button>
+                                        <button type="button" class="btn-step btn-next" onclick="nextStep(2)" data-i18n="btnNext">Próximo</button>
                                     </div>
                                 </div>
 
                                 <!-- ETAPA 3: Participação -->
                                 <div class="form-step" data-step="3">
-                                    <h4 class="step-title">Participação</h4>
+                                    <h4 class="step-title" data-i18n="step3Title">Participação</h4>
                                     <div class="form-group">
-                                        <label>
-                                            Como você gostaria de participar?
-                                        </label>
+                                        <label data-i18n="labelParticipaComo">Como você gostaria de participar?</label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="participa_como" value="Individual"> Membro Individual (PF)
-                                        </label>
+                                        <label><input type="radio" name="participa_como" value="Individual"> <span data-i18n="optIndividual">Membro Individual (PF)</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="participa_como" value="Parceiro"> Parceiro Institucional ou Coletivo (PJ)
-                                        </label>
+                                        <label><input type="radio" name="participa_como" value="Parceiro"> <span data-i18n="optParceiro">Parceiro Institucional ou Coletivo (PJ)</span></label>
                                     </div>
 
                                     <div class="form-group forIndividual" style="display: none;">
-                                        <label>
-                                            Quais áreas mais te interessam?
-                                        </label>
+                                        <label data-i18n="labelAreasInteresse">Quais áreas mais te interessam?</label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="areas_interesse" value="Trocas de saberes"> Trocas de saberes
-                                        </label>
+                                        <label><input type="radio" name="areas_interesse" value="Trocas de saberes"> <span data-i18n="optTrocas">Trocas de saberes</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="areas_interesse" value="Encontros presenciais"> Encontros presenciais
-                                        </label>
+                                        <label><input type="radio" name="areas_interesse" value="Encontros presenciais"> <span data-i18n="optEncontros">Encontros presenciais</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="areas_interesse" value="Projetos colaborativos"> Projetos colaborativos
-                                        </label>
+                                        <label><input type="radio" name="areas_interesse" value="Projetos colaborativos"> <span data-i18n="optProjetos">Projetos colaborativos</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="areas_interesse" value="Formação continuada / mentorias"> Formação continuada / mentorias
-                                        </label>
+                                        <label><input type="radio" name="areas_interesse" value="Formação continuada / mentorias"> <span data-i18n="optFormacao">Formação continuada / mentorias</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="areas_interesse" value="Comunidade online"> Comunidade online
-                                        </label>
+                                        <label><input type="radio" name="areas_interesse" value="Comunidade online"> <span data-i18n="optComunidade">Comunidade online</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="areas_interesse" value="Outros"> Outros
-                                        </label>
+                                        <label><input type="radio" name="areas_interesse" value="Outros"> <span data-i18n="optOutros">Outros</span></label>
                                     </div>
                                     <div class="form-group forIndividual" style="display: none;">
-                                        <label for="habilidade_ou_saber" class="control-label">Gostaria de contribuir com alguma habilidade ou saber?</label>
+                                        <label for="habilidade_ou_saber" class="control-label" data-i18n="labelHabilidade">Gostaria de contribuir com alguma habilidade ou saber?</label>
                                         <input type="text" id="habilidade_ou_saber" name="habilidade_ou_saber" class="form-control"
-                                            placeholder="Digite a habilidade ou saber">
+                                            data-i18n-ph="phHabilidade" placeholder="Digite a habilidade ou saber">
                                     </div>
 
                                     <div class="form-group forInstitucional" style="display: none;">
-                                        <label for="organizacao_ou_pj" class="control-label">Nome da organização ou Pessoa Jurídica (PJ)</label>
+                                        <label for="organizacao_ou_pj" class="control-label" data-i18n="labelOrgPj">Nome da organização ou Pessoa Jurídica (PJ)</label>
                                         <input type="text" id="organizacao_ou_pj" name="organizacao_ou_pj" class="form-control"
-                                            placeholder="Digite o nome da organização ou PJ">
+                                            data-i18n-ph="phOrgPj" placeholder="Digite o nome da organização ou PJ">
                                     </div>
 
                                     <div class="form-group forInstitucional" style="display: none;">
-                                        <label>Que organização você representa?</label>
+                                        <label data-i18n="labelTipoOrg">Que organização você representa?</label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="tipo_organizacao" value="Indústria de Grande Porte"> Indústria de Grande Porte
-                                        </label>
+                                        <label><input type="radio" name="tipo_organizacao" value="Indústria de Grande Porte"> <span data-i18n="optIndustriaGrande">Indústria de Grande Porte</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="tipo_organizacao" value="Indústria de Médio Porte"> Indústria de Médio Porte
-                                        </label>
+                                        <label><input type="radio" name="tipo_organizacao" value="Indústria de Médio Porte"> <span data-i18n="optIndustriaMedio">Indústria de Médio Porte</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="tipo_organizacao" value="Empresa de Grande Porte"> Empresa de Grande Porte
-                                        </label>
+                                        <label><input type="radio" name="tipo_organizacao" value="Empresa de Grande Porte"> <span data-i18n="optEmpresaGrande">Empresa de Grande Porte</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="tipo_organizacao" value="Empresas de Médio ou Pequeno Porte"> Empresas de Médio ou Pequeno Porte
-                                        </label>
+                                        <label><input type="radio" name="tipo_organizacao" value="Empresas de Médio ou Pequeno Porte"> <span data-i18n="optEmpresaMedio">Empresas de Médio ou Pequeno Porte</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="tipo_organizacao" value="Startup"> Startup
-                                        </label>
+                                        <label><input type="radio" name="tipo_organizacao" value="Startup"> <span data-i18n="optStartup">Startup</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="tipo_organizacao" value="ONG"> ONG
-                                        </label>
+                                        <label><input type="radio" name="tipo_organizacao" value="ONG"> <span data-i18n="optOng">ONG</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="tipo_organizacao" value="Cooperativa"> Cooperativa
-                                        </label>
+                                        <label><input type="radio" name="tipo_organizacao" value="Cooperativa"> <span data-i18n="optCooperativa">Cooperativa</span></label>
                                         <br>
-                                        <label>
-                                            <input type="radio" name="tipo_organizacao" value="Org Governamental"> Org Governamental
-                                        </label>
+                                        <label><input type="radio" name="tipo_organizacao" value="Org Governamental"> <span data-i18n="optGoverno">Org Governamental</span></label>
                                     </div>
 
                                     <div class="form-group forInstitucional" style="display: none;">
-                                        <label for="area_atuacao" class="control-label">Qual a área de atuação?</label>
+                                        <label for="area_atuacao" class="control-label" data-i18n="labelAreaAtuacao">Qual a área de atuação?</label>
                                         <input type="text" id="area_atuacao" name="area_atuacao" class="form-control"
-                                            placeholder="Descreva a área de atuação da organização">
+                                            data-i18n-ph="phAreaAtuacao" placeholder="Descreva a área de atuação da organização">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="indicacao">Veio por meio de indicação? Se sim, nos diga quem te indicou:</label>
+                                        <label for="indicacao" data-i18n="labelIndicacao">Veio por meio de indicação? Se sim, nos diga quem te indicou:</label>
                                         <textarea id="indicacao" name="indicacao" class="form-control"
-                                            placeholder="Quem te indicou?" rows="3"></textarea>
+                                            data-i18n-ph="phIndicacao" placeholder="Quem te indicou?" rows="3"></textarea>
                                     </div>
 
                                     <div class="step-nav">
-                                        <button type="button" class="btn-step btn-prev" onclick="prevStep(3)">Voltar</button>
-                                        <button type="button" class="btn-step btn-next" onclick="nextStep(3)">Próximo</button>
+                                        <button type="button" class="btn-step btn-prev" onclick="prevStep(3)" data-i18n="btnBack">Voltar</button>
+                                        <button type="button" class="btn-step btn-next" onclick="nextStep(3)" data-i18n="btnNext">Próximo</button>
                                     </div>
                                 </div>
 
                                 <!-- ETAPA 4: Plano (Individual) + Termos (ambos) -->
                                 <div class="form-step" data-step="4">
-                                    <h4 class="step-title" id="step4Title">Plano e Termos</h4>
+                                    <h4 class="step-title" id="step4Title" data-i18n="step4Title">Plano e Termos</h4>
 
                                     <!-- Plano - só para Individual -->
                                     <div id="planoSection">
                                         <div class="form-group">
-                                            <label for="plano" class="control-label" style="color: #FF910B; font-size: 13pt; display: block; text-align: center;">
+                                            <label for="plano" class="control-label" style="color: #FF910B; font-size: 13pt; display: block; text-align: center;" data-i18n="labelPlano">
                                                 Escolha seu plano de inscrição:
                                             </label>
 
@@ -1135,20 +1106,20 @@
                                                 min-height: 50px;
                                                 line-height: 1.5;
                                             ">
-                                                <option value="" disabled selected style="color: #999;">Selecione um plano</option>
+                                                <option value="" disabled selected style="color: #999;" data-i18n="optSelectPlano">Selecione um plano</option>
                                                 <option value="4" style="color: #00517a;">4 meses - R$ 350</option>
                                                 <option value="10" style="color: #00517a;">10 meses - R$ 770</option>
                                                 <option value="12" style="color: #00517a;">12 meses - R$ 870</option>
                                             </select>
 
                                             <div id="botaoPagamento" style="display: none; text-align: center; margin: 20px 0;">
-                                                <a id="linkPagamento" href="#" target="_blank" class="btn botao2">
+                                                <a id="linkPagamento" href="#" target="_blank" class="btn botao2" data-i18n="btnPagamento">
                                                     Ir para Pagamento
                                                 </a>
                                             </div>
 
                                             <div id="comprovanteSection" style="display: none;">
-                                                <label class="control-label form-subtitle" style="text-align: left; margin-top: 10px;">
+                                                <label class="control-label form-subtitle" style="text-align: left; margin-top: 10px;" data-i18n="labelComprovante">
                                                     ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com
                                                 </label>
                                             </div>
@@ -1194,40 +1165,40 @@
                                     <!-- Termos - para ambos -->
                                     <div class="form-group">
                                         <label>
-                                            Autorizo a utilização da minha imagem (fotografia, vídeo ou outras formas de
+                                            <span data-i18n="termImagem">Autorizo a utilização da minha imagem (fotografia, vídeo ou outras formas de
                                             registro audiovisual) captada durante o evento, para fins de divulgação
-                                            institucional em materiais físicos e/ou digitais, por tempo indeterminado.
+                                            institucional em materiais físicos e/ou digitais, por tempo indeterminado.</span>
                                         </label>
                                         <label>
-                                            <input type="radio" name="participar_teste" value="Sim" required> Sim
+                                            <input type="radio" name="participar_teste" value="Sim" required> <span data-i18n="optSim">Sim</span>
                                         </label>
                                         <label>
-                                            <input type="radio" name="participar_teste" value="Não"> Não
+                                            <input type="radio" name="participar_teste" value="Não"> <span data-i18n="optNao">Não</span>
                                         </label>
                                     </div>
                                     <div class="form-group">
-                                        <label>Declaro que li e concordo com o tratamento dos dados fornecidos neste
+                                        <label><span data-i18n="termLGPD">Declaro que li e concordo com o tratamento dos dados fornecidos neste
                                             formulário, conforme descrito na Política de Privacidade do evento, em
-                                            conformidade com a Lei nº 13.709/2018 – LGPD. <a href="#">Termos de uso</a> </label>
+                                            conformidade com a Lei nº 13.709/2018 – LGPD.</span> <a href="#" data-i18n="linkTermos">Termos de uso</a> </label>
                                         <br>
                                         <label>
                                             <input type="radio" name="disp_teste" value="Sim" required>
-                                            Sim
+                                            <span data-i18n="optSim">Sim</span>
                                         </label>
                                     </div>
                                     <div class="form-group">
-                                        <label>Reconheço que o Método de Mentalidade de Linear ao Circular é uma criação original de Celene Brito – fundadora da EcoRecitec. Estou ciente de que qualquer uso, reprodução ou adaptação dos conteúdos desse método fora do Ecossistema Circular requer autorização expressa da autora ou formalização de parceria institucional.
+                                        <label><span data-i18n="termMetodo">Reconheço que o Método de Mentalidade de Linear ao Circular é uma criação original de Celene Brito – fundadora da EcoRecitec. Estou ciente de que qualquer uso, reprodução ou adaptação dos conteúdos desse método fora do Ecossistema Circular requer autorização expressa da autora ou formalização de parceria institucional.</span>
                                         </label>
                                         <br>
                                         <label>
                                             <input type="radio" name="uso_metodos" value="Sim" required>
-                                            Concordo
+                                            <span data-i18n="optConcordo">Concordo</span>
                                         </label>
                                     </div>
 
                                     <div class="step-nav">
-                                        <button type="button" class="btn-step btn-prev" onclick="prevStep(4)">Voltar</button>
-                                        <button id="submitButton" type="submit" class="btn-step btn-submit-final">Enviar Inscrição</button>
+                                        <button type="button" class="btn-step btn-prev" onclick="prevStep(4)" data-i18n="btnBack">Voltar</button>
+                                        <button id="submitButton" type="submit" class="btn-step btn-submit-final" data-i18n="btnSubmit">Enviar Inscrição</button>
                                     </div>
                                     <p id="pagamentoStatus" style="margin-top: 10px; font-weight: bold; color: #000;"></p>
                                 </div>
@@ -1236,14 +1207,14 @@
                                 <div class="form-step" data-step="5" id="stepWhatsApp">
                                     <div style="text-align: center; padding: 20px 0;">
                                         <div style="font-size: 48px; margin-bottom: 15px;">&#10003;</div>
-                                        <h4 class="step-title" style="display: block; text-align: center; border-bottom: none; color: #25D366;">Inscrição enviada com sucesso!</h4>
-                                        <p style="font-size: 14px; color: #555; margin-bottom: 25px;">
+                                        <h4 class="step-title" style="display: block; text-align: center; border-bottom: none; color: #25D366;" data-i18n="successTitle">Inscrição enviada com sucesso!</h4>
+                                        <p style="font-size: 14px; color: #555; margin-bottom: 25px;" data-i18n="successMsg">
                                             Agora inicie uma conversa pelo WhatsApp para alinharmos os detalhes da parceria.
                                         </p>
                                         <div class="partner-info-box">
                                             <a href="https://api.whatsapp.com/send?phone=5571986956150&text=Ol%C3%A1!%20Tenho%20interesse%20em%20ser%20parceiro(a)%20institucional%20do%20Ecossistema%20Circular%20Tech%20Skills.%20Gostaria%20de%20saber%20mais%20sobre%20as%20condi%C3%A7%C3%B5es%20de%20parceria." target="_blank" class="whatsapp-partner-btn">
                                                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                                                Conversar pelo WhatsApp
+                                                <span data-i18n="btnWhatsApp">Conversar pelo WhatsApp</span>
                                             </a>
                                         </div>
                                     </div>
@@ -1349,13 +1320,9 @@
                     <div class="row footer-row-flex">
 
                         <div class="col-xs-8 col-sm-4 col-md-4 footer-col-center">
-                            <p class="footer-heading"><strong>Somos referência na transição da
-                                        economia linear para economia circular</strong></p>
-                            <p class="footer-text"></p>
-                                Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia
-                                circular/ESG, cursos, treinamentos, mentoria e gestão de projetos.
-                            </p>
-                            <p class="footer-heading"><strong>Circular Tech Skills</strong></p>
+                            <p class="footer-heading"><strong data-i18n="footerSlogan">Somos referência na transição da economia linear para economia circular</strong></p>
+                            <p class="footer-text" data-i18n="footerDesc">Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia circular/ESG, cursos, treinamentos, mentoria e gestão de projetos.</p>
+                            <p class="footer-heading"><strong>Circular 8 Skills</strong></p>
                             <p class="footer-text">Contato: EcoRecitec Telefone - 55 71 999-748068
                             </p>
                             <p class="footer-text">Decolores Telefone - 55 71 9903-3324</p>
@@ -1363,8 +1330,7 @@
                         </div>
                     </div>
                     <div class="row footer-bottom-row">
-                        <p class="footer-text">2025 | Eco-Recitec | Todos os direitos reservados.
-                        </p>
+                        <p class="footer-text" data-i18n="footerRights">2025 | Eco-Recitec | Todos os direitos reservados.</p>
                     </div>
                 </div>
             </div>
@@ -1465,8 +1431,8 @@
                     forInstitucionalElements.forEach(el => el.style.display = 'none');
                     planoSection.style.display = '';
                     planoSelect.required = true;
-                    step4Title.textContent = 'Plano e Termos';
-                    step4Label.textContent = 'Plano';
+                    step4Title.textContent = translations[currentLang].step4Title;
+                    step4Label.textContent = translations[currentLang].step4Label;
                     step5Indicator.style.display = 'none';
                 } else if (event.target.value === "Parceiro") {
                     isParceiro = true;
@@ -1474,12 +1440,142 @@
                     forInstitucionalElements.forEach(el => el.style.display = 'block');
                     planoSection.style.display = 'none';
                     planoSelect.required = false;
-                    step4Title.textContent = 'Termos';
-                    step4Label.textContent = 'Termos';
+                    step4Title.textContent = translations[currentLang].step4TitleParceiro;
+                    step4Label.textContent = translations[currentLang].step4LabelParceiro;
                     step5Indicator.style.display = '';
                 }
             });
         });
+
+        let currentLang = 'pt';
+
+        const translations = {
+            pt: {
+                heroText: 'INSCRIÇÕES PARA O',
+                brandName: 'Ecossistema Circular 8 Skills - Ecosystem8Skills',
+                formTitle: 'Formulário de Inscrição',
+                formSubtitle: 'APÓS O PAGAMENTO, RETORNAR À PÁGINA PARA O ENVIO DOS DADOS',
+                step1Label: 'Pessoal', step2Label: 'Profissional', step3Label: 'Participação', step4Label: 'Plano', step5Label: 'Contato',
+                step1Title: 'Dados Pessoais', step2Title: 'Dados Profissionais', step3Title: 'Participação',
+                step4Title: 'Plano e Termos', step4TitleParceiro: 'Termos', step4LabelParceiro: 'Termos',
+                labelNome: 'Nome:', labelTelefone: 'Telefone:', labelEmail: 'Email:',
+                labelPais: 'País:', labelCidade: 'Cidade:', labelCpf: 'CPF:',
+                phNome: 'Digite seu nome', phTelefone: '(XX) XXXXX-XXXX', phEmail: 'email@exemplo.com',
+                phPais: 'Digite seu país', phCidade: 'Digite sua cidade', phCpf: 'XXX.XXX.XXX-XX',
+                labelLinkedin: 'LinkedIn:', labelEmpresa: 'Empresa:', labelCargo: 'Cargo:',
+                phLinkedin: 'https://linkedin.com/in/seu-perfil', phEmpresa: 'Empresa que representa', phCargo: 'Seu cargo na empresa',
+                labelParticipaComo: 'Como você gostaria de participar?',
+                optIndividual: 'Membro Individual (PF)', optParceiro: 'Parceiro Institucional ou Coletivo (PJ)',
+                labelAreasInteresse: 'Quais áreas mais te interessam?',
+                optTrocas: 'Trocas de saberes', optEncontros: 'Encontros presenciais', optProjetos: 'Projetos colaborativos',
+                optFormacao: 'Formação continuada / mentorias', optComunidade: 'Comunidade online', optOutros: 'Outros',
+                labelHabilidade: 'Gostaria de contribuir com alguma habilidade ou saber?',
+                phHabilidade: 'Digite a habilidade ou saber',
+                labelOrgPj: 'Nome da organização ou Pessoa Jurídica (PJ)',
+                phOrgPj: 'Digite o nome da organização ou PJ',
+                labelTipoOrg: 'Que organização você representa?',
+                optIndustriaGrande: 'Indústria de Grande Porte', optIndustriaMedio: 'Indústria de Médio Porte',
+                optEmpresaGrande: 'Empresa de Grande Porte', optEmpresaMedio: 'Empresas de Médio ou Pequeno Porte',
+                optStartup: 'Startup', optOng: 'ONG', optCooperativa: 'Cooperativa', optGoverno: 'Org Governamental',
+                labelAreaAtuacao: 'Qual a área de atuação?', phAreaAtuacao: 'Descreva a área de atuação da organização',
+                labelIndicacao: 'Veio por meio de indicação? Se sim, nos diga quem te indicou:', phIndicacao: 'Quem te indicou?',
+                labelPlano: 'Escolha seu plano de inscrição:',
+                optSelectPlano: 'Selecione um plano',
+                btnPagamento: 'Ir para Pagamento',
+                labelComprovante: 'ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com',
+                termImagem: 'Autorizo a utilização da minha imagem (fotografia, vídeo ou outras formas de registro audiovisual) captada durante o evento, para fins de divulgação institucional em materiais físicos e/ou digitais, por tempo indeterminado.',
+                termLGPD: 'Declaro que li e concordo com o tratamento dos dados fornecidos neste formulário, conforme descrito na Política de Privacidade do evento, em conformidade com a Lei nº 13.709/2018 – LGPD.',
+                linkTermos: 'Termos de uso',
+                termMetodo: 'Reconheço que o Método de Mentalidade de Linear ao Circular é uma criação original de Celene Brito – fundadora da EcoRecitec. Estou ciente de que qualquer uso, reprodução ou adaptação dos conteúdos desse método fora do Ecossistema Circular requer autorização expressa da autora ou formalização de parceria institucional.',
+                optSim: 'Sim', optNao: 'Não', optConcordo: 'Concordo',
+                successTitle: 'Inscrição enviada com sucesso!',
+                successMsg: 'Agora inicie uma conversa pelo WhatsApp para alinharmos os detalhes da parceria.',
+                btnWhatsApp: 'Conversar pelo WhatsApp',
+                btnNext: 'Próximo', btnBack: 'Voltar', btnSubmit: 'Enviar Inscrição',
+                toastSuccessPartner: 'Inscrição enviada! Inicie o contato pelo WhatsApp.',
+                toastSuccess: 'Inscrição enviada com sucesso! Verifique sua caixa de spam caso não receba o e-mail de confirmação.',
+                toastError: 'Erro ao enviar a inscrição. Tente novamente.',
+                loadingText: 'Enviando formulário de inscrição, aguarde...',
+                sendingText: 'Enviando...',
+                footerSlogan: 'Somos referência na transição da economia linear para economia circular',
+                footerDesc: 'Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia circular/ESG, cursos, treinamentos, mentoria e gestão de projetos.',
+                footerRights: '2025 | Eco-Recitec | Todos os direitos reservados.',
+            },
+            en: {
+                heroText: 'REGISTRATIONS FOR THE',
+                brandName: 'Circular 8 Skills Ecosystem - Ecosystem8Skills',
+                formTitle: 'Registration Form',
+                formSubtitle: 'AFTER PAYMENT, RETURN TO THIS PAGE TO SUBMIT YOUR DATA',
+                step1Label: 'Personal', step2Label: 'Professional', step3Label: 'Participation', step4Label: 'Plan', step5Label: 'Contact',
+                step1Title: 'Personal Data', step2Title: 'Professional Data', step3Title: 'Participation',
+                step4Title: 'Plan & Terms', step4TitleParceiro: 'Terms', step4LabelParceiro: 'Terms',
+                labelNome: 'Name:', labelTelefone: 'Phone:', labelEmail: 'Email:',
+                labelPais: 'Country:', labelCidade: 'City:', labelCpf: 'CPF / Tax ID:',
+                phNome: 'Enter your name', phTelefone: '(XX) XXXXX-XXXX', phEmail: 'email@example.com',
+                phPais: 'Enter your country', phCidade: 'Enter your city', phCpf: 'XXX.XXX.XXX-XX',
+                labelLinkedin: 'LinkedIn:', labelEmpresa: 'Company:', labelCargo: 'Position:',
+                phLinkedin: 'https://linkedin.com/in/your-profile', phEmpresa: 'Company you represent', phCargo: 'Your position at the company',
+                labelParticipaComo: 'How would you like to participate?',
+                optIndividual: 'Individual Member (Individual)', optParceiro: 'Institutional or Collective Partner (Organization)',
+                labelAreasInteresse: 'Which areas interest you most?',
+                optTrocas: 'Knowledge exchange', optEncontros: 'In-person meetings', optProjetos: 'Collaborative projects',
+                optFormacao: 'Continuing education / mentoring', optComunidade: 'Online community', optOutros: 'Others',
+                labelHabilidade: 'Would you like to contribute with any skill or knowledge?',
+                phHabilidade: 'Enter the skill or knowledge',
+                labelOrgPj: 'Organization or Legal Entity name',
+                phOrgPj: 'Enter the organization or legal entity name',
+                labelTipoOrg: 'What organization do you represent?',
+                optIndustriaGrande: 'Large Industry', optIndustriaMedio: 'Medium Industry',
+                optEmpresaGrande: 'Large Company', optEmpresaMedio: 'Small or Medium Company',
+                optStartup: 'Startup', optOng: 'NGO', optCooperativa: 'Cooperative', optGoverno: 'Governmental Org',
+                labelAreaAtuacao: 'What is your area of activity?', phAreaAtuacao: 'Describe the organization\'s area of activity',
+                labelIndicacao: 'Were you referred? If so, tell us who referred you:', phIndicacao: 'Who referred you?',
+                labelPlano: 'Choose your registration plan:',
+                optSelectPlano: 'Select a plan',
+                btnPagamento: 'Go to Payment',
+                labelComprovante: 'SEND PAYMENT RECEIPT TO: eco.recitec@gmail.com',
+                termImagem: 'I authorize the use of my image (photograph, video or other forms of audiovisual recording) captured during the event, for institutional promotional purposes in physical and/or digital materials, indefinitely.',
+                termLGPD: 'I declare that I have read and agree to the processing of data provided in this form, as described in the event\'s Privacy Policy, in accordance with Law No. 13,709/2018 – LGPD.',
+                linkTermos: 'Terms of use',
+                termMetodo: 'I acknowledge that the Linear to Circular Mindset Method is an original creation of Celene Brito – founder of EcoRecitec. I am aware that any use, reproduction or adaptation of the method\'s content outside the Circular Ecosystem requires express authorization from the author or formalization of an institutional partnership.',
+                optSim: 'Yes', optNao: 'No', optConcordo: 'I agree',
+                successTitle: 'Registration submitted successfully!',
+                successMsg: 'Now start a conversation on WhatsApp so we can align the details of the partnership.',
+                btnWhatsApp: 'Chat on WhatsApp',
+                btnNext: 'Next', btnBack: 'Back', btnSubmit: 'Submit Registration',
+                toastSuccessPartner: 'Registration submitted! Start contact via WhatsApp.',
+                toastSuccess: 'Registration submitted successfully! Check your spam folder if you don\'t receive the confirmation email.',
+                toastError: 'Error submitting registration. Please try again.',
+                loadingText: 'Submitting registration form, please wait...',
+                sendingText: 'Sending...',
+                footerSlogan: 'We are a reference in the transition from linear to circular economy',
+                footerDesc: 'Sustainability, consulting for innovation projects that combine mindset and circular economy/ESG, courses, training, mentoring and project management.',
+                footerRights: '2025 | Eco-Recitec | All rights reserved.',
+            }
+        };
+
+        function applyLanguage(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(function(el) {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key] !== undefined) el.textContent = translations[lang][key];
+            });
+            document.querySelectorAll('[data-i18n-ph]').forEach(function(el) {
+                const key = el.getAttribute('data-i18n-ph');
+                if (translations[lang][key] !== undefined) el.placeholder = translations[lang][key];
+            });
+            const btn = document.getElementById('langToggleBtn');
+            if (lang === 'en') {
+                btn.innerHTML = '<span class="fi fi-br" style="width:22px;height:22px;font-size:22px;"></span> PT';
+            } else {
+                btn.innerHTML = '<span class="fi fi-us" style="width:22px;height:22px;font-size:22px;"></span> EN';
+            }
+            document.documentElement.lang = lang;
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'pt' ? 'en' : 'pt';
+            applyLanguage(currentLang);
+        }
 
         function showToast(message, type) {
             const toast = document.getElementById('toastNotification');
@@ -1569,9 +1665,9 @@
                 console.log('Formulário de inscrição enviado.');
 
                 submitButton.disabled = true;
-                submitButton.innerHTML = 'Enviando...';
+                submitButton.innerHTML = translations[currentLang].sendingText;
                 loadingOverlay.style.display = 'flex';
-                loadingOverlay.querySelector('span').textContent = 'Enviando formulário de inscrição, aguarde...';
+                loadingOverlay.querySelector('span').textContent = translations[currentLang].loadingText;
 
 
                 const formData = new FormData(inscricaoForm);
@@ -1637,11 +1733,11 @@
 
                     if (response.ok) {
                         if (isParceiro) {
-                            showToast('Inscrição enviada! Inicie o contato pelo WhatsApp.', 'success');
+                            showToast(translations[currentLang].toastSuccessPartner, 'success');
                             goToStep(5);
                             document.querySelector('.step-progress').style.display = 'none';
                         } else {
-                            showToast('Inscrição enviada com sucesso! Verifique sua caixa de spam caso não receba o e-mail de confirmação.', 'success');
+                            showToast(translations[currentLang].toastSuccess, 'success');
                             inscricaoForm.reset();
                             isParceiro = false;
                             forIndividualElements.forEach(el => el.style.display = 'none');
@@ -1650,16 +1746,16 @@
                             setTimeout(function() { goToStep(1); }, 400);
                         }
                     } else {
-                        showToast('Erro ao enviar a inscrição. Tente novamente.', 'error');
+                        showToast(translations[currentLang].toastError, 'error');
                     }
                 } catch (error) {
                     console.error('Erro ao enviar formulário de inscrição:', error);
-                    showToast('Erro ao enviar formulário: ' + error.message, 'error');
-                    
+                    showToast(translations[currentLang].toastError + ' ' + error.message, 'error');
+
                 } finally {
                     loadingOverlay.style.display = 'none';
                     submitButton.disabled = false;
-                    submitButton.innerHTML = 'Enviar Inscrição';
+                    submitButton.innerHTML = translations[currentLang].btnSubmit;
                 }
             });
 

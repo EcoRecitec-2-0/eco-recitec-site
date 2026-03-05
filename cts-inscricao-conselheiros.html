@@ -73,7 +73,7 @@
     <!-- Estilos da página -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="css/inscricao15f10.css?t=5e5829d665d37" />
+    <link rel="stylesheet" type="text/css" href="css/inscricao15f10.css?t=65e829d665d38" />
     <link rel="stylesheet" type="text/css" href="css/animate.css" />
     <link rel="stylesheet" type="text/css" href="css/logos-carousel.css" />
     <link rel="stylesheet" href="css/footer.css">
@@ -874,14 +874,19 @@
             <div class="container-fluid" name="Container_5e5829d653980" id="_1473562621_1574129903">
                 <div class="container-fluid cover" name="Container_5e5829d656592" id="_8168426439_1574129903">
                     <div class="container-fluid" name="Container_5e5829d6567b1" id="_3959301425_1575521599">
+                        <div style="text-align:center;padding:12px 0 8px;">
+                            <img src="images/image-removebg-preview.png" alt="Ecosystem8Skills" style="height:90px;width:auto;filter:drop-shadow(0 3px 18px rgba(0,0,0,0.55));">
+                        </div>
                         <div class="container-fluid" name="Container_5e5829d6569d8" id="_1925128157_1574129903">
                             <div class="container wow fadeInDown" name="Container_5e5829d656bf5"
                                 id="_4809699299_1574129903">
                                 <div class="col-xs-12 col-sm-10 col-md-8 col-xs-offset-0 col-sm-offset-1 col-md-offset-2"
                                     id="_879141854_1574129903">
                                     <h1>
-                                        <span class="text-white">INSCRIÇÕES PARA O <span
-                                                class="text-highlight">ECOSSISTEMA CIRCULAR TECH SKILLS</span></span>
+                                        <span class="text-white">
+                                            <span data-i18n="heroText">INSCRIÇÕES PARA O</span><br>
+                                                            <span class="text-highlight" data-i18n="brandName">Ecossistema Circular 8 Skills - Ecosystem8Skills</span>
+                                        </span>
                                     </h1>
                                 </div>
                             </div>
@@ -1227,13 +1232,9 @@
                     <div class="row footer-row-flex">
 
                         <div class="col-xs-8 col-sm-4 col-md-4 footer-col-center">
-                            <p class="footer-heading"><strong>Somos referência na transição da
-                                        economia linear para economia circular</strong></p>
-                            <p class="footer-text"></p>
-                                Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia
-                                circular/ESG, cursos, treinamentos, mentoria e gestão de projetos.
-                            </p>
-                            <p class="footer-heading"><strong>Circular Tech Skills</strong></p>
+                            <p class="footer-heading"><strong data-i18n="footerSlogan">Somos referência na transição da economia linear para economia circular</strong></p>
+                            <p class="footer-text" data-i18n="footerDesc">Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia circular/ESG, cursos, treinamentos, mentoria e gestão de projetos.</p>
+                            <p class="footer-heading"><strong>Circular 8 Skills</strong></p>
                             <p class="footer-text">Contato: EcoRecitec Telefone - 55 71 999-748068
                             </p>
                             <p class="footer-text">Decolores Telefone - 55 71 9903-3324</p>
@@ -1241,8 +1242,7 @@
                         </div>
                     </div>
                     <div class="row footer-bottom-row">
-                        <p class="footer-text">2025 | Eco-Recitec | Todos os direitos reservados.
-                        </p>
+                        <p class="footer-text" data-i18n="footerRights">2025 | Eco-Recitec | Todos os direitos reservados.</p>
                     </div>
                 </div>
             </div>
@@ -1349,6 +1349,7 @@
         let currentLang = 'pt';
         const translations = {
             pt: {
+                heroText:'INSCRIÇÕES PARA O', brandName:'Ecossistema Circular 8 Skills - Ecosystem8Skills',
                 formTitle:'Cadastro — Conselho e Comitês', formSubtitle:'LINK EXCLUSIVO — NÃO COMPARTILHAR',
                 step1Label:'Pessoal', step2Label:'Profissional', step3Label:'Participação', step4Label:'Termos', step5Label:'Contato',
                 step1Title:'Dados Pessoais', labelNome:'Nome:', labelTelefone:'Telefone:', labelEmail:'Email:', labelPais:'País:', labelCidade:'Cidade:', labelCpf:'CPF:',
@@ -1377,9 +1378,13 @@
                 loading:'Enviando inscrição, aguarde...',
                 toastSuccess:'Inscrição enviada com sucesso! Verifique sua caixa de spam caso não receba o e-mail de confirmação.',
                 toastSuccessWA:'Inscrição enviada! Inicie o contato pelo WhatsApp.',
-                toastError:'Erro ao enviar a inscrição. Tente novamente.', toastErrorDetail:'Erro ao enviar formulário: '
+                toastError:'Erro ao enviar a inscrição. Tente novamente.', toastErrorDetail:'Erro ao enviar formulário: ',
+                footerSlogan: 'Somos referência na transição da economia linear para economia circular',
+                footerDesc: 'Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia circular/ESG, cursos, treinamentos, mentoria e gestão de projetos.',
+                footerRights: '2025 | Eco-Recitec | Todos os direitos reservados.',
             },
             en: {
+                heroText:'REGISTRATIONS FOR THE', brandName:'Circular 8 Skills Ecosystem - Ecosystem8Skills',
                 formTitle:'Registration — Council and Committees', formSubtitle:'EXCLUSIVE LINK — DO NOT SHARE',
                 step1Label:'Personal', step2Label:'Professional', step3Label:'Participation', step4Label:'Terms', step5Label:'Contact',
                 step1Title:'Personal Data', labelNome:'Name:', labelTelefone:'Phone:', labelEmail:'Email:', labelPais:'Country:', labelCidade:'City:', labelCpf:'Document:',
@@ -1408,7 +1413,10 @@
                 loading:'Sending registration, please wait...',
                 toastSuccess:'Registration sent successfully! Check your spam folder if you do not receive the confirmation email.',
                 toastSuccessWA:'Registration sent! Start the conversation on WhatsApp.',
-                toastError:'Error sending registration. Please try again.', toastErrorDetail:'Error sending form: '
+                toastError:'Error sending registration. Please try again.', toastErrorDetail:'Error sending form: ',
+                footerSlogan: 'We are a reference in the transition from linear to circular economy',
+                footerDesc: 'Sustainability, consulting for innovation projects that combine mindset and circular economy/ESG, courses, training, mentoring and project management.',
+                footerRights: '2025 | Eco-Recitec | All rights reserved.',
             }
         };
 
