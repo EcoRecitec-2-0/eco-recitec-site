@@ -1170,6 +1170,9 @@
                                                         {
                                                             initialization: { amount, preferenceId: preference_id },
                                                             callbacks: {
+                                                                onReady: () => {
+                                                                    container.style.display = 'block';
+                                                                },
                                                                 onSubmit: async (formData) => {
                                                                     const termosOk =
                                                                         document.querySelector('input[name="participar_teste"]:checked') &&
@@ -1201,7 +1204,12 @@
                                                                         resultado.innerHTML = '❌ Pagamento não aprovado: ' + (res.status_detail || res.status);
                                                                     }
                                                                 },
-                                                                onError: (err) => console.error('[Brick]', err)
+                                                                onError: (err) => {
+                                                                    console.error('[Brick]', err);
+                                                                    resultado.style.display = 'block';
+                                                                    resultado.style.color = '#c0392b';
+                                                                    resultado.innerHTML = '❌ Erro ao carregar o formulário de pagamento. Tente novamente.';
+                                                                }
                                                             }
                                                         }
                                                     );
