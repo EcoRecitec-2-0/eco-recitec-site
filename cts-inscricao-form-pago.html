@@ -78,6 +78,7 @@
     <link rel="stylesheet" type="text/css" href="css/logos-carousel.css" />
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
 
     <style>
         /* Keyframes para o spinner de carregamento */
@@ -1107,23 +1108,14 @@
                                                 line-height: 1.5;
                                             ">
                                                 <option value="" disabled selected style="color: #999;" data-i18n="optSelectPlano">Selecione um plano</option>
-                                                <option value="4" style="color: #00517a;">4 meses - R$ 470,00</option>
-                                                <option value="10" style="color: #00517a;">10 meses - R$ 870,00</option>
-                                                <option value="12" style="color: #00517a;">12 meses - R$ 970,00</option>
-                                                <option value="caderninha" style="color: #00517a;">Caderninha do Ecossistema Circular 8 Skills - 12 meses + Congresso Internacional Circular Tech Skills - R$ 1.370,00</option>
+                                                <option value="4meses" style="color: #00517a;">4 meses - R$ 470,00</option>
+                                                <option value="10meses" style="color: #00517a;">10 meses - R$ 870,00</option>
+                                                <option value="12meses" style="color: #00517a;">12 meses - R$ 970,00</option>
+                                                <option value="12meses-congresso" style="color: #00517a;">Caderninha do Ecossistema Circular 8 Skills - 12 meses + Congresso Internacional Circular Tech Skills - R$ 1.370,00</option>
                                             </select>
 
-                                            <div id="botaoPagamento" style="display: none; text-align: center; margin: 20px 0;">
-                                                <a id="linkPagamento" href="#" target="_blank" class="btn botao2" data-i18n="btnPagamento">
-                                                    Ir para Pagamento
-                                                </a>
-                                            </div>
-
-                                            <div id="comprovanteSection" style="display: none;">
-                                                <label class="control-label form-subtitle" style="text-align: left; margin-top: 10px;" data-i18n="labelComprovante">
-                                                    ENVIAR COMPROVANTE DE PAGAMENTO PARA: eco.recitec@gmail.com
-                                                </label>
-                                            </div>
+                                            <div id="brickContainer" style="display:none; margin-top:20px;"></div>
+                                            <div id="brickResultado" style="display:none; text-align:center; margin-top:15px; font-size:14pt; font-weight:bold;"></div>
                                         </div>
 
                                         <style>
@@ -1139,25 +1131,83 @@
                                         </style>
 
                                         <script>
-                                            document.getElementById('plano').addEventListener('change', function() {
-                                                const botaoPagamento = document.getElementById('botaoPagamento');
-                                                const linkPagamento = document.getElementById('linkPagamento');
-                                                const comprovanteSection = document.getElementById('comprovanteSection');
-                                                const valor = this.value;
+                                            document.getElementById('plano').addEventListener('change', async function () {
+                                                const planKey = this.value;
+                                                const container = document.getElementById('brickContainer');
+                                                const resultado = document.getElementById('brickResultado');
 
-                                                if (valor) {
-                                                    const links = {
-                                                        '4': 'https://www.mercadopago.com.br/checkout/v1/payment/redirect/5a8326a6-4767-4ac0-87eb-0ac33904681c/payment-option-form/?source=link&preference-id=576632754-525a377d-5f07-4043-a264-1a309c675887&router-request-id=59a774f3-571c-4529-9d8b-2cba737f4d17&p=00db173fac91323d020813b0f58f4c08',
-                                                        '10': 'https://mpago.la/2Vd9ghR',
-                                                        '12': 'https://mpago.la/1TdaJQj'
-                                                    };
+                                                resultado.style.display = 'none';
+                                                resultado.innerHTML = '';
 
-                                                    linkPagamento.href = links[valor] || '#';
-                                                    botaoPagamento.style.display = 'block';
-                                                    comprovanteSection.style.display = 'block';
-                                                } else {
-                                                    botaoPagamento.style.display = 'none';
-                                                    comprovanteSection.style.display = 'none';
+                                                if (window._brickController) {
+                                                    await window._brickController.unmount();
+                                                    window._brickController = null;
+                                                }
+
+                                                if (!planKey) {
+                                                    container.style.display = 'none';
+                                                    return;
+                                                }
+
+                                                container.style.display = 'block';
+                                                container.innerHTML = '<p style="text-align:center;color:#555;padding:16px;">Carregando pagamento…</p>';
+
+                                                try {
+                                                    const { preference_id, amount } = await fetch(
+                                                        ECO_PAYMENT_BASE + '/eco-payment/preference',
+                                                        {
+                                                            method: 'POST',
+                                                            headers: { 'Content-Type': 'application/json' },
+                                                            body: JSON.stringify({ plan_key: planKey })
+                                                        }
+                                                    ).then(r => r.json());
+
+                                                    container.innerHTML = '';
+
+                                                    window._brickController = await window._mp.bricks().create(
+                                                        'cardPayment',
+                                                        'brickContainer',
+                                                        {
+                                                            initialization: { amount, preferenceId: preference_id },
+                                                            callbacks: {
+                                                                onSubmit: async (formData) => {
+                                                                    const termosOk =
+                                                                        document.querySelector('input[name="participar_teste"]:checked') &&
+                                                                        document.querySelector('input[name="disp_teste"]:checked') &&
+                                                                        document.querySelector('input[name="uso_metodos"]:checked');
+
+                                                                    if (!termosOk) {
+                                                                        showToast('Por favor, aceite todos os termos antes de pagar.', 'error');
+                                                                        return;
+                                                                    }
+
+                                                                    const res = await fetch(
+                                                                        ECO_PAYMENT_BASE + '/eco-payment/process',
+                                                                        {
+                                                                            method: 'POST',
+                                                                            headers: { 'Content-Type': 'application/json' },
+                                                                            body: JSON.stringify({ ...formData, plan_key: planKey })
+                                                                        }
+                                                                    ).then(r => r.json());
+
+                                                                    if (res.status === 'approved' || res.status === 'in_process' || res.status === 'pending') {
+                                                                        resultado.style.display = 'block';
+                                                                        resultado.style.color = 'green';
+                                                                        resultado.innerHTML = '✅ Pagamento aprovado! Enviando sua inscrição…';
+                                                                        await _enviarFormulario(planKey, res);
+                                                                    } else {
+                                                                        resultado.style.display = 'block';
+                                                                        resultado.style.color = '#c0392b';
+                                                                        resultado.innerHTML = '❌ Pagamento não aprovado: ' + (res.status_detail || res.status);
+                                                                    }
+                                                                },
+                                                                onError: (err) => console.error('[Brick]', err)
+                                                            }
+                                                        }
+                                                    );
+                                                } catch (err) {
+                                                    container.innerHTML = '<p style="color:red;text-align:center;padding:10px;">Erro ao carregar pagamento. Tente novamente.</p>';
+                                                    console.error('[MP init]', err);
                                                 }
                                             });
                                         </script>
@@ -1407,6 +1457,70 @@
     </script>
 
     <script type="text/javascript">
+        const ECO_PAYMENT_BASE = 'https://api-form-flask.onrender.com';
+
+        const PLAN_LABELS = {
+            '4meses': '4 meses',
+            '10meses': '10 meses',
+            '12meses': '12 meses',
+            '12meses-congresso': '12 meses + Congresso Internacional'
+        };
+
+        // Chamado pelo Brick após pagamento aprovado
+        async function _enviarFormulario(planKey, paymentData) {
+            const inscricaoForm = document.getElementById('inscricaoForm');
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            const resultado = document.getElementById('brickResultado');
+
+            loadingOverlay.style.display = 'flex';
+            loadingOverlay.querySelector('span').textContent = translations[currentLang].loadingText;
+
+            const fd = new FormData(inscricaoForm);
+            const formObject = {};
+            fd.forEach((v, k) => { formObject[k] = v; });
+            formObject['data'] = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
+            formObject['ecossystMoths'] = PLAN_LABELS[planKey] || planKey;
+            formObject['paymentId'] = paymentData.id || '';
+            formObject['paymentStatus'] = paymentData.status || '';
+
+            try {
+                const response = await fetch('https://api-form-flask.onrender.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formObject)
+                });
+
+                await fetch('https://ecorecitec-api.vercel.app/api/addPersonInDatabase', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify([formObject])
+                });
+
+                if (response.ok) {
+                    showToast(translations[currentLang].toastSuccess, 'success');
+                    resultado.innerHTML = '✅ Inscrição enviada com sucesso!';
+                    inscricaoForm.reset();
+                    isParceiro = false;
+                    forIndividualElements.forEach(el => el.style.display = 'none');
+                    forInstitucionalElements.forEach(el => el.style.display = 'none');
+                    document.getElementById('step5Indicator').style.display = 'none';
+                    if (window._brickController) {
+                        await window._brickController.unmount();
+                        window._brickController = null;
+                    }
+                    document.getElementById('brickContainer').style.display = 'none';
+                    setTimeout(() => goToStep(1), 600);
+                } else {
+                    showToast(translations[currentLang].toastError, 'error');
+                }
+            } catch (err) {
+                console.error('Erro ao enviar formulário:', err);
+                showToast(translations[currentLang].toastError + ' ' + err.message, 'error');
+            } finally {
+                loadingOverlay.style.display = 'none';
+            }
+        }
+
         let date = new Date();
         const valueToPay = 530;
         let currentStep = 1;
@@ -1435,6 +1549,7 @@
                     step4Title.textContent = translations[currentLang].step4Title;
                     step4Label.textContent = translations[currentLang].step4Label;
                     step5Indicator.style.display = 'none';
+                    document.getElementById('submitButton').style.display = 'none';
                 } else if (event.target.value === "Parceiro") {
                     isParceiro = true;
                     forIndividualElements.forEach(el => el.style.display = 'none');
@@ -1444,6 +1559,7 @@
                     step4Title.textContent = translations[currentLang].step4TitleParceiro;
                     step4Label.textContent = translations[currentLang].step4LabelParceiro;
                     step5Indicator.style.display = '';
+                    document.getElementById('submitButton').style.display = '';
                 }
             });
         });
@@ -1659,10 +1775,23 @@
             const loadingOverlay = document.getElementById('loadingOverlay');
             const pagamentoStatus = document.getElementById('pagamentoStatus');
             const inscricaoForm = document.getElementById('inscricaoForm');
-            const submitButton = document.getElementById('submitButton')
+            const submitButton = document.getElementById('submitButton');
+
+            // Busca public key e inicia o SDK — uma única vez
+            fetch(ECO_PAYMENT_BASE + '/eco-payment/public-key')
+                .then(r => r.json())
+                .then(({ public_key }) => {
+                    window._mp = new MercadoPago(public_key, { locale: 'pt-BR' });
+                })
+                .catch(e => console.error('[MP public-key]', e));
+
+            // Esconde o botão de envio — Individual paga pelo Brick;
+            // Parceiro usa o botão normalmente (sem pagamento)
+            submitButton.style.display = 'none';
 
             inscricaoForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
+                if (!isParceiro) return; // Individual paga via Brick
                 console.log('Formulário de inscrição enviado.');
 
                 submitButton.disabled = true;
