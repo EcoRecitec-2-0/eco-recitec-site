@@ -1108,10 +1108,9 @@
                                                 line-height: 1.5;
                                             ">
                                                 <option value="" disabled selected style="color: #999;" data-i18n="optSelectPlano">Selecione um plano</option>
-                                                <option value="4meses" style="color: #00517a;">4 meses - R$ 470,00</option>
-                                                <option value="10meses" style="color: #00517a;">10 meses - R$ 870,00</option>
-                                                <option value="12meses" style="color: #00517a;">12 meses - R$ 970,00</option>
-                                                <option value="12meses-congresso" style="color: #00517a;">Caderninha do Ecossistema Circular 8 Skills - 12 meses + Congresso Internacional Circular Tech Skills - R$ 1.370,00</option>
+                                                <option value="6meses" style="color: #00517a;">6 meses - R$ 997,00</option>
+                                                <option value="10meses" style="color: #00517a;">10 meses - R$ 1.837,00</option>
+                                                <option value="12meses" style="color: #00517a;">12 meses - R$ 1.937,00</option>
                                             </select>
 
                                             <div id="brickContainer" style="display:none; margin-top:20px;"></div>
@@ -1169,6 +1168,11 @@
                                                         'brickContainer',
                                                         {
                                                             initialization: { amount, preferenceId: preference_id },
+                                                            customization: {
+                                                                paymentMethods: {
+                                                                    maxInstallments: 12,
+                                                                },
+                                                            },
                                                             callbacks: {
                                                                 onReady: () => {
                                                                     container.style.display = 'block';
