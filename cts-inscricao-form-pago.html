@@ -1130,22 +1130,42 @@
                                         </style>
 
                                         <script>
-                                            document.getElementById('plano').addEventListener('change', async function () {
-                                                const planKey = this.value;
+                                            let _currentPlanKey = null;
+
+                                            function _termosOk() {
+                                                return (
+                                                    document.querySelector('input[name="participar_teste"]:checked') &&
+                                                    document.querySelector('input[name="disp_teste"]:checked') &&
+                                                    document.querySelector('input[name="uso_metodos"]:checked')
+                                                );
+                                            }
+
+                                            async function _checkAndRenderBrick() {
                                                 const container = document.getElementById('brickContainer');
                                                 const resultado = document.getElementById('brickResultado');
 
                                                 resultado.style.display = 'none';
                                                 resultado.innerHTML = '';
 
+                                                if (!_currentPlanKey) {
+                                                    container.style.display = 'none';
+                                                    return;
+                                                }
+
+                                                if (!_termosOk()) {
+                                                    container.style.display = 'block';
+                                                    container.innerHTML = '<p style="text-align:center;color:#00517a;padding:16px;font-weight:bold;">✅ Plano selecionado. Aceite os termos abaixo para liberar o pagamento.</p>';
+                                                    if (window._brickController) {
+                                                        await window._brickController.unmount();
+                                                        window._brickController = null;
+                                                    }
+                                                    return;
+                                                }
+
+                                                // Plano selecionado + todos os termos aceitos → renderiza o Brick
                                                 if (window._brickController) {
                                                     await window._brickController.unmount();
                                                     window._brickController = null;
-                                                }
-
-                                                if (!planKey) {
-                                                    container.style.display = 'none';
-                                                    return;
                                                 }
 
                                                 container.style.display = 'block';
@@ -1157,37 +1177,26 @@
                                                         {
                                                             method: 'POST',
                                                             headers: { 'Content-Type': 'application/json' },
-                                                            body: JSON.stringify({ plan_key: planKey })
+                                                            body: JSON.stringify({ plan_key: _currentPlanKey })
                                                         }
                                                     ).then(r => r.json());
 
                                                     container.innerHTML = '';
 
+                                                    const planKey = _currentPlanKey;
                                                     window._brickController = await window._mp.bricks().create(
                                                         'cardPayment',
                                                         'brickContainer',
                                                         {
                                                             initialization: { amount, preferenceId: preference_id },
                                                             customization: {
-                                                                paymentMethods: {
-                                                                    maxInstallments: 12,
-                                                                },
+                                                                paymentMethods: { maxInstallments: 12 },
                                                             },
                                                             callbacks: {
                                                                 onReady: () => {
                                                                     container.style.display = 'block';
                                                                 },
                                                                 onSubmit: async (formData) => {
-                                                                    const termosOk =
-                                                                        document.querySelector('input[name="participar_teste"]:checked') &&
-                                                                        document.querySelector('input[name="disp_teste"]:checked') &&
-                                                                        document.querySelector('input[name="uso_metodos"]:checked');
-
-                                                                    if (!termosOk) {
-                                                                        showToast('Por favor, aceite todos os termos antes de pagar.', 'error');
-                                                                        return;
-                                                                    }
-
                                                                     const res = await fetch(
                                                                         ECO_PAYMENT_BASE + '/eco-payment/process',
                                                                         {
@@ -1221,6 +1230,15 @@
                                                     container.innerHTML = '<p style="color:red;text-align:center;padding:10px;">Erro ao carregar pagamento. Tente novamente.</p>';
                                                     console.error('[MP init]', err);
                                                 }
+                                            }
+
+                                            document.getElementById('plano').addEventListener('change', function () {
+                                                _currentPlanKey = this.value || null;
+                                                _checkAndRenderBrick();
+                                            });
+
+                                            document.querySelectorAll('input[name="participar_teste"], input[name="disp_teste"], input[name="uso_metodos"]').forEach(function (radio) {
+                                                radio.addEventListener('change', _checkAndRenderBrick);
                                             });
                                         </script>
                                     </div>
