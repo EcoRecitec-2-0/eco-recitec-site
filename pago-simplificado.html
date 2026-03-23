@@ -1,14 +1,56 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt" xml:lang="pt">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
 <head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+            var f = d.getElementsByTagName(s)[0], j = d.createElement(s),
+                dl = l != "dataLayer" ? "&l=" + l : "";
+            j.async = true;
+            j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+            f.parentNode.insertBefore(j, f);
+        })(window, document, "script", "dataLayer", "GTM-T68WPL8");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4C44ZTMSEM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag("js", new Date());
+        gtag("config", "G-4C44ZTMSEM");
+    </script>
+
+    <script>
+        !(function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0";
+            n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
+            s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+        })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+        fbq("init", "980082836024765");
+        fbq("track", "PageView");
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=980082836024765&ev=PageView&noscript=1" /></noscript>
+
+    <title>Inscrição Paga | EcoRecitec</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Inscrição Paga | EcoRecitec</title>
     <link rel="shortcut icon" href="images/logo/favicon.png" />
     <link rel="icon" href="images/logo/favicon.png" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="css/inscricao15f10.css?t=65e829d665d38" />
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="css/logos-carousel.css" />
+    <link rel="stylesheet" href="css/footer.css">
     <script src="https://sdk.mercadopago.com/js/v2"></script>
 
     <style>
@@ -17,465 +59,479 @@
             100% { transform: rotate(360deg); }
         }
 
-        body {
-            background: #f4f6f9;
-            font-family: 'Segoe UI', sans-serif;
+        h1, h2, h3, h4 { font-family: "Montserrat", sans-serif; }
+        body { font-family: "Source Sans Pro", sans-serif; }
+
+        .flex { display: flex; flex-wrap: wrap; align-items: center; }
+        .cover { background-size: cover; }
+
+        .text-white    { color: #fff; }
+        .text-highlight { color: #FF910B; }
+
+        .whatsapp-float-container {
+            display: flex; justify-content: flex-end; align-items: flex-start;
+            position: fixed; width: 100px; right: 1%; bottom: 6%; z-index: 10;
+        }
+        .whatsapp-icon { width: 130px; }
+
+        .loading-overlay {
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(0,0,0,0.6);
+            z-index: 9999; align-items: center; justify-content: center; flex-direction: column;
+        }
+        .loading-text { color: white; font-size: 18px; margin-bottom: 15px; }
+        .spinner {
+            width: 40px; height: 40px;
+            border: 5px solid #f3f3f3; border-top: 5px solid #FF910B;
+            border-radius: 50%; animation: spin 1s linear infinite;
         }
 
-        .pago-wrapper {
-            max-width: 520px;
-            margin: 48px auto;
+        /* Rodapé */
+        .footer-text-color { color: white; }
+        .footer-container  { max-width: 1200px; margin: auto; }
+        .footer-row-flex   { display: flex; justify-content: space-between; align-items: center; }
+        .footer-col-center { text-align: center; }
+        .footer-heading    { font-size: 12pt; color: #ffffff; }
+        .footer-text       { font-size: 10pt; color: #ffffff; }
+        .footer-bottom-row { text-align: center; margin-top: 20px; }
+
+        /* Gradientes */
+        .gradienteescuro {
+            background: radial-gradient(ellipse at center, rgba(0,51,84,1) 0%, rgba(0,81,122,1) 100%);
+        }
+
+        /* Card do formulário simplificado */
+        .simp-card {
             background: #fff;
             border-radius: 12px;
             box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            max-width: 520px;
+            margin: 32px auto 40px;
             overflow: hidden;
         }
 
-        .pago-header {
-            background: linear-gradient(135deg, #1a1a3e, #00517a);
-            padding: 28px 32px 20px;
-            text-align: center;
-        }
-
-        .pago-header img {
-            height: 52px;
-            margin-bottom: 10px;
-        }
-
-        .pago-header h2 {
-            color: #fff;
-            font-size: 18pt;
-            font-weight: 700;
-            margin: 0;
-        }
-
-        .pago-header p {
-            color: #b0c4d8;
-            font-size: 11pt;
-            margin: 6px 0 0;
-        }
-
-        .pago-steps {
+        .simp-steps {
             display: flex;
             border-bottom: 2px solid #eee;
         }
 
-        .pago-step-tab {
-            flex: 1;
-            text-align: center;
-            padding: 14px;
-            font-size: 10pt;
-            font-weight: 600;
-            color: #aaa;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s;
+        .simp-step-tab {
+            flex: 1; text-align: center; padding: 14px;
+            font-size: 10pt; font-weight: 600; color: #aaa;
+            border-bottom: 3px solid transparent; transition: all 0.3s;
+        }
+        .simp-step-tab.active { color: #FF910B; border-bottom-color: #FF910B; }
+        .simp-step-tab.done   { color: #27ae60; border-bottom-color: #27ae60; }
+
+        .simp-body { padding: 28px 32px; }
+
+        .simp-section { display: none; }
+        .simp-section.active { display: block; }
+
+        .simp-label {
+            display: block; font-size: 10pt; font-weight: 600;
+            color: #333; margin-bottom: 6px;
         }
 
-        .pago-step-tab.active {
-            color: #FF910B;
-            border-bottom-color: #FF910B;
+        .simp-input {
+            width: 100%; padding: 11px 14px;
+            border: 1.5px solid #ddd; border-radius: 7px;
+            font-size: 11pt; color: #333; margin-bottom: 18px;
+            transition: border-color 0.2s; box-sizing: border-box;
         }
-
-        .pago-step-tab.done {
-            color: #27ae60;
-            border-bottom-color: #27ae60;
-        }
-
-        .pago-body {
-            padding: 28px 32px;
-        }
-
-        .pago-section {
-            display: none;
-        }
-
-        .pago-section.active {
-            display: block;
-        }
-
-        .pago-label {
-            display: block;
-            font-size: 10pt;
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 6px;
-        }
-
-        .pago-input {
-            width: 100%;
-            padding: 11px 14px;
-            border: 1.5px solid #ddd;
-            border-radius: 7px;
-            font-size: 11pt;
-            color: #333;
-            margin-bottom: 18px;
-            transition: border-color 0.2s;
-            box-sizing: border-box;
-        }
-
-        .pago-input:focus {
-            outline: none;
-            border-color: #FF910B;
+        .simp-input:focus {
+            outline: none; border-color: #FF910B;
             box-shadow: 0 0 0 3px rgba(255,145,11,0.12);
         }
 
-        .pago-btn {
-            width: 100%;
-            padding: 13px;
+        .simp-select {
+            width: 100%; padding: 11px 14px;
+            border: 2px solid #FF910B; border-radius: 7px;
+            font-size: 11pt; font-weight: 600; color: #333;
+            background: #fff; cursor: pointer; margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        .simp-select:focus { outline: none; box-shadow: 0 0 0 3px rgba(255,145,11,0.12); }
+
+        .simp-btn {
+            width: 100%; padding: 13px;
             background: linear-gradient(135deg, #FF910B, #e07800);
-            color: #fff;
-            border: none;
-            border-radius: 7px;
-            font-size: 12pt;
-            font-weight: 700;
-            cursor: pointer;
+            color: #fff; border: none; border-radius: 7px;
+            font-size: 12pt; font-weight: 700; cursor: pointer;
             transition: opacity 0.2s;
-            margin-top: 4px;
         }
+        .simp-btn:hover    { opacity: 0.92; }
+        .simp-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        .pago-btn:hover { opacity: 0.92; }
-        .pago-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-
-        .pago-btn-back {
-            background: none;
-            color: #666;
-            border: 1.5px solid #ddd;
-            border-radius: 7px;
-            padding: 10px 20px;
-            font-size: 10pt;
-            cursor: pointer;
-            margin-bottom: 16px;
-            transition: border-color 0.2s;
+        .simp-btn-back {
+            background: none; color: #666; border: 1.5px solid #ddd;
+            border-radius: 7px; padding: 10px 20px; font-size: 10pt;
+            cursor: pointer; margin-bottom: 16px; transition: border-color 0.2s;
         }
+        .simp-btn-back:hover { border-color: #FF910B; color: #FF910B; }
 
-        .pago-btn-back:hover { border-color: #FF910B; color: #FF910B; }
-
-        .pago-select {
-            width: 100%;
-            padding: 11px 14px;
-            border: 2px solid #FF910B;
-            border-radius: 7px;
-            font-size: 11pt;
-            font-weight: 600;
-            color: #333;
-            background: #fff;
-            cursor: pointer;
-            margin-bottom: 20px;
-            box-sizing: border-box;
+        .simp-resumo {
+            background: #f0f7ff; border: 1.5px solid #b0d0f0;
+            border-radius: 8px; padding: 14px 18px; margin-bottom: 20px;
+            font-size: 10.5pt; color: #00517a;
         }
+        .simp-resumo strong { color: #1a1a3e; }
 
-        .pago-select:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255,145,11,0.12);
+        #simpResultado {
+            display: none; text-align: center;
+            padding: 16px 0; font-size: 13pt; font-weight: bold;
         }
-
-        #pagoResultado {
-            display: none;
-            text-align: center;
-            padding: 16px 0;
-            font-size: 13pt;
-            font-weight: bold;
-        }
-
-        .loading-overlay {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.55);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .loading-overlay span {
-            color: #fff;
-            font-size: 14pt;
-        }
-
-        .spinner {
-            width: 42px;
-            height: 42px;
-            border: 5px solid rgba(255,255,255,0.3);
-            border-top-color: #FF910B;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        .pago-resumo {
-            background: #f0f7ff;
-            border: 1.5px solid #b0d0f0;
-            border-radius: 8px;
-            padding: 14px 18px;
-            margin-bottom: 20px;
-            font-size: 10.5pt;
-            color: #00517a;
-        }
-
-        .pago-resumo strong { color: #1a1a3e; }
 
         @media (max-width: 560px) {
-            .pago-wrapper { margin: 0; border-radius: 0; box-shadow: none; }
-            .pago-body { padding: 20px 18px; }
+            .simp-card  { border-radius: 0; box-shadow: none; margin: 0; }
+            .simp-body  { padding: 20px 18px; }
         }
     </style>
 </head>
+
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T68WPL8"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<div id="loadingOverlay" class="loading-overlay">
-    <span>Processando, aguarde...</span>
-    <div class="spinner"></div>
-</div>
-
-<div class="pago-wrapper">
-
-    <div class="pago-header">
-        <img src="images/logo/logo-ecorecitec.png" alt="EcoRecitec" onerror="this.style.display='none'">
-        <h2>Inscrição</h2>
-        <p>Ecossistema Circular 8 Skills</p>
+    <div id="loadingOverlay" class="loading-overlay" style="display:none;">
+        <span class="loading-text">Processando, aguarde...</span>
+        <div class="spinner"></div>
     </div>
 
-    <div class="pago-steps">
-        <div class="pago-step-tab active" id="tab1">1. Seus dados</div>
-        <div class="pago-step-tab" id="tab2">2. Pagamento</div>
+    <div id="page_5e5829d624927">
+
+        <!-- Topo / Header -->
+        <div class="container-fluid" id="Header-gcbmp09r6v">
+            <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,600,700,800|Source+Sans+Pro:300,400,400i,700&display=swap" rel="stylesheet" />
+            <div class="container-fluid">
+                <div class="whatsapp-float-container">
+                    <a href="https://api.whatsapp.com/send?phone=5571986956150" target="_blank">
+                        <img class="jarallax-img whatsapp-icon" src="images/logo/logo-whatsapp.png" alt="" />
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid container_body" id="GridPanel_5e5829d653740">
+            <div class="container-fluid">
+                <div class="container-fluid cover gradienteescuro">
+                    <div class="container-fluid">
+                        <div style="text-align:center;padding:12px 0 8px;">
+                            <img src="images/image-removebg-preview.png" alt="Ecosystem8Skills"
+                                style="height:90px;width:auto;filter:drop-shadow(0 3px 18px rgba(0,0,0,0.55));">
+                        </div>
+                        <div class="container-fluid">
+                            <div class="container wow fadeInDown">
+                                <div class="col-xs-12 col-sm-10 col-md-8 col-xs-offset-0 col-sm-offset-1 col-md-offset-2">
+                                    <h1>
+                                        <span class="text-white">
+                                            INSCRIÇÃO PAGA<br>
+                                            <span class="text-highlight">Ecossistema Circular 8 Skills</span>
+                                        </span>
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário simplificado -->
+            <div class="container-fluid">
+                <div class="container">
+
+                    <div class="simp-card">
+                        <div class="simp-steps">
+                            <div class="simp-step-tab active" id="tab1">1. Seus dados</div>
+                            <div class="simp-step-tab" id="tab2">2. Pagamento</div>
+                        </div>
+
+                        <div class="simp-body">
+
+                            <!-- Etapa 1 -->
+                            <section class="simp-section active" id="step1">
+                                <label class="simp-label" for="ps_nome">Nome completo *</label>
+                                <input class="simp-input" type="text" id="ps_nome" placeholder="Seu nome completo" required>
+
+                                <label class="simp-label" for="ps_cpf">CPF *</label>
+                                <input class="simp-input" type="text" id="ps_cpf" placeholder="000.000.000-00" maxlength="14" required>
+
+                                <label class="simp-label" for="ps_email">E-mail *</label>
+                                <input class="simp-input" type="email" id="ps_email" placeholder="seu@email.com" required>
+
+                                <label class="simp-label" for="ps_plano">Plano de inscrição *</label>
+                                <select class="simp-select" id="ps_plano" required>
+                                    <option value="" disabled selected>Selecione um plano</option>
+                                    <option value="6meses">6 meses — R$ 997,00</option>
+                                    <option value="10meses">10 meses — R$ 1.837,00</option>
+                                    <option value="12meses">12 meses — R$ 1.937,00</option>
+                                </select>
+
+                                <button class="simp-btn" id="btnProximo">Continuar para pagamento →</button>
+                            </section>
+
+                            <!-- Etapa 2 -->
+                            <section class="simp-section" id="step2">
+                                <button class="simp-btn-back" id="btnVoltar">← Voltar</button>
+                                <div class="simp-resumo" id="simpResumo"></div>
+                                <div id="brickContainer" style="min-height:40px;"></div>
+                                <div id="simpResultado"></div>
+                            </section>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Carrossel de patrocinadores -->
+            <div style="width:100%;margin-top:5px;margin-bottom:40px;">
+                <div class="slider">
+                    <div class="slide-track">
+                        <div class="slide"><img src="images/logo-recitec-02-02-removebg-preview-300x183.png" alt="Mindset" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/MARCA FIEB PNG_FIEB  INTERNET.png" alt="Logo FIEB" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/sindiplasba.png" alt="Logo Sindiplasba" height="100" width="250" /></div>
+                        <div class="slide" style="height:80px;"><img src="images/retecLogo.png" alt="Logo Retec" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/SEBRAE_MARCA_AZUL-01.jpg" alt="Logo SEBRAE" height="100" width="250" /></div>
+                        <div class="slide" style="position:relative;">
+                            <img src="https://www.neoenergia.com/documents/107590/0/logo.svg/1192324a-0eec-3a97-3a68-900bf72197cc?version=1.0&t=1684246314344" alt="Logo Neoenergia" height="100" width="250" />
+                            <p style="color:#00A443;z-index:2;position:absolute;bottom:0;left:40%;">Coelba</p>
+                        </div>
+                        <div class="slide"><img src="images/Braskem.png" alt="Logo Braskem" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/whatsapp_image_2024-06-09_at_12.33.35-removebg-preview.png" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/image-removebg-preview-1-300x170.png" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/cec-moscow 500x498.png" alt="Logo Ciesp" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/whatsapp_image_2024-06-09_at_12.36.16-removebg-preview.png" alt="Mindset" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/page-2-event/merci.png" alt="Logo merci" height="100" width="250" /></div>
+                        <div class="slide" style="display:flex;align-items:center;"><img src="images/prefeitura-logo.jpg" alt="Logo Prefeitura de Salvador" class="prefeitura-logo" width="250" /></div>
+                        <div class="slide" style="display:flex;align-items:center;"><img src="images/marca-GetIN-OK-05.png" alt="Logo GetIN" class="getin-logo" width="250" /></div>
+                        <div class="slide"><img src="images/hub.png" alt="Logo Hub Salvador" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/vox.png" alt="Logo VoxLink" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/polen-logo.jpg" alt="logo Polen" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/green-logo.jpeg" alt="logo Green" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/logo-ciesp.jpeg" alt="Logo Ciesp" height="100" width="250" /></div>
+                        <div class="slide"><img src="images/mulheres-no-timao-logo.jpg" alt="Logo Mulheres no Timão" height="100" width="250" /></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodapé -->
+            <div class="footerDiv">
+                <div class="container-fluid footer-text-color footer-container">
+                    <div class="row footer-row-flex">
+                        <div class="col-xs-8 col-sm-4 col-md-4 footer-col-center">
+                            <p class="footer-heading"><strong>Somos referência na transição da economia linear para economia circular</strong></p>
+                            <p class="footer-text">Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia circular/ESG, cursos, treinamentos, mentoria e gestão de projetos.</p>
+                            <p class="footer-heading"><strong>Circular 8 Skills</strong></p>
+                            <p class="footer-text">Contato: EcoRecitec Telefone - 55 71 999-748068</p>
+                            <p class="footer-text">Decolores Telefone - 55 71 9903-3324</p>
+                            <p class="footer-text">Email: eco.recitec@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="row footer-bottom-row">
+                        <p class="footer-text">2025 | Eco-Recitec | Todos os direitos reservados.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+        </div>
     </div>
 
-    <div class="pago-body">
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 
-        <!-- ETAPA 1: Dados pessoais -->
-        <section class="pago-section active" id="step1">
-            <label class="pago-label" for="ps_nome">Nome completo *</label>
-            <input class="pago-input" type="text" id="ps_nome" placeholder="Seu nome" required>
+    <script>
+        const ECO_API = 'https://api-form-flask.onrender.com';
 
-            <label class="pago-label" for="ps_cpf">CPF *</label>
-            <input class="pago-input" type="text" id="ps_cpf" placeholder="000.000.000-00" maxlength="14" required>
-
-            <label class="pago-label" for="ps_email">E-mail *</label>
-            <input class="pago-input" type="email" id="ps_email" placeholder="seu@email.com" required>
-
-            <label class="pago-label" for="ps_plano">Plano de inscrição *</label>
-            <select class="pago-select" id="ps_plano" required>
-                <option value="" disabled selected>Selecione um plano</option>
-                <option value="6meses">6 meses — R$ 997,00</option>
-                <option value="10meses">10 meses — R$ 1.837,00</option>
-                <option value="12meses">12 meses — R$ 1.937,00</option>
-            </select>
-
-            <button class="pago-btn" id="btnProximo">Continuar para pagamento →</button>
-        </section>
-
-        <!-- ETAPA 2: Pagamento -->
-        <section class="pago-section" id="step2">
-            <button class="pago-btn-back" id="btnVoltar">← Voltar</button>
-
-            <div class="pago-resumo" id="pagoResumo"></div>
-
-            <div id="brickContainer" style="min-height: 40px;"></div>
-            <div id="pagoResultado"></div>
-        </section>
-
-    </div>
-</div>
-
-<script>
-    const ECO_API = 'https://api-form-flask.onrender.com';
-
-    const PLAN_LABELS = {
-        '6meses':  { label: '6 meses',  price: 'R$ 997,00' },
-        '10meses': { label: '10 meses', price: 'R$ 1.837,00' },
-        '12meses': { label: '12 meses', price: 'R$ 1.937,00' },
-    };
-
-    let _mp = null;
-    let _brickController = null;
-    let _dadosPessoais = {};
-
-    // ── Máscara CPF ──────────────────────────────────────────────────────────
-    document.getElementById('ps_cpf').addEventListener('input', function () {
-        let v = this.value.replace(/\D/g, '').slice(0, 11);
-        if (v.length > 9) v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, '$1.$2.$3-$4');
-        else if (v.length > 6) v = v.replace(/(\d{3})(\d{3})(\d{0,3})/, '$1.$2.$3');
-        else if (v.length > 3) v = v.replace(/(\d{3})(\d{0,3})/, '$1.$2');
-        this.value = v;
-    });
-
-    // ── Etapa 1 → 2 ──────────────────────────────────────────────────────────
-    document.getElementById('btnProximo').addEventListener('click', async function () {
-        const nome  = document.getElementById('ps_nome').value.trim();
-        const cpf   = document.getElementById('ps_cpf').value.trim();
-        const email = document.getElementById('ps_email').value.trim();
-        const plano = document.getElementById('ps_plano').value;
-
-        if (!nome || !cpf || !email || !plano) {
-            alert('Por favor, preencha todos os campos.');
-            return;
-        }
-
-        if (!/^[\w.+-]+@[\w-]+\.[a-z]{2,}$/i.test(email)) {
-            alert('E-mail inválido.');
-            return;
-        }
-
-        _dadosPessoais = { nome, cpf, email, plano };
-        irParaEtapa2();
-    });
-
-    document.getElementById('btnVoltar').addEventListener('click', irParaEtapa1);
-
-    // ── Navegação ─────────────────────────────────────────────────────────────
-    function irParaEtapa1() {
-        document.getElementById('step1').classList.add('active');
-        document.getElementById('step2').classList.remove('active');
-        document.getElementById('tab1').classList.add('active');
-        document.getElementById('tab1').classList.remove('done');
-        document.getElementById('tab2').classList.remove('active');
-    }
-
-    async function irParaEtapa2() {
-        document.getElementById('step1').classList.remove('active');
-        document.getElementById('step2').classList.add('active');
-        document.getElementById('tab1').classList.remove('active');
-        document.getElementById('tab1').classList.add('done');
-        document.getElementById('tab2').classList.add('active');
-
-        const info = PLAN_LABELS[_dadosPessoais.plano];
-        document.getElementById('pagoResumo').innerHTML =
-            `<strong>${_dadosPessoais.nome}</strong> &nbsp;|&nbsp; ${_dadosPessoais.email}<br>
-             Plano: <strong>${info.label}</strong> &nbsp;—&nbsp; <strong>${info.price}</strong>`;
-
-        await renderizarBrick();
-    }
-
-    // ── Brick ─────────────────────────────────────────────────────────────────
-    async function renderizarBrick() {
-        const container  = document.getElementById('brickContainer');
-        const resultado  = document.getElementById('pagoResultado');
-
-        resultado.style.display = 'none';
-        resultado.innerHTML = '';
-
-        if (_brickController) {
-            await _brickController.unmount();
-            _brickController = null;
-        }
-
-        container.innerHTML = '<p style="text-align:center;color:#555;padding:20px;">Carregando pagamento…</p>';
-
-        try {
-            // Inicializa SDK (somente na primeira vez)
-            if (!_mp) {
-                const { public_key } = await fetch(`${ECO_API}/eco-payment/public-key`).then(r => r.json());
-                _mp = new MercadoPago(public_key, { locale: 'pt-BR' });
-            }
-
-            // Cria preferência no backend
-            const { preference_id, amount } = await fetch(`${ECO_API}/eco-payment/preference`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    plan_key: _dadosPessoais.plano,
-                    payer: { email: _dadosPessoais.email }
-                })
-            }).then(r => r.json());
-
-            container.innerHTML = '';
-
-            _brickController = await _mp.bricks().create('cardPayment', 'brickContainer', {
-                initialization: { amount, preferenceId: preference_id },
-                customization: {
-                    paymentMethods: { maxInstallments: 12 },
-                },
-                callbacks: {
-                    onReady: () => {
-                        container.style.display = 'block';
-                    },
-                    onSubmit: async (formData) => {
-                        document.getElementById('loadingOverlay').style.display = 'flex';
-                        try {
-                            const res = await fetch(`${ECO_API}/eco-payment/process`, {
-                                method: 'POST',
-                                headers: { 'Content-Type': 'application/json' },
-                                body: JSON.stringify({ ...formData, plan_key: _dadosPessoais.plano })
-                            }).then(r => r.json());
-
-                            if (res.status === 'approved' || res.status === 'in_process' || res.status === 'pending') {
-                                await registrarNaPlanilha(res);
-                                mostrarSucesso();
-                            } else {
-                                resultado.style.display = 'block';
-                                resultado.style.color = '#c0392b';
-                                resultado.innerHTML = '❌ Pagamento não aprovado: ' + (res.status_detail || res.status);
-                            }
-                        } finally {
-                            document.getElementById('loadingOverlay').style.display = 'none';
-                        }
-                    },
-                    onError: (err) => {
-                        console.error('[Brick]', err);
-                        resultado.style.display = 'block';
-                        resultado.style.color = '#c0392b';
-                        resultado.innerHTML = '❌ Erro ao carregar o pagamento. Tente novamente.';
-                    }
-                }
-            });
-        } catch (err) {
-            console.error('[MP init]', err);
-            container.innerHTML = '<p style="color:red;text-align:center;padding:16px;">Erro ao carregar pagamento. Tente novamente.</p>';
-        }
-    }
-
-    // ── Registro na planilha (AppScript) ──────────────────────────────────────
-    async function registrarNaPlanilha(paymentData) {
-        const info = PLAN_LABELS[_dadosPessoais.plano];
-        const hoje = new Date();
-        const data = `${hoje.getDate()}/${hoje.getMonth() + 1}/${hoje.getFullYear()}`;
-
-        const payload = {
-            pagina: 'INSCRIÇÃO_PAGO',
-            nome:   _dadosPessoais.nome,
-            cpf:    _dadosPessoais.cpf,
-            email:  _dadosPessoais.email,
-            plano:  info.label,
-            paymentId:     paymentData.payment_id || '',
-            paymentStatus: paymentData.status || '',
-            data,
+        const PLAN_LABELS = {
+            '6meses':  { label: '6 meses',  price: 'R$ 997,00' },
+            '10meses': { label: '10 meses', price: 'R$ 1.837,00' },
+            '12meses': { label: '12 meses', price: 'R$ 1.937,00' },
         };
 
-        try {
-            await fetch('https://api-form-flask.onrender.com/submit', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-        } catch (err) {
-            console.error('[Planilha]', err);
+        let _mp = null;
+        let _brickController = null;
+        let _dadosPessoais = {};
+
+        // Máscara CPF
+        document.getElementById('ps_cpf').addEventListener('input', function () {
+            let v = this.value.replace(/\D/g, '').slice(0, 11);
+            if (v.length > 9)      v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, '$1.$2.$3-$4');
+            else if (v.length > 6) v = v.replace(/(\d{3})(\d{3})(\d{0,3})/, '$1.$2.$3');
+            else if (v.length > 3) v = v.replace(/(\d{3})(\d{0,3})/, '$1.$2');
+            this.value = v;
+        });
+
+        // Etapa 1 → 2
+        document.getElementById('btnProximo').addEventListener('click', async function () {
+            const nome  = document.getElementById('ps_nome').value.trim();
+            const cpf   = document.getElementById('ps_cpf').value.trim();
+            const email = document.getElementById('ps_email').value.trim();
+            const plano = document.getElementById('ps_plano').value;
+
+            if (!nome || !cpf || !email || !plano) {
+                alert('Por favor, preencha todos os campos.');
+                return;
+            }
+            if (!/^[\w.+-]+@[\w-]+\.[a-z]{2,}$/i.test(email)) {
+                alert('E-mail inválido.');
+                return;
+            }
+
+            _dadosPessoais = { nome, cpf, email, plano };
+            irParaEtapa2();
+        });
+
+        document.getElementById('btnVoltar').addEventListener('click', irParaEtapa1);
+
+        function irParaEtapa1() {
+            document.getElementById('step1').classList.add('active');
+            document.getElementById('step2').classList.remove('active');
+            document.getElementById('tab1').classList.add('active');
+            document.getElementById('tab1').classList.remove('done');
+            document.getElementById('tab2').classList.remove('active');
         }
-    }
 
-    // ── Sucesso ───────────────────────────────────────────────────────────────
-    function mostrarSucesso() {
-        if (_brickController) {
-            _brickController.unmount();
-            _brickController = null;
+        async function irParaEtapa2() {
+            document.getElementById('step1').classList.remove('active');
+            document.getElementById('step2').classList.add('active');
+            document.getElementById('tab1').classList.remove('active');
+            document.getElementById('tab1').classList.add('done');
+            document.getElementById('tab2').classList.add('active');
+
+            const info = PLAN_LABELS[_dadosPessoais.plano];
+            document.getElementById('simpResumo').innerHTML =
+                `<strong>${_dadosPessoais.nome}</strong> &nbsp;|&nbsp; ${_dadosPessoais.email}<br>
+                 Plano: <strong>${info.label}</strong> &nbsp;—&nbsp; <strong>${info.price}</strong>`;
+
+            await renderizarBrick();
         }
-        document.getElementById('brickContainer').innerHTML = '';
 
-        const resultado = document.getElementById('pagoResultado');
-        resultado.style.display = 'block';
-        resultado.style.color = '#27ae60';
-        resultado.innerHTML = `
-            <div style="font-size:38px;margin-bottom:10px;">✅</div>
-            <p>Pagamento aprovado!</p>
-            <p style="font-size:11pt;color:#555;font-weight:400;margin-top:8px;">
-                Em breve você receberá a confirmação no e-mail <strong>${_dadosPessoais.email}</strong>.
-            </p>`;
+        async function renderizarBrick() {
+            const container = document.getElementById('brickContainer');
+            const resultado = document.getElementById('simpResultado');
 
-        document.getElementById('tab2').classList.remove('active');
-        document.getElementById('tab2').classList.add('done');
-    }
-</script>
+            resultado.style.display = 'none';
+            resultado.innerHTML = '';
+
+            if (_brickController) {
+                await _brickController.unmount();
+                _brickController = null;
+            }
+
+            container.innerHTML = '<p style="text-align:center;color:#555;padding:20px;">Carregando pagamento…</p>';
+
+            try {
+                if (!_mp) {
+                    const { public_key } = await fetch(`${ECO_API}/eco-payment/public-key`).then(r => r.json());
+                    _mp = new MercadoPago(public_key, { locale: 'pt-BR' });
+                }
+
+                const { preference_id, amount } = await fetch(`${ECO_API}/eco-payment/preference`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        plan_key: _dadosPessoais.plano,
+                        payer: { email: _dadosPessoais.email }
+                    })
+                }).then(r => r.json());
+
+                container.innerHTML = '';
+
+                _brickController = await _mp.bricks().create('cardPayment', 'brickContainer', {
+                    initialization: { amount, preferenceId: preference_id },
+                    customization: {
+                        paymentMethods: { maxInstallments: 12 },
+                    },
+                    callbacks: {
+                        onReady: () => {
+                            container.style.display = 'block';
+                        },
+                        onSubmit: async (formData) => {
+                            document.getElementById('loadingOverlay').style.display = 'flex';
+                            try {
+                                const res = await fetch(`${ECO_API}/eco-payment/process`, {
+                                    method: 'POST',
+                                    headers: { 'Content-Type': 'application/json' },
+                                    body: JSON.stringify({ ...formData, plan_key: _dadosPessoais.plano })
+                                }).then(r => r.json());
+
+                                if (res.status === 'approved' || res.status === 'in_process' || res.status === 'pending') {
+                                    await registrarNaPlanilha(res);
+                                    mostrarSucesso();
+                                } else {
+                                    resultado.style.display = 'block';
+                                    resultado.style.color = '#c0392b';
+                                    resultado.innerHTML = '❌ Pagamento não aprovado: ' + (res.status_detail || res.status);
+                                }
+                            } finally {
+                                document.getElementById('loadingOverlay').style.display = 'none';
+                            }
+                        },
+                        onError: (err) => {
+                            console.error('[Brick]', err);
+                            resultado.style.display = 'block';
+                            resultado.style.color = '#c0392b';
+                            resultado.innerHTML = '❌ Erro ao carregar o pagamento. Tente novamente.';
+                        }
+                    }
+                });
+            } catch (err) {
+                console.error('[MP init]', err);
+                container.innerHTML = '<p style="color:red;text-align:center;padding:16px;">Erro ao carregar pagamento. Tente novamente.</p>';
+            }
+        }
+
+        async function registrarNaPlanilha(paymentData) {
+            const info = PLAN_LABELS[_dadosPessoais.plano];
+            const hoje = new Date();
+            const data = `${hoje.getDate()}/${hoje.getMonth() + 1}/${hoje.getFullYear()}`;
+
+            const payload = {
+                pagina:        'INSCRIÇÃO_PAGO',
+                nome:          _dadosPessoais.nome,
+                cpf:           _dadosPessoais.cpf,
+                email:         _dadosPessoais.email,
+                plano:         info.label,
+                paymentId:     paymentData.payment_id || '',
+                paymentStatus: paymentData.status || '',
+                data,
+            };
+
+            try {
+                await fetch('https://api-form-flask.onrender.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } catch (err) {
+                console.error('[Planilha]', err);
+            }
+        }
+
+        function mostrarSucesso() {
+            if (_brickController) {
+                _brickController.unmount();
+                _brickController = null;
+            }
+            document.getElementById('brickContainer').innerHTML = '';
+
+            const resultado = document.getElementById('simpResultado');
+            resultado.style.display = 'block';
+            resultado.style.color = '#27ae60';
+            resultado.innerHTML = `
+                <div style="font-size:38px;margin-bottom:10px;">✅</div>
+                <p>Pagamento aprovado!</p>
+                <p style="font-size:11pt;color:#555;font-weight:400;margin-top:8px;">
+                    Em breve você receberá a confirmação no e-mail
+                    <strong>${_dadosPessoais.email}</strong>.
+                </p>`;
+
+            document.getElementById('tab2').classList.remove('active');
+            document.getElementById('tab2').classList.add('done');
+        }
+    </script>
 
 </body>
 </html>
