@@ -1472,10 +1472,9 @@
         const ECO_PAYMENT_BASE = 'https://api-form-flask.onrender.com';
 
         const PLAN_LABELS = {
-            '4meses': '4 meses',
-            '10meses': '10 meses',
-            '12meses': '12 meses',
-            '12meses-congresso': '12 meses + Congresso Internacional'
+            '6meses': '6 meses - R$ 997,00',
+            '10meses': '10 meses - R$ 1.837,00',
+            '12meses': '12 meses - R$ 1.937,00',
         };
 
         // Chamado pelo Brick após pagamento aprovado
@@ -1491,12 +1490,12 @@
             const formObject = {};
             fd.forEach((v, k) => { formObject[k] = v; });
             formObject['data'] = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-            formObject['ecossystMoths'] = PLAN_LABELS[planKey] || planKey;
+            formObject['plano'] = PLAN_LABELS[planKey] || planKey;
             formObject['paymentId'] = paymentData.id || '';
             formObject['paymentStatus'] = paymentData.status || '';
 
             try {
-                const response = await fetch('https://api-form-flask.onrender.com/submit', {
+                const response = await fetch('https://api-form-flask.onrender.com/submit-pago', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formObject)
