@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Inscrição Paga | EcoRecitec</title>
+    <link rel="shortcut icon" href="images/logo/favicon.png" />
+    <link rel="icon" href="images/logo/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/inscricao15f10.css?t=65e829d665d38" />
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+    <style>
+        @keyframes spin {
+            0%   { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        body {
+            background: #f4f6f9;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .pago-wrapper {
+            max-width: 520px;
+            margin: 48px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+            overflow: hidden;
+        }
+
+        .pago-header {
+            background: linear-gradient(135deg, #1a1a3e, #00517a);
+            padding: 28px 32px 20px;
+            text-align: center;
+        }
+
+        .pago-header img {
+            height: 52px;
+            margin-bottom: 10px;
+        }
+
+        .pago-header h2 {
+            color: #fff;
+            font-size: 18pt;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .pago-header p {
+            color: #b0c4d8;
+            font-size: 11pt;
+            margin: 6px 0 0;
+        }
+
+        .pago-steps {
+            display: flex;
+            border-bottom: 2px solid #eee;
+        }
+
+        .pago-step-tab {
+            flex: 1;
+            text-align: center;
+            padding: 14px;
+            font-size: 10pt;
+            font-weight: 600;
+            color: #aaa;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .pago-step-tab.active {
+            color: #FF910B;
+            border-bottom-color: #FF910B;
+        }
+
+        .pago-step-tab.done {
+            color: #27ae60;
+            border-bottom-color: #27ae60;
+        }
+
+        .pago-body {
+            padding: 28px 32px;
+        }
+
+        .pago-section {
+            display: none;
+        }
+
+        .pago-section.active {
+            display: block;
+        }
+
+        .pago-label {
+            display: block;
+            font-size: 10pt;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .pago-input {
+            width: 100%;
+            padding: 11px 14px;
+            border: 1.5px solid #ddd;
+            border-radius: 7px;
+            font-size: 11pt;
+            color: #333;
+            margin-bottom: 18px;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+        }
+
+        .pago-input:focus {
+            outline: none;
+            border-color: #FF910B;
+            box-shadow: 0 0 0 3px rgba(255,145,11,0.12);
+        }
+
+        .pago-btn {
+            width: 100%;
+            padding: 13px;
+            background: linear-gradient(135deg, #FF910B, #e07800);
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            font-size: 12pt;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            margin-top: 4px;
+        }
+
+        .pago-btn:hover { opacity: 0.92; }
+        .pago-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .pago-btn-back {
+            background: none;
+            color: #666;
+            border: 1.5px solid #ddd;
+            border-radius: 7px;
+            padding: 10px 20px;
+            font-size: 10pt;
+            cursor: pointer;
+            margin-bottom: 16px;
+            transition: border-color 0.2s;
+        }
+
+        .pago-btn-back:hover { border-color: #FF910B; color: #FF910B; }
+
+        .pago-select {
+            width: 100%;
+            padding: 11px 14px;
+            border: 2px solid #FF910B;
+            border-radius: 7px;
+            font-size: 11pt;
+            font-weight: 600;
+            color: #333;
+            background: #fff;
+            cursor: pointer;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .pago-select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255,145,11,0.12);
+        }
+
+        #pagoResultado {
+            display: none;
+            text-align: center;
+            padding: 16px 0;
+            font-size: 13pt;
+            font-weight: bold;
+        }
+
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.55);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .loading-overlay span {
+            color: #fff;
+            font-size: 14pt;
+        }
+
+        .spinner {
+            width: 42px;
+            height: 42px;
+            border: 5px solid rgba(255,255,255,0.3);
+            border-top-color: #FF910B;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        .pago-resumo {
+            background: #f0f7ff;
+            border: 1.5px solid #b0d0f0;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin-bottom: 20px;
+            font-size: 10.5pt;
+            color: #00517a;
+        }
+
+        .pago-resumo strong { color: #1a1a3e; }
+
+        @media (max-width: 560px) {
+            .pago-wrapper { margin: 0; border-radius: 0; box-shadow: none; }
+            .pago-body { padding: 20px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="loadingOverlay" class="loading-overlay">
+    <span>Processando, aguarde...</span>
+    <div class="spinner"></div>
+</div>
+
+<div class="pago-wrapper">
+
+    <div class="pago-header">
+        <img src="images/logo/logo-ecorecitec.png" alt="EcoRecitec" onerror="this.style.display='none'">
+        <h2>Inscrição</h2>
+        <p>Ecossistema Circular 8 Skills</p>
+    </div>
+
+    <div class="pago-steps">
+        <div class="pago-step-tab active" id="tab1">1. Seus dados</div>
+        <div class="pago-step-tab" id="tab2">2. Pagamento</div>
+    </div>
+
+    <div class="pago-body">
+
+        <!-- ETAPA 1: Dados pessoais -->
+        <section class="pago-section active" id="step1">
+            <label class="pago-label" for="ps_nome">Nome completo *</label>
+            <input class="pago-input" type="text" id="ps_nome" placeholder="Seu nome" required>
+
+            <label class="pago-label" for="ps_cpf">CPF *</label>
+            <input class="pago-input" type="text" id="ps_cpf" placeholder="000.000.000-00" maxlength="14" required>
+
+            <label class="pago-label" for="ps_email">E-mail *</label>
+            <input class="pago-input" type="email" id="ps_email" placeholder="seu@email.com" required>
+
+            <label class="pago-label" for="ps_plano">Plano de inscrição *</label>
+            <select class="pago-select" id="ps_plano" required>
+                <option value="" disabled selected>Selecione um plano</option>
+                <option value="6meses">6 meses — R$ 997,00</option>
+                <option value="10meses">10 meses — R$ 1.837,00</option>
+                <option value="12meses">12 meses — R$ 1.937,00</option>
+            </select>
+
+            <button class="pago-btn" id="btnProximo">Continuar para pagamento →</button>
+        </section>
+
+        <!-- ETAPA 2: Pagamento -->
+        <section class="pago-section" id="step2">
+            <button class="pago-btn-back" id="btnVoltar">← Voltar</button>
+
+            <div class="pago-resumo" id="pagoResumo"></div>
+
+            <div id="brickContainer" style="min-height: 40px;"></div>
+            <div id="pagoResultado"></div>
+        </section>
+
+    </div>
+</div>
+
+<script>
+    const ECO_API = 'https://api-form-flask.onrender.com';
+
+    const PLAN_LABELS = {
+        '6meses':  { label: '6 meses',  price: 'R$ 997,00' },
+        '10meses': { label: '10 meses', price: 'R$ 1.837,00' },
+        '12meses': { label: '12 meses', price: 'R$ 1.937,00' },
+    };
+
+    let _mp = null;
+    let _brickController = null;
+    let _dadosPessoais = {};
+
+    // ── Máscara CPF ──────────────────────────────────────────────────────────
+    document.getElementById('ps_cpf').addEventListener('input', function () {
+        let v = this.value.replace(/\D/g, '').slice(0, 11);
+        if (v.length > 9) v = v.replace(/(\d{3})(\d{3})(\d{3})(\d{0,2})/, '$1.$2.$3-$4');
+        else if (v.length > 6) v = v.replace(/(\d{3})(\d{3})(\d{0,3})/, '$1.$2.$3');
+        else if (v.length > 3) v = v.replace(/(\d{3})(\d{0,3})/, '$1.$2');
+        this.value = v;
+    });
+
+    // ── Etapa 1 → 2 ──────────────────────────────────────────────────────────
+    document.getElementById('btnProximo').addEventListener('click', async function () {
+        const nome  = document.getElementById('ps_nome').value.trim();
+        const cpf   = document.getElementById('ps_cpf').value.trim();
+        const email = document.getElementById('ps_email').value.trim();
+        const plano = document.getElementById('ps_plano').value;
+
+        if (!nome || !cpf || !email || !plano) {
+            alert('Por favor, preencha todos os campos.');
+            return;
+        }
+
+        if (!/^[\w.+-]+@[\w-]+\.[a-z]{2,}$/i.test(email)) {
+            alert('E-mail inválido.');
+            return;
+        }
+
+        _dadosPessoais = { nome, cpf, email, plano };
+        irParaEtapa2();
+    });
+
+    document.getElementById('btnVoltar').addEventListener('click', irParaEtapa1);
+
+    // ── Navegação ─────────────────────────────────────────────────────────────
+    function irParaEtapa1() {
+        document.getElementById('step1').classList.add('active');
+        document.getElementById('step2').classList.remove('active');
+        document.getElementById('tab1').classList.add('active');
+        document.getElementById('tab1').classList.remove('done');
+        document.getElementById('tab2').classList.remove('active');
+    }
+
+    async function irParaEtapa2() {
+        document.getElementById('step1').classList.remove('active');
+        document.getElementById('step2').classList.add('active');
+        document.getElementById('tab1').classList.remove('active');
+        document.getElementById('tab1').classList.add('done');
+        document.getElementById('tab2').classList.add('active');
+
+        const info = PLAN_LABELS[_dadosPessoais.plano];
+        document.getElementById('pagoResumo').innerHTML =
+            `<strong>${_dadosPessoais.nome}</strong> &nbsp;|&nbsp; ${_dadosPessoais.email}<br>
+             Plano: <strong>${info.label}</strong> &nbsp;—&nbsp; <strong>${info.price}</strong>`;
+
+        await renderizarBrick();
+    }
+
+    // ── Brick ─────────────────────────────────────────────────────────────────
+    async function renderizarBrick() {
+        const container  = document.getElementById('brickContainer');
+        const resultado  = document.getElementById('pagoResultado');
+
+        resultado.style.display = 'none';
+        resultado.innerHTML = '';
+
+        if (_brickController) {
+            await _brickController.unmount();
+            _brickController = null;
+        }
+
+        container.innerHTML = '<p style="text-align:center;color:#555;padding:20px;">Carregando pagamento…</p>';
+
+        try {
+            // Inicializa SDK (somente na primeira vez)
+            if (!_mp) {
+                const { public_key } = await fetch(`${ECO_API}/eco-payment/public-key`).then(r => r.json());
+                _mp = new MercadoPago(public_key, { locale: 'pt-BR' });
+            }
+
+            // Cria preferência no backend
+            const { preference_id, amount } = await fetch(`${ECO_API}/eco-payment/preference`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    plan_key: _dadosPessoais.plano,
+                    payer: { email: _dadosPessoais.email }
+                })
+            }).then(r => r.json());
+
+            container.innerHTML = '';
+
+            _brickController = await _mp.bricks().create('cardPayment', 'brickContainer', {
+                initialization: { amount, preferenceId: preference_id },
+                customization: {
+                    paymentMethods: { maxInstallments: 12 },
+                },
+                callbacks: {
+                    onReady: () => {
+                        container.style.display = 'block';
+                    },
+                    onSubmit: async (formData) => {
+                        document.getElementById('loadingOverlay').style.display = 'flex';
+                        try {
+                            const res = await fetch(`${ECO_API}/eco-payment/process`, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify({ ...formData, plan_key: _dadosPessoais.plano })
+                            }).then(r => r.json());
+
+                            if (res.status === 'approved' || res.status === 'in_process' || res.status === 'pending') {
+                                await registrarNaPlanilha(res);
+                                mostrarSucesso();
+                            } else {
+                                resultado.style.display = 'block';
+                                resultado.style.color = '#c0392b';
+                                resultado.innerHTML = '❌ Pagamento não aprovado: ' + (res.status_detail || res.status);
+                            }
+                        } finally {
+                            document.getElementById('loadingOverlay').style.display = 'none';
+                        }
+                    },
+                    onError: (err) => {
+                        console.error('[Brick]', err);
+                        resultado.style.display = 'block';
+                        resultado.style.color = '#c0392b';
+                        resultado.innerHTML = '❌ Erro ao carregar o pagamento. Tente novamente.';
+                    }
+                }
+            });
+        } catch (err) {
+            console.error('[MP init]', err);
+            container.innerHTML = '<p style="color:red;text-align:center;padding:16px;">Erro ao carregar pagamento. Tente novamente.</p>';
+        }
+    }
+
+    // ── Registro na planilha (AppScript) ──────────────────────────────────────
+    async function registrarNaPlanilha(paymentData) {
+        const info = PLAN_LABELS[_dadosPessoais.plano];
+        const hoje = new Date();
+        const data = `${hoje.getDate()}/${hoje.getMonth() + 1}/${hoje.getFullYear()}`;
+
+        const payload = {
+            pagina: 'INSCRIÇÃO_PAGO',
+            nome:   _dadosPessoais.nome,
+            cpf:    _dadosPessoais.cpf,
+            email:  _dadosPessoais.email,
+            plano:  info.label,
+            paymentId:     paymentData.payment_id || '',
+            paymentStatus: paymentData.status || '',
+            data,
+        };
+
+        try {
+            await fetch('https://api-form-flask.onrender.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+        } catch (err) {
+            console.error('[Planilha]', err);
+        }
+    }
+
+    // ── Sucesso ───────────────────────────────────────────────────────────────
+    function mostrarSucesso() {
+        if (_brickController) {
+            _brickController.unmount();
+            _brickController = null;
+        }
+        document.getElementById('brickContainer').innerHTML = '';
+
+        const resultado = document.getElementById('pagoResultado');
+        resultado.style.display = 'block';
+        resultado.style.color = '#27ae60';
+        resultado.innerHTML = `
+            <div style="font-size:38px;margin-bottom:10px;">✅</div>
+            <p>Pagamento aprovado!</p>
+            <p style="font-size:11pt;color:#555;font-weight:400;margin-top:8px;">
+                Em breve você receberá a confirmação no e-mail <strong>${_dadosPessoais.email}</strong>.
+            </p>`;
+
+        document.getElementById('tab2').classList.remove('active');
+        document.getElementById('tab2').classList.add('done');
+    }
+</script>
+
+</body>
+</html>
