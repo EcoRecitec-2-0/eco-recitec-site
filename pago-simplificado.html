@@ -489,7 +489,6 @@
             const data = `${hoje.getDate()}/${hoje.getMonth() + 1}/${hoje.getFullYear()}`;
 
             const payload = {
-                pagina:        'INSCRIÇÃO_PAGO',
                 nome:          _dadosPessoais.nome,
                 cpf:           _dadosPessoais.cpf,
                 email:         _dadosPessoais.email,
@@ -500,7 +499,7 @@
             };
 
             try {
-                await fetch('https://api-form-flask.onrender.com/submit', {
+                await fetch(`${ECO_API}/eco-payment/registrar`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
