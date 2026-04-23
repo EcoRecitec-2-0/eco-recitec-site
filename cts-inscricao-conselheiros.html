@@ -1020,15 +1020,15 @@
                                     <div class="form-group">
                                         <label data-i18n="labelParticipaComo">Como você gostaria de participar?</label>
                                         <br>
-                                        <label><input type="radio" name="participa_como" value="Individual"> <span data-i18n="optIndividual">Membro Individual (PF)</span></label>
+                                        <label><input type="radio" name="participa_como" value="Individual" required> <span data-i18n="optIndividual">Membro Individual (PF)</span></label>
                                         <br>
-                                        <label><input type="radio" name="participa_como" value="Parceiro"> <span data-i18n="optParceiro">Parceiro Institucional ou Coletivo (PJ)</span></label>
+                                        <label><input type="radio" name="participa_como" value="Parceiro" required> <span data-i18n="optParceiro">Parceiro Institucional ou Coletivo (PJ)</span></label>
                                     </div>
 
                                     <div class="form-group forIndividual" style="display: none;">
                                         <label data-i18n="labelAreasInteresse">Quais áreas mais te interessam?</label>
                                         <br>
-                                        <label><input type="radio" name="areas_interesse" value="Trocas de saberes"> <span data-i18n="optTrocas">Trocas de saberes</span></label>
+                                        <label><input type="radio" name="areas_interesse" value="Trocas de saberes" required> <span data-i18n="optTrocas">Trocas de saberes</span></label>
                                         <br>
                                         <label><input type="radio" name="areas_interesse" value="Encontros presenciais"> <span data-i18n="optEncontros">Encontros presenciais</span></label>
                                         <br>
@@ -1048,14 +1048,14 @@
 
                                     <div class="form-group forInstitucional" style="display: none;">
                                         <label for="organizacao_ou_pj" class="control-label" data-i18n="labelOrgPj">Nome da organização ou Pessoa Jurídica (PJ)</label>
-                                        <input type="text" id="organizacao_ou_pj" name="organizacao_ou_pj" class="form-control"
+                                        <input type="text" id="organizacao_ou_pj" name="organizacao_ou_pj" class="form-control" required
                                             data-i18n-ph="phOrgPj" placeholder="Digite o nome da organização ou PJ">
                                     </div>
 
                                     <div class="form-group forInstitucional" style="display: none;">
                                         <label data-i18n="labelTipoOrg">Que organização você representa?</label>
                                         <br>
-                                        <label><input type="radio" name="tipo_organizacao" value="Indústria de Grande Porte"> <span data-i18n="optIndustriaGrande">Indústria de Grande Porte</span></label>
+                                        <label><input type="radio" name="tipo_organizacao" value="Indústria de Grande Porte" required> <span data-i18n="optIndustriaGrande">Indústria de Grande Porte</span></label>
                                         <br>
                                         <label><input type="radio" name="tipo_organizacao" value="Indústria de Médio Porte"> <span data-i18n="optIndustriaMedio">Indústria de Médio Porte</span></label>
                                         <br>
@@ -1452,9 +1452,16 @@
             const stepEl = document.querySelector('.form-step[data-step="' + step + '"]');
             const inputs = stepEl.querySelectorAll('input[required], select[required], textarea[required]');
             let valid = true;
+            const checkedRadioGroups = new Set();
             inputs.forEach(function(input) {
+                // Skip inputs inside hidden conditional containers
+                const hiddenParent = input.closest('.forIndividual, .forInstitucional');
+                if (hiddenParent && hiddenParent.style.display === 'none') return;
+
                 if (input.type === 'radio') {
                     const name = input.name;
+                    if (checkedRadioGroups.has(name)) return;
+                    checkedRadioGroups.add(name);
                     const checked = stepEl.querySelector('input[name="' + name + '"]:checked');
                     if (!checked) {
                         valid = false;
@@ -1608,7 +1615,12 @@
                             setTimeout(function() { goToStep(1); }, 400);
                         }
                     } else {
-                        showToast(translations[currentLang].toastError, 'error');
+                        let errMsg = translations[currentLang].toastError;
+                        try {
+                            const errData = JSON.parse(respText);
+                            if (errData.error) errMsg = errData.error;
+                        } catch (_) {}
+                        showToast(errMsg, 'error');
                     }
                 } catch (error) {
                     console.error('Erro ao enviar formulário de inscrição:', error);
