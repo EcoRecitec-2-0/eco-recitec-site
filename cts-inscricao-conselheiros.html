@@ -1531,13 +1531,11 @@
             
             inscricaoForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                console.log('Formulário de inscrição enviado.');
 
                 submitButton.disabled = true;
                 submitButton.innerHTML = 'Enviando...';
                 loadingOverlay.style.display = 'flex';
                 loadingOverlay.querySelector('span').textContent = 'Enviando formulário de inscrição, aguarde...';
-
 
                 const formData = new FormData(inscricaoForm);
                 const formObject = {};
@@ -1545,59 +1543,21 @@
                     formObject[key] = value;
                 });
                 formObject["data"] = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;
-                console.log('Dados do formulário:', formObject);
 
-                try {                    
+                try {
                     const response = await fetch("https://api-form-flask.onrender.com/inscricao-conselheiros", {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify(formObject),
                     });
 
-                    console.log("Status:", response.status);
                     const respText = await response.text();
-                    console.log("Resposta do servidor:", respText);
 
-                    const qrcodeResponse = await fetch("https://ecorecitec-api.vercel.app/api/addPersonInDatabase",
-                        {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify([formObject]),
-                        }
-                    );
-                    if (qrcodeResponse.ok) {
-                        console.log("E-mail com QRCode enviado com sucesso.");
-                    } else {
-                        console.error(
-                        "Erro ao enviar e-mail com QRCode:",
-                        await qrcodeResponse.text()
-                        );
-                    }
-                                        
-                    // COMENTADO: Código relacionado ao envio de comprovante de pagamento
-                    // O campo 'comprovantePagamento' está comentado no HTML, causando erro ao tentar acessar .files[0]
-                    /*
-                    let comprovantePagamento = document.getElementById('comprovantePagamento');
-                    const formData = new FormData();
-
-                    formData.append('payRecibe', comprovantePagamento.files[0]);                        
-                    formData.append('sheetsName', "Geral");
-                    formData.append('nome', formObject.nome);
-                    formData.append('email', formObject.email);
-                    formData.append('telefone', formObject.telefone);
-                    formData.append('data', formObject.data);
-                    formData.append('valor', valueToPay);                    
-
-                    const sendToCelene = await fetch("https://ecorecitec-api.vercel.app/api/sendrecibe", {                    
-                        method: 'POST',
-                        body: formData,
-                    })
-                    .then(res => res.json())
-                    .then(data => console.log(data))
-                    .catch(err => console.error('Erro ao enviar inscrição:', err));
-                    */
+                    await fetch("https://ecorecitec-api.vercel.app/api/addPersonInDatabase", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify([formObject]),
+                    });
 
                     if (response.ok) {
                         const t = translations[currentLang];
@@ -1623,7 +1583,6 @@
                         showToast(errMsg, 'error');
                     }
                 } catch (error) {
-                    console.error('Erro ao enviar formulário de inscrição:', error);
                     showToast(translations[currentLang].toastErrorDetail + error.message, 'error');
                     
                 } finally {
