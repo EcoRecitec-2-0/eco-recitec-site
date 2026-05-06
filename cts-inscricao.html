@@ -1,802 +1,925 @@
 <!DOCTYPE html>
 <html lang="pt" xml:lang="pt">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
 	<!-- Google Tag Manager -->
 	<script>
 		(function (w, d, s, l, i) {
 			w[l] = w[l] || [];
-			w[l].push({
-				"gtm.start": new Date().getTime(),
-				event: "gtm.js",
-			});
-			var f = d.getElementsByTagName(s)[0],
-				j = d.createElement(s),
+			w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+			var f = d.getElementsByTagName(s)[0], j = d.createElement(s),
 				dl = l != "dataLayer" ? "&l=" + l : "";
 			j.async = true;
 			j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
 			f.parentNode.insertBefore(j, f);
 		})(window, document, "script", "dataLayer", "GTM-T68WPL8");
 	</script>
-	<!-- End Google Tag Manager -->
-
-	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-4C44ZTMSEM"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
-
-		function gtag() {
-			dataLayer.push(arguments);
-		}
+		function gtag() { dataLayer.push(arguments); }
 		gtag("js", new Date());
-
 		gtag("config", "G-4C44ZTMSEM");
 	</script>
-	<!-- Meta Pixel Code -->
 	<script>
 		!(function (f, b, e, v, n, t, s) {
 			if (f.fbq) return;
-			n = f.fbq = function () {
-				n.callMethod
-					? n.callMethod.apply(n, arguments)
-					: n.queue.push(arguments);
-			};
-			if (!f._fbq) f._fbq = n;
-			n.push = n;
-			n.loaded = !0;
-			n.version = "2.0";
-			n.queue = [];
-			t = b.createElement(e);
-			t.async = !0;
-			t.src = v;
-			s = b.getElementsByTagName(e)[0];
-			s.parentNode.insertBefore(t, s);
-		})(
-			window,
-			document,
-			"script",
-			"https://connect.facebook.net/en_US/fbevents.js"
-		);
+			n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); };
+			if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = "2.0"; n.queue = [];
+			t = b.createElement(e); t.async = !0; t.src = v;
+			s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s);
+		})(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
 		fbq("init", "980082836024765");
 		fbq("track", "PageView");
 	</script>
-	<noscript><img height="1" width="1" style="display: none"
-			src="https://www.facebook.com/tr?id=980082836024765&ev=PageView&noscript=1" /></noscript>
-	<!-- End Meta Pixel Code -->
-	<title>Inscrições | CTS</title>
+	<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=980082836024765&ev=PageView&noscript=1" /></noscript>
+
+	<title>Inscrições | Ecosystem8Skills</title>
 	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta name="description" content="Inscrições | CTS" />
-	<meta name="keywords" content="" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Lançamento do Ecosystem8Skills — inscrição gratuita para o primeiro modelo brasileiro de competências para a transição à Economia Circular." />
 	<link rel="shortcut icon" href="images/logo/favicon.png" />
 	<link rel="icon" href="images/logo/favicon.png" />
-	<!-- Estilos da página -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
-	<link rel="stylesheet" type="text/css"
-		href="../netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" />
+	<link rel="stylesheet" type="text/css" href="../netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" />
 	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
 	<link rel="stylesheet" type="text/css" href="css/inscricao15f10.css?t=65e829d665d38" />
 	<link rel="stylesheet" type="text/css" href="css/animate.css" />
 	<link rel="stylesheet" type="text/css" href="./css/buttons.css">
 	<link rel="stylesheet" href="css/footer.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800|Source+Sans+Pro:300,400,400i,700&display=swap" rel="stylesheet" />
+
 	<style>
+	/* ===== VARIABLES ===== */
+	:root {
+		--blue-dark: #003354;
+		--blue-mid:  #00517a;
+		--orange:    #FF910B;
+		--pad:       80px 20px;
+		--max-w:     960px;
+	}
+
+	/* ===== BASE ===== */
+	*, *::before, *::after { box-sizing: border-box; }
+	h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
+	body { font-family: 'Source Sans Pro', sans-serif; }
+
+	/* ===== NAVBAR ===== */
+	.navbar-dark-custom {
+		background: radial-gradient(ellipse at center, #003354 0%, #00517a 100%);
+		border: none; border-radius: 0; margin-bottom: 0;
+		min-height: 80px;
+		position: relative; z-index: 1000;
+		transition: box-shadow 0.3s ease;
+	}
+	.navbar-dark-custom.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+	.navbar-dark-custom .navbar-header { height: 80px; display: flex; align-items: center; }
+	.navbar-dark-custom .navbar-brand {
+		height: 80px !important; display: flex !important;
+		align-items: center; padding: 0 20px; float: none;
+	}
+	.navbar-dark-custom .navbar-nav > li { display: flex; align-items: center; }
+	.navbar-dark-custom .navbar-nav > li > a {
+		color: rgba(255,255,255,0.85) !important;
+		font-weight: 600; font-size: 15px;
+		line-height: 80px;
+		padding: 0 18px !important;
+		font-family: 'Montserrat', sans-serif;
+	}
+	.navbar-dark-custom .navbar-nav > li > a:hover,
+	.navbar-dark-custom .navbar-nav > li > a:focus {
+		color: var(--orange) !important; background: transparent !important;
+	}
+	.navbar-dark-custom .navbar-collapse {
+		background: transparent !important;
+		border-top: 1px solid rgba(255,255,255,0.12);
+		display: flex; align-items: center; min-height: 80px;
+	}
+	.navbar-dark-custom .navbar-nav { margin: 0; }
+	.navbar-dark-custom .navbar-toggle .icon-bar { background: #fff; }
+	.navbar-dark-custom .navbar-toggle {
+		background: rgba(255,255,255,0.15); border: none; margin-top: 22px;
+	}
+	.lang-btn-nav {
+		background: rgba(255,255,255,0.12);
+		border: 1px solid rgba(255,255,255,0.28);
+		color: #fff; border-radius: 6px;
+		padding: 6px 14px; font-size: 13px; font-weight: 700;
+		font-family: 'Montserrat', sans-serif;
+		cursor: pointer; display: flex; align-items: center; gap: 6px;
+		margin-left: 14px; transition: all 0.25s ease;
+	}
+	.lang-btn-nav:hover { background: var(--orange); border-color: transparent; }
+
+	/* ===== WHATSAPP FLOAT ===== */
+	.whatsapp-float {
+		position: fixed; right: 20px; bottom: 24px; z-index: 999;
+		width: 56px; height: 56px; border-radius: 50%;
+		background: #25D366; display: flex; align-items: center; justify-content: center;
+		box-shadow: 0 4px 16px rgba(37,211,102,0.45);
+		transition: transform 0.22s ease, box-shadow 0.22s ease;
+	}
+	.whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 22px rgba(37,211,102,0.55); }
+	.whatsapp-float i { font-size: 26px; color: #fff; }
+
+	/* ===== HERO ===== */
+	.hero-section {
+		min-height: calc(100vh - 80px);
+		display: flex; align-items: center; justify-content: center;
+		text-align: center; padding: 80px 20px;
+		background: radial-gradient(ellipse at 60% 40%, #003f63 0%, #001e35 100%);
+		position: relative; overflow: hidden;
+	}
+	.hero-section::before {
+		content: '';
+		position: absolute; inset: 0;
+		background-image: radial-gradient(rgba(255,145,11,0.07) 1px, transparent 1px);
+		background-size: 32px 32px;
+		pointer-events: none;
+	}
+	.hero-badge {
+		display: inline-block;
+		background: rgba(255,145,11,0.18); border: 1.5px solid var(--orange);
+		color: var(--orange); padding: 6px 22px; border-radius: 50px;
+		font-size: 13px; font-weight: 700; font-family: 'Montserrat', sans-serif;
+		letter-spacing: 1px; margin-bottom: 24px;
+	}
+
+	/* ===== SECTION HELPERS ===== */
+	.section-light { background: #fff; padding: var(--pad); }
+	.section-gray  { background: #f5f8fa; padding: var(--pad); }
+	.section-dark  {
+		background: radial-gradient(ellipse at center, #003354 0%, #00517a 100%);
+		padding: var(--pad);
+	}
+	.section-title {
+		font-size: 28px; font-weight: 700; text-align: center;
+		margin-bottom: 32px; color: var(--blue-mid);
+	}
+	.section-title.on-dark { color: #fff; }
+	.container-main { max-width: var(--max-w); margin: 0 auto; }
+
+	/* ===== BENEFIT LIST ===== */
+	.benefit-list { list-style: none; padding: 0; margin: 0; }
+	.benefit-list li {
+		display: flex; align-items: flex-start; gap: 14px;
+		padding: 14px 0; font-size: 17px; color: #333;
+		border-bottom: 1px solid rgba(0,81,122,0.1); line-height: 1.5;
+	}
+	.benefit-list li:last-child { border-bottom: none; }
+	.benefit-list li::before {
+		content: '✓'; color: var(--orange); font-weight: 800;
+		font-size: 18px; flex-shrink: 0; margin-top: 1px;
+	}
+
+	/* ===== IMAGE LAYOUT ===== */
+	.why-grid {
+		display: grid; grid-template-columns: 1fr 1fr;
+		gap: 52px; align-items: center; margin-top: 10px;
+	}
+	@media (max-width: 768px) {
+		.why-grid { grid-template-columns: 1fr; gap: 32px; }
+		.why-image { order: -1; }
+	}
+	.why-image img {
+		width: 100%; height: 400px;
+		object-fit: cover; object-position: center top;
+		border-radius: 16px; box-shadow: 0 10px 36px rgba(0,81,122,0.16);
+	}
+
+	/* ===== EXP CARDS ===== */
+	.exp-grid {
+		display: grid; grid-template-columns: repeat(3, 1fr);
+		gap: 24px; margin-top: 8px;
+	}
+	@media (max-width: 768px) { .exp-grid { grid-template-columns: repeat(2, 1fr); } }
+	@media (max-width: 480px) { .exp-grid { grid-template-columns: 1fr; } }
+	.exp-card {
+		background: #fff; border-radius: 14px; padding: 28px 20px;
+		text-align: center; box-shadow: 0 4px 20px rgba(0,81,122,0.12);
+		border-top: 3px solid var(--orange); min-height: 140px;
+		display: flex; flex-direction: column; align-items: center; justify-content: center;
+		transition: transform 0.22s ease, box-shadow 0.22s ease;
+	}
+	.exp-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(0,81,122,0.18); }
+	.exp-icon {
+		width: 64px; height: 64px; border-radius: 50%;
+		background: linear-gradient(135deg, #00517a 0%, var(--orange) 100%);
+		display: flex; align-items: center; justify-content: center;
+		margin: 0 auto 16px; box-shadow: 0 4px 14px rgba(255,145,11,0.35);
+	}
+	.exp-icon i { font-size: 22px; color: #fff; }
+	.exp-card p { color: #333; font-size: 15px; margin: 0; line-height: 1.4; }
+
+	/* ===== AUDIENCE PILLS ===== */
+	.audience-pills {
+		display: flex; flex-wrap: wrap; gap: 12px;
+		justify-content: center; margin: 32px 0 36px;
+	}
+	.audience-pill {
+		display: inline-flex; align-items: center; gap: 8px;
+		background: #f0f6fb; border: 1.5px solid rgba(0,81,122,0.18);
+		color: var(--blue-mid); padding: 10px 22px; border-radius: 50px;
+		font-size: 15px; font-weight: 600; font-family: 'Montserrat', sans-serif;
+		transition: all 0.22s ease; cursor: default;
+	}
+	.audience-pill:hover {
+		background: var(--blue-mid); color: #fff;
+		border-color: var(--blue-mid);
+		transform: translateY(-2px); box-shadow: 0 4px 14px rgba(0,81,122,0.22);
+	}
+	.audience-pill i { color: var(--orange); font-size: 14px; }
+	.audience-pill:hover i { color: #fff; }
+
+	/* ===== UNIQUE / DIFFERENTIALS ===== */
+	.unique-flex {
+		display: flex; flex-wrap: wrap; gap: 20px;
+		justify-content: center; margin-top: 8px;
+	}
+	.unique-item {
+		flex: 0 0 calc(33.33% - 14px); max-width: calc(33.33% - 14px);
+		display: flex; align-items: flex-start; gap: 16px;
+		background: rgba(255,255,255,0.07); border-radius: 12px;
+		padding: 20px 18px; border: 1px solid rgba(255,145,11,0.25);
+	}
+	@media (max-width: 768px) {
+		.unique-item { flex: 0 0 calc(50% - 10px); max-width: calc(50% - 10px); }
+	}
+	@media (max-width: 480px) {
+		.unique-item { flex: 0 0 100%; max-width: 100%; }
+	}
+	.unique-num {
+		color: var(--orange); font-size: 24px; font-weight: 800;
+		font-family: 'Montserrat', sans-serif; flex-shrink: 0; line-height: 1.1;
+	}
+	.unique-item p { color: rgba(255,255,255,0.9); font-size: 15px; margin: 0; line-height: 1.5; }
+
+	/* ===== TESTIMONIALS ===== */
+	.testimonials-section { background: #fff; padding: var(--pad); }
+	.testi-title {
+		color: var(--blue-mid); font-family: 'Montserrat', sans-serif;
+		font-size: 28px; font-weight: 700; text-align: center; margin-bottom: 10px;
+	}
+	.testi-subtitle {
+		color: rgba(0,81,122,0.45); text-align: center; font-size: 12px;
+		letter-spacing: 2px; font-family: 'Montserrat', sans-serif;
+		margin-bottom: 44px; text-transform: uppercase;
+	}
+	.testi-card {
+		background: #003354; border-radius: 20px; padding: 36px 52px 38px;
+		position: relative; max-width: 780px; margin: 0 auto 40px;
+		box-shadow: 0 8px 32px rgba(0,51,84,0.18);
+	}
+	.testi-card::before {
+		content: '\201C'; display: block; font-size: 88px;
+		color: var(--orange); line-height: 0.75;
+		font-family: Georgia, serif; margin-bottom: 10px;
+		margin-left: -6px; opacity: 0.95; user-select: none;
+	}
+	#testimonialCarousel .carousel-inner { overflow: visible; }
+	.testi-text {
+		color: rgba(255,255,255,0.93); font-size: 17px; font-style: italic;
+		line-height: 1.8; margin: 0 0 28px;
+		font-family: 'Source Sans Pro', Georgia, sans-serif;
+	}
+	.testi-author { display: flex; align-items: center; gap: 14px; }
+	.testi-dash { width: 32px; height: 2px; background: var(--orange); flex-shrink: 0; border-radius: 2px; }
+	.testi-name {
+		color: var(--orange); font-weight: 700; font-size: 13px;
+		font-family: 'Montserrat', sans-serif; letter-spacing: 1px; text-transform: uppercase;
+	}
+	#testimonialCarousel .carousel-indicators { bottom: -8px; }
+	#testimonialCarousel .carousel-indicators li {
+		background: rgba(0,81,122,0.2); border: none;
+		width: 8px; height: 8px; border-radius: 50%; margin: 0 5px; transition: all 0.3s ease;
+	}
+	#testimonialCarousel .carousel-indicators .active {
+		background: var(--orange); width: 26px; border-radius: 4px;
+	}
+	#testimonialCarousel .carousel-control {
+		width: 46px; height: 46px; background: rgba(255,145,11,0.75);
+		border-radius: 50%; top: 50%; bottom: auto; margin-top: -30px;
+		opacity: 1; display: flex; align-items: center; justify-content: center;
+		transition: background 0.25s ease;
+	}
+	#testimonialCarousel .carousel-control:hover { background: var(--orange); }
+	#testimonialCarousel .carousel-control.left { left: 0; }
+	#testimonialCarousel .carousel-control.right { right: 0; }
+	#testimonialCarousel .carousel-control i { font-size: 16px; color: #fff; text-shadow: none; }
+	@media (max-width: 768px) {
+		.testi-card { padding: 44px 24px 32px; }
+		.testi-text { font-size: 15px; }
+		#testimonialCarousel .carousel-control { display: none; }
+	}
+
+	/* ===== PARTNER SECTION ===== */
+	.partner-section { background: #f0f6fb; padding: var(--pad); position: relative; }
+	.partner-section::before {
+		content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+		background: linear-gradient(90deg, var(--blue-mid) 0%, var(--orange) 100%);
+	}
+	.partner-badge {
+		display: inline-block; background: rgba(0,81,122,0.08);
+		border: 1.5px solid rgba(0,81,122,0.25); color: var(--blue-mid);
+		padding: 5px 18px; border-radius: 50px; font-size: 12px; font-weight: 700;
+		font-family: 'Montserrat', sans-serif; letter-spacing: 1.5px;
+		text-transform: uppercase; margin-bottom: 16px;
+	}
+	.partner-benefits { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 32px 0 38px; }
+	@media (max-width: 600px) { .partner-benefits { grid-template-columns: 1fr; } }
+	.partner-benefit-item {
+		display: flex; align-items: flex-start; gap: 12px;
+		padding: 14px 16px; background: #f8fbfd; border-radius: 10px; border-left: 3px solid var(--orange);
+	}
+	.partner-benefit-item i { color: var(--blue-mid); font-size: 15px; flex-shrink: 0; margin-top: 3px; }
+	.partner-benefit-item span { color: #444; font-size: 15px; line-height: 1.45; }
+
+	/* ===== PARTNER WALL ===== */
 	.pw-divider {
 		display: flex; align-items: center; gap: 14px;
-		margin: 32px 0 18px; color: #4A3C67;
-		font-size: 11px; font-weight: 700; letter-spacing: 2.5px;
-		font-family: Montserrat, sans-serif;
+		margin: 32px 0 18px; color: var(--blue-mid);
+		font-size: 11px; font-weight: 700; letter-spacing: 2.5px; font-family: 'Montserrat', sans-serif;
 	}
 	.pw-divider::before, .pw-divider::after {
-		content: ''; flex: 1; height: 1px;
-		background: rgba(74,60,103,0.35);
+		content: ''; flex: 1; height: 1px; background: rgba(0,81,122,0.25);
 	}
 	.pw-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 	.pw-card {
-		background: #ffffff; border-radius: 14px;
-		padding: 10px 18px; display: flex;
-		align-items: center; justify-content: center;
-		transition: transform 0.22s ease, box-shadow 0.22s ease;
-		cursor: default; overflow: hidden;
+		background: #fff; border-radius: 14px; padding: 10px 18px;
+		display: flex; align-items: center; justify-content: center;
+		transition: transform 0.22s ease, box-shadow 0.22s ease; overflow: hidden;
 	}
 	.pw-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
 	.pw-card--lg {
 		height: 100px; min-width: 160px; max-width: 260px;
-		border: 2px solid rgba(255,145,11,0.45);
-		box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+		border: 2px solid rgba(255,145,11,0.45); box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 	}
 	.pw-card--md {
-		height: 80px; min-width: 120px; max-width: 200px;
-		box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+		height: 80px; min-width: 120px; max-width: 200px; box-shadow: 0 2px 10px rgba(0,0,0,0.12);
 	}
 	.pw-card img { max-width: 100%; max-height: 100%; object-fit: contain; }
-	.partner-cta-card {
-		background: linear-gradient(135deg, #003354 0%, #00517a 100%);
-		border-radius: 16px; padding: 32px 28px;
-		text-align: center; max-width: 520px; margin: 0 auto;
-		box-shadow: 0 8px 28px rgba(0,81,122,0.25);
-		border: 1px solid rgba(255,145,11,0.3);
+
+	/* ===== SCROLL ANIMATIONS ===== */
+	.anim {
+		opacity: 0; transform: translateY(28px);
+		transition: opacity 0.65s ease, transform 0.65s ease;
 	}
-	.partner-cta-card img {
-		width: 100%; max-width: 280px; height: 180px;
-		object-fit: cover; border-radius: 10px; margin-bottom: 20px;
+	.anim.visible { opacity: 1; transform: translateY(0); }
+	.anim-d1 { transition-delay: 0.1s; }
+	.anim-d2 { transition-delay: 0.2s; }
+	.anim-d3 { transition-delay: 0.3s; }
+
+	/* ===== LEGACY ===== */
+	.botaoc { display: flex; justify-content: center; align-items: center; }
+	.gradienteescuro {
+		background: radial-gradient(ellipse at center, rgba(0,51,84,1) 0%, rgba(0,81,122,1) 100%);
 	}
-	.partner-cta-card h3 { color: #ffffff; font-size: 15pt; margin-bottom: 20px; }
+	.btn { text-align: center; padding: 10px 20px; background: var(--blue-mid); color: #fff; border-radius: 5px; }
+	.btn:hover { background: var(--orange); color: #fff; }
+	a, a:hover, .btn, .btn:hover { transition: 0.5s; }
 	</style>
 </head>
 
 <body>
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T68WPL8" height="0" width="0"
-			style="display: none; visibility: hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-	<button id="langToggleBtn" onclick="toggleLanguage()" style="position:fixed;top:18px;right:18px;z-index:9999;background:linear-gradient(135deg,#FF910B,#ff6b00);color:#fff;border:none;border-radius:8px;padding:14px 30px;font-size:17px;font-weight:700;font-family:'Montserrat',sans-serif;cursor:pointer;letter-spacing:1.5px;box-shadow:0 4px 16px rgba(255,107,0,0.45);transition:all 0.3s ease;display:flex;align-items:center;gap:10px;"><span class="fi fi-us" style="width:22px;height:22px;font-size:22px;"></span> EN</button>
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T68WPL8" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+	<!-- WhatsApp Float -->
+	<a class="whatsapp-float" href="https://api.whatsapp.com/send?phone=5571986956150" target="_blank" aria-label="WhatsApp">
+		<i class="fa-brands fa-whatsapp"></i>
+	</a>
+
 	<div id="page_5e5829d624927">
-		<div class="container-fluid" name="" id="Header-gcbmp09r6v">
-			<link
-				href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,500,600,700,800|Source+Sans+Pro:300,400,400i,700&amp;display=swap"
-				rel="stylesheet" />
-			<style type="text/css">
-				h1,
-				h2,
-				h3,
-				h4 {
-					font-family: "Montserrat", sans-serif;
-				}
 
-				body {
-					font-family: "Source Sans Pro", sans-serif;
-				}
-
-				/*MENU*/
-				.menu_item {
-					font-family: "Montserrat", sans-serif;
-				}
-
-				.navbar-toggle {
-					background-color: #333333;
-					float: right;
-					border: 0px;
-				}
-
-				.navbar-default .navbar-toggle:hover,
-				.navbar-default .navbar-toggle:focus {
-					background-color: #333333;
-					border-radius: 0;
-				}
-
-				/*DISPLAYS*/
-				.flex {
-					display: flex;
-					flex-wrap: wrap;
-					align-items: center;
-				}
-
-				.wrap {
-					display: flex;
-					flex-wrap: wrap;
-				}
-
-				.cover {
-					background-size: cover;
-				}
-
-				/*BOTOES*/
-				.btn,
-				.btn:hover,
-				a,
-				a:hover {
-					transition: 0.5s;
-				}
-
-				.botaoc .btn {
-					margin: 0 auto;
-					display: table;
-					float: none;
-				}
-
-				.botao1 .btn {
-					width: auto;
-					white-space: pre-wrap;
-					height: auto;
-					color: #372e4f;
-					background-color: #fff;
-					font-weight: bold;
-					letter-spacing: 3px;
-				}
-
-				.botao1 .btn:hover {
-					color: #fff;
-					background: rgb(254, 241, 69);
-					background: -moz-linear-gradient(-45deg,
-							rgba(115, 110, 178, 1) 0%,
-							rgba(79, 66, 113, 1) 51%,
-							rgba(55, 46, 79, 1) 100%);
-					background: -webkit-linear-gradient(-45deg,
-							rgba(115, 110, 178, 1) 0%,
-							rgba(79, 66, 113, 1) 51%,
-							rgba(55, 46, 79, 1) 100%);
-					background: linear-gradient(135deg,
-							rgba(115, 110, 178, 1) 0%,
-							rgba(79, 66, 113, 1) 51%,
-							rgba(55, 46, 79, 1) 100%);
-					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#736eb2', endColorstr='#372e4f', GradientType=1);
-				}
-
-				.botao2 .btn {
-					width: auto;
-					white-space: pre-wrap;
-					height: auto;
-					color: #008ce4;
-					background-color: #fff;
-					font-weight: bold;
-					letter-spacing: 3px;
-				}
-
-				.botao3 {
-					width: auto;
-					white-space: pre-wrap;
-					height: auto;
-
-					background-color: #fff;
-					font-weight: bold;
-					letter-spacing: 3px;
-				}
-
-				.botao3:hover {
-					color: #fff;
-					background: #FF910B;
-					background: -moz-linear-gradient(45deg,
-							rgba(0, 108, 153, 1) 0%,
-							rgba(0, 185, 191, 1) 20%,
-							#FF910B 100%);
-					background: -webkit-linear-gradient(45deg,
-							rgba(0, 108, 153, 1) 0%,
-							rgba(0, 185, 191, 1) 20%,
-							#FF910B 100%);
-					background: linear-gradient(45deg,
-							rgba(0, 108, 153, 1) 0%,
-							rgba(0, 185, 191, 1) 50%,
-							#FF910B 100%);
-					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006c99', endColorstr='#00ab7b',
-							GradientType=1);
-				}
-
-				.botao2 .btn:hover {
-					color: #fff;
-					background: rgb(0, 108, 153);
-					background: -moz-linear-gradient(45deg,
-							rgba(0, 108, 153, 1) 0%,
-							rgba(0, 185, 191, 1) 50%,
-							rgba(0, 171, 123, 1) 100%);
-					background: -webkit-linear-gradient(45deg,
-							rgba(0, 108, 153, 1) 0%,
-							rgba(0, 185, 191, 1) 50%,
-							rgba(0, 171, 123, 1) 100%);
-					background: linear-gradient(45deg,
-							rgba(0, 108, 153, 1) 0%,
-							rgba(0, 185, 191, 1) 50%,
-							rgba(0, 171, 123, 1) 100%);
-					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006c99', endColorstr='#00ab7b',
-							GradientType=1);
-				}
-			</style>
-			<div class="container-fluid" name="Container_5e5829d651ae0" id="_5dae10f61a5b1_1571688694">
-				<div
-					style="display:flex; justify-content: flex-end; align-items: flex-start; position: fixed; width: 100px; right:1%;bottom: 6%; z-index: +10; margin-left: auto; ">
-					<a href="https://api.whatsapp.com/send?phone=5571986956150" target="_blank"><img
-							class="jarallax-img" style="width: 130px" src="images/logo/logo-whatsapp.png" alt="" /></a>
+		<!-- ===== NAVBAR ===== -->
+		<nav class="navbar navbar-default navbar-dark-custom" id="mainNav">
+			<div class="container-fluid" style="max-width: 1200px; margin: 0 auto;">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+						data-target="#mainNavCollapse" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar">&nbsp;</span>
+						<span class="icon-bar">&nbsp;</span>
+						<span class="icon-bar">&nbsp;</span>
+					</button>
+					<a class="navbar-brand" href="ecosys8skills.html">
+						<img src="images/image-removebg-preview.png" alt="Ecosystem8Skills"
+							style="height:56px;width:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,0.45));display:block;">
+					</a>
 				</div>
-				<div class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0"
-					id="_5839041917_1571688779">
-					<nav class="navbar navbar-default menu" id="_5dae1188b2fee_1571688840">
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-								data-target="#menu-_5dae1188b2fee_1571688840" aria-expanded="false"
-								aria-controls="menu-_5dae1188b2fee_1571688840">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar">&nbsp;</span>
-								<span class="icon-bar">&nbsp;</span>
-								<span class="icon-bar">&nbsp;</span>
+				<div id="mainNavCollapse" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="ecosys8skills.html">Home</a></li>
+						<li><a href="ecosys8skills.html#contato">Contato</a></li>
+						<li style="display:flex;align-items:center;">
+							<button id="langToggleBtn" class="lang-btn-nav" onclick="toggleLanguage()">
+								<span class="fi fi-us" style="font-size:16px;"></span> EN
 							</button>
-						</div>
-						<div id="menu-_5dae1188b2fee_1571688840" class="collapse navbar-collapse"
-							style="background-color: #f9f9f9;">
-							<ul class="nav navbar-nav">
-								<li role="presentation" id="menuitem_5e5829d58b10f" class="active">
-									<a class="menu_item focus" href="ecosys8skills.html" target="_self">Home</a>
-								</li>
-								<li role="presentation" id="menuitem_5e5829d58b10f" class="active">
-									<a class="menu_item focus" href="ecosys8skills.html#contato" target="_self">Contato</a>
-								</li>
-								<!-- <li role="presentation" id="menuitem_5e5829d58b2ef">
-									<a class="menu_item" href="cts-cientifico.html" target="_self">Trabalhos
-										Técnicos</a>
-								</li>
-								<li role="presentation" id="menuitem_5e5829d58b4bf">
-									<a class="menu_item" href="cts-startup.html" target="_self">Inscrição de Startup</a>
-								</li> -->
-
-							</ul>
-							<div class="clear"></div>
-						</div>
-					</nav>
-					<div class="clear"></div>
+						</li>
+					</ul>
 				</div>
 			</div>
-			<style type="text/css">
-				.gradienteroxo {
-					background: rgb(254, 241, 69);
-					background: -moz-linear-gradient(-45deg,
-							rgba(115, 110, 178, 1) 0%,
-							rgba(79, 66, 113, 1) 51%,
-							rgba(55, 46, 79, 1) 100%);
-					background: -webkit-linear-gradient(-45deg,
-							rgba(115, 110, 178, 1) 0%,
-							rgba(79, 66, 113, 1) 51%,
-							rgba(55, 46, 79, 1) 100%);
-					background: linear-gradient(135deg,
-							rgba(115, 110, 178, 1) 0%,
-							rgba(79, 66, 113, 1) 51%,
-							rgba(55, 46, 79, 1) 100%);
-					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#736eb2', endColorstr='#372e4f', GradientType=1);
-				}
+		</nav>
 
-				.gradienteverde {
-					background: rgb(254, 241, 69);
-					background: -moz-linear-gradient(-45deg,
-							rgba(254, 241, 69, 1) 0%,
-							rgba(173, 217, 0, 1) 51%,
-							rgba(99, 168, 0, 1) 100%);
-					background: -webkit-linear-gradient(-45deg,
-							rgba(254, 241, 69, 1) 0%,
-							rgba(173, 217, 0, 1) 51%,
-							rgba(99, 168, 0, 1) 100%);
-					background: linear-gradient(135deg,
-							rgba(254, 241, 69, 1) 0%,
-							rgba(173, 217, 0, 1) 51%,
-							rgba(99, 168, 0, 1) 100%);
-					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fef145', endColorstr='#63a800', GradientType=1);
-				}
-
-				.gradienterosa {
-					background: rgb(255, 35, 68);
-					background: -moz-linear-gradient(45deg,
-							rgba(255, 35, 68, 1) 0%,
-							rgba(255, 161, 0, 1) 100%);
-					background: -webkit-linear-gradient(45deg,
-							rgba(255, 35, 68, 1) 0%,
-							rgba(255, 161, 0, 1) 100%);
-					background: linear-gradient(45deg,
-							rgba(255, 35, 68, 1) 0%,
-							rgba(255, 161, 0, 1) 100%);
-					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2344', endColorstr='#ffa100', GradientType=1);
-				}
-
-				.gradienteazul {
-					background: rgb(0, 108, 153);
-					background: -moz-linear-gradient(45deg,
-							rgba(0, 108, 153, 1) 0%,
-							rgba(0, 185, 191, 1) 50%,
-							rgba(0, 171, 123, 1) 100%);
-					background: -webkit-linear-gradient(45deg,
-							rgba(0, 108, 153, 1) 0%,
-							rgba(0, 185, 191, 1) 50%,
-							rgba(0, 171, 123, 1) 100%);
-					background: linear-gradient(45deg,
-							rgba(0, 108, 153, 1) 0%,
-							rgba(0, 185, 191, 1) 50%,
-							rgba(0, 171, 123, 1) 100%);
-					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006c99', endColorstr='#00ab7b', GradientType=1);
-				}
-
-				.gradienteescuro {
-					background: rgb(0, 51, 84);
-					background: -moz-radial-gradient(center,
-							ellipse cover,
-							rgba(0, 51, 84, 1) 0%,
-							rgba(0, 81, 122, 1) 100%);
-					background: -webkit-radial-gradient(center,
-							ellipse cover,
-							rgba(0, 51, 84, 1) 0%,
-							rgba(0, 81, 122, 1) 100%);
-					background: radial-gradient(ellipse at center,
-							rgba(0, 51, 84, 1) 0%,
-							rgba(0, 81, 122, 1) 100%);
-					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#003354', endColorstr='#00517a', GradientType=1);
-				}
-
-				.botao1 {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					margin-top: 20px;
-				}
-
-				.botao2 {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					margin-top: 10px;
-				}
-
-				.botao3 {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					margin-top: 10px;
-				}
-
-				.btn {
-					text-align: center;
-					padding: 10px 20px;
-					background-color: #00517a;
-					color: white;
-					border-radius: 5px;
-					font-size: 14pt;
-				}
-
-				.btn:hover {
-					background-color: #FF910B;
-					color: white;
-				}
-
-				@media (max-width: 768px) {
-					#ResponsiveImage-gcbmp0ahof {
-						margin-left: 10%;
-					}
-
-				}
-
-				.aligned-container-bt {
-					display: flex;
-					align-items: center;
-					justify-content: space-between;
-					/* Espaçamento entre texto e botão */
-					margin-bottom: 20px;
-					/* Espaço entre os pares */
-				}
-
-				.text-container-bt {
-					flex: 1;
-					text-align: center;
-					/* Alinhar o texto à direita */
-					margin-right: 15px;
-					/* Espaço entre o te*/
-				}
-			</style>
+		<!-- ===== HERO ===== -->
+		<div class="hero-section">
+			<div style="position:relative;z-index:1;max-width:820px;width:100%;">
+				<!-- Label de lançamento -->
+				<div style="margin-bottom:14px;">
+					<span class="hero-badge" data-i18n="heroBadge">LANÇAMENTO OFICIAL</span>
+				</div>
+				<!-- Nome do produto em destaque -->
+				<p style="color:var(--orange);font-size:clamp(20px,3.5vw,30px);font-weight:800;font-family:'Montserrat',sans-serif;letter-spacing:1px;margin:0 0 16px;" data-i18n="heroProduct">
+					Ecosystem8Skills
+				</p>
+				<!-- Título principal -->
+				<h1 style="color:#fff;font-size:clamp(26px,4vw,46px);margin:0 0 22px;line-height:1.25;font-weight:800;" data-i18n="heroTitle">
+					O Ecossistema que integra Circular Soft Skills, Hard Skills e Meta Skills para formar profissionais da Economia Circular
+				</h1>
+				<!-- Descrição -->
+				<p style="color:rgba(255,255,255,0.88);font-size:18px;max-width:700px;margin:0 auto 16px;line-height:1.7;" data-i18n="heroSubtitle">
+					Participe gratuitamente do evento que apresenta o primeiro modelo brasileiro de desenvolvimento de competências para a transição circular — criado para preparar pessoas, organizações e territórios para os desafios da nova economia.
+				</p>
+				<!-- Urgência -->
+				<p style="color:var(--orange);font-size:15px;font-weight:700;margin-bottom:36px;" data-i18n="heroUrgency">
+					Garanta sua vaga gratuita agora. Vagas limitadas.
+				</p>
+				<div class="botaoc">
+					<a class="button buttonStyled" href="cts-inscricao-form.html" style="--size:1.0;text-decoration:none;color:#fff;" data-i18n="btnRegister1">
+						Garantir minha vaga gratuita
+					</a>
+				</div>
+			</div>
 		</div>
-		<div class="container-fluid container_body" name="" id="GridPanel_5e5829d653740">
-			<div class="container-fluid" name="Container_5e5829d653980" id="_1473562621_1574129903">
-				<div class="container-fluid cover" name="Container_5e5829d656592" id="_8168426439_1574129903">
-					<div class="container-fluid" name="Container_5e5829d6567b1" id="_3959301425_1575521599">
-						<div style="text-align:center;padding:12px 0 8px;">
-							<img src="images/image-removebg-preview.png" alt="Ecosystem8Skills" style="height:90px;width:auto;filter:drop-shadow(0 3px 18px rgba(0,0,0,0.55));">
+
+		<!-- ===== POR QUE PARTICIPAR ===== -->
+		<div class="section-light">
+			<div class="container-main">
+				<h2 class="section-title anim" data-i18n="whyTitle">Por que participar do lançamento?</h2>
+				<div class="why-grid">
+					<div class="why-content anim anim-d1">
+						<ul class="benefit-list">
+							<li data-i18n="why1">Conheça o Ecosystem8Skills, uma abordagem inovadora que integra competências técnicas, comportamentais e sistêmicas para a Economia Circular.</li>
+							<li data-i18n="why2">Descubra como o modelo pode ser aplicado em empresas, governos, escolas, indústrias e comunidades.</li>
+							<li data-i18n="why3">Conecte-se com especialistas, pesquisadores e líderes que estão moldando o futuro da sustentabilidade no Brasil.</li>
+							<li data-i18n="why4">Receba acesso antecipado a conteúdos, trilhas e oportunidades do ecossistema.</li>
+							<li data-i18n="why5">Participe de um movimento que transforma conhecimento em impacto real.</li>
+						</ul>
+						<div style="margin-top:38px;">
+							<a class="button buttonStyled" href="cts-inscricao-form.html" style="--size:0.85;text-decoration:none;color:#fff;" data-i18n="btnRegister2">
+								Quero participar gratuitamente
+							</a>
 						</div>
-						<div class="container-fluid" name="Container_5e5829d6569d8" id="_1925128157_1574129903">
-							<div class="container wow fadeInDown" name="Container_5e5829d656bf5"
-								id="_4809699299_1574129903">
-								<div class="col-xs-12 col-sm-10 col-md-8 col-xs-offset-0 col-sm-offset-1 col-md-offset-2"
-									id="_879141854_1574129903">
-									<div id="text_5e5829d657108"
-										class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0">
-										<h2 style="text-align: center">
-											<span style="color: #ffffff"><strong><span style="font-size: 30pt">
-												<span data-i18n="heroTitle">FAÇA AQUI A SUA INSCRIÇÃO NO</span><br>
-												<span data-i18n="heroTitle">LANÇAMENTO DO</span><br>
-												<span style="color: #FF910B; line-height: 1.2;" class="heading-title" data-i18n="brandName">Ecossistema Circular 8 Skills - Ecosystem8Skills</span><br>
-												<span data-i18n="heroTitleEnd">E APROVEITE TODAS AS VANTAGENS</span>
-											</span></strong></span>
-										</h2>
-										<!-- <p style="text-align: center">
-											<span style="color: #ffffff"><em><span style="font-size: 20pt" data-i18n="heroPromo">- Valores promocionais limitados!</span></em></span>
-											<br>
-										</p> -->
-									</div>
-								</div>
-							</div>
-						</div>
+					</div>
+					<div class="why-image anim anim-d2">
+						<img src="images/uniao.jpeg" alt="Pessoas colaborando no ecossistema">
 					</div>
 				</div>
 			</div>
-			<div class="container-fluid" name="Container_5e5829d657c88" id="_5137665525_1574129923">
-				<div class="container container_body" name="container_5e5829d658305" id="_5dd351a4bbe86_1574130084">
-					<div class="tab-content">
-						<div class="tab-pane fade active in col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0"
-							id="_5dd3693288391_1574136114">
-							<div class="flex col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0"
-								id="_902587901_1574136083">
-								<div class="col-xs-12 col-sm-12 col-md-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-0"
-									id="_28225614_1574136083" style="margin: 0 auto;">
-									<div class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0"
-										id="_1065502720_1574136083">
-										<div id="text_5e5829d659287"
-											class="col-xs-12 col-sm-12 col-md-12 col-xs-offset-0 col-sm-offset-0 col-md-offset-0">
-
-											<h3>
-												<span style="
-																font-size: 18pt;
-																color: #00517a;
-																line-height: 2px;
-																text-align: center;
-															"><strong style="text-align: center; line-height: normal; display: flex;" data-i18n="sectionTitle">EU QUERO PARTICIPAR DO Ecossistema Circular 8 Skills - Ecosystem8Skills</strong></span>
-											</h3>
-											<p>
-												<span style="font-size: 14pt; color: #333333;" data-i18n="sectionDesc">Junte-se a um movimento global de inovação e sustentabilidade. No Ecossistema Circular 8 Skills, você terá acesso a um ambiente único, focado no desenvolvimento de estratégias circulares. Conecte-se com líderes da indústria, especialistas e startups que estão transformando a economia com soluções sustentáveis e de baixo impacto.
-												</span>
-											</p>
-											<p>
-
-
-											<div style="display: flex; justify-content: center; margin: 30px 0;">
-												<img src="images/uniao.jpeg" alt="União e colaboração no ecossistema"
-													style="width: 100%; max-width: 600px; height: auto; border-radius: 16px; box-shadow: 0 8px 24px rgba(0, 81, 122, 0.2); object-fit: cover;">
-											</div>
-
-											
-											<br>
-
-											<!-- Perguntar se é pra colocar isso <ol style="font-size: 14pt; font-weight: 600; color: #00517a; padding-left: 20px;">
-												<li>Congresso Internacional Circular 8 Skills </li>
-												<li>Ecossistema Circular 8 Skills: Avaliação do Grau de Circularidade, palestras, livres, cursos</li>
-											</ol> -->
-
-											<p style="margin-top: 20px;">
-												<span style="font-size: 14pt; color: #333333" data-i18n="sectionDesc2">Uma Jornada rumo à circularidade. Venha conosco aprender como se estrutura um Ecossistema Circular 8 Skills, Sistêmicos e Ecossistêmico!
-												</span>
-											</p>
-											</p>
-										</div>
-										<br>
-						<div class="d-flex justify-content-center" style="align-items: center;">
-											<h4 style="color: #00517a; text-align: center; "><strong data-i18n="ctaHeading">Para participar clique no botão abaixo: </strong></h4>
-											<div class="col-xs-12 col-sm-12 col-md-12" id="_28225614_1574136083">
-												<div class="aligned-container-bt">
-													<div class="text-container-bt" style="font-size: 14pt;">
-														
-														<button type="button" class="button buttonStyled" style="--size: 0.8;">
-															<a  target="_blank" style="text-decoration: none; color: #fff;" href="cts-inscricao-form.html" data-i18n="btnRegister">Inscreva-se aqui</a>
-														</button>																													
-													</div>
-												</div>
-											</div>
-
-											<!-- <div class="col-xs-12 col-sm-12 col-md-12" id="_28225614_1574136083">
-												<h4 style="color: #00517a; text-align: center;"><strong>Se você for
-														estudante, poderá participar com a tarifa de R$ 237 clicando
-														abaixo: </strong></h4>
-												<div class="aligned-container-bt">
-													<div class="text-container-bt" style="font-size: 14pt;">
-														<button type="button" class="button buttonStyled" style="--size: 0.8;">
-															<a  target="_blank" style="text-decoration: none; color: #fff;" href="cts-form-estudante.html">Inscrição para estudantes</a>
-														</button>																																											
-													</div>
-												</div>
-											</div> -->
-										</div>
-										<div class="clear"></div>
-									</div>
-									<div class="clear"></div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
-						</div>
-						<div class="clear"></div>
-						<br>
-						<div class="clear"></div>
-						<div style="text-align:center; padding:32px 16px 0;">
-							<strong><span style="font-size:18pt; color:#00517a; font-family:Montserrat;" data-i18n="ecosystemHeading">UM ECOSSISTEMA COM A PARTICIPAÇÃO DE VÁRIOS SEGMENTOS SOCIAIS</span></strong>
-						</div>
-						<div style="padding:24px 16px 8px;">
-							<div class="partner-cta-card">
-								<img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg" alt="Parceria">
-								<h3><strong data-i18n="cardPartnerTitle">Você que é Indústria/Empresa ou Governo, aproveite nossos planos de parceria, clique no botão abaixo.</strong></h3>
-								<div class="botao2 botaoc">
-									<a class="button buttonStyled" style="--size: 0.8; --margin: 0px;" target="_self" href="ecosys8skills.html#contato" data-i18n="btnPartner">EU POSSO</a>
-								</div>
-							</div>
-						</div>
-						<div class="clear"></div>
-												<!-- Partner Wall -->
-						<div style="background:#D2E03B; border-radius:16px; padding:40px 32px 36px; margin-top:32px;">
-							<p style="text-align:center; margin-bottom:6px;">
-								<strong><span style="font-size:18pt; color:#4A3C67; font-family:Montserrat;" data-i18n="parceirosHeading">PARCEIROS &amp; REALIZADORES</span></strong>
-							</p>
-							<p style="text-align:center; color:rgba(74,60,103,0.7); font-size:9pt; margin-bottom:0; letter-spacing:1px;" data-i18n="parceirosSubtitle">Organizações que tornaram este evento possível</p>
-
-							<div class="pw-divider"><span data-i18n="realizacaoHeading">REALIZAÇÃO</span></div>
-							<div class="pw-logos">
-								<div class="pw-card pw-card--lg">
-										<img src="images/page-2-event/image-removebg-preview.png" alt="Circular Tech Skills">
-									</div>
-									<div class="pw-card pw-card--lg">
-										<img src="images/logo-recitec-02-02-removebg-preview-300x183.png" alt="EcoRecitec">
-									</div>
-								
-							</div>
-
-							<div class="pw-divider"><span data-i18n="promocaoHeading">APOIO ESPECIAL</span></div>
-							<div class="pw-logos">
-								<div class="pw-card pw-card--md">
-									<img src="images/image-removebg-preview-1-300x170.png" alt="Decolores">
-								</div>
-								<div class="pw-card pw-card--md">
-									<img src="images/whatsapp_image_2024-06-09_at_12.33.35-removebg-preview.png" alt="CEC Salvador">
-								</div>
-								<div class="pw-card pw-card--lg">
-									<img src="images/MARCA FIEB PNG_FIEB  INTERNET.png" alt="FIEB">
-								</div>
-							</div>
-						</div>
-
-				<div class="clear"></div>
-			</div>
-			<div class="clear"></div>
 		</div>
-	</div>
 
-	<br><br><br>
-	<div class="footerDiv">
-		<div class="container-fluid" style="color: white; max-width: 1200px; margin: auto;">
-			<!-- Logo -->
-			<div class="row" style="display: flex; justify-content: space-between; align-items: center;">
-
-				<div class="col-xs-8 col-sm-4 col-md-4" style="text-align: center;">
-					<p style="font-size: 12pt; color: #ffffff;"><strong data-i18n="footerSlogan">Somos referência na transição da economia linear para economia circular</strong></p>
-					<p style="color: #ffffff; font-size: 10pt;" data-i18n="footerDesc">Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia circular/ESG, cursos, treinamentos, mentorias e gestão de projetos.</p>
-					<p style="font-size: 12pt; color: #ffffff;"><strong>Circular 8 Skills</strong></p>
-					<p style="font-size: 10pt; color: #ffffff;">Contato: EcoRecitec Telefone - 55 71 999-748068</p>
-					<p style="font-size: 10pt; color: #ffffff;">E-mail: eco.recitec@gmail.com</p>
+		<!-- ===== O QUE VOCÊ VAI VIVENCIAR ===== -->
+		<div class="section-gray">
+			<div class="container-main">
+				<h2 class="section-title anim" data-i18n="experienceTitle">O que você vai vivenciar no evento</h2>
+				<div class="exp-grid">
+					<div class="exp-card anim anim-d1">
+						<span class="exp-icon"><i class="fa-solid fa-award"></i></span>
+						<p data-i18n="exp1">Apresentação oficial do Ecosystem8Skills</p>
+					</div>
+					<div class="exp-card anim anim-d1">
+						<span class="exp-icon"><i class="fa-solid fa-recycle"></i></span>
+						<p data-i18n="exp2">Entendimento das 8 competências circulares</p>
+					</div>
+					<div class="exp-card anim anim-d2">
+						<span class="exp-icon"><i class="fa-solid fa-city"></i></span>
+						<p data-i18n="exp3">Exemplos reais de aplicação em territórios e organizações</p>
+					</div>
+					<div class="exp-card anim anim-d2">
+						<span class="exp-icon"><i class="fa-solid fa-earth-americas"></i></span>
+						<p data-i18n="exp4">Conexão com especialistas nacionais e internacionais</p>
+					</div>
+					<div class="exp-card anim anim-d3">
+						<span class="exp-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+						<p data-i18n="exp5">Lançamento das trilhas formativas e oportunidades de parceria</p>
+					</div>
+					<div class="exp-card anim anim-d3">
+						<span class="exp-icon"><i class="fa-solid fa-comments"></i></span>
+						<p data-i18n="exp6">Espaço para perguntas, diálogo e construção coletiva</p>
+					</div>
 				</div>
 			</div>
+		</div>
 
-			<!-- Direitos reservados -->
-			<div class="row" style="text-align: center; margin-top: 20px;">
-				<p style="color: #ffffff; font-size: 10pt;" data-i18n="footerRights">2025 | Eco-Recitec | Todos os direitos reservados.</p>
+		<!-- ===== PARA QUEM É ===== -->
+		<div class="section-light">
+			<div class="container-main" style="text-align:center;">
+				<h2 class="section-title anim" data-i18n="audienceTitle">Para quem é o Ecosystem8Skills?</h2>
+				<div class="audience-pills anim anim-d1">
+					<span class="audience-pill"><i class="fa-solid fa-industry"></i> <span data-i18n="aud1">Profissionais da indústria e gestão pública</span></span>
+					<span class="audience-pill"><i class="fa-solid fa-chalkboard-user"></i> <span data-i18n="aud2">Educadores, pesquisadores e estudantes</span></span>
+					<span class="audience-pill"><i class="fa-solid fa-rocket"></i> <span data-i18n="aud3">Startups, empreendedores e inovadores</span></span>
+					<span class="audience-pill"><i class="fa-solid fa-building"></i> <span data-i18n="aud4">Organizações em transição circular</span></span>
+					<span class="audience-pill"><i class="fa-solid fa-leaf"></i> <span data-i18n="aud5">Entusiastas de sustentabilidade e impacto</span></span>
+				</div>
+				<p style="font-size:17px;color:var(--blue-mid);font-weight:600;margin-bottom:32px;" data-i18n="audienceConclusion">
+					Se você quer desenvolver competências para atuar na nova economia, este evento é para você.
+				</p>
+				<div class="botaoc anim anim-d2">
+					<a class="button buttonStyled" href="cts-inscricao-form.html" style="--size:0.85;text-decoration:none;color:#fff;" data-i18n="btnRegister3">
+						Fazer minha inscrição agora
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- ===== O QUE TORNA ÚNICO ===== -->
+		<div class="section-dark">
+			<div class="container-main">
+				<h2 class="section-title on-dark anim" data-i18n="uniqueTitle">O que torna o Ecosystem8Skills único?</h2>
+				<div class="unique-flex">
+					<div class="unique-item anim anim-d1">
+						<span class="unique-num">01</span>
+						<p data-i18n="unique1">Integra Soft Skills, Hard Skills e Meta Skills em um único modelo circular</p>
+					</div>
+					<div class="unique-item anim anim-d1">
+						<span class="unique-num">02</span>
+						<p data-i18n="unique2">Conecta pessoas, instituições, territórios e oportunidades</p>
+					</div>
+					<div class="unique-item anim anim-d2">
+						<span class="unique-num">03</span>
+						<p data-i18n="unique3">Baseado em metodologias internacionais e práticas brasileiras</p>
+					</div>
+					<div class="unique-item anim anim-d2">
+						<span class="unique-num">04</span>
+						<p data-i18n="unique4">Construído de forma colaborativa com especialistas e parceiros</p>
+					</div>
+					<div class="unique-item anim anim-d3">
+						<span class="unique-num">05</span>
+						<p data-i18n="unique5">Focado em impacto real, mensurável e contínuo</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ===== DEPOIMENTOS ===== -->
+		<div class="testimonials-section">
+			<div class="container-main" style="position:relative;z-index:1;">
+				<h2 class="testi-title anim" data-i18n="testiTitle">O que dizem sobre o nosso evento passado</h2>
+				<p class="testi-subtitle anim" data-i18n="testiSubtitle">vozes de quem viveu a experiência</p>
+
+				<div id="testimonialCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+					<ol class="carousel-indicators">
+						<li data-target="#testimonialCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#testimonialCarousel" data-slide-to="1"></li>
+						<li data-target="#testimonialCarousel" data-slide-to="2"></li>
+						<li data-target="#testimonialCarousel" data-slide-to="3"></li>
+						<li data-target="#testimonialCarousel" data-slide-to="4"></li>
+						<li data-target="#testimonialCarousel" data-slide-to="5"></li>
+						<li data-target="#testimonialCarousel" data-slide-to="6"></li>
+						<li data-target="#testimonialCarousel" data-slide-to="7"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="item active">
+							<div class="testi-card">
+								<p class="testi-text">Foi uma alegria participar da primeira etapa do #CircularTechSkills! Muito bom ver tantas ideias e experiências sendo trocadas entre pessoas de diferentes partes do planeta, com muita sintonia e propósito. Agradeço pela oportunidade e pelo convite — podem contar comigo para seguir colaborando e fortalecendo esse ecossistema circular.</p>
+								<div class="testi-author"><span class="testi-dash"></span><span class="testi-name">Flavio Nisenbaum</span></div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testi-card">
+								<p class="testi-text">Gostaria de agradecer pelo convite e parabenizar pelo evento — o conteúdo foi extremamente rico e expandiu de forma significativa minha percepção sobre Economia Linear e Economia Circular. Desejo muito sucesso em todos os projetos seus e da Eco-recitec!</p>
+								<div class="testi-author"><span class="testi-dash"></span><span class="testi-name">Renato Berkahaza</span></div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testi-card">
+								<p class="testi-text">Meus parabéns estendidos também a toda a equipe envolvida, pelo profissionalismo e dedicação que resultaram no pleno êxito deste evento.</p>
+								<div class="testi-author"><span class="testi-dash"></span><span class="testi-name">Flavio Nisenbaum</span></div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testi-card">
+								<p class="testi-text">Obrigada pela oportunidade!! Foi incrível!! Contem comigo!!</p>
+								<div class="testi-author"><span class="testi-dash"></span><span class="testi-name">Juliana Galliano</span></div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testi-card">
+								<p class="testi-text">Sensacional! Parabéns! Estamos juntos neste círculo virtuoso!!!</p>
+								<div class="testi-author"><span class="testi-dash"></span><span class="testi-name">Jacqueline Moreno</span></div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testi-card">
+								<p class="testi-text">Foi muito bom participar! Obrigada pelo convite 💚</p>
+								<div class="testi-author"><span class="testi-dash"></span><span class="testi-name">Millena R. Deolindo</span></div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testi-card">
+								<p class="testi-text">Honrado em ter contribuído e participado. Até a próxima.</p>
+								<div class="testi-author"><span class="testi-dash"></span><span class="testi-name">Celso Bastos, Dr.</span></div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="testi-card">
+								<p class="testi-text">Foi ótimo ter participado. Obrigado pelo convite.</p>
+								<div class="testi-author"><span class="testi-dash"></span><span class="testi-name">Up Grade</span></div>
+							</div>
+						</div>
+					</div>
+					<a class="left carousel-control" href="javascript:void(0)" data-target="#testimonialCarousel" role="button" data-slide="prev">
+						<i class="fa-solid fa-chevron-left"></i>
+					</a>
+					<a class="right carousel-control" href="javascript:void(0)" data-target="#testimonialCarousel" role="button" data-slide="next">
+						<i class="fa-solid fa-chevron-right"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- ===== VENHA SER PARCEIRO ===== -->
+		<div class="partner-section">
+			<div class="container-main" style="text-align:center;">
+				<span class="partner-badge anim">Parceria</span>
+				<h2 class="anim" style="color:var(--blue-mid);font-family:'Montserrat',sans-serif;font-size:28px;font-weight:800;margin:0 0 14px;line-height:1.3;">
+					Venha construir este ecossistema conosco
+				</h2>
+				<p class="anim" style="color:#555;font-size:17px;max-width:640px;margin:0 auto;line-height:1.7;">
+					Se a sua organização acredita na inovação e na transição para uma economia mais sustentável, há um espaço reservado para você nessa jornada. Parceiros do Ecosystem8Skills ganham muito mais do que visibilidade — ganham propósito compartilhado.
+				</p>
+				<div class="partner-benefits anim" style="text-align:left;">
+					<div class="partner-benefit-item">
+						<i class="fa-solid fa-medal"></i>
+						<span>Visibilidade como referência em práticas circulares no Brasil</span>
+					</div>
+					<div class="partner-benefit-item">
+						<i class="fa-solid fa-star"></i>
+						<span>Fortalecimento da marca junto à comunidade de inovação</span>
+					</div>
+					<div class="partner-benefit-item">
+						<i class="fa-solid fa-compass-drafting"></i>
+						<span>Apoio para planejar e executar uma estratégia circular no seu negócio</span>
+					</div>
+					<div class="partner-benefit-item">
+						<i class="fa-solid fa-lightbulb"></i>
+						<span>Acesso antecipado a novos modelos e oportunidades de negócio</span>
+					</div>
+					<div class="partner-benefit-item">
+						<i class="fa-solid fa-handshake"></i>
+						<span>Ampliação da sua rede de conexões com parceiros e especialistas</span>
+					</div>
+					<div class="partner-benefit-item">
+						<i class="fa-solid fa-chart-line"></i>
+						<span>Diferencial competitivo dentro do mercado sustentável</span>
+					</div>
+					<div class="partner-benefit-item">
+						<i class="fa-solid fa-earth-americas"></i>
+						<span>Integração a uma rede global de inovação e economia circular</span>
+					</div>
+				</div>
+				<div class="botaoc anim">
+					<a class="button buttonStyled" href="ecosys8skills.html#contato" style="--size:0.9;text-decoration:none;color:#fff;">
+						Quero saber como ser parceiro
+					</a>
+				</div>
+				<p style="color:#aaa;font-size:13px;margin-top:16px;">
+					Preencha o formulário e nossa equipe entrará em contato para conversarmos sobre as possibilidades.
+				</p>
+			</div>
+		</div>
+
+		<!-- ===== QUEM REALIZA ===== -->
+		<div class="section-gray">
+			<div class="container-main" style="text-align:center;">
+				<h2 class="section-title anim" data-i18n="realizacaoTitle">Quem realiza</h2>
+				<p class="anim" style="color:#444;font-size:16px;max-width:680px;margin:0 auto 10px;line-height:1.65;" data-i18n="realizacaoDesc">
+					O lançamento é promovido pela Recitec – Rede de Cidades Inteligentes, Tecnológicas e Criativas, com apoio de instituições que fortalecem a inovação, a educação e a sustentabilidade no Brasil.
+				</p>
+				<p class="anim" style="color:rgba(0,81,122,0.55);font-size:13px;max-width:680px;margin:0 auto 8px;line-height:1.6;" data-i18n="realizacaoPartnerDesc">
+					Essas organizações estão como parceiros nesta Jornada do Linear ao Circular e estão validando o desenvolvimento do Ecosystem8Skills, fortalecendo sua relevância e impacto.
+				</p>
+				<div class="pw-divider anim"><span data-i18n="realizacaoHeading">REALIZAÇÃO</span></div>
+				<div class="pw-logos anim">
+					<div class="pw-card pw-card--lg"><img src="images/page-2-event/image-removebg-preview.png" alt="Circular Tech Skills"></div>
+					<div class="pw-card pw-card--lg"><img src="images/logo-recitec-02-02-removebg-preview-300x183.png" alt="EcoRecitec"></div>
+				</div>
+				<div class="pw-divider anim"><span data-i18n="parceirosHeading">APOIO ESPECIAL</span></div>
+				<div class="pw-logos anim">
+					<div class="pw-card pw-card--md"><img src="images/image-removebg-preview-1-300x170.png" alt="Decolores"></div>
+					<div class="pw-card pw-card--md"><img src="images/whatsapp_image_2024-06-09_at_12.33.35-removebg-preview.png" alt="CEC Salvador"></div>
+					<div class="pw-card pw-card--md"><img src="images/MARCA FIEB PNG_FIEB  INTERNET.png" alt="FIEB"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- ===== CTA FINAL ===== -->
+		<div class="section-dark" style="text-align:center;">
+			<div class="container-main">
+				<h2 style="color:#fff;font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:14px;" data-i18n="ctaTitle">Garanta sua vaga gratuita</h2>
+				<p style="color:rgba(255,255,255,0.88);font-size:17px;margin-bottom:36px;" data-i18n="ctaDesc">
+					As inscrições são gratuitas, mas as vagas são limitadas.
+				</p>
+				<div class="botaoc">
+					<a class="button buttonStyled" href="cts-inscricao-form.html" style="--size:1.0;text-decoration:none;color:#fff;" data-i18n="btnRegister4">
+						Inscrever-me gratuitamente
+					</a>
+				</div>
+			</div>
+		</div>
+
+	</div><!-- #page_5e5829d624927 -->
+
+	<div class="footerDiv">
+		<div class="container-fluid" style="color:white;max-width:1200px;margin:auto;">
+			<div class="row" style="display:flex;justify-content:space-between;align-items:center;">
+				<div class="col-xs-8 col-sm-4 col-md-4" style="text-align:center;">
+					<p style="font-size:16px;color:#fff;"><strong data-i18n="footerSlogan">Somos referência na transição da economia linear para economia circular</strong></p>
+					<p style="color:#fff;font-size:14px;" data-i18n="footerDesc">Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia circular/ESG, cursos, treinamentos, mentorias e gestão de projetos.</p>
+					<p style="font-size:16px;color:#fff;"><strong>Circular 8 Skills</strong></p>
+					<p style="font-size:13px;color:#fff;">Contato: EcoRecitec Telefone - 55 71 999-748068</p>
+					<p style="font-size:13px;color:#fff;">E-mail: eco.recitec@gmail.com</p>
+				</div>
+			</div>
+			<div class="row" style="text-align:center;margin-top:20px;">
+				<p style="color:#fff;font-size:13px;" data-i18n="footerRights">2025 | Eco-Recitec | Todos os direitos reservados.</p>
 			</div>
 		</div>
 	</div>
 
-	</div>
 	<div class="clear"></div>
-	<!-- Scripts da página -->
+
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/jquery-migrate-1.4.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script id="anchor_code" type="text/javascript">
-		$(function () {
-			$("a").on("click", function (e) {
-				if (
-					$('[id*="' + this.hash.replace("#", "") + '"]').length > 0 &&
-					location.pathname.replace(/^\//, "") ==
-					this.pathname.replace(/^\//, "") &&
-					location.hostname == this.hostname
-				) {
-					var target = this.hash;
-					var $target = $(target);
 
-					var verify = function () {
-						if (
-							$(target).lenght > 0 ||
-							(target.indexOf("#") >= 0 && $(target).css("display") != "none")
-						) {
-							e.preventDefault();
-							$("html, body")
-								.stop()
-								.animate(
-									{
-										scrollTop: $(target).offset().top,
-									},
-									900,
-									"swing",
-									function () {
-										window.location.hash = target;
-									}
-								);
-							return false;
-						} else return 1;
-					};
-					if (
-						$(".navbar-collapse.in") &&
-						$(".navbar-collapse.in").collapse &&
-						$(this).closest(".navbar-collapse.in") &&
-						$(this).closest(".navbar-collapse.in").length > 0
-					) {
-						$(".navbar-collapse.in").on("hidden.bs.collapse", verify);
-						$(".navbar-collapse.in").collapse("hide");
-						$(".navbar-collapse.in").off("hidden.bs.collapse", verify);
-						return false;
-					} else return verify();
-				}
-			});
-		});
-
-		$(".navbar-collapse.in").on("click", function (e) {
-			if (
-				$(e.target).is("a") &&
-				$(e.target).attr("class") != "dropdown-toggle"
-			) {
-				$(this).collapse("hide");
-			}
-		});
-	</script>
-	<script type="text/javascript" src="js/wow.js"></script>
-	<script type="text/javascript">
-		$(function () {
-			$(".nav-tabs")
-				.addClass("nav-pills center-pills")
-				.removeClass("nav-tabs");
-		});
-	</script>
-	<script type="module" src="scripts/paceAcessCount.js"></script>
 	<script>
-		let currentLang = 'pt';
-		const translations = {
-			pt: {
-				heroTagline: 'Inscreva-se hoje no Ecossistema Circular 8 Skills - Ecosystem8Skills e aproveite descontos imperdíveis!',
-				heroTitle: 'FAÇA AQUI A SUA INSCRIÇÃO NO LANÇAMENTO',
-				brandName: 'Ecossistema Circular 8 Skills - Ecosystem8Skills',
-				heroTitleEnd: 'GRATUITAMENTE COM VAGAS LIMITADAS!',
-				sectionTitle: 'EU QUERO PARTICIPAR DO Ecossistema Circular 8 Skills - Ecosystem8Skills',
-				sectionDesc: 'Junte-se a um movimento global de inovação e sustentabilidade. No Ecossistema Circular 8 Skills, você terá acesso a um ambiente único, focado no desenvolvimento de estratégias circulares. Conecte-se com líderes da indústria, especialistas e startups que estão transformando a economia com soluções sustentáveis e de baixo impacto.',
-				ctaHeading: 'Para participar clique no botão abaixo:',
-				btnRegister: 'Inscreva-se aqui',
-				cardPartnerTitle: 'Você que é Indústria/Empresa ou Governo, aproveite nossos planos de parceria, clique no botão abaixo.',
-				btnPartner: 'EU POSSO',
-				sectionDesc2: 'Uma Jornada rumo à circularidade. Venha conosco aprender como se estrutura um Ecossistema Circular 8 Skills, Sistêmicos e Ecossistêmico!',
-				ecosystemHeading: 'UM ECOSSISTEMA COM A PARTICIPAÇÃO DE VÁRIOS SEGMENTOS SOCIAIS',
-				parceirosHeading: 'PARCEIROS & REALIZADORES',
-				parceirosSubtitle: 'Organizações que tornaram este evento possível',
-				realizacaoHeading: 'REALIZAÇÃO',
-				promocaoHeading: 'PROMOÇÃO E ORGANIZAÇÃO',
-				footerSlogan: 'Somos referência na transição da economia linear para economia circular',
-				footerDesc: 'Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia circular/ESG, cursos, treinamentos, mentorias e gestão de projetos.',
-				footerRights: '2025 | Eco-Recitec | Todos os direitos reservados.',
-			},
-			en: {
-				heroTagline: 'Register today for the Circular 8 Skills Ecosystem - Ecosystem8Skills and take advantage of unmissable discounts!',
-				heroTitle: 'REGISTER HERE FOR THE',
-				brandName: 'Circular 8 Skills Ecosystem - Ecosystem8Skills',
-				heroTitleEnd: 'AND ENJOY ALL THE BENEFITS',
-				sectionTitle: 'I WANT TO JOIN THE Circular 8 Skills Ecosystem - Ecosystem8Skills',
-				sectionDesc: 'Join a global movement of innovation and sustainability. In the Circular 8 Skills Ecosystem, you will have access to a unique environment focused on developing circular strategies. Connect with industry leaders, experts and startups transforming the economy with sustainable, low-impact solutions.',
-				ctaHeading: 'To participate, click the button below:',
-				btnRegister: 'Register here',
-				cardPartnerTitle: 'If you are an Industry/Company or Government, take advantage of our partnership plans, click the button below.',
-				btnPartner: 'I\'M IN',
-				sectionDesc2: 'A Journey towards circularity. Join us to learn how to structure a Circular 8 Skills Ecosystem, Systemic and Ecosystemic!',
-				ecosystemHeading: 'AN ECOSYSTEM WITH THE PARTICIPATION OF VARIOUS SOCIAL SEGMENTS',
-				parceirosHeading: 'PARTNERS & PRODUCERS',
-				parceirosSubtitle: 'Organizations that made this event possible',
-				realizacaoHeading: 'REALIZATION',
-				promocaoHeading: 'PROMOTION AND ORGANIZATION',
-				footerSlogan: 'We are a reference in the transition from linear to circular economy',
-				footerDesc: 'Sustainability, consulting for innovation projects that combine mindset and circular economy/ESG, courses, training, mentoring and project management.',
-				footerRights: '2025 | Eco-Recitec | All rights reserved.',
-			}
-		};
+	// ===== NAVBAR SCROLL SHADOW =====
+	window.addEventListener('scroll', function () {
+		var nav = document.getElementById('mainNav');
+		if (window.scrollY > 10) nav.classList.add('scrolled');
+		else nav.classList.remove('scrolled');
+	});
 
-		function applyLanguage(lang) {
-			document.querySelectorAll('[data-i18n]').forEach(function(el) {
-				const key = el.getAttribute('data-i18n');
-				if (translations[lang][key] !== undefined) el.textContent = translations[lang][key];
-			});
-			const btn = document.getElementById('langToggleBtn');
-			if (lang === 'en') {
-				btn.innerHTML = '<span class="fi fi-br" style="width:22px;height:22px;font-size:22px;"></span> PT';
-			} else {
-				btn.innerHTML = '<span class="fi fi-us" style="width:22px;height:22px;font-size:22px;"></span> EN';
+	// ===== SCROLL ANIMATIONS =====
+	var observer = new IntersectionObserver(function (entries) {
+		entries.forEach(function (entry) {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('visible');
+				observer.unobserve(entry.target);
 			}
-			document.documentElement.lang = lang;
-		}
+		});
+	}, { threshold: 0.12 });
+	document.querySelectorAll('.anim').forEach(function (el) { observer.observe(el); });
 
-		function toggleLanguage() {
-			currentLang = currentLang === 'pt' ? 'en' : 'pt';
-			applyLanguage(currentLang);
+	// ===== ANCHOR SCROLL =====
+	$(function () {
+		$("a").on("click", function (e) {
+			if (
+				this.hash && this.hash !== '#' &&
+				$('[id*="' + this.hash.replace("#", "") + '"]').length > 0 &&
+				location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") &&
+				location.hostname == this.hostname
+			) {
+				var target = this.hash;
+				if ($(target).length > 0 && $(target).css("display") !== "none") {
+					e.preventDefault();
+					$("html, body").stop().animate({ scrollTop: $(target).offset().top }, 900, "swing", function () {
+						window.location.hash = target;
+					});
+					if ($(".navbar-collapse.in").length) $(".navbar-collapse.in").collapse("hide");
+				}
+			}
+		});
+	});
+
+	// ===== CAROUSEL =====
+	$(document).ready(function () {
+		$('#testimonialCarousel').carousel({ interval: 6000, wrap: true });
+	});
+
+	// ===== I18N =====
+	var currentLang = 'pt';
+	var translations = {
+		pt: {
+			heroBadge: 'Lançamento do Ecosystem8Skills',
+			heroTitle: 'Competências circulares para uma nova economia',
+			heroSubtitle: 'Participe gratuitamente do lançamento do primeiro modelo brasileiro que integra Soft Skills, Hard Skills e Meta Skills para a transição circular — para pessoas, organizações e territórios.',
+			heroUrgency: 'Garanta sua vaga gratuita agora. Vagas limitadas.',
+			btnRegister1: 'Garantir minha vaga gratuita',
+			btnRegister2: 'Quero participar gratuitamente',
+			btnRegister3: 'Fazer minha inscrição agora',
+			btnRegister4: 'Inscrever-me gratuitamente',
+			whyTitle: 'Por que participar do lançamento?',
+			why1: 'Conheça o Ecosystem8Skills, uma abordagem inovadora que integra competências técnicas, comportamentais e sistêmicas para a Economia Circular.',
+			why2: 'Descubra como o modelo pode ser aplicado em empresas, governos, escolas, indústrias e comunidades.',
+			why3: 'Conecte-se com especialistas, pesquisadores e líderes que estão moldando o futuro da sustentabilidade no Brasil.',
+			why4: 'Receba acesso antecipado a conteúdos, trilhas e oportunidades do ecossistema.',
+			why5: 'Participe de um movimento que transforma conhecimento em impacto real.',
+			experienceTitle: 'O que você vai vivenciar no evento',
+			exp1: 'Apresentação oficial do Ecosystem8Skills',
+			exp2: 'Entendimento das 8 competências circulares',
+			exp3: 'Exemplos reais de aplicação em territórios e organizações',
+			exp4: 'Conexão com especialistas nacionais e internacionais',
+			exp5: 'Lançamento das trilhas formativas e oportunidades de parceria',
+			exp6: 'Espaço para perguntas, diálogo e construção coletiva',
+			audienceTitle: 'Para quem é o Ecosystem8Skills?',
+			aud1: 'Profissionais da indústria e gestão pública',
+			aud2: 'Educadores, pesquisadores e estudantes',
+			aud3: 'Startups, empreendedores e inovadores',
+			aud4: 'Organizações em transição circular',
+			aud5: 'Entusiastas de sustentabilidade e impacto',
+			audienceConclusion: 'Se você quer desenvolver competências para atuar na nova economia, este evento é para você.',
+			uniqueTitle: 'O que torna o Ecosystem8Skills único?',
+			unique1: 'Integra Soft Skills, Hard Skills e Meta Skills em um único modelo circular',
+			unique2: 'Conecta pessoas, instituições, territórios e oportunidades',
+			unique3: 'Baseado em metodologias internacionais e práticas brasileiras',
+			unique4: 'Construído de forma colaborativa com especialistas e parceiros',
+			unique5: 'Focado em impacto real, mensurável e contínuo',
+			testiTitle: 'O que dizem sobre o nosso evento passado',
+			testiSubtitle: 'vozes de quem viveu a experiência',
+			realizacaoTitle: 'Quem realiza',
+			realizacaoDesc: 'O lançamento é promovido pela Recitec – Rede de Cidades Inteligentes, Tecnológicas e Criativas, com apoio de instituições que fortalecem a inovação, a educação e a sustentabilidade no Brasil.',
+			realizacaoPartnerDesc: 'Essas organizações estão como parceiros nesta Jornada do Linear ao Circular e estão validando o desenvolvimento do Ecosystem8Skills, fortalecendo sua relevância e impacto.',
+			realizacaoHeading: 'REALIZAÇÃO',
+			parceirosHeading: 'APOIO ESPECIAL',
+			ctaTitle: 'Garanta sua vaga gratuita',
+			ctaDesc: 'As inscrições são gratuitas, mas as vagas são limitadas.',
+			footerSlogan: 'Somos referência na transição da economia linear para economia circular',
+			footerDesc: 'Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia circular/ESG, cursos, treinamentos, mentorias e gestão de projetos.',
+			footerRights: '2025 | Eco-Recitec | Todos os direitos reservados.',
+		},
+		en: {
+			heroBadge: '🌱 Ecosystem8Skills Launch',
+			heroTitle: 'Circular competencies for a new economy',
+			heroSubtitle: 'Join the free launch of the first Brazilian model integrating Soft Skills, Hard Skills and Meta Skills for the circular transition — for people, organizations and territories.',
+			heroUrgency: 'Secure your free spot now. Limited availability.',
+			btnRegister1: 'Secure my free spot',
+			btnRegister2: 'I want to join for free',
+			btnRegister3: 'Register now',
+			btnRegister4: 'Register for free',
+			whyTitle: 'Why join the launch?',
+			why1: 'Discover the Ecosystem8Skills, an innovative approach integrating technical, behavioral and systemic competencies for the Circular Economy.',
+			why2: 'Find out how the model can be applied in companies, governments, schools, industries and communities.',
+			why3: 'Connect with experts, researchers and leaders shaping the future of sustainability in Brazil.',
+			why4: 'Get early access to content, learning paths and ecosystem opportunities.',
+			why5: 'Be part of a movement that transforms knowledge into real impact.',
+			experienceTitle: 'What you will experience at the event',
+			exp1: 'Official launch of Ecosystem8Skills',
+			exp2: 'Understanding the 8 circular competencies',
+			exp3: 'Real-world application in territories and organizations',
+			exp4: 'Connection with national and international experts',
+			exp5: 'Launch of learning tracks and partnership opportunities',
+			exp6: 'Space for questions, dialogue and collective building',
+			audienceTitle: 'Who is Ecosystem8Skills for?',
+			aud1: 'Industry professionals and public management',
+			aud2: 'Educators, researchers and students',
+			aud3: 'Startups, entrepreneurs and innovators',
+			aud4: 'Organizations seeking circular transition',
+			aud5: 'Sustainability and impact enthusiasts',
+			audienceConclusion: 'If you want to develop skills for the new economy, this event is for you.',
+			uniqueTitle: 'What makes Ecosystem8Skills unique?',
+			unique1: 'Integrates Soft Skills, Hard Skills and Meta Skills in a single circular model',
+			unique2: 'Connects people, institutions, territories and opportunities',
+			unique3: 'Based on international methodologies and Brazilian practices',
+			unique4: 'Built collaboratively with experts and partners',
+			unique5: 'Focused on real, measurable and continuous impact',
+			testiTitle: 'What they say about our past event',
+			testiSubtitle: 'voices from those who lived the experience',
+			realizacaoTitle: 'Who produces it',
+			realizacaoDesc: 'The launch is promoted by Recitec – Network of Smart, Technological and Creative Cities, with support from institutions strengthening innovation, education and sustainability in Brazil.',
+			realizacaoPartnerDesc: 'These organizations are partners in this Journey from Linear to Circular, validating the development of Ecosystem8Skills.',
+			realizacaoHeading: 'ORGANIZED BY',
+			parceirosHeading: 'SPECIAL SUPPORT',
+			ctaTitle: 'Secure your free spot',
+			ctaDesc: 'Registration is free, but spots are limited.',
+			footerSlogan: 'We are a reference in the transition from linear to circular economy',
+			footerDesc: 'Sustainability, consulting for innovation projects combining mindset and circular economy/ESG, courses, training, mentoring and project management.',
+			footerRights: '2025 | Eco-Recitec | All rights reserved.',
 		}
+	};
+
+	function applyLanguage(lang) {
+		document.querySelectorAll('[data-i18n]').forEach(function (el) {
+			var key = el.getAttribute('data-i18n');
+			if (translations[lang][key] !== undefined) el.textContent = translations[lang][key];
+		});
+		var btn = document.getElementById('langToggleBtn');
+		if (lang === 'en') {
+			btn.innerHTML = '<span class="fi fi-br" style="font-size:16px;"></span> PT';
+		} else {
+			btn.innerHTML = '<span class="fi fi-us" style="font-size:16px;"></span> EN';
+		}
+		document.documentElement.lang = lang;
+	}
+
+	function toggleLanguage() {
+		currentLang = currentLang === 'pt' ? 'en' : 'pt';
+		applyLanguage(currentLang);
+	}
 	</script>
 </body>
-
 </html>
