@@ -70,49 +70,74 @@
 	/* ===== NAVBAR ===== */
 	.navbar-dark-custom {
 		background: radial-gradient(ellipse at center, #003354 0%, #00517a 100%);
-		border: none; border-radius: 0; margin-bottom: 0;
-		min-height: 80px;
+		border: none !important; border-radius: 0; margin-bottom: 0;
+		min-height: 80px; height: 80px;
 		position: relative; z-index: 1000;
 		transition: box-shadow 0.3s ease;
 	}
 	.navbar-dark-custom.scrolled { box-shadow: 0 4px 20px rgba(0,0,0,0.4); }
-	.navbar-dark-custom .navbar-header { height: 80px; display: flex; align-items: center; }
+
+	/* Força layout flex no container em TODOS os tamanhos */
+	.navbar-dark-custom > .container-fluid {
+		display: flex !important; flex-direction: row !important;
+		align-items: center !important; justify-content: space-between !important;
+		height: 80px; padding: 0 16px;
+		max-width: 1200px; margin: 0 auto;
+	}
+	.navbar-dark-custom .navbar-header {
+		float: none !important; height: 80px;
+		display: flex !important; align-items: center !important;
+	}
 	.navbar-dark-custom .navbar-brand {
 		height: 80px !important; display: flex !important;
-		align-items: center; padding: 0 20px; float: none;
+		align-items: center !important; padding: 0 !important; float: none !important;
 	}
-	.navbar-dark-custom .navbar-nav > li { display: flex; align-items: center; }
+	.navbar-dark-custom .navbar-collapse {
+		display: flex !important; flex-direction: row !important;
+		align-items: center !important; justify-content: flex-end !important;
+		float: none !important; padding: 0 !important;
+		border: none !important; box-shadow: none !important;
+		background: transparent !important;
+		width: auto !important; height: 80px;
+	}
+	.navbar-dark-custom .navbar-nav {
+		display: flex !important; flex-direction: row !important;
+		align-items: center !important;
+		float: none !important; margin: 0 !important;
+	}
+	.navbar-dark-custom .navbar-nav > li {
+		float: none !important; display: flex !important; align-items: center !important;
+	}
 	.navbar-dark-custom .navbar-nav > li > a {
 		color: rgba(255,255,255,0.85) !important;
 		font-weight: 600; font-size: 15px;
-		line-height: 80px;
-		padding: 0 18px !important;
+		line-height: 80px; white-space: nowrap;
+		padding: 0 16px !important;
 		font-family: 'Montserrat', sans-serif;
 	}
 	.navbar-dark-custom .navbar-nav > li > a:hover,
 	.navbar-dark-custom .navbar-nav > li > a:focus {
 		color: var(--orange) !important; background: transparent !important;
 	}
-	.navbar-dark-custom .navbar-collapse {
-		background: transparent !important;
-		border-top: 1px solid rgba(255,255,255,0.12);
-		display: flex; align-items: center; min-height: 80px;
-	}
-	.navbar-dark-custom .navbar-nav { margin: 0; }
-	.navbar-dark-custom .navbar-toggle .icon-bar { background: #fff; }
-	.navbar-dark-custom .navbar-toggle {
-		background: rgba(255,255,255,0.15); border: none; margin-top: 22px;
-	}
 	.lang-btn-nav {
 		background: rgba(255,255,255,0.12);
 		border: 1px solid rgba(255,255,255,0.28);
 		color: #fff; border-radius: 6px;
-		padding: 6px 14px; font-size: 13px; font-weight: 700;
+		padding: 6px 12px; font-size: 13px; font-weight: 700;
 		font-family: 'Montserrat', sans-serif;
-		cursor: pointer; display: flex; align-items: center; gap: 6px;
-		margin-left: 14px; transition: all 0.25s ease;
+		cursor: pointer; display: flex !important; align-items: center; gap: 6px;
+		margin-left: 10px; transition: all 0.25s ease; white-space: nowrap;
 	}
 	.lang-btn-nav:hover { background: var(--orange); border-color: transparent; }
+
+	/* Mobile: fonte menor, padding menor */
+	@media (max-width: 480px) {
+		.navbar-dark-custom .navbar-nav > li > a {
+			font-size: 13px; padding: 0 10px !important;
+		}
+		.lang-btn-nav { font-size: 11px; padding: 5px 8px; margin-left: 6px; }
+		.navbar-dark-custom .navbar-brand img { height: 44px !important; }
+	}
 
 	/* ===== WHATSAPP FLOAT ===== */
 	.whatsapp-float {
@@ -178,16 +203,17 @@
 	/* ===== IMAGE LAYOUT ===== */
 	.why-grid {
 		display: grid; grid-template-columns: 1fr 1fr;
-		gap: 52px; align-items: center; margin-top: 10px;
+		gap: 52px; align-items: start; margin-top: 10px;
+	}
+	.why-image img {
+		width: 100%; aspect-ratio: 4/3;
+		object-fit: cover; object-position: center center;
+		border-radius: 16px; box-shadow: 0 10px 36px rgba(0,81,122,0.16);
 	}
 	@media (max-width: 768px) {
 		.why-grid { grid-template-columns: 1fr; gap: 32px; }
 		.why-image { order: -1; }
-	}
-	.why-image img {
-		width: 100%; height: 400px;
-		object-fit: cover; object-position: center top;
-		border-radius: 16px; box-shadow: 0 10px 36px rgba(0,81,122,0.16);
+		.why-image img { aspect-ratio: 16/9; }
 	}
 
 	/* ===== EXP CARDS ===== */
@@ -372,6 +398,11 @@
 	.anim-d2 { transition-delay: 0.2s; }
 	.anim-d3 { transition-delay: 0.3s; }
 
+	/* ===== MOBILE OVERRIDES ===== */
+	@media (max-width: 768px) {
+		.section-light, .section-gray, .partner-section, .section-dark { padding: 48px 20px; }
+	}
+
 	/* ===== LEGACY ===== */
 	.botaoc { display: flex; justify-content: center; align-items: center; }
 	.gradienteescuro {
@@ -397,19 +428,12 @@
 		<nav class="navbar navbar-default navbar-dark-custom" id="mainNav">
 			<div class="container-fluid" style="max-width: 1200px; margin: 0 auto;">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-						data-target="#mainNavCollapse" aria-expanded="false">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar">&nbsp;</span>
-						<span class="icon-bar">&nbsp;</span>
-						<span class="icon-bar">&nbsp;</span>
-					</button>
 					<a class="navbar-brand" href="ecosys8skills.html">
 						<img src="images/image-removebg-preview.png" alt="Ecosystem8Skills"
 							style="height:56px;width:auto;filter:drop-shadow(0 2px 10px rgba(0,0,0,0.45));display:block;">
 					</a>
 				</div>
-				<div id="mainNavCollapse" class="collapse navbar-collapse">
+				<div id="mainNavCollapse" class="navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="ecosys8skills.html">Home</a></li>
 						<li><a href="ecosys8skills.html#contato">Contato</a></li>
@@ -458,9 +482,8 @@
 		<div class="section-light">
 			<div class="container-main">
 				<h2 class="section-title anim" data-i18n="whyTitle">Por que participar do lançamento?</h2>
-				<p class="anim" style="font-size:19px;color:var(--blue-mid);font-weight:600;text-align:center;max-width:760px;margin:0 auto 40px;line-height:1.6;" data-i18n="whyLead">
-					O Ecossistema que integra Circular Soft Skills, Hard Skills e Meta Skills para formar profissionais da Economia Circular.
-				</p>
+
+				<!-- Parte 1 -->
 				<div class="why-grid">
 					<div class="why-content anim anim-d1">
 						<ul class="benefit-list">
@@ -470,6 +493,32 @@
 							<li data-i18n="why4">Receba acesso antecipado a conteúdos, trilhas e oportunidades do ecossistema.</li>
 							<li data-i18n="why5">Participe de um movimento que transforma conhecimento em impacto real.</li>
 						</ul>
+					</div>
+					<div class="why-image anim anim-d2">
+						<img src="images/uniao.jpeg" alt="Pessoas colaborando no ecossistema">
+					</div>
+				</div>
+
+				<!-- Divisor sutil -->
+				<div class="anim" style="margin:52px 0 44px;padding:24px 28px;background:rgba(0,81,122,0.05);border-left:4px solid var(--orange);border-radius:0 12px 12px 0;" data-i18n="whyLead">
+					<p style="margin:0;font-size:19px;font-weight:700;color:var(--blue-mid);font-family:'Montserrat',sans-serif;line-height:1.5;">
+						O Ecossistema que integra Circular Soft Skills, Hard Skills e Meta Skills para formar profissionais da Economia Circular.
+					</p>
+				</div>
+
+				<!-- Parte 2 -->
+				<div class="why-grid">
+					<div class="why-content anim anim-d1">
+						<ul class="benefit-list">
+							<li data-i18n="why6">Aprenda a aplicar Design Circular People, Design Organizacional Circular e Circular Softskills em modelos colaborativos e complexos.</li>
+							<li data-i18n="why7">Explore Construção Circular, Moda Circular, Resíduos Inteligentes e Economia Circular — pilares de um novo jeito de aprender e construir.</li>
+							<li data-i18n="why8">Especialistas do Brasil, Portugal e Rússia reunidos em um evento 100% on-line e gratuito.</li>
+						</ul>
+						<div style="display:flex;flex-wrap:wrap;gap:16px;margin:24px 0 8px;font-size:15px;color:var(--blue-mid);font-weight:600;font-family:'Montserrat',sans-serif;">
+							<span><i class="fa-solid fa-leaf" style="color:var(--orange);margin-right:6px;"></i>Evento on-line e gratuito</span>
+							<span><i class="fa-solid fa-phone" style="color:var(--orange);margin-right:6px;"></i>(71) 99974-8068</span>
+							<span><i class="fa-brands fa-instagram" style="color:var(--orange);margin-right:6px;"></i>@EcoRecitec</span>
+						</div>
 						<div style="margin-top:38px;">
 							<a class="button buttonStyled" href="cts-inscricao-form.html" style="--size:0.85;text-decoration:none;color:#fff;" data-i18n="btnRegister2">
 								Quero participar gratuitamente
@@ -477,9 +526,10 @@
 						</div>
 					</div>
 					<div class="why-image anim anim-d2">
-						<img src="images/uniao.jpeg" alt="Pessoas colaborando no ecossistema">
+						<img src="images/banner/fundo-banner-02.jpg" alt="Reunião sobre Economia Circular">
 					</div>
 				</div>
+
 			</div>
 		</div>
 
@@ -553,7 +603,7 @@
 					</div>
 					<div class="unique-item anim anim-d2">
 						<span class="unique-num">03</span>
-						<p data-i18n="unique3">Baseado em metodologias internacionais e práticas brasileiras</p>
+						<p data-i18n="unique3">Baseado em conteúdos internacionais e nacionais, com estratégias e frameworks flexíveis construídos pela aplicação do método Mindset do Linear ao Circular de Celene Britto.</p>
 					</div>
 					<div class="unique-item anim anim-d2">
 						<span class="unique-num">04</span>
@@ -700,7 +750,7 @@
 			<div class="container-main" style="text-align:center;">
 				<h2 class="section-title anim" data-i18n="realizacaoTitle">Quem realiza</h2>
 				<p class="anim" style="color:#444;font-size:16px;max-width:680px;margin:0 auto 10px;line-height:1.65;" data-i18n="realizacaoDesc">
-					O lançamento é promovido pela Recitec – Rede de Cidades Inteligentes, Tecnológicas e Criativas, com apoio de instituições que fortalecem a inovação, a educação e a sustentabilidade no Brasil.
+					O lançamento é uma realização da <strong>EcoRecitec</strong> e do <strong>Instituto Mentalidade Ecossistêmica – I-Merci</strong>, com apoio de instituições que fortalecem a inovação, a educação e a sustentabilidade no Brasil.
 				</p>
 				<p class="anim" style="color:rgba(0,81,122,0.55);font-size:13px;max-width:680px;margin:0 auto 8px;line-height:1.6;" data-i18n="realizacaoPartnerDesc">
 					Essas organizações estão como parceiros nesta Jornada do Linear ao Circular e estão validando o desenvolvimento do Ecosystem8Skills, fortalecendo sua relevância e impacto.
@@ -722,7 +772,7 @@
 		<!-- ===== CTA FINAL ===== -->
 		<div class="section-dark" style="text-align:center;">
 			<div class="container-main">
-				<h2 style="color:#fff;font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:14px;" data-i18n="ctaTitle">Garanta sua vaga gratuita</h2>
+				<h2 style="color:#fff;font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:14px;" data-i18n="ctaTitle">Garanta sua vaga gratuita para o lançamento</h2>
 				<p style="color:rgba(255,255,255,0.88);font-size:17px;margin-bottom:36px;" data-i18n="ctaDesc">
 					As inscrições são gratuitas, mas as vagas são limitadas.
 				</p>
