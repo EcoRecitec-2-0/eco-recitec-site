@@ -38,7 +38,7 @@
 	<title>Inscrições | Ecosystem8Skills</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Lançamento do Ecosystem8Skills — inscrição gratuita para o primeiro modelo brasileiro de competências para a transição à Economia Circular." />
+	<meta name="description" content="Pré-Lançamento do Ecosystem8Skills — inscrição gratuita para o primeiro modelo brasileiro de competências para a transição à Economia Circular." />
 	<link rel="shortcut icon" href="images/logo/favicon.png" />
 	<link rel="icon" href="images/logo/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -403,7 +403,63 @@
 		.section-light, .section-gray, .partner-section, .section-dark { padding: 48px 20px; }
 	}
 
-	/* ===== LEGACY ===== */
+	.site-footer {
+		background: linear-gradient(135deg, #001e35 0%, #003354 50%, #00517a 100%);
+		position: relative; overflow: hidden;
+	}
+	.site-footer::before {
+		content:''; position:absolute; inset:0; pointer-events:none;
+		background-image: radial-gradient(rgba(255,145,11,0.04) 1px, transparent 1px);
+		background-size: 28px 28px;
+	}
+	.sf-inner {
+		max-width: 960px; margin: 0 auto; padding: 56px 24px 40px;
+		display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;
+		position: relative; z-index: 1;
+	}
+	.sf-logo { height: 52px; width: auto; margin-bottom: 20px; display: block; }
+	.sf-slogan {
+		color: #fff; font-size: 14px; font-weight: 700;
+		font-family: 'Montserrat', sans-serif; line-height: 1.5; margin-bottom: 10px;
+	}
+	.sf-desc { color: rgba(255,255,255,0.55); font-size: 13px; line-height: 1.65; margin: 0; }
+	.sf-heading {
+		color: var(--orange); font-size: 11px; font-weight: 800;
+		letter-spacing: 2px; text-transform: uppercase;
+		font-family: 'Montserrat', sans-serif; margin: 0 0 18px;
+	}
+	.sf-nav { list-style: none; padding: 0; margin: 0; }
+	.sf-nav li { margin-bottom: 10px; }
+	.sf-nav a {
+		color: rgba(255,255,255,0.7); font-size: 14px; text-decoration: none;
+		transition: color 0.2s;
+	}
+	.sf-nav a:hover { color: var(--orange); }
+	.sf-contact-list { list-style: none; padding: 0; margin: 0; }
+	.sf-contact-list li {
+		display: flex; align-items: center; gap: 10px;
+		color: rgba(255,255,255,0.7); font-size: 13px; margin-bottom: 12px;
+	}
+	.sf-contact-list i { color: var(--orange); font-size: 14px; flex-shrink: 0; }
+	.sf-contact-list a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+	.sf-contact-list a:hover { color: var(--orange); }
+	.sf-bottom {
+		border-top: 1px solid rgba(255,255,255,0.1);
+		text-align: center; padding: 18px 24px;
+		color: rgba(255,255,255,0.38); font-size: 12px;
+		position: relative; z-index: 1;
+	}
+	.sf-bottom-sep { margin: 0 8px; }
+	@media (max-width: 768px) {
+		.sf-inner { grid-template-columns: 1fr 1fr; gap: 32px; padding: 40px 20px 32px; }
+		.sf-col--brand { grid-column: 1 / -1; }
+		.sf-logo { height: 44px; }
+	}
+	@media (max-width: 480px) {
+		.sf-inner { grid-template-columns: 1fr; gap: 28px; }
+	}
+
+		/* ===== LEGACY ===== */
 	.botaoc { display: flex; justify-content: center; align-items: center; }
 	.gradienteescuro {
 		background: radial-gradient(ellipse at center, rgba(0,51,84,1) 0%, rgba(0,81,122,1) 100%);
@@ -452,7 +508,7 @@
 			<div style="position:relative;z-index:1;max-width:820px;width:100%;">
 				<!-- Label de lançamento -->
 				<div style="margin-bottom:14px;">
-					<span class="hero-badge" data-i18n="heroBadge">LANÇAMENTO OFICIAL</span>
+					<span class="hero-badge" data-i18n="heroBadge">PRÉ-LANÇAMENTO OFICIAL</span>
 				</div>
 				<!-- Nome do produto em destaque -->
 				<p style="color:var(--orange);font-size:clamp(20px,3.5vw,30px);font-weight:800;font-family:'Montserrat',sans-serif;letter-spacing:1px;margin:0 0 16px;" data-i18n="heroProduct">
@@ -460,7 +516,7 @@
 				</p>
 				<!-- Título principal -->
 				<h1 style="color:#fff;font-size:clamp(26px,4vw,46px);margin:0 0 22px;line-height:1.25;font-weight:800;" data-i18n="heroTitle">
-					Venha para o lançamento do Ecosystem8Skills, o primeiro Ecossistema Circular que atua com o desenvolvimento de habilidades Circulares
+					Venha para o pré-lançamento do Ecosystem8Skills, o primeiro Ecossistema Circular que atua com o desenvolvimento de habilidades Circulares
 				</h1>
 				<!-- Descrição -->
 				<p style="color:rgba(255,255,255,0.88);font-size:18px;max-width:700px;margin:0 auto 16px;line-height:1.7;" data-i18n="heroSubtitle">
@@ -481,7 +537,7 @@
 		<!-- ===== POR QUE PARTICIPAR ===== -->
 		<div class="section-light">
 			<div class="container-main">
-				<h2 class="section-title anim" data-i18n="whyTitle">Por que participar do lançamento?</h2>
+				<h2 class="section-title anim" data-i18n="whyTitle">Por que participar do pré-lançamento?</h2>
 
 				<!-- Parte 1 -->
 				<div class="why-grid">
@@ -750,7 +806,7 @@
 			<div class="container-main" style="text-align:center;">
 				<h2 class="section-title anim" data-i18n="realizacaoTitle">Quem realiza</h2>
 				<p class="anim" style="color:#444;font-size:16px;max-width:680px;margin:0 auto 10px;line-height:1.65;" data-i18n="realizacaoDesc">
-					O lançamento é uma realização da <strong>EcoRecitec</strong> e do <strong>Instituto Mentalidade Ecossistêmica – I-Merci</strong>, com apoio de instituições que fortalecem a inovação, a educação e a sustentabilidade no Brasil.
+					O pré-lançamento é uma realização da <strong>EcoRecitec</strong> e do <strong>Instituto Mentalidade Ecossistêmica – I-Merci</strong>, com apoio de instituições que fortalecem a inovação, a educação e a sustentabilidade no Brasil.
 				</p>
 				<p class="anim" style="color:rgba(0,81,122,0.55);font-size:13px;max-width:680px;margin:0 auto 8px;line-height:1.6;" data-i18n="realizacaoPartnerDesc">
 					Essas organizações estão como parceiros nesta Jornada do Linear ao Circular e estão validando o desenvolvimento do Ecosystem8Skills, fortalecendo sua relevância e impacto.
@@ -764,7 +820,7 @@
 				<div class="pw-logos anim">
 					<div class="pw-card pw-card--md"><img src="images/image-removebg-preview-1-300x170.png" alt="Decolores"></div>
 					<div class="pw-card pw-card--md"><img src="images/whatsapp_image_2024-06-09_at_12.33.35-removebg-preview.png" alt="CEC Salvador"></div>
-					<div class="pw-card pw-card--md"><img src="images/MARCA FIEB PNG_FIEB  INTERNET.png" alt="FIEB"></div>
+					<div class="pw-card pw-card--md"><img src="images/logo-meu-clube.jpeg" alt="Meu Clube de Negócios de Impacto"></div>
 				</div>
 			</div>
 		</div>
@@ -772,7 +828,7 @@
 		<!-- ===== CTA FINAL ===== -->
 		<div class="section-dark" style="text-align:center;">
 			<div class="container-main">
-				<h2 style="color:#fff;font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:14px;" data-i18n="ctaTitle">Garanta sua vaga gratuita para o lançamento</h2>
+				<h2 style="color:#fff;font-size:clamp(24px,4vw,36px);font-weight:800;margin-bottom:14px;" data-i18n="ctaTitle">Garanta sua vaga gratuita para o pré-lançamento</h2>
 				<p style="color:rgba(255,255,255,0.88);font-size:17px;margin-bottom:36px;" data-i18n="ctaDesc">
 					As inscrições são gratuitas, mas as vagas são limitadas.
 				</p>
@@ -786,24 +842,48 @@
 
 	</div><!-- #page_5e5829d624927 -->
 
-	<div class="footerDiv">
-		<div class="container-fluid" style="color:white;max-width:1200px;margin:auto;">
-			<div class="row" style="display:flex;justify-content:space-between;align-items:center;">
-				<div class="col-xs-8 col-sm-4 col-md-4" style="text-align:center;">
-					<p style="font-size:16px;color:#fff;"><strong data-i18n="footerSlogan">Somos referência na transição da economia linear para economia circular</strong></p>
-					<p style="color:#fff;font-size:14px;" data-i18n="footerDesc">Sustentabilidade, consultoria para projetos de inovação que associam mindset e economia circular/ESG, cursos, treinamentos, mentorias e gestão de projetos.</p>
-					<p style="font-size:16px;color:#fff;"><strong>Circular 8 Skills</strong></p>
-					<p style="font-size:13px;color:#fff;">Contato: EcoRecitec Telefone - 55 71 999-748068</p>
-					<p style="font-size:13px;color:#fff;">E-mail: eco.recitec@gmail.com</p>
-				</div>
-			</div>
-			<div class="row" style="text-align:center;margin-top:20px;">
-				<p style="color:#fff;font-size:13px;" data-i18n="footerRights">2025 | Eco-Recitec | Todos os direitos reservados.</p>
-			</div>
-		</div>
-	</div>
+	<footer class="site-footer">
+		<div class="sf-inner">
 
-	<div class="clear"></div>
+			<!-- Col 1: marca -->
+			<div class="sf-col sf-col--brand">
+				<img src="images/image-removebg-preview.png" alt="Ecosystem8Skills" class="sf-logo">
+				<p class="sf-slogan" data-i18n="footer_slogan">Somos referência na transição da economia linear para economia circular</p>
+				<p class="sf-desc" data-i18n="footer_desc">Sustentabilidade, consultoria em inovação circular/ESG, cursos, treinamentos, mentorias e gestão de projetos.</p>
+			</div>
+
+			<!-- Col 2: navegação -->
+			<div class="sf-col sf-col--nav">
+				<h4 class="sf-heading" data-i18n="footer_nav_title">Navegação</h4>
+				<ul class="sf-nav">
+					<li><a href="ecosys8skills.html#home" data-i18n="nav_home">Home</a></li>
+					<li><a href="ecosys8skills.html#jornada">A Jornada</a></li>
+					<li><a href="ecosys8skills.html#palestrantes" data-i18n="nav_palestrantes">Palestrantes</a></li>
+					<li><a href="ecosys8skills.html#apoio" data-i18n="nav_apoio">Parceiros</a></li>
+					<li><a href="cts-inscricao.html" data-i18n="btn_inscricao">Inscrições</a></li>
+				</ul>
+			</div>
+
+			<!-- Col 3: contato -->
+			<div class="sf-col sf-col--contact">
+				<h4 class="sf-heading" data-i18n="footer_contact_title">Contato</h4>
+				<ul class="sf-contact-list">
+					<li><i class="fa-solid fa-building"></i><span>EcoRecitec</span></li>
+					<li><i class="fa-solid fa-phone"></i><a href="tel:+5571999748068">(71) 99974-8068</a></li>
+					<li><i class="fa-solid fa-envelope"></i><a href="mailto:eco.recitec@gmail.com">eco.recitec@gmail.com</a></li>
+					<li><i class="fa-brands fa-whatsapp"></i><a href="https://api.whatsapp.com/send?phone=5571986956150" target="_blank">WhatsApp</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+		<!-- Bottom bar -->
+		<div class="sf-bottom">
+			<span data-i18n="footer_rights">2026 · EcoRecitec · Todos os direitos reservados.</span>
+			<span class="sf-bottom-sep">·</span>
+			<span>Ecosystem8Skills</span>
+		</div>
+	</footer>
 
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<script type="text/javascript" src="js/jquery-migrate-1.4.1.min.js"></script>
@@ -858,15 +938,15 @@
 	var currentLang = 'pt';
 	var translations = {
 		pt: {
-			heroBadge: 'Lançamento do Ecosystem8Skills',
+			heroBadge: 'Pré-Lançamento do Ecosystem8Skills',
 			heroTitle: 'Competências circulares para uma nova economia',
-			heroSubtitle: 'Participe gratuitamente do lançamento do primeiro modelo brasileiro que integra Soft Skills, Hard Skills e Meta Skills para a transição circular — para pessoas, organizações e territórios.',
+			heroSubtitle: 'Participe gratuitamente do pré-lançamento do primeiro modelo brasileiro que integra Soft Skills, Hard Skills e Meta Skills para a transição circular — para pessoas, organizações e territórios.',
 			heroUrgency: 'Garanta sua vaga gratuita agora. Vagas limitadas.',
 			btnRegister1: 'Garantir minha vaga gratuita',
 			btnRegister2: 'Quero participar gratuitamente',
 			btnRegister3: 'Fazer minha inscrição agora',
 			btnRegister4: 'Inscrever-me gratuitamente',
-			whyTitle: 'Por que participar do lançamento?',
+			whyTitle: 'Por que participar do pré-lançamento?',
 			why1: 'Conheça o Ecosystem8Skills, uma abordagem inovadora que integra competências técnicas, comportamentais e sistêmicas para a Economia Circular.',
 			why2: 'Descubra como o modelo pode ser aplicado em empresas, governos, escolas, indústrias e comunidades.',
 			why3: 'Conecte-se com especialistas, pesquisadores e líderes que estão moldando o futuro da sustentabilidade no Brasil.',
@@ -895,7 +975,7 @@
 			testiTitle: 'O que dizem sobre o nosso evento passado',
 			testiSubtitle: 'vozes de quem viveu a experiência',
 			realizacaoTitle: 'Quem realiza',
-			realizacaoDesc: 'O lançamento é promovido pela Recitec – Rede de Cidades Inteligentes, Tecnológicas e Criativas, com apoio de instituições que fortalecem a inovação, a educação e a sustentabilidade no Brasil.',
+			realizacaoDesc: 'O pré-lançamento é promovido pela Recitec – Rede de Cidades Inteligentes, Tecnológicas e Criativas, com apoio de instituições que fortalecem a inovação, a educação e a sustentabilidade no Brasil.',
 			realizacaoPartnerDesc: 'Essas organizações estão como parceiros nesta Jornada do Linear ao Circular e estão validando o desenvolvimento do Ecosystem8Skills, fortalecendo sua relevância e impacto.',
 			realizacaoHeading: 'REALIZAÇÃO',
 			parceirosHeading: 'APOIO ESPECIAL',
@@ -906,22 +986,22 @@
 			footerRights: '2025 | Eco-Recitec | Todos os direitos reservados.',
 		},
 		en: {
-			heroBadge: '🌱 Ecosystem8Skills Launch',
+			heroBadge: '🌱 Ecosystem8Skills Pre-Launch',
 			heroTitle: 'Circular competencies for a new economy',
-			heroSubtitle: 'Join the free launch of the first Brazilian model integrating Soft Skills, Hard Skills and Meta Skills for the circular transition — for people, organizations and territories.',
+			heroSubtitle: 'Join the free pre-launch of the first Brazilian model integrating Soft Skills, Hard Skills and Meta Skills for the circular transition — for people, organizations and territories.',
 			heroUrgency: 'Secure your free spot now. Limited availability.',
 			btnRegister1: 'Secure my free spot',
 			btnRegister2: 'I want to join for free',
 			btnRegister3: 'Register now',
 			btnRegister4: 'Register for free',
-			whyTitle: 'Why join the launch?',
+			whyTitle: 'Why join the pre-launch?',
 			why1: 'Discover the Ecosystem8Skills, an innovative approach integrating technical, behavioral and systemic competencies for the Circular Economy.',
 			why2: 'Find out how the model can be applied in companies, governments, schools, industries and communities.',
 			why3: 'Connect with experts, researchers and leaders shaping the future of sustainability in Brazil.',
 			why4: 'Get early access to content, learning paths and ecosystem opportunities.',
 			why5: 'Be part of a movement that transforms knowledge into real impact.',
 			experienceTitle: 'What you will experience at the event',
-			exp1: 'Official launch of Ecosystem8Skills',
+			exp1: 'Official pre-launch of Ecosystem8Skills',
 			exp2: 'Understanding the 8 circular competencies',
 			exp3: 'Real-world application in territories and organizations',
 			exp4: 'Connection with national and international experts',
@@ -943,7 +1023,7 @@
 			testiTitle: 'What they say about our past event',
 			testiSubtitle: 'voices from those who lived the experience',
 			realizacaoTitle: 'Who produces it',
-			realizacaoDesc: 'The launch is promoted by Recitec – Network of Smart, Technological and Creative Cities, with support from institutions strengthening innovation, education and sustainability in Brazil.',
+			realizacaoDesc: 'The pre-launch is promoted by Recitec – Network of Smart, Technological and Creative Cities, with support from institutions strengthening innovation, education and sustainability in Brazil.',
 			realizacaoPartnerDesc: 'These organizations are partners in this Journey from Linear to Circular, validating the development of Ecosystem8Skills.',
 			realizacaoHeading: 'ORGANIZED BY',
 			parceirosHeading: 'SPECIAL SUPPORT',
