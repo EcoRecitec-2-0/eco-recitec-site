@@ -1142,9 +1142,8 @@
                                                 line-height: 1.5;
                                             ">
                                                 <option value="" disabled selected style="color: #999;" data-i18n="optSelectPlano">Selecione um plano</option>
-                                                <option value="6meses" style="color: #00517a;">6 meses - R$ 997,00</option>
-                                                <option value="10meses" style="color: #00517a;">10 meses - R$ 1.837,00</option>
-                                                <option value="12meses" style="color: #00517a;">12 meses - R$ 1.937,00</option>
+                                                <option value="2meses" style="color: #00517a;">Jornada 2 meses - R$ 470,00</option>
+                                                <option value="12meses" style="color: #00517a;">Jornada 12 meses - R$ 2.669,00</option>
                                             </select>
 
                                             <div id="brickContainer" style="display:none; margin-top:20px;"></div>
@@ -1490,9 +1489,8 @@
         const ECO_PAYMENT_BASE = 'https://api-form-flask.onrender.com';
 
         const PLAN_LABELS = {
-            '6meses': '6 meses - R$ 997,00',
-            '10meses': '10 meses - R$ 1.837,00',
-            '12meses': '12 meses - R$ 1.937,00',
+            '2meses': 'Jornada 2 meses - R$ 470,00',
+            '12meses': 'Jornada 12 meses - R$ 2.669,00',
         };
 
         // Chamado pelo Brick após pagamento aprovado
@@ -1551,7 +1549,6 @@
         }
 
         let date = new Date();
-        const valueToPay = 530;
         let currentStep = 1;
         const totalSteps = 4;
 
