@@ -1,0 +1,6 @@
+[
+  {"nome": "Carla Pereira Nascimento", "email": "carla.pera.peralta@gmail.com", "erro": "termina com 'c' extra"},
+  {"nome": "Luciana Rocha Falcão", "email": "lucianafalcaooficial@gmail.com", "erro": "termina com 'l' extra"},
+  {"nome": "Nereide Segala Coelho", "email": "nereidesegala@gmail.com", "erro": "gnail ao invés de gmail"},
+  {"nome": "Ronaldo Barbosa", "email": "ronaldo@ousee.com.br", "erro": "não foi entregue"}
+]
